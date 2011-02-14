@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>AdoptAHydrant</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>AdoptAHydrant</title>
+    <%= stylesheet_link_tag "main" %>
+    <%= javascript_include_tag "maps" %>
+    <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false" %>
+    <%= csrf_meta_tag %>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  </head>
+  <body onload="initialize()">
+    <%= yield -%>
+  </body>
 </html>
