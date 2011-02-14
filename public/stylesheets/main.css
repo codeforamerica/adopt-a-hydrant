@@ -1,3 +1,24 @@
 html { height: 100% }
 body { height: 100%; margin: 0px; padding: 0px }
 #map_canvas { height: 100% }
+#left{
+	width: 500px;
+	height: 500px;
+	float:left;
+}
+#right{
+	width: 200px;
+	height: 500px;
+	float:left;
+	padding: 10px;
+}
+#right div{
+	margin-bottom: 8px;
+}
+#right textarea{
+	height: 150px;
+	width: 300px;
+}
+#map{
+	height:100%;
+}
