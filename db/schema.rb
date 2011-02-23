@@ -10,6 +10,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20110223180521) do
+
+  create_table "hydrants", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.integer  "city_id"
+    t.integer  "user_id"
+  end
+
+  add_index "hydrants", ["city_id"], :name => "index_hydrants_on_city_id", :unique => true
+
+  create_table "users", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.integer  "voice_number"
+    t.integer  "sms_number"
+    t.string   "email"
+  end
 
 end
