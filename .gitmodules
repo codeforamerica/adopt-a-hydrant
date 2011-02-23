@@ -1,3 +1,0 @@
-[submodule "public/javascripts/geojson"]
-	path = public/javascripts/geojson
-	url = https://github.com/JasonSanford/GeoJSON-to-Google-Maps.git

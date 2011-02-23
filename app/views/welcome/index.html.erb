@@ -1,3 +1,28 @@
-<div id="map_canvas" style="width:100%; height:100%">
-  
+<div id="map_canvas">
+</div>
+<div id="sidebar">
+  <h1>Adopt a Hydrant</h1>
+  <p>
+    Claim responsibility for shoveling out a fire hydrant after it snows.
+  </p>
+  <form>
+    <label for="address">
+      Street address
+    </label>
+    <input type="text" id="address" name="address" value="" tabindex="1" />
+    <label for="city">
+      City
+    </label>
+    <select id="city" name="city" tabindex="2">
+      <option value="Boston">Boston</option>
+    </select>
+    <label for="state">
+      State
+    </label>
+    <select id="state" name="state" tabindex="3">
+      <option value="MA">Massachusetts</option>
+    </select>
+    <button tabindex="4">Locate Orphan Fire Hydrants</button>
+  </form>
+  <img src="images/hydrant-in-snow.jpg">
 </div>
