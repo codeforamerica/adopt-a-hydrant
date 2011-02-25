@@ -3,7 +3,7 @@
   <p id="tagline">
     Claim responsibility for shoveling out a fire hydrant after it snows.
   </p>
-  <%= form_tag root_path, :method => :get do %>
+  <%= form_tag do %>
     <%= label_tag "address" %>
     <%= text_field_tag "address", params[:address], :tabindex => 1 %>
     <%= label_tag "city" %>

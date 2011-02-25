@@ -16,6 +16,17 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+      var redMarker = '/images/markers/red.png';
+      var greenMarker = '/images/markers/green.png';
+<% @hydrants.each do |hydrant| %>
+      var h<%= hydrant.city_id %>LatLng = new google.maps.LatLng(<%= hydrant.lat %>, <%= hydrant.lng %>);
+      var h<%= hydrant.city_id %>Marker = new google.maps.Marker({
+          position: h<%= hydrant.city_id %>LatLng,
+          map: map,
+          icon: <%= hydrant.user_id ? "greenMarker" : "redMarker" %>
+      });
+<% end %>
     })
     </script>
     <%= csrf_meta_tag %>
