@@ -3,29 +3,19 @@
   <p id="tagline">
     Claim responsibility for shoveling out a fire hydrant after it snows.
   </p>
-  <form>
-    <label for="address">
-      Address
-    </label>
-    <input id="address" name="address" type="text" value="" tabindex="1" />
-    <label for="city">
-      City
-    </label>
-    <select id="city" name="city" tabindex="2">
-      <option value="Boston">Boston</option>
-    </select>
-    <label for="state">
-      State
-    </label>
-    <select id="state" name="state" tabindex="3">
-      <option value="MA">Massachusetts</option>
-    </select>
-    <button tabindex="4">Find Fire Hydrants</button>
-  </form>
-  <img id="boston-logo" src="images/logos/boston.png" alt="City of Boston" title="City of Boston" />
-  <img id="cert-logo" src="images/logos/cert.png" alt="Community Emergency Response Team" title="Community Emergency Response Team" />
-  <img id="cfa-logo" src="images/logos/cfa.png" alt="Code for America" title="Code for America" />
-  <img id="hydrant-in-snow" src="images/hydrant-in-snow.jpg">
+  <%= form_tag root_path, :method => :get do %>
+    <%= label_tag "address" %>
+    <%= text_field_tag "address", params[:address], :tabindex => 1 %>
+    <%= label_tag "city" %>
+    <%= select_tag "city", '<option value="Boston" selected="selected">Boston</option>'.html_safe, :tabindex => 2 %>
+    <%= label_tag "state" %>
+    <%= select_tag "state", '<option value="MA" selected="selected">Massachusetts</option>'.html_safe, :tabindex => 3 %>
+    <%= submit_tag "Find Fire Hydrants", :tabindex => 4 %>
+  <% end %>
+  <%= image_tag "logos/boston.png", :alt => "City of Boston", :title => "City of Boston" %>
+  <%= image_tag "logos/cert.png", :alt => "Community Emergency Response Team", :title => "Community Emergency Response Team" %>
+  <%= image_tag "logos/cfa.png", :alt => "Code for America", :title => "Code for America" %>
+  <%= image_tag "hydrant-in-snow.jpg" %>
 </div>
 <div id="map_canvas">
 </div>
