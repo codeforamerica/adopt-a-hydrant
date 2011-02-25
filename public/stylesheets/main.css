@@ -17,8 +17,8 @@ body {
 
 #sidebar {
   float: left;
-  height: 100%;
   text-align: center;
+  height: 100%;
   width: 25%;
   overflow: hidden;
 }
@@ -31,10 +31,15 @@ body {
   width: 100%;
 }
 
-h1, p, form {
-  margin: auto;
+form {
   width: 90%;
-  margin-top: 10px;
+  margin: auto;
+}
+
+#tagline {
+  padding: 10px;
+  background: #cc3333;
+  color: #ffffff;
 }
 
 label, input {
