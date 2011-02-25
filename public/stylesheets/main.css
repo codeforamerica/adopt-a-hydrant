@@ -12,14 +12,14 @@ body {
 #map_canvas {
   float: left;
   height: 100%;
-  width: 70%;
+  width: 75%;
 }
 
 #sidebar {
   float: left;
   height: 100%;
   text-align: center;
-  width: 30%;
+  width: 25%;
   overflow: hidden;
 }
 
