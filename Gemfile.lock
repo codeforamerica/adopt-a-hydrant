@@ -28,7 +28,7 @@ GEM
       activemodel (= 3.0.4)
       activesupport (= 3.0.4)
     activesupport (3.0.4)
-    arel (2.0.8)
+    arel (2.0.9)
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
