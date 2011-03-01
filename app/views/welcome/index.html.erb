@@ -4,18 +4,20 @@
     Claim responsibility for shoveling out a fire hydrant after it snows.
   </p>
   <%= form_tag do %>
-    <%= label_tag "address" %>
-    <%= text_field_tag "address", params[:address], :tabindex => 1 %>
-    <%= label_tag "city" %>
-    <%= select_tag "city", '<option value="Boston" selected="selected">Boston</option>'.html_safe, :tabindex => 2 %>
     <%= label_tag "state" %>
-    <%= select_tag "state", '<option value="MA" selected="selected">Massachusetts</option>'.html_safe, :tabindex => 3 %>
-    <%= submit_tag "Find Fire Hydrants", :tabindex => 4 %>
+    <%= select_tag "state", '<option value="MA" selected="selected">Massachusetts</option>'.html_safe, :tabindex => 10 %>
+    <%= label_tag "city" %>
+    <%= select_tag "city", '<option value="Boston" selected="selected">Boston</option>'.html_safe, :tabindex => 11 %>
+    <%= label_tag "address" %>
+    <%= text_field_tag "address", params[:address], :tabindex => 12 %>
+    <%= submit_tag "Find Fire Hydrants", :tabindex => 13 %>
   <% end %>
-  <%= image_tag "logos/boston.png", :alt => "City of Boston", :title => "City of Boston" %>
-  <%= image_tag "logos/cert.png", :alt => "Community Emergency Response Team", :title => "Community Emergency Response Team" %>
-  <%= image_tag "logos/cfa.png", :alt => "Code for America", :title => "Code for America" %>
-  <%= image_tag "hydrant-in-snow.jpg" %>
+  <div id="logos">
+    <%= image_tag "logos/boston.png", :alt => "City of Boston", :title => "City of Boston" %>
+    <%= image_tag "logos/cert.png", :alt => "Community Emergency Response Team", :title => "Community Emergency Response Team" %>
+    <%= image_tag "logos/cfa.png", :alt => "Code for America", :title => "Code for America" %>
+  </div>
+  <%= image_tag "hydrant-in-snow.jpg", :id => "hydrant-in-snow" %>
 </div>
 <div id="map_canvas">
 </div>

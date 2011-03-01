@@ -9,6 +9,10 @@ body {
   padding: 0px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
 #map_canvas {
   float: left;
   height: 100%;
@@ -17,18 +21,9 @@ body {
 
 #sidebar {
   float: left;
-  text-align: center;
   height: 100%;
   width: 25%;
   overflow: hidden;
-}
-
-#sidebar img {
-  padding: 10px 5px 0 5px;
-}
-
-#sidebar img#hydrant-in-snow {
-  width: 100%;
 }
 
 form {
@@ -36,25 +31,48 @@ form {
   margin: auto;
 }
 
-#tagline {
+#sidebar #tagline {
+  text-align: center;
   padding: 10px;
-  background: #cc3333;
-  color: #ffffff;
+  background: #c33;
+  color: #fff;
+}
+
+#sidebar #logos {
+  text-align: center;
+}
+
+#sidebar #logos img {
+  padding: 10px 5px 0 5px;
+}
+
+#sidebar img#hydrant-in-snow {
+  width: 100%;
 }
 
 label, input {
-  display: block;
-  clear: both;
+  white-space: nowrap;
   text-align: left;
 }
 
 input, select, option, input[type="submit"] {
+  display: block;
   margin-bottom: 10px;
   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
   font-size: 1.0em;
   width: 100%;
 }
 
-input[type="submit"] {
+input[type="radio"], input[type="checkbox"] {
+  display: inline;
+  width: auto;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button, input[type="submit"] {
+  width: 100%;
   text-align: center;
 }
