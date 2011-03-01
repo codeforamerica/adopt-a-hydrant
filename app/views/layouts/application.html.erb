@@ -16,19 +16,10 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
       var redMarker = '/images/markers/red.png';
       var greenMarker = '/images/markers/green.png';
-<% @hydrants.each do |hydrant| %>
-  <% if user = hydrant.user %>
-      <% require 'digest/md5' %>
-      <% hash = Digest::MD5.hexdigest(user.email) %>
-      var contentString = '\
-<h2>Adopted by <%= hydrant.user.name %></h2>\
-<a class="button">Email a reminder to shovel</a>\
-'
-  <% else %>
-      var contentString = '\
+      var openInfoWindow;
+      var formString = '\
 <div class="box">\
 <h2>Adopt this Hydrant</h2>\
 <%= form_tag do %>\
@@ -66,21 +57,32 @@
 <% end %>\
 </div>\
 ';
+<% @hydrants.each do |hydrant| %>
+  <% if user = hydrant.user %>
+      <% require 'digest/md5' %>
+      <% hash = Digest::MD5.hexdigest(user.email) %>
+      var contentString = '\
+<h2>Adopted by <%= hydrant.user.name %></h2>\
+<a class="button">Email a reminder to shovel</a>\
+'
+  <% else %>
+      var contentString = formString;
   <% end %>
-      var h<%= hydrant.id %>InfoWindow = new google.maps.InfoWindow({
-          content: contentString
-      });
       var h<%= hydrant.id %>LatLng = new google.maps.LatLng(<%= hydrant.lat %>, <%= hydrant.lng %>);
       var h<%= hydrant.id %>Marker = new google.maps.Marker({
           position: h<%= hydrant.id %>LatLng,
           map: map,
           icon: <%= hydrant.user_id ? "greenMarker" : "redMarker" %>
       });
+      var h<%= hydrant.id %>InfoWindow = new google.maps.InfoWindow({
+          content: contentString
+      });
       google.maps.event.addListener(h<%= hydrant.id %>Marker, 'click', function() {
-      <% @hydrants.each do |hydrant| %>
-        h<%= hydrant.id %>InfoWindow.close();
-      <% end %>
+        if(openInfoWindow) {
+          openInfoWindow.close();
+        }
         h<%= hydrant.id %>InfoWindow.open(map, h<%= hydrant.id %>Marker);
+        openInfoWindow = h<%= hydrant.id %>InfoWindow;
       });
 <% end %>
       $('.box input[type="radio"]').live('click', function() {
