@@ -56,7 +56,7 @@ label, input {
   text-align: left;
 }
 
-input, select, option, input[type="submit"] {
+input, select, option, button, input[type="submit"] {
   display: block;
   margin-bottom: 10px;
   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
@@ -67,9 +67,6 @@ input, select, option, input[type="submit"] {
 input[type="radio"], input[type="checkbox"] {
   display: inline;
   width: auto;
-}
-
-input[type="radio"], input[type="checkbox"] {
   margin-right: 10px;
 }
 
