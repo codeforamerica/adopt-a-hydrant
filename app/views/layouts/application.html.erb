@@ -19,52 +19,10 @@
       var redMarker = '/images/markers/red.png';
       var greenMarker = '/images/markers/green.png';
       var openInfoWindow;
-      var formString = '\
-<div class="box">\
-<h2>Adopt this Hydrant</h2>\
-<%= form_tag do %>\
-  <div class="common_fields">\
-    <%= label_tag "email" %>\
-    <%= text_field_tag "email", params[:email], :tabindex => 1 %>\
-    <%= label_tag "account_new" , radio_button_tag("account", "new", true, :tabindex => 2).html_safe + "I haven\\'t signed up yet" %><br />\
-    <%= label_tag "account_existing", radio_button_tag("account", "existing").html_safe + "I already signed up" %><br />\
-  </div>\
-  <div class="account_new_fields">\
-    <%= label_tag "name" %>\
-    <%= text_field_tag "name", params[:name], :tabindex => 3 %>\
-    <%= label_tag "organization" %>\
-    <%= text_field_tag "organization", params[:organization], :tabindex => 4 %>\
-    <%= label_tag "voice_number" %>\
-    <%= text_field_tag "voice_number", params[:voice_number], :tabindex => 5 %>\
-    <%= label_tag "sms_number", "SMS number" %>\
-    <%= text_field_tag "sms_number", params[:sms_number], :tabindex => 6 %>\
-    <%= label_tag "password", "Choose a password" %>\
-    <%= password_field_tag "password", nil, :tabindex => 7 %>\
-    <%= submit_tag "Sign up", :tabindex => 8 %>\
-    <p>By signing up you accept the <%= link_to "Terms of Service", "#", :tabindex => 9 %>.</p>\
-  </div>\
-  <div class="account_existing_fields" style="display: none;">\
-    <%= label_tag "password" %>\
-    <%= password_field_tag "password", nil, :tabindex => 0 %>\
-    <%= label_tag "remember_me", check_box_tag("remember_me", nil, true).html_safe + "Stay signed in" %><br />\
-    <%= submit_tag "Sign in", :tabindex => 0 %>\
-    <p><%= link_to "Forgot your password?", "#", :class => "forgot_password", :tabindex => 0 %></p>\
-  </div>\
-  <div class="forgot_password_fields" style="display: none;">\
-    <%= submit_tag "Email me my password", :tabindex => 0 %>\
-    <p><%= link_to "Never mind. I remembered my password.", "#", :class => "remembered_password", :tabindex => 0 %></p>\
-  </div>\
-<% end %>\
-</div>\
-';
+      var formString = '<%= render(:partial => "adoption_form").gsub("\n", "") %>'
 <% @hydrants.each do |hydrant| %>
   <% if user = hydrant.user %>
-      <% require 'digest/md5' %>
-      <% hash = Digest::MD5.hexdigest(user.email) %>
-      var contentString = '\
-<h2>Adopted by <%= hydrant.user.name %></h2>\
-<a class="button">Email a reminder to shovel</a>\
-'
+      var contentString = '<%= render(:partial => "user_profile", :locals => {:user => user}).gsub("\n", "") %>'
   <% else %>
       var contentString = formString;
   <% end %>
