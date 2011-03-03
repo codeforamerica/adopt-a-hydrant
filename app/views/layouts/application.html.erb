@@ -26,14 +26,14 @@
       var formString = '<%= render(:partial => "adoption_form").gsub("\n", "") %>'
       function addMarker(point, color, contentString) {
         var image = new google.maps.MarkerImage(color,
-          new google.maps.Size(25.0, 44.0),
+          new google.maps.Size(27.0, 37.0),
           new google.maps.Point(0, 0),
-          new google.maps.Point(12.0, 22.0)
+          new google.maps.Point(13.0, 18.0)
         );
         var shadow = new google.maps.MarkerImage('/images/markers/shadow.png',
-          new google.maps.Size(48.0, 44.0),
+          new google.maps.Size(46.0, 37.0),
           new google.maps.Point(0, 0),
-          new google.maps.Point(12.0, 22.0)
+          new google.maps.Point(13.0, 18.0)
         );
         var marker = new google.maps.Marker({
           position: point,
