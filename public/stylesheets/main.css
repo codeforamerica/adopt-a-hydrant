@@ -59,7 +59,6 @@ label, input {
 input, select, option, button, input[type="submit"] {
   display: block;
   margin-bottom: 10px;
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
   font-size: 1.0em;
   width: 100%;
 }

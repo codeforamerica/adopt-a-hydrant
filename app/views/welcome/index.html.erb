@@ -3,14 +3,12 @@
   <p id="tagline">
     Claim responsibility for shoveling out a fire hydrant after it snows.
   </p>
-  <%= form_tag do %>
-    <%= label_tag "state" %>
-    <%= select_tag "state", '<option value="MA" selected="selected">Massachusetts</option>'.html_safe, :tabindex => 10 %>
-    <%= label_tag "city" %>
-    <%= select_tag "city", '<option value="Boston" selected="selected">Boston</option>'.html_safe, :tabindex => 11 %>
+  <%= form_tag "/", :method => :get, :class => "location_form" do %>
+    <%= label_tag "city_state", "City" %>
+    <%= select_tag "city_state", '<option value="Boston, MA" selected="selected">Boston, MA</option>'.html_safe, :tabindex => 10 %>
     <%= label_tag "address" %>
-    <%= text_field_tag "address", params[:address], :tabindex => 12 %>
-    <%= submit_tag "Find Fire Hydrants", :tabindex => 13 %>
+    <%= text_field_tag "address", params[:address], :tabindex => 11 %>
+    <%= submit_tag "Find Fire Hydrants", :tabindex => 12 %>
   <% end %>
   <div id="logos">
     <%= image_tag "logos/boston.png", :alt => "City of Boston", :title => "City of Boston" %>
