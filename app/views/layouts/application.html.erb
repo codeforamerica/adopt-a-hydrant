@@ -3,8 +3,9 @@
   <head>
     <title>Adopt a Hydrant</title>
     <%= stylesheet_link_tag "main" %>
-    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" %>
     <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false" %>
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" %>
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js" %>
     <%= javascript_include_tag "https://github.com/scottschiller/Snowstorm/raw/master/snowstorm-min.js" %>
     <script type="text/javascript">
     $(function() {
@@ -62,6 +63,16 @@
   <% end %>
       addMarker(point, color, contentString);
 <% end %>
+      $('#location_form').submit(function() {
+        if($("#address").val() === "") {
+          $('#address_label').addClass('error', 500);
+          $('#address').addClass('error', 500);
+          $('#address').focus();
+          return false;
+        } else {
+          return true;
+        }
+      });
       $('.box input[type="radio"]').live('click', function() {
         var self = $(this);
         if('new' == self.val()) {
