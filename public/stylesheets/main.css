@@ -73,3 +73,11 @@ button, input[type="submit"] {
   width: 100%;
   text-align: center;
 }
+
+label.error {
+  color: #c33;
+}
+
+input.error {
+  background-color: #fcc;
+}

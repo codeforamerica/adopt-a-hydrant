@@ -5,7 +5,7 @@
     <%= stylesheet_link_tag "main" %>
     <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false" %>
     <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" %>
-    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js" %>
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js" %>
     <%= javascript_include_tag "https://github.com/scottschiller/Snowstorm/raw/master/snowstorm-min.js" %>
     <script type="text/javascript">
     $(function() {
@@ -24,7 +24,7 @@
       };
       map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
       var openInfoWindow;
-      var formString = '<%= render(:partial => "adoption_form").gsub("\n", "") %>'
+      var formString = '<%= render(:partial => "combo_form").gsub("\n", "") %>'
       function addMarker(point, color, contentString) {
         var image = new google.maps.MarkerImage(color,
           new google.maps.Size(27.0, 37.0),
@@ -50,6 +50,45 @@
             openInfoWindow.close();
           }
           infoWindow.open(map, marker);
+          $('.combo_form').data('state', 'new');
+          $('.combo_form').submit(function() {
+            if($(this).data('state') === 'new') {
+              if($('.choose_password').val() === '') {
+                $('.choose_password').focus();
+                $('.choose_password_label').addClass('error', 500);
+                $('.choose_password').addClass('error', 500);
+              } else {
+                $('.choose_password_label').removeClass('error', 500);
+                $('.choose_password').removeClass('error', 500);
+              }
+              if($('.name').val() === '') {
+                $('.name').focus();
+                $('.name_label').addClass('error', 500);
+                $('.name').addClass('error', 500);
+              } else {
+                $('.name_label').removeClass('error', 500);
+                $('.name').removeClass('error', 500);
+              }
+            } else if($(this).data('state') === 'existing') {
+              if($('.password').val() === '') {
+                $('.password').focus();
+                $('.password_label').addClass('error', 500);
+                $('.password').addClass('error', 500);
+              } else {
+                $('.password_label').removeClass('error', 500);
+                $('.password').removeClass('error', 500);
+              }
+            }
+            if(!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$/.test($('.email').val())) {
+              $('.email').focus();
+              $('.email_label').addClass('error', 500);
+              $('.email').addClass('error', 500);
+            } else {
+              $('.email_label').removeClass('error', 500);
+              $('.email').removeClass('error', 500);
+            }
+            return false;
+          });
           openInfoWindow = infoWindow;
         });
       }
@@ -64,10 +103,10 @@
       addMarker(point, color, contentString);
 <% end %>
       $('#location_form').submit(function() {
-        if($("#address").val() === "") {
+        if($('#address').val() === '') {
+          $('#address').focus();
           $('#address_label').addClass('error', 500);
           $('#address').addClass('error', 500);
-          $('#address').focus();
           return false;
         } else {
           return true;
@@ -79,17 +118,21 @@
           $('.forgot_password_fields').slideUp();
           $('.account_existing_fields').slideUp();
           $('.account_new_fields').slideDown();
+          $('.combo_form').data('state', 'new');
         } else if('existing' == self.val()) {
           $('.account_new_fields').slideUp();
           $('.account_existing_fields').slideDown(function() {
+          $('.combo_form').data('state', 'existing');
             $('.forgot_password').click(function() {
               $('.account_existing_fields').slideUp();
               $('.forgot_password_fields').slideDown(function() {
                 $('.remembered_password').click(function() {
                   $('.forgot_password_fields').slideUp();
                   $('.account_existing_fields').slideDown();
+                  $('.combo_form').data('state', 'existing');
                 });
               });
+              $('.combo_form').data('state', 'forgot_password');
             });
           });
         }
