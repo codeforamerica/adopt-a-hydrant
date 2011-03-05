@@ -53,7 +53,7 @@
           $('.combo_form').data('state', 'new');
           $('.combo_form').submit(function() {
             var errors = []
-            if(!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$/.test($('.email').val())) {
+            if(!/[\w.!#\$%+-]+@[\w-]+(?:\.[\w-]+)+/.test($('.email').val())) {
               errors.push($('.email'));
               $('.email_label').addClass('error', 500);
               $('.email').addClass('error', 500);
