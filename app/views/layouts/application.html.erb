@@ -52,40 +52,46 @@
           infoWindow.open(map, marker);
           $('.combo_form').data('state', 'new');
           $('.combo_form').submit(function() {
+            var errors = []
+            if(!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$/.test($('.email').val())) {
+              errors.push($('.email'));
+              $('.email_label').addClass('error', 500);
+              $('.email').addClass('error', 500);
+            } else {
+              $('.email_label').removeClass('error', 500);
+              $('.email').removeClass('error', 500);
+            }
             if($(this).data('state') === 'new') {
-              if($('.choose_password').val() === '') {
-                $('.choose_password').focus();
-                $('.choose_password_label').addClass('error', 500);
-                $('.choose_password').addClass('error', 500);
-              } else {
-                $('.choose_password_label').removeClass('error', 500);
-                $('.choose_password').removeClass('error', 500);
-              }
               if($('.name').val() === '') {
-                $('.name').focus();
+                errors.push($('.name'));
                 $('.name_label').addClass('error', 500);
                 $('.name').addClass('error', 500);
               } else {
                 $('.name_label').removeClass('error', 500);
                 $('.name').removeClass('error', 500);
               }
+              if($('.choose_password').val() === '') {
+                errors.push($('.choose_password'));
+                $('.choose_password_label').addClass('error', 500);
+                $('.choose_password').addClass('error', 500);
+              } else {
+                $('.choose_password_label').removeClass('error', 500);
+                $('.choose_password').removeClass('error', 500);
+              }
             } else if($(this).data('state') === 'existing') {
               if($('.password').val() === '') {
-                $('.password').focus();
+                errors.push($('.password'));
                 $('.password_label').addClass('error', 500);
                 $('.password').addClass('error', 500);
               } else {
                 $('.password_label').removeClass('error', 500);
                 $('.password').removeClass('error', 500);
               }
+            } else if($(this).data('state') === 'forgot_password') {
             }
-            if(!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$/.test($('.email').val())) {
-              $('.email').focus();
-              $('.email_label').addClass('error', 500);
-              $('.email').addClass('error', 500);
+            if(errors.length > 0) {
+              errors[0].focus();
             } else {
-              $('.email_label').removeClass('error', 500);
-              $('.email').removeClass('error', 500);
             }
             return false;
           });
@@ -108,8 +114,6 @@
           $('#address_label').addClass('error', 500);
           $('#address').addClass('error', 500);
           return false;
-        } else {
-          return true;
         }
       });
       $('.box input[type="radio"]').live('click', function() {
