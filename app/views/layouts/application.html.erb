@@ -78,6 +78,12 @@
                 $('.choose_password_label').removeClass('error', 500);
                 $('.choose_password').removeClass('error', 500);
               }
+              if(errors.length > 0) {
+                errors[0].focus();
+              } else {
+                $.post('/sign_up.json', $(this).serialize(), function(data) {
+                });
+              }
             } else if($(this).data('state') === 'existing') {
               if($('.password').val() === '') {
                 errors.push($('.password'));
@@ -87,11 +93,19 @@
                 $('.password_label').removeClass('error', 500);
                 $('.password').removeClass('error', 500);
               }
+              if(errors.length > 0) {
+                errors[0].focus();
+              } else {
+                $.post('/sign_in.json', $(this).serialize(), function(data) {
+                });
+              }
             } else if($(this).data('state') === 'forgot_password') {
-            }
-            if(errors.length > 0) {
-              errors[0].focus();
-            } else {
+              if(errors.length > 0) {
+                errors[0].focus();
+              } else {
+                $.post('/forgot_password.json', $(this).serialize(), function(data) {
+                });
+              }
             }
             return false;
           });
