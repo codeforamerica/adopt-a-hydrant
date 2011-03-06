@@ -4,5 +4,6 @@ AdoptAHydrant::Application.routes.draw do
     :sessions => 'sessions'
   }
   resource :user
+  get 'sitemap(.format)' => 'sitemaps#index', :as => 'sitemap'
   root :to => 'main#index'
 end
