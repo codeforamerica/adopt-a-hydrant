@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails'
 gem 'geokit'
+gem 'devise'
 
 group :development do
   gem 'pg'

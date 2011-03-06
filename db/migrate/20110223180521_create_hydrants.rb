@@ -2,8 +2,9 @@ class CreateHydrants < ActiveRecord::Migration
   def self.up
     create_table :hydrants do |t|
       t.timestamps
-      t.decimal :lat
-      t.decimal :lng
+      t.string :name
+      t.decimal :lat, :null => false
+      t.decimal :lng, :null => false
       t.integer :city_id
       t.integer :user_id
     end
