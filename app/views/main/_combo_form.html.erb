@@ -1,36 +1,36 @@
 <div class="box">
 <h2>Adopt this Hydrant</h2>
-<%= form_tag "#", :method => "GET", :class => "combo_form" do %>
-  <div class="common_fields">
-    <%= label_tag "email", "Email address", :class => "email_label" %>
-    <%= text_field_tag "email", nil, :tabindex => 1, :class => "email" %>
-    <%= label_tag "account_new" , radio_button_tag("account", "new", true, :tabindex => 2).html_safe + "I haven\\'t signed up yet" %><br />
-    <%= label_tag "account_existing", radio_button_tag("account", "existing").html_safe + "I already signed up" %><br />
+<%= form_for :user, :html => {:class => "combo_form"} do |f| %>
+  <div id="common_fields">
+    <%= f.label "email", "Email address", :id => "user_email_label" %>
+    <%= f.text_field "email", :tabindex => 1 %>
+    <%= f.label "new" , radio_button_tag("user", "new", true, :tabindex => 2).html_safe + "I haven\\'t signed up yet" %><br />
+    <%= f.label "existing", radio_button_tag("user", "existing").html_safe + "I already signed up" %><br />
   </div>
-  <div class="account_new_fields">
-    <%= label_tag "name", "Name", :class => "name_label" %>
-    <%= text_field_tag "name", nil, :tabindex => 3, :class => "name" %>
-    <%= label_tag "organization", "Organization", :class => "organization_label" %>
-    <%= text_field_tag "organization", nil, :tabindex => 4, :class => "organization" %>
-    <%= label_tag "voice_number", "Phone number", :class => "voice_number_label" %>
-    <%= text_field_tag "voice_number", nil, :tabindex => 5, :class => "voice_number" %>
-    <%= label_tag "sms_number", "SMS number", :class => "sms_number_label" %>
-    <%= text_field_tag "sms_number", nil, :tabindex => 6, :class => "sms_number" %>
-    <%= label_tag "choose_password", "Choose a password", :class => "choose_password_label" %>
-    <%= password_field_tag "choose_password", nil, :tabindex => 7, :class => "choose_password" %>
-    <%= submit_tag "Sign up", :tabindex => 8 %>
+  <div id="user_new_fields">
+    <%= f.label "name", "Name", :id => "user_name_label" %>
+    <%= f.text_field "name", :tabindex => 3 %>
+    <%= f.label "organization", "Organization", :id => "user_organization_label" %>
+    <%= f.text_field "organization", :tabindex => 4 %>
+    <%= f.label "voice_number", "Phone number", :id => "user_voice_number_label" %>
+    <%= f.text_field "voice_number", :tabindex => 5 %>
+    <%= f.label "sms_number", "SMS number", :id => "user_sms_number_label" %>
+    <%= f.text_field "sms_number", :tabindex => 6 %>
+    <%= f.label "password_confirmation", "Choose a password", :id => "user_password_confirmation_label" %>
+    <%= f.password_field "password_confirmation", :tabindex => 7 %>
+    <%= f.submit "Sign up", :tabindex => 8, :id => "user_new_submit" %>
     <p>By signing up you accept the <%= link_to "Terms of Service", "#", :tabindex => 9 %>.</p>
   </div>
-  <div class="account_existing_fields" style="display: none;">
-    <%= label_tag "password", "Password", :class => "password_label" %>
-    <%= password_field_tag "password", nil, :tabindex => 0, :class => "password" %>
-    <%= label_tag "remember_me", (check_box_tag("remember_me", nil, true).html_safe + "Stay signed in"), :class => "remember_me_label" %><br />
-    <%= submit_tag "Sign in", :tabindex => 0 %>
-    <p><%= link_to "Forgot your password?", "#", :class => "forgot_password", :tabindex => 0 %></p>
+  <div id="user_existing_fields" style="display: none;">
+    <%= f.label "password", "Password", :id => "user_password_label" %>
+    <%= f.password_field "password", :tabindex => 0 %>
+    <%= f.label "remember_me", (f.check_box("remember_me").html_safe + "Stay signed in"), :id => "user_remember_me_label" %><br />
+    <%= f.submit "Sign in", :tabindex => 0, :id => "user_existing_submit" %>
+    <p><%= link_to "Forgot your password?", "#", :id => "user_forgot_password_link", :tabindex => 0 %></p>
   </div>
-  <div class="forgot_password_fields" style="display: none;">
-    <%= submit_tag "Email me my password", :tabindex => 0 %>
-    <p><%= link_to "Never mind. I remembered my password.", "#", :class => "remembered_password", :tabindex => 0 %></p>
+  <div id="user_forgot_password_fields" style="display: none;">
+    <%= f.submit "Email me my password", :tabindex => 0, :id => "user_forgot_password_submit" %>
+    <p><%= link_to "Never mind. I remembered my password.", "#", :id => "user_remembered_password", :tabindex => 0 %></p>
   </div>
 <% end %>
 </div>

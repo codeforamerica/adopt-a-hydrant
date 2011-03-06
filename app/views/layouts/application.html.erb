@@ -43,67 +43,80 @@
           shadow: shadow
         });
         var infoWindow = new google.maps.InfoWindow({
-            content: contentString
+          content: contentString
         });
         google.maps.event.addListener(marker, 'click', function() {
-          if(openInfoWindow) {
+          if(openInfoWindow != undefined) {
             openInfoWindow.close();
           }
           infoWindow.open(map, marker);
-          $('.combo_form').data('state', 'new');
+          $('.combo_form').data('state', 'user_new');
           $('.combo_form').submit(function() {
             var errors = []
-            if(!/[\w.!#\$%+-]+@[\w-]+(?:\.[\w-]+)+/.test($('.email').val())) {
-              errors.push($('.email'));
-              $('.email_label').addClass('error', 500);
-              $('.email').addClass('error', 500);
+            if(!/[\w.!#\$%+-]+@[\w-]+(?:\.[\w-]+)+/.test($('#user_email').val())) {
+              errors.push($('#user_email'));
+              $('#user_email_label').addClass('error', 500);
+              $('#user_email').addClass('error', 500);
             } else {
-              $('.email_label').removeClass('error', 500);
-              $('.email').removeClass('error', 500);
+              $('#user_email_label').removeClass('error', 500);
+              $('#user_email').removeClass('error', 500);
             }
-            if($(this).data('state') === 'new') {
-              if($('.name').val() === '') {
-                errors.push($('.name'));
-                $('.name_label').addClass('error', 500);
-                $('.name').addClass('error', 500);
+            if($(this).data('state') === 'user_new') {
+              if($('#user_name').val() === '') {
+                errors.push($('#user_name'));
+                $('#user_name_label').addClass('error', 500);
+                $('#user_name').addClass('error', 500);
               } else {
-                $('.name_label').removeClass('error', 500);
-                $('.name').removeClass('error', 500);
+                $('#user_name_label').removeClass('error', 500);
+                $('#user_name').removeClass('error', 500);
               }
-              if($('.choose_password').val() === '') {
-                errors.push($('.choose_password'));
-                $('.choose_password_label').addClass('error', 500);
-                $('.choose_password').addClass('error', 500);
+              if($('#user_password_confirmation').val().length < 6 || $('#user_password_confirmation').val().length > 20) {
+                errors.push($('#user_password_confirmation'));
+                $('#user_password_confirmation_label').addClass('error', 500);
+                $('#user_password_confirmation').addClass('error', 500);
               } else {
-                $('.choose_password_label').removeClass('error', 500);
-                $('.choose_password').removeClass('error', 500);
+                $('#user_password_confirmation_label').removeClass('error', 500);
+                $('#user_password_confirmation').removeClass('error', 500);
               }
               if(errors.length > 0) {
                 errors[0].focus();
               } else {
-                $.post('/sign_up.json', $(this).serialize(), function(data) {
+                $.post('<%= user_registration_path :format => "json" %>', {
+                  'remote' : true,
+                  'commit' : $('#user_new_submit').val(),
+                  'utf8' : '✓',
+                  'user' : {
+                    'email' : $('#user_email').val(),
+                    'name' : $('#user_name').val(),
+                    'organization' : $('#user_organization').val(),
+                    'voice_number' : $('#user_voice_number').val(),
+                    'sms_number' : $('#user_sms_number').val(),
+                    'password' : $('#user_password_confirmation').val(),
+                    'password_confirmation' : $('#user_password_confirmation').val()
+                  }
+                }, function(data) {
                 });
               }
-            } else if($(this).data('state') === 'existing') {
-              if($('.password').val() === '') {
-                errors.push($('.password'));
-                $('.password_label').addClass('error', 500);
-                $('.password').addClass('error', 500);
+            } else if($(this).data('state') === 'user_existing') {
+              if($('#user_password').val() === '') {
+                errors.push($('#user_password'));
+                $('#user_password_label').addClass('error', 500);
+                $('#user_password').addClass('error', 500);
               } else {
-                $('.password_label').removeClass('error', 500);
-                $('.password').removeClass('error', 500);
+                $('#user_password_label').removeClass('error', 500);
+                $('#user_password').removeClass('error', 500);
               }
               if(errors.length > 0) {
                 errors[0].focus();
               } else {
-                $.post('/sign_in.json', $(this).serialize(), function(data) {
+                $.post('<%= user_session_path :format => "json" %>', $(this).serialize(), function(data) {
                 });
               }
-            } else if($(this).data('state') === 'forgot_password') {
+            } else if($(this).data('state') === 'user_forgot_password') {
               if(errors.length > 0) {
                 errors[0].focus();
               } else {
-                $.post('/forgot_password.json', $(this).serialize(), function(data) {
+                $.post('<%= user_password_path :format => "json" %>', $(this).serialize(), function(data) {
                 });
               }
             }
@@ -130,27 +143,27 @@
           return false;
         }
       });
-      $('.box input[type="radio"]').live('click', function() {
+      $('.combo_form input[type="radio"]').live('click', function() {
         var self = $(this);
         if('new' == self.val()) {
-          $('.forgot_password_fields').slideUp();
-          $('.account_existing_fields').slideUp();
-          $('.account_new_fields').slideDown();
-          $('.combo_form').data('state', 'new');
+          $('#user_forgot_password_fields').slideUp();
+          $('#user_existing_fields').slideUp();
+          $('#user_new_fields').slideDown();
+          $('.combo_form').data('state', 'user_new');
         } else if('existing' == self.val()) {
-          $('.account_new_fields').slideUp();
-          $('.account_existing_fields').slideDown(function() {
-          $('.combo_form').data('state', 'existing');
-            $('.forgot_password').click(function() {
-              $('.account_existing_fields').slideUp();
-              $('.forgot_password_fields').slideDown(function() {
-                $('.remembered_password').click(function() {
-                  $('.forgot_password_fields').slideUp();
-                  $('.account_existing_fields').slideDown();
-                  $('.combo_form').data('state', 'existing');
+          $('#user_new_fields').slideUp();
+          $('#user_existing_fields').slideDown(function() {
+          $('.combo_form').data('state', 'user_existing');
+            $('#user_forgot_password_link').click(function() {
+              $('#user_existing_fields').slideUp();
+              $('#user_forgot_password_fields').slideDown(function() {
+                $('#user_remembered_password').click(function() {
+                  $('#user_forgot_password_fields').slideUp();
+                  $('#user_existing_fields').slideDown();
+                  $('.combo_form').data('state', 'user_existing');
                 });
               });
-              $('.combo_form').data('state', 'forgot_password');
+              $('.combo_form').data('state', 'user_forgot_password');
             });
           });
         }
