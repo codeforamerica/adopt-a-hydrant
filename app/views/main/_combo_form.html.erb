@@ -24,7 +24,7 @@
   <div id="user_existing_fields" style="display: none;">
     <%= f.label "password", "Password", :id => "user_password_label" %>
     <%= f.password_field "password", :tabindex => 0 %>
-    <%= f.label "remember_me", (f.check_box("remember_me").html_safe + "Stay signed in"), :id => "user_remember_me_label" %><br />
+    <%= f.label "remember_me", (f.check_box("remember_me", :checked => true, :tabindex => 0).html_safe + "Stay signed in"), :id => "user_remember_me_label" %><br />
     <%= f.submit "Sign in", :tabindex => 0, :id => "user_existing_submit" %>
     <p><%= link_to "Forgot your password?", "#", :id => "user_forgot_password_link", :tabindex => 0 %></p>
   </div>

@@ -109,7 +109,15 @@
               if(errors.length > 0) {
                 errors[0].focus();
               } else {
-                $.post('<%= user_session_path :format => "json" %>', $(this).serialize(), function(data) {
+                $.post('<%= user_session_path :format => "json" %>', {
+                  'remote' : true,
+                  'commit' : $('#user_existing_submit').val(),
+                  'utf8' : '✓',
+                  'user' : {
+                    'email' : $('#user_email').val(),
+                    'password' : $('#user_password').val()
+                  }
+                }, function(data) {
                 });
               }
             } else if($(this).data('state') === 'user_forgot_password') {
