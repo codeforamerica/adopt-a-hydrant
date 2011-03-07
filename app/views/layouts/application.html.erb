@@ -53,7 +53,7 @@
           $('.combo_form').data('state', 'user_new');
           $('.combo_form').submit(function() {
             var errors = []
-            if(!/\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i.test($('#user_email').val())) {
+            if(!/[\w\.%\+\-]+@[\w\-]+\.+[\w]{2,}/.test($('#user_email').val())) {
               errors.push($('#user_email'));
               $('#user_email_label').addClass('error', 500);
               $('#user_email').addClass('error', 500);
