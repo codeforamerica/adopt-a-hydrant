@@ -1,7 +1,8 @@
 AdoptAHydrant::Application.routes.draw do
   devise_for :users, :controllers => {
+    :passwords => 'passwords',
     :registrations => 'users',
-    :sessions => 'sessions'
+    :sessions => 'sessions',
   }
   resource :user
   get 'sitemap(.format)' => 'sitemaps#index', :as => 'sitemap'
