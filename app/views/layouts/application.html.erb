@@ -58,8 +58,8 @@
               $('#user_email_label').addClass('error', 500);
               $('#user_email').addClass('error', 500);
             } else {
-              $('#user_email_label').removeClass('error', 500);
-              $('#user_email').removeClass('error', 500);
+              $('#user_email_label').removeClass('error');
+              $('#user_email').removeClass('error');
             }
             if($(this).data('state') === 'user_new') {
               if($('#user_name').val() === '') {
@@ -67,16 +67,16 @@
                 $('#user_name_label').addClass('error', 500);
                 $('#user_name').addClass('error', 500);
               } else {
-                $('#user_name_label').removeClass('error', 500);
-                $('#user_name').removeClass('error', 500);
+                $('#user_name_label').removeClass('error');
+                $('#user_name').removeClass('error');
               }
               if($('#user_password_confirmation').val().length < 6 || $('#user_password_confirmation').val().length > 20) {
                 errors.push($('#user_password_confirmation'));
                 $('#user_password_confirmation_label').addClass('error', 500);
                 $('#user_password_confirmation').addClass('error', 500);
               } else {
-                $('#user_password_confirmation_label').removeClass('error', 500);
-                $('#user_password_confirmation').removeClass('error', 500);
+                $('#user_password_confirmation_label').removeClass('error');
+                $('#user_password_confirmation').removeClass('error');
               }
               if(errors.length > 0) {
                 errors[0].focus();
@@ -95,16 +95,50 @@
                     'password_confirmation' : $('#user_password_confirmation').val()
                   }
                 }, function(data) {
+                  if(data.errors) {
+                    if(data.errors.email) {
+                      errors.push($('#user_email'));
+                      $('#user_email_label').addClass('error', 500);
+                      $('#user_email').addClass('error', 500);
+                    }
+                    if(data.errors.name) {
+                      errors.push($('#user_name'));
+                      $('#user_name_label').addClass('error', 500);
+                      $('#user_name').addClass('error', 500);
+                    }
+                    if(data.errors.organization) {
+                      errors.push($('#user_organization'));
+                      $('#user_organization_label').addClass('error', 500);
+                      $('#user_organization').addClass('error', 500);
+                    }
+                    if(data.errors.voice_number) {
+                      errors.push($('#user_voice_number'));
+                      $('#user_voice_number_label').addClass('error', 500);
+                      $('#user_voice_number').addClass('error', 500);
+                    }
+                    if(data.errors.sms_number) {
+                      errors.push($('#user_sms_number'));
+                      $('#user_sms_number_label').addClass('error', 500);
+                      $('#user_sms_number').addClass('error', 500);
+                    }
+                    if(data.errors.password) {
+                      errors.push($('#user_password_confirmation'));
+                      $('#user_password_confirmation_label').addClass('error', 500);
+                      $('#user_password_confirmation').addClass('error', 500);
+                    }
+                    errors[0].focus();
+                  } else {
+                  }
                 });
               }
             } else if($(this).data('state') === 'user_existing') {
-              if($('#user_password').val() === '') {
+              if($('#user_password').val().length < 6 || $('#user_password').val().length > 20) {
                 errors.push($('#user_password'));
                 $('#user_password_label').addClass('error', 500);
                 $('#user_password').addClass('error', 500);
               } else {
-                $('#user_password_label').removeClass('error', 500);
-                $('#user_password').removeClass('error', 500);
+                $('#user_password_label').removeClass('error');
+                $('#user_password').removeClass('error');
               }
               if(errors.length > 0) {
                 errors[0].focus();
@@ -118,6 +152,12 @@
                     'password' : $('#user_password').val()
                   }
                 }, function(data) {
+                  if(data.errors) {
+                    $('#user_password').focus();
+                    $('#user_password_label').addClass('error', 500);
+                    $('#user_password').addClass('error', 500);
+                  } else {
+                  }
                 });
               }
             } else if($(this).data('state') === 'user_forgot_password') {
@@ -132,6 +172,12 @@
                     'email' : $('#user_email').val()
                   }
                 }, function(data) {
+                  if(data.errors) {
+                    $('#user_email').focus();
+                    $('#user_email_label').addClass('error', 500);
+                    $('#user_email').addClass('error', 500);
+                  } else {
+                  }
                 });
               }
             }

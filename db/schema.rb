@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20110223180521) do
     t.string   "name",                                                :null => false
     t.string   "organization"
     t.string   "email",                               :default => "", :null => false
-    t.integer  "voice_number"
-    t.integer  "sms_number"
+    t.string   "voice_number"
+    t.string   "sms_number"
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
     t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
