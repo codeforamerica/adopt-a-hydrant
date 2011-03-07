@@ -1,5 +1,3 @@
-<div class="box">
-<h2>Adopt this Hydrant</h2>
 <%= form_for :user, :html => {:class => "combo_form"} do |f| %>
   <div id="common_fields">
     <%= f.label "email", "Email address", :id => "user_email_label" %>
@@ -19,7 +17,7 @@
     <%= f.label "password_confirmation", "Choose a password", :id => "user_password_confirmation_label" %>
     <%= f.password_field "password_confirmation", :tabindex => 7 %>
     <%= f.submit "Sign up", :tabindex => 8, :id => "user_new_submit" %>
-    <p>By signing up you accept the <%= link_to "Terms of Service", "#", :tabindex => 9 %>.</p>
+    <p>By signing up, you agree to the <%= link_to "Terms of Service", "#", :tabindex => 9 %>.</p>
   </div>
   <div id="user_existing_fields" style="display: none;">
     <%= f.label "password", "Password", :id => "user_password_label" %>
@@ -33,4 +31,3 @@
     <p><%= link_to "Never mind. I remembered my password.", "#", :id => "user_remembered_password", :tabindex => 0 %></p>
   </div>
 <% end %>
-</div>

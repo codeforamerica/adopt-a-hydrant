@@ -24,7 +24,6 @@
       };
       map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
       var openInfoWindow;
-      var formString = '<%= render(:partial => "combo_form").gsub("\n", "") %>'
       function addMarker(point, color, contentString) {
         var image = new google.maps.MarkerImage(color,
           new google.maps.Size(27.0, 37.0),
@@ -50,7 +49,6 @@
             openInfoWindow.close();
           }
           infoWindow.open(map, marker);
-          $('.combo_form').data('state', 'user_new');
           $('.combo_form').submit(function() {
             var errors = []
             if(!/[\w\.%\+\-]+@[\w\-]+\.+[\w]{2,}/.test($('#user_email').val())) {
@@ -61,7 +59,7 @@
               $('#user_email_label').removeClass('error');
               $('#user_email').removeClass('error');
             }
-            if($(this).data('state') === 'user_new') {
+            if(!$(this).data('state') || $(this).data('state') === 'user_new') {
               if($('#user_name').val() === '') {
                 errors.push($('#user_name'));
                 $('#user_name_label').addClass('error', 500);
@@ -128,6 +126,8 @@
                     }
                     errors[0].focus();
                   } else {
+                    $('.combo_form').slideUp();
+                    $('.adoption_form').slideDown();
                   }
                 });
               }
@@ -157,6 +157,8 @@
                     $('#user_password_label').addClass('error', 500);
                     $('#user_password').addClass('error', 500);
                   } else {
+                    $('.combo_form').slideUp();
+                    $('.adoption_form').slideDown();
                   }
                 });
               }
@@ -177,6 +179,8 @@
                     $('#user_email_label').addClass('error', 500);
                     $('#user_email').addClass('error', 500);
                   } else {
+                    $('#user_forgot_password_fields').slideUp();
+                    $('#user_existing_fields').slideDown();
                   }
                 });
               }
@@ -186,16 +190,20 @@
           openInfoWindow = infoWindow;
         });
       }
-<% @hydrants.each do |hydrant| %>
+      <% @hydrants.each do |hydrant| %>
       point = new google.maps.LatLng(<%= hydrant.lat %>, <%= hydrant.lng %>);
       color = <%= hydrant.user_id ? "'/images/markers/green.png'" : "'/images/markers/red.png'" %>;
-  <% if user = hydrant.user %>
+      <% if user = hydrant.user %>
       contentString = '<%= render(:partial => "user_profile", :locals => {:user => user}).gsub("\n", "") %>'
-  <% else %>
-      contentString = formString;
-  <% end %>
+      <% else %>
+        <% if user_signed_in? %>
+          contentString = '<h2>Adopt this Hydrant</h2><%= render(:partial => "adoption_form", :locals => {:hydrant => hydrant}).gsub("\n", "") %>'
+        <% else %>
+          contentString = '<h2>Adopt this Hydrant</h2><%= render(:partial => "combo_form").gsub("\n", "") + render(:partial => "adoption_form", :locals => {:hydrant => hydrant}).gsub("\n", "") %>'
+        <% end %>
+      <% end %>
       addMarker(point, color, contentString);
-<% end %>
+      <% end %>
       $('#location_form').submit(function() {
         if($('#address').val() === '') {
           $('#address').focus();
