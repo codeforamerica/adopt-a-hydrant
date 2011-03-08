@@ -18,11 +18,11 @@
           position: google.maps.ControlPosition.BOTTOM_CENTER
         },
         zoom: <%= @zoom %>,
-        zoomControl: false,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+      comboFormString = '<%= render(:partial => "combo_form").gsub("\n", "") %>';
       var openInfoWindow;
       function addMarker(point, color, contentString) {
         var image = new google.maps.MarkerImage(color,
@@ -42,13 +42,36 @@
           shadow: shadow
         });
         var infoWindow = new google.maps.InfoWindow({
-          content: contentString
+          content: contentString,
+          maxWidth: 350
         });
         google.maps.event.addListener(marker, 'click', function() {
-          if(openInfoWindow != undefined) {
+          if(openInfoWindow) {
             openInfoWindow.close();
           }
           infoWindow.open(map, marker);
+          $('.adoption_form').submit(function() {
+            $.post('<%= hydrant_path :format => "json" %>', {
+              'id': $('#hydrant_id').val(),
+              'commit': $('#adoption_form_submit').val(),
+              'utf8': '✓',
+              'authenticity_token': $('input[name="authenticity_token"]').val(),
+              '_method': 'put',
+              'hydrant': {
+                'user_id': $('#hydrant_user_id').val() || <%= user_signed_in? ? current_user.id : false %>,
+                'name': $('#hydrant_name').val()
+              }
+            }, function(data) {
+              image = new google.maps.MarkerImage('/images/markers/green.png',
+                new google.maps.Size(27.0, 37.0),
+                new google.maps.Point(0, 0),
+                new google.maps.Point(13.0, 18.0)
+              );
+              marker.setIcon(image);
+              marker.setAnimation(google.maps.Animation.BOUNCE);
+            });
+            return false;
+          });
           $('.combo_form').submit(function() {
             var errors = []
             if(!/[\w\.%\+\-]+@[\w\-]+\.+[\w]{2,}/.test($('#user_email').val())) {
@@ -80,17 +103,17 @@
                 errors[0].focus();
               } else {
                 $.post('<%= user_registration_path :format => "json" %>', {
-                  'remote' : true,
-                  'commit' : $('#user_new_submit').val(),
-                  'utf8' : '✓',
-                  'user' : {
-                    'email' : $('#user_email').val(),
-                    'name' : $('#user_name').val(),
-                    'organization' : $('#user_organization').val(),
-                    'voice_number' : $('#user_voice_number').val(),
-                    'sms_number' : $('#user_sms_number').val(),
-                    'password' : $('#user_password_confirmation').val(),
-                    'password_confirmation' : $('#user_password_confirmation').val()
+                  'commit': $('#user_new_submit').val(),
+                  'utf8': '✓',
+                  'authenticity_token': $('input[name="authenticity_token"]').val(),
+                  'user': {
+                    'email': $('#user_email').val(),
+                    'name': $('#user_name').val(),
+                    'organization': $('#user_organization').val(),
+                    'voice_number': $('#user_voice_number').val(),
+                    'sms_number': $('#user_sms_number').val(),
+                    'password': $('#user_password_confirmation').val(),
+                    'password_confirmation': $('#user_password_confirmation').val()
                   }
                 }, function(data) {
                   if(data.errors) {
@@ -127,7 +150,9 @@
                     errors[0].focus();
                   } else {
                     $('.combo_form').slideUp();
-                    $('.adoption_form').slideDown();
+                    $('.adoption_form').slideDown(function() {
+                      $('#hydrant_user_id').val(data.user.id);
+                    });
                   }
                 });
               }
@@ -144,12 +169,13 @@
                 errors[0].focus();
               } else {
                 $.post('<%= user_session_path :format => "json" %>', {
-                  'remote' : true,
-                  'commit' : $('#user_existing_submit').val(),
-                  'utf8' : '✓',
-                  'user' : {
-                    'email' : $('#user_email').val(),
-                    'password' : $('#user_password').val()
+                  'commit': $('#user_existing_submit').val(),
+                  'utf8': '✓',
+                  'authenticity_token': $('input[name="authenticity_token"]').val(),
+                  'user': {
+                    'email': $('#user_email').val(),
+                    'password': $('#user_password').val(),
+                    'remember_me': $('#user_remember_me').val()
                   }
                 }, function(data) {
                   if(data.errors) {
@@ -158,7 +184,9 @@
                     $('#user_password').addClass('error', 500);
                   } else {
                     $('.combo_form').slideUp();
-                    $('.adoption_form').slideDown();
+                    $('.adoption_form').slideDown(function() {
+                      $('#hydrant_user_id').val(data.user.id);
+                    });
                   }
                 });
               }
@@ -167,11 +195,11 @@
                 errors[0].focus();
               } else {
                 $.post('<%= user_password_path :format => "json" %>', {
-                  'remote' : true,
-                  'commit' : $('#user_forgot_password_submit').val(),
-                  'utf8' : '✓',
-                  'user' : {
-                    'email' : $('#user_email').val()
+                  'commit': $('#user_forgot_password_submit').val(),
+                  'utf8': '✓',
+                  'authenticity_token': $('input[name="authenticity_token"]').val(),
+                  'user': {
+                    'email': $('#user_email').val()
                   }
                 }, function(data) {
                   if(data.errors) {
@@ -199,7 +227,7 @@
         <% if user_signed_in? %>
           contentString = '<h2>Adopt this Hydrant</h2><%= render(:partial => "adoption_form", :locals => {:hydrant => hydrant}).gsub("\n", "") %>'
         <% else %>
-          contentString = '<h2>Adopt this Hydrant</h2><%= render(:partial => "combo_form").gsub("\n", "") + render(:partial => "adoption_form", :locals => {:hydrant => hydrant}).gsub("\n", "") %>'
+          contentString = '<h2>Adopt this Hydrant</h2>' + comboFormString + '<%= render(:partial => "adoption_form", :locals => {:hydrant => hydrant}).gsub("\n", "") %>'
         <% end %>
       <% end %>
       addMarker(point, color, contentString);

@@ -1,4 +1,4 @@
-<%= form_for :user, :html => {:class => "combo_form"} do |f| %>
+<%= form_for :user, :remote => true, :html => {:class => "combo_form"} do |f| %>
   <div id="common_fields">
     <%= f.label "email", "Email address", :id => "user_email_label" %>
     <%= f.text_field "email", :tabindex => 1 %>
