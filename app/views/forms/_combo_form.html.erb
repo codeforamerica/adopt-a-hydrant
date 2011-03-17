@@ -1,11 +1,12 @@
-<%= form_for :user, :remote => true, :html => {:class => "combo_form"} do |f| %>
+<%= form_for :user, :remote => true, :html => {:id => "combo_form"} do |f| %>
+  <h2>Adopt this Hydrant</h2>
   <div id="common_fields">
     <%= f.label "email", "Email address", :id => "user_email_label" %>
     <%= f.text_field "email", :tabindex => 1 %>
-    <%= f.label "new" , radio_button_tag("user", "new", true, :tabindex => 2).html_safe + "I haven\\'t signed up yet" %><br />
-    <%= f.label "existing", radio_button_tag("user", "existing").html_safe + "I already signed up" %><br />
+    <%= f.label "new" , radio_button_tag("user", "new", true, :tabindex => 2).html_safe + "I haven't signed up yet" %><br />
+    <%= f.label "existing", radio_button_tag("user", "existing").html_safe + "I've already signed up" %><br />
   </div>
-  <div id="user_new_fields">
+  <div id="sign_up_fields">
     <%= f.label "name", "Name", :id => "user_name_label" %>
     <%= f.text_field "name", :tabindex => 3 %>
     <%= f.label "organization", "Organization", :id => "user_organization_label" %>
@@ -16,14 +17,14 @@
     <%= f.text_field "sms_number", :tabindex => 6 %>
     <%= f.label "password_confirmation", "Choose a password", :id => "user_password_confirmation_label" %>
     <%= f.password_field "password_confirmation", :tabindex => 7 %>
-    <%= f.submit "Sign up", :tabindex => 8, :id => "user_new_submit" %>
+    <%= f.submit "Sign up", :tabindex => 8, :id => "sign_up_submit" %>
     <p>By signing up, you agree to the <%= link_to "Terms of Service", "#", :tabindex => 9 %>.</p>
   </div>
-  <div id="user_existing_fields" style="display: none;">
+  <div id="sign_in_fields" style="display: none;">
     <%= f.label "password", "Password", :id => "user_password_label" %>
     <%= f.password_field "password", :tabindex => 0 %>
     <%= f.label "remember_me", (f.check_box("remember_me", :checked => true, :tabindex => 0).html_safe + "Stay signed in"), :id => "user_remember_me_label" %><br />
-    <%= f.submit "Sign in", :tabindex => 0, :id => "user_existing_submit" %>
+    <%= f.submit "Sign in", :tabindex => 0, :id => "sign_in_submit" %>
     <p><%= link_to "Forgot your password?", "#", :id => "user_forgot_password_link", :tabindex => 0 %></p>
   </div>
   <div id="user_forgot_password_fields" style="display: none;">

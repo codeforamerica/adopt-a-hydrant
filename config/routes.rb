@@ -6,6 +6,7 @@ AdoptAHydrant::Application.routes.draw do
   }
   resource :user
   resource :hydrant
-  get 'sitemap(.format)' => 'sitemaps#index', :as => 'sitemap'
+  get 'sitemap' => 'sitemaps#index', :as => 'sitemap'
+  get 'forms' => 'forms#index', :as => 'forms'
   root :to => 'main#index'
 end

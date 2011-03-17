@@ -4,7 +4,7 @@ class HydrantsController < ApplicationController
   def update
     @hydrant = Hydrant.find(params[:id])
     if @hydrant.update_attributes(params[:hydrant])
-      respond_with @hydrant
+      render(:json => @hydrant)
     else
       render(:json => {"errors" => @hydrant.errors})
     end

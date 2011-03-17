@@ -19,3 +19,15 @@
 </div>
 <div id="map_canvas">
 </div>
+<script type="text/javascript">
+$(function() {
+  $('#location_form').submit(function() {
+    if($('#address').val() === '') {
+      $('#address').focus();
+      $('#address_label').addClass('error', 500);
+      $('#address').addClass('error', 500);
+      return false;
+    }
+  });
+});
+</script>

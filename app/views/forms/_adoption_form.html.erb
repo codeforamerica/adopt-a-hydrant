@@ -1,8 +1,8 @@
-<% style = user_signed_in? ? {} : {:style => "display: none;"}%>
-<%= form_for hydrant, :remote => true, :html => {:class => "adoption_form"}.merge(style) do |f| %>
+<%= form_for @hydrant, :remote => true, :html => {:id => "adoption_form"} do |f| %>
+  <h2>Adopt this Hydrant</h2>
   <div id="adoption_fields">
     <%= f.hidden_field "id" %>
-    <%= f.hidden_field "user_id", :value => (user_signed_in? ? current_user.id : nil) %>
+    <%= f.hidden_field "user_id", :value => current_user.id %>
     <%= f.label "name", "Give your hydrant a name", :id => "hydrant_name_label" %>
     <%= f.text_field "name", :tabindex => 1 %>
     <%= f.submit "Adopt!", :tabindex => 2, :id => "adoption_form_submit" %>
