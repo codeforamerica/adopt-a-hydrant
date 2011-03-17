@@ -14,7 +14,11 @@ $(function() {
   var activeHydrantId;
   var activeMarker;
   var activeInfoWindow;
+  var hydrantIds = [];
   function addMarker(hydrantId, point, color) {
+    if($.inArray(hydrantId, hydrantIds) != -1) {
+      return;
+    }
     var image = new google.maps.MarkerImage(color,
       new google.maps.Size(27.0, 37.0),
       new google.maps.Point(0, 0),
@@ -26,9 +30,10 @@ $(function() {
       new google.maps.Point(13.0, 18.0)
     );
     var marker = new google.maps.Marker({
-      position: point,
-      map: map,
+      animation: google.maps.Animation.DROP,
       icon: image,
+      map: map,
+      position: point,
       shadow: shadow
     });
     google.maps.event.addListener(marker, 'click', function() {
@@ -48,6 +53,7 @@ $(function() {
         activeInfoWindow = infoWindow;
       });
     });
+    hydrantIds.push(hydrantId);
   }
   $('#location_form').submit(function() {
     if($('#address').val() === '') {
