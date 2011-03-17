@@ -1,14 +1,15 @@
 $(function() {
   var latlng = new google.maps.LatLng(42.358431, -71.059773);
+  var southWest;
+  var northEast;
+  var bounds;
   var myOptions = {
-    mapTypeControl: false,
-    scaleControl: true,
-    scaleControlOptions: {
-      position: google.maps.ControlPosition.BOTTOM_CENTER
-    },
-    zoom: 15,
     center: latlng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeControl: false,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    panControl: false,
+    zoom: 15,
+    zoomControl: false
   };
   var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
   var activeHydrantId;
@@ -16,9 +17,6 @@ $(function() {
   var activeInfoWindow;
   var hydrantIds = [];
   function addMarker(hydrantId, point, color) {
-    if($.inArray(hydrantId, hydrantIds) != -1) {
-      return;
-    }
     var image = new google.maps.MarkerImage(color,
       new google.maps.Size(27.0, 37.0),
       new google.maps.Point(0, 0),
@@ -55,6 +53,43 @@ $(function() {
     });
     hydrantIds.push(hydrantId);
   }
+  function addMarkersAround(lat, lng) {
+    $.get('<%= hydrants_path :format => "json" %>', {
+      'commit': $('#location_submit').val(),
+      'utf8': '✓',
+      'authenticity_token': $('#location_form input[name="authenticity_token"]').val(),
+      'lat': lat,
+      'lng': lng
+    }, function(data) {
+      if(data.errors) {
+        $('#address_label').addClass('error', 500);
+        $('#address').addClass('error', 500);
+        $('#address').focus();
+      } else {
+        center = new google.maps.LatLng(lat, lng);
+        map.setCenter(center)
+        map.setZoom(18);
+        var i = 0;
+        $(data).each(function(index, hydrant) {
+          hydrant = hydrant.hydrant;
+          if($.inArray(hydrant.id, hydrantIds) != -1) {
+            // continue
+            return true;
+          }
+          setTimeout(function() {
+            point = new google.maps.LatLng(hydrant.lat, hydrant.lng);
+            color = '/images/markers/' + (hydrant.user_id ? 'green' : 'red') + '.png';
+            addMarker(hydrant.id, point, color);
+          }, i * 100);
+          i += 1
+        });
+      }
+    });
+  }
+  google.maps.event.addListener(map, 'dragend', function() {
+    center = map.getCenter();
+    addMarkersAround(center.lat(), center.lng());
+  });
   $('#location_form').submit(function() {
     if($('#address').val() === '') {
       $('#address_label').addClass('error', 500);
@@ -73,30 +108,7 @@ $(function() {
           $('#address').addClass('error', 500);
           $('#address').focus();
         } else {
-          map.setZoom(18);
-          latlng = new google.maps.LatLng(data[0], data[1]);
-          map.setCenter(latlng);
-          $.get('<%= hydrants_path :format => "json" %>', {
-            'commit': $('#location_submit').val(),
-            'utf8': '✓',
-            'authenticity_token': $('#location_form input[name="authenticity_token"]').val(),
-            'lat': data[0],
-            'lng': data[1]
-          }, function(data) {
-            // This should never happen, but just in case
-            if(data.errors) {
-              $('#address_label').addClass('error', 500);
-              $('#address').addClass('error', 500);
-              $('#address').focus();
-            } else {
-              $(data).each(function(index, hydrant) {
-                hydrant = hydrant.hydrant;
-                point = new google.maps.LatLng(hydrant.lat, hydrant.lng);
-                color = '/images/markers/' + (hydrant.user_id ? "green" : "red") + '.png';
-                addMarker(hydrant.id, point, color);
-              });
-            }
-          });
+          addMarkersAround(data[0], data[1]);
         }
       });
     }
