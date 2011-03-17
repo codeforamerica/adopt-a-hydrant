@@ -8,7 +8,7 @@
     <%= select_tag "city_state", '<option value="Boston, MA" selected="selected">Boston, MA</option>'.html_safe, :tabindex => 10 %>
     <%= label_tag "address", "Address", :id => "address_label" %>
     <%= text_field_tag "address", params[:address], :tabindex => 11 %>
-    <%= submit_tag "Find Fire Hydrants", :tabindex => 12 %>
+    <%= submit_tag "Find Fire Hydrants", :id => "location_submit", :tabindex => 12 %>
   <% end %>
   <div id="logos">
     <%= image_tag "logos/cfa.png", :alt => "Code for America", :title => "Code for America" %>
