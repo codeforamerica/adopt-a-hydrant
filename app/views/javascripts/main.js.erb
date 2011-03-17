@@ -1,5 +1,4 @@
 $(function() {
-  var map;
   var latlng = new google.maps.LatLng(42.358431, -71.059773);
   var myOptions = {
     mapTypeControl: false,
@@ -52,9 +51,9 @@ $(function() {
   }
   $('#location_form').submit(function() {
     if($('#address').val() === '') {
-      $('#address').focus();
       $('#address_label').addClass('error', 500);
       $('#address').addClass('error', 500);
+      $('#address').focus();
     } else {
       $.get('<%= address_path :format => "json" %>', {
         'commit': $('#location_submit').val(),
@@ -64,9 +63,9 @@ $(function() {
         'address': $('#address').val()
       }, function(data) {
         if(data.errors) {
-          $('#address').focus();
           $('#address_label').addClass('error', 500);
           $('#address').addClass('error', 500);
+          $('#address').focus();
         } else {
           map.setZoom(18);
           latlng = new google.maps.LatLng(data[0], data[1]);
@@ -80,9 +79,9 @@ $(function() {
           }, function(data) {
             // This should never happen, but just in case
             if(data.errors) {
-              $('#address').focus();
               $('#address_label').addClass('error', 500);
               $('#address').addClass('error', 500);
+              $('#address').focus();
             } else {
               $(data).each(function(index, hydrant) {
                 hydrant = hydrant.hydrant;
@@ -101,20 +100,20 @@ $(function() {
     var self = $(this);
     if('new' == self.val()) {
       $('#user_forgot_password_fields').slideUp();
-      $('#sign_in_fields').slideUp();
-      $('#sign_up_fields').slideDown();
-      $('#combo_form').data('state', 'sign_up');
+      $('#user_sign_in_fields').slideUp();
+      $('#user_sign_up_fields').slideDown();
+      $('#combo_form').data('state', 'user_sign_up');
     } else if('existing' == self.val()) {
-      $('#sign_up_fields').slideUp();
-      $('#sign_in_fields').slideDown(function() {
-      $('#combo_form').data('state', 'sign_in');
+      $('#user_sign_up_fields').slideUp();
+      $('#user_sign_in_fields').slideDown(function() {
+      $('#combo_form').data('state', 'user_sign_in');
         $('#user_forgot_password_link').click(function() {
-          $('#sign_in_fields').slideUp();
+          $('#user_sign_in_fields').slideUp();
           $('#user_forgot_password_fields').slideDown(function() {
             $('#user_remembered_password').click(function() {
               $('#user_forgot_password_fields').slideUp();
-              $('#sign_in_fields').slideDown();
-              $('#combo_form').data('state', 'sign_in');
+              $('#user_sign_in_fields').slideDown();
+              $('#combo_form').data('state', 'user_sign_in');
             });
           });
           $('#combo_form').data('state', 'user_forgot_password');
@@ -132,7 +131,7 @@ $(function() {
       $('#user_email_label').removeClass('error');
       $('#user_email').removeClass('error');
     }
-    if(!$(this).data('state') || $(this).data('state') === 'sign_up') {
+    if(!$(this).data('state') || $(this).data('state') === 'user_sign_up') {
       if($('#user_name').val() === '') {
         errors.push($('#user_name'));
         $('#user_name_label').addClass('error', 500);
@@ -153,7 +152,7 @@ $(function() {
         errors[0].focus();
       } else {
         $.post('<%= user_registration_path :format => "json" %>', {
-          'commit': $('#sign_up_submit').val(),
+          'commit': $('#user_sign_up_submit').val(),
           'utf8': '✓',
           'authenticity_token': $('input[name="authenticity_token"]').val(),
           'user': {
@@ -207,7 +206,7 @@ $(function() {
           }
         });
       }
-    } else if($(this).data('state') === 'sign_in') {
+    } else if($(this).data('state') === 'user_sign_in') {
       if($('#user_password').val().length < 6 || $('#user_password').val().length > 20) {
         errors.push($('#user_password'));
         $('#user_password_label').addClass('error', 500);
@@ -220,7 +219,7 @@ $(function() {
         errors[0].focus();
       } else {
         $.post('<%= user_session_path :format => "json" %>', {
-          'commit': $('#sign_in_submit').val(),
+          'commit': $('#user_sign_in_submit').val(),
           'utf8': '✓',
           'authenticity_token': $('input[name="authenticity_token"]').val(),
           'user': {
@@ -230,9 +229,9 @@ $(function() {
           }
         }, function(data) {
           if(data.errors) {
-            $('#user_password').focus();
             $('#user_password_label').addClass('error', 500);
             $('#user_password').addClass('error', 500);
+            $('#user_password').focus();
           } else {
             $.get('<%= forms_path %>', {
               'hydrant_id': activeHydrantId
@@ -255,12 +254,12 @@ $(function() {
           }
         }, function(data) {
           if(data.errors) {
-            $('#user_email').focus();
             $('#user_email_label').addClass('error', 500);
             $('#user_email').addClass('error', 500);
+            $('#user_email').focus();
           } else {
             $('#user_forgot_password_fields').slideUp();
-            $('#sign_in_fields').slideDown();
+            $('#user_sign_in_fields').slideDown();
           }
         });
       }
