@@ -65,6 +65,14 @@
       color = '/images/markers/<%= hydrant.user_id ? "green" : "red" %>.png';
       addMarker(<%= hydrant.id %>, point, color);
       <% end %>
+      $('#location_form').submit(function() {
+        if($('#address').val() === '') {
+          $('#address').focus();
+          $('#address_label').addClass('error', 500);
+          $('#address').addClass('error', 500);
+          return false;
+        }
+      });
       $('#combo_form input[type="radio"]').live('click', function() {
         var self = $(this);
         if('new' == self.val()) {
