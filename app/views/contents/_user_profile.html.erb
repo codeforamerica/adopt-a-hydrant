@@ -1,2 +1,2 @@
 <h2><%= @hydrant.name ? @hydrant.name.titleize : "This hydrant" %> has been adopted by <%= @hydrant.user.name %></h2>
-<%= @hydrant.user.organization.blank? ? "<h3>of #{@hydrant.user.organization}</h3>".html_safe : nil %>
+<%= @hydrant.user.organization.blank? ? nil : "<h3>of #{@hydrant.user.organization}</h3>".html_safe %>
