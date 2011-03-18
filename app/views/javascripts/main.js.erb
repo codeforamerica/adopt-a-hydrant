@@ -1,15 +1,15 @@
 $(function() {
-  var latlng = new google.maps.LatLng(42.358431, -71.059773);
+  var center = new google.maps.LatLng(42.358431, -71.059773);
   var southWest;
   var northEast;
   var bounds;
+  var zoomLevel = 15;
   var myOptions = {
-    center: latlng,
+    center: center,
     mapTypeControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     panControl: false,
-    zoom: 15,
-    zoomControl: false
+    zoom: zoomLevel
   };
   var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
   var activeHydrantId;
@@ -17,6 +17,9 @@ $(function() {
   var activeInfoWindow;
   var hydrantIds = [];
   function addMarker(hydrantId, point, color) {
+    if($.inArray(hydrantId, hydrantIds) != -1) {
+      return;
+    }
     var image = new google.maps.MarkerImage(color,
       new google.maps.Size(27.0, 37.0),
       new google.maps.Point(0, 0),
@@ -66,23 +69,38 @@ $(function() {
         $('#address').addClass('error', 500);
         $('#address').focus();
       } else {
-        center = new google.maps.LatLng(lat, lng);
-        map.setCenter(center)
-        map.setZoom(18);
+        var northMost;
+        var eastMost;
+        var southMost;
+        var westMost;
         var i = 0;
         $(data).each(function(index, hydrant) {
           hydrant = hydrant.hydrant;
-          if($.inArray(hydrant.id, hydrantIds) != -1) {
-            // continue
-            return true;
+          if(!northMost || northMost > hydrant.lat) {
+            northMost = hydrant.lat;
+          }
+          if(!eastMost || eastMost > hydrant.lng) {
+            eastMost = hydrant.lng;
+          }
+          if(!southMost || southMost < hydrant.lat) {
+            southMost = hydrant.lat;
+          }
+          if(!westMost || westMost < hydrant.lng) {
+            westMost = hydrant.lng;
           }
           setTimeout(function() {
             point = new google.maps.LatLng(hydrant.lat, hydrant.lng);
             color = '/images/markers/' + (hydrant.user_id ? 'green' : 'red') + '.png';
             addMarker(hydrant.id, point, color);
           }, i * 100);
-          i += 1
+          if($.inArray(hydrant.id, hydrantIds) == -1) {
+            i += 1;
+          }
         });
+        southWest = new google.maps.LatLng(southMost, westMost);
+        northEast = new google.maps.LatLng(northMost, eastMost);
+        bounds = new google.maps.LatLngBounds(southWest, northEast);
+        map.fitBounds(bounds);
       }
     });
   }
