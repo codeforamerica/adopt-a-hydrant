@@ -1,4 +1,4 @@
-class FormsController < ApplicationController
+class ContentsController < ApplicationController
   def index
     @hydrant = Hydrant.find_by_id(params[:hydrant_id])
     if @hydrant.adopted?

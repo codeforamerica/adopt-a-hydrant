@@ -3,12 +3,12 @@
   <p id="tagline">
     Claim responsibility for shoveling out a fire hydrant after it snows.
   </p>
-  <%= form_tag "/", :method => "GET", :id => "location_form" do %>
+  <%= form_for :address, :html => {:id => "address_form"} do |f| %>
     <%= label_tag "city_state", "City", :id => "city_label" %>
     <%= select_tag "city_state", '<option value="Boston, MA" selected="selected">Boston, MA</option>'.html_safe, :tabindex => 10 %>
     <%= label_tag "address", "Address", :id => "address_label" %>
     <%= text_field_tag "address", params[:address], :tabindex => 11 %>
-    <%= submit_tag "Find Fire Hydrants", :id => "location_submit", :tabindex => 12 %>
+    <%= submit_tag "Find Fire Hydrants", :id => "address_submit", :tabindex => 12 %>
   <% end %>
   <div id="logos">
     <%= image_tag "logos/cfa.png", :alt => "Code for America", :title => "Code for America" %>

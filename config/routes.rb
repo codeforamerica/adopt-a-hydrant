@@ -12,6 +12,6 @@ AdoptAHydrant::Application.routes.draw do
   end
   get 'address' => 'addresses#index', :as => 'address'
   get 'sitemap' => 'sitemaps#index', :as => 'sitemap'
-  get 'forms' => 'forms#index', :as => 'forms'
+  get 'contents' => 'contents#index', :as => 'contents'
   root :to => 'main#index'
 end

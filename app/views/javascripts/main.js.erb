@@ -1,17 +1,14 @@
 $(function() {
   var center = new google.maps.LatLng(42.358431, -71.059773);
-  var southWest;
-  var northEast;
-  var bounds;
   var zoomLevel = 15;
-  var myOptions = {
+  var mapOptions = {
     center: center,
     mapTypeControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     panControl: false,
     zoom: zoomLevel
   };
-  var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
   var activeHydrantId;
   var activeMarker;
   var activeInfoWindow;
@@ -41,7 +38,7 @@ $(function() {
       if(activeInfoWindow) {
         activeInfoWindow.close();
       }
-      $.get('<%= forms_path %>', {
+      $.get('<%= contents_path %>', {
         'hydrant_id': hydrantId
       }, function(data) {
         var infoWindow = new google.maps.InfoWindow({
@@ -58,9 +55,9 @@ $(function() {
   }
   function addMarkersAround(lat, lng) {
     $.get('<%= hydrants_path :format => "json" %>', {
-      'commit': $('#location_submit').val(),
+      'commit': $('#address_submit').val(),
       'utf8': '✓',
-      'authenticity_token': $('#location_form input[name="authenticity_token"]').val(),
+      'authenticity_token': $('#address_form input[name="authenticity_token"]').val(),
       'lat': lat,
       'lng': lng
     }, function(data) {
@@ -108,16 +105,16 @@ $(function() {
     center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
   });
-  $('#location_form').submit(function() {
+  $('#address_form').submit(function() {
     if($('#address').val() === '') {
       $('#address_label').addClass('error', 500);
       $('#address').addClass('error', 500);
       $('#address').focus();
     } else {
       $.get('<%= address_path :format => "json" %>', {
-        'commit': $('#location_submit').val(),
+        'commit': $('#address_submit').val(),
         'utf8': '✓',
-        'authenticity_token': $('#location_form input[name="authenticity_token"]').val(),
+        'authenticity_token': $('#address_form input[name="authenticity_token"]').val(),
         'city_state': $('#city_state').val(),
         'address': $('#address').val()
       }, function(data) {
@@ -234,7 +231,7 @@ $(function() {
             }
             errors[0].focus();
           } else {
-            $.get('<%= forms_path %>', {
+            $.get('<%= contents_path %>', {
               'hydrant_id': activeHydrantId
             }, function(data) {
               activeInfoWindow.setContent(data);
@@ -269,7 +266,7 @@ $(function() {
             $('#user_password').addClass('error', 500);
             $('#user_password').focus();
           } else {
-            $.get('<%= forms_path %>', {
+            $.get('<%= contents_path %>', {
               'hydrant_id': activeHydrantId
             }, function(data) {
               activeInfoWindow.setContent(data);
@@ -314,7 +311,7 @@ $(function() {
         'name': $('#hydrant_name').val()
       }
     }, function(data) {
-      $.get('<%= forms_path %>', {
+      $.get('<%= contents_path %>', {
         'hydrant_id': activeHydrantId
       }, function(data) {
         activeInfoWindow.setContent(data);
