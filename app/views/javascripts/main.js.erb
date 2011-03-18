@@ -187,7 +187,7 @@ $(function() {
         $.post('<%= user_registration_path :format => "json" %>', {
           'commit': $('#user_sign_up_submit').val(),
           'utf8': '✓',
-          'authenticity_token': $('input[name="authenticity_token"]').val(),
+          'authenticity_token': $('#combo_form input[name="authenticity_token"]').val(),
           'user': {
             'email': $('#user_email').val(),
             'name': $('#user_name').val(),
@@ -254,7 +254,7 @@ $(function() {
         $.post('<%= user_session_path :format => "json" %>', {
           'commit': $('#user_sign_in_submit').val(),
           'utf8': '✓',
-          'authenticity_token': $('input[name="authenticity_token"]').val(),
+          'authenticity_token': $('#combo_form input[name="authenticity_token"]').val(),
           'user': {
             'email': $('#user_email').val(),
             'password': $('#user_password').val(),
@@ -281,7 +281,7 @@ $(function() {
         $.post('<%= user_password_path :format => "json" %>', {
           'commit': $('#user_forgot_password_submit').val(),
           'utf8': '✓',
-          'authenticity_token': $('input[name="authenticity_token"]').val(),
+          'authenticity_token': $('#combo_form input[name="authenticity_token"]').val(),
           'user': {
             'email': $('#user_email').val()
           }
@@ -297,6 +297,20 @@ $(function() {
         });
       }
     }
+    return false;
+  });
+  $('#sign_out_form').live('submit', function() {
+    $.get('<%= destroy_user_session_path :format => "json" %>', {
+      'commit': $('#sign_out_form_submit').val(),
+      'utf8': '✓',
+      'authenticity_token': $('#sign_out_form input[name="authenticity_token"]').val()
+    }, function(data) {
+      $.get('<%= contents_path %>', {
+        'hydrant_id': activeHydrantId
+      }, function(data) {
+        activeInfoWindow.setContent(data);
+      });
+    });
     return false;
   });
   $('#adoption_form').live('submit', function() {
