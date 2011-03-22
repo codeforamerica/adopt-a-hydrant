@@ -318,7 +318,7 @@ $(function() {
       'id': $('#hydrant_id').val(),
       'commit': $('#adoption_form_submit').val(),
       'utf8': '✓',
-      'authenticity_token': $('input[name="authenticity_token"]').val(),
+      'authenticity_token': $('#adoption_form input[name="authenticity_token"]').val(),
       '_method': 'put',
       'hydrant': {
         'user_id': $('#hydrant_user_id').val(),
@@ -339,5 +339,35 @@ $(function() {
       });
     });
     return false;
+  });
+  $('#steal_form').live('submit', function() {
+    var answer = window.confirm("Are you sure you want to steal this hydrant?")
+    if(answer) {
+      $.post('<%= hydrant_path :format => "json" %>', {
+        'id': $('#hydrant_id').val(),
+        'commit': $('#steal_form_submit').val(),
+        'utf8': '✓',
+        'authenticity_token': $('#steal_form input[name="authenticity_token"]').val(),
+        '_method': 'put',
+        'hydrant': {
+          'user_id': $('#hydrant_user_id').val(),
+          'name': $('#hydrant_name').val()
+        }
+      }, function(data) {
+        $.get('<%= contents_path %>', {
+          'hydrant_id': activeHydrantId
+        }, function(data) {
+          activeInfoWindow.setContent(data);
+          image = new google.maps.MarkerImage('/images/markers/red.png',
+            new google.maps.Size(27.0, 37.0),
+            new google.maps.Point(0, 0),
+            new google.maps.Point(13.0, 18.0)
+          );
+          activeMarker.setIcon(image);
+          activeMarker.setAnimation(null);
+        });
+      });
+      return false;
+    }
   });
 });
