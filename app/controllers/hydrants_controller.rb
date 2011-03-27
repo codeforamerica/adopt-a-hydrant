@@ -1,10 +1,25 @@
 class HydrantsController < ApplicationController
-  respond_to :json
+  def show
+    @hydrant = Hydrant.find_by_id(params[:hydrant_id])
+    if @hydrant.adopted?
+      if user_signed_in? && current_user.id == @hydrant.user_id
+        render(:partial => "users/thank_you")
+      else
+        render(:partial => "users/profile")
+      end
+    else
+      if user_signed_in?
+        render(:partial => "adopt")
+      else
+        render(:partial => "users/new")
+      end
+    end
+  end
 
-  def index
+  def list
     @hydrants = Hydrant.find_closest(params[:lat], params[:lng])
     unless @hydrants.blank?
-      respond_with @hydrants
+      render(:json => @hydrants)
     else
       render(:json => {"errors" => {"address" => ["Could not find address."]}})
     end

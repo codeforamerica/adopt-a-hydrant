@@ -38,7 +38,7 @@ $(function() {
       if(activeInfoWindow) {
         activeInfoWindow.close();
       }
-      $.get('<%= contents_path %>', {
+      $.get('/hydrant', {
         'hydrant_id': hydrantId
       }, function(data) {
         var infoWindow = new google.maps.InfoWindow({
@@ -54,7 +54,7 @@ $(function() {
     hydrantIds.push(hydrantId);
   }
   function addMarkersAround(lat, lng) {
-    $.get('<%= hydrants_path :format => "json" %>', {
+    $.get('/hydrants.json', {
       'commit': $('#address_submit').val(),
       'utf8': '✓',
       'authenticity_token': $('#address_form input[name="authenticity_token"]').val(),
@@ -111,7 +111,7 @@ $(function() {
       $('#address').addClass('error', 500);
       $('#address').focus();
     } else {
-      $.get('<%= address_path :format => "json" %>', {
+      $.get('/address.json', {
         'commit': $('#address_submit').val(),
         'utf8': '✓',
         'authenticity_token': $('#address_form input[name="authenticity_token"]').val(),
@@ -184,7 +184,7 @@ $(function() {
       if(errors.length > 0) {
         errors[0].focus();
       } else {
-        $.post('<%= user_registration_path :format => "json" %>', {
+        $.post('/users.json', {
           'commit': $('#user_sign_up_submit').val(),
           'utf8': '✓',
           'authenticity_token': $('#combo_form input[name="authenticity_token"]').val(),
@@ -231,7 +231,7 @@ $(function() {
             }
             errors[0].focus();
           } else {
-            $.get('<%= contents_path %>', {
+            $.get('/hydrant', {
               'hydrant_id': activeHydrantId
             }, function(data) {
               activeInfoWindow.setContent(data);
@@ -251,7 +251,7 @@ $(function() {
       if(errors.length > 0) {
         errors[0].focus();
       } else {
-        $.post('<%= user_session_path :format => "json" %>', {
+        $.post('/users/sign_in.json', {
           'commit': $('#user_sign_in_submit').val(),
           'utf8': '✓',
           'authenticity_token': $('#combo_form input[name="authenticity_token"]').val(),
@@ -266,7 +266,7 @@ $(function() {
             $('#user_password').addClass('error', 500);
             $('#user_password').focus();
           } else {
-            $.get('<%= contents_path %>', {
+            $.get('/hydrant', {
               'hydrant_id': activeHydrantId
             }, function(data) {
               activeInfoWindow.setContent(data);
@@ -278,7 +278,7 @@ $(function() {
       if(errors.length > 0) {
         errors[0].focus();
       } else {
-        $.post('<%= user_password_path :format => "json" %>', {
+        $.post('/users/password.json', {
           'commit': $('#user_forgot_password_submit').val(),
           'utf8': '✓',
           'authenticity_token': $('#combo_form input[name="authenticity_token"]').val(),
@@ -300,12 +300,12 @@ $(function() {
     return false;
   });
   $('#sign_out_form').live('submit', function() {
-    $.get('<%= destroy_user_session_path :format => "json" %>', {
+    $.get('/users/sign_out.json', {
       'commit': $('#sign_out_form_submit').val(),
       'utf8': '✓',
       'authenticity_token': $('#sign_out_form input[name="authenticity_token"]').val()
     }, function(data) {
-      $.get('<%= contents_path %>', {
+      $.get('/hydrant', {
         'hydrant_id': activeHydrantId
       }, function(data) {
         activeInfoWindow.setContent(data);
@@ -314,7 +314,7 @@ $(function() {
     return false;
   });
   $('#adoption_form').live('submit', function() {
-    $.post('<%= hydrant_path :format => "json" %>', {
+    $.post('/hydrant', {
       'id': $('#hydrant_id').val(),
       'commit': $('#adoption_form_submit').val(),
       'utf8': '✓',
@@ -325,7 +325,7 @@ $(function() {
         'name': $('#hydrant_name').val()
       }
     }, function(data) {
-      $.get('<%= contents_path %>', {
+      $.get('/hydrant', {
         'hydrant_id': activeHydrantId
       }, function(data) {
         activeInfoWindow.setContent(data);
@@ -343,7 +343,7 @@ $(function() {
   $('#abandon_form').live('submit', function() {
     var answer = window.confirm("Are you sure you want to abandon this hydrant?")
     if(answer) {
-      $.post('<%= hydrant_path :format => "json" %>', {
+      $.post('/hydrant', {
         'id': $('#hydrant_id').val(),
         'commit': $('#abandon_form_submit').val(),
         'utf8': '✓',
@@ -354,7 +354,7 @@ $(function() {
           'name': $('#hydrant_name').val()
         }
       }, function(data) {
-        $.get('<%= contents_path %>', {
+        $.get('/hydrant', {
           'hydrant_id': activeHydrantId
         }, function(data) {
           activeInfoWindow.setContent(data);
@@ -373,7 +373,7 @@ $(function() {
   $('#steal_form').live('submit', function() {
     var answer = window.confirm("Are you sure you want to steal this hydrant?")
     if(answer) {
-      $.post('<%= hydrant_path :format => "json" %>', {
+      $.post('/hydrant', {
         'id': $('#hydrant_id').val(),
         'commit': $('#steal_form_submit').val(),
         'utf8': '✓',
@@ -384,7 +384,7 @@ $(function() {
           'name': $('#hydrant_name').val()
         }
       }, function(data) {
-        $.get('<%= contents_path %>', {
+        $.get('/hydrant', {
           'hydrant_id': activeHydrantId
         }, function(data) {
           activeInfoWindow.setContent(data);
