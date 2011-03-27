@@ -400,4 +400,37 @@ $(function() {
       return false;
     }
   });
+  $('#edit_profile_form').live('submit', function() {
+    $.get('/users/edit', {
+      'commit': $('#edit_profile_form_submit').val(),
+      'utf8': '✓',
+      'authenticity_token': $('#edit_profile_form input[name="authenticity_token"]').val()
+    }, function(data) {
+      activeInfoWindow.setContent(data);
+    });
+    return false;
+  });
+  $('#edit_form').live('submit', function() {
+    $.post('/users.json', {
+      'id': $('#id').val(),
+      'hydrant_id': activeHydrantId,
+      'commit': $('#edit_form_submit').val(),
+      'utf8': '✓',
+      'authenticity_token': $('#edit_form input[name="authenticity_token"]').val(),
+      '_method': 'put',
+      'user': {
+        'email': $('#user_email').val(),
+        'name': $('#user_name').val(),
+        'organization': $('#user_organization').val(),
+        'voice_number': $('#user_voice_number').val(),
+        'sms_number': $('#user_sms_number').val(),
+        'password': $('#user_password').val(),
+        'password_confirmation': $('#user_password').val(),
+        'current_password': $('#user_current_password').val()
+      }
+    }, function(data) {
+      activeInfoWindow.setContent(data);
+    });
+    return false;
+  });
 });

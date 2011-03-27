@@ -4,7 +4,6 @@ AdoptAHydrant::Application.routes.draw do
     :registrations => 'users',
     :sessions => 'sessions',
   }
-  resource :user
   get 'hydrants' => 'hydrants#list'
   resource :hydrant
   get 'address' => 'addresses#show'
