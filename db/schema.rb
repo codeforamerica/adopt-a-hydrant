@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20110223180521) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.decimal  "lat",        :null => false
-    t.decimal  "lng",        :null => false
+    t.decimal  "lat",        :precision => 16, :scale => 14, :null => false
+    t.decimal  "lng",        :precision => 17, :scale => 14, :null => false
     t.integer  "city_id"
     t.integer  "user_id"
   end
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20110223180521) do
     t.string   "voice_number"
     t.string   "sms_number"
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"

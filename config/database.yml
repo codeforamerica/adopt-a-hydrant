@@ -1,6 +1,6 @@
 development:
   adapter: postgresql
-  database: adopt-a-hydrant
+  database: adopt_a_hydrant
   username: postgres
   password:
 
