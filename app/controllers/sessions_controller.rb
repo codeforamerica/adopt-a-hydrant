@@ -1,11 +1,9 @@
 class SessionsController < Devise::SessionsController
-  respond_to :json
-
   def create
     resource = warden.authenticate(:scope => resource_name)
     if resource
       sign_in(resource_name, resource)
-      respond_with resource
+      render(:json => resource)
     else
       render(:json => {"errors" => {:password => ["You need to sign in or sign up before continuing."]}})
     end
