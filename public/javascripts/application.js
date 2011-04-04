@@ -677,4 +677,23 @@ $(function() {
     }
     return false;
   });
+  $('#back_form').live('submit', function() {
+    var submitButton = $("#edit_form input[type='submit']");
+    $(submitButton).attr("disabled", true);
+    $.ajax({
+      type: 'GET',
+      url: '/hydrant',
+      data: {
+        'hydrant_id': activeHydrantId
+      },
+      beforeSend: function() {
+        $('#info_window').hide();
+        $('#loader').show();
+      },
+      success: function(data) {
+        activeInfoWindow.setContent(data);
+      }
+    });
+    return false;
+  });
 });

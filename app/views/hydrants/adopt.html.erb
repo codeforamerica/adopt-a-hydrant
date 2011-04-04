@@ -1,4 +1,4 @@
-<%= form_for @hydrant, :html => {:id => "adoption_form"} do |f| %>
+<%= form_for(@hydrant, :html => {:id => "adoption_form"}) do |f| %>
   <h2>Adopt this Hydrant</h2>
   <%= f.hidden_field "id" %>
   <%= f.hidden_field "user_id", :value => current_user.id %>
