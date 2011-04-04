@@ -11,7 +11,7 @@ class HydrantsController < ApplicationController
       if user_signed_in?
         render("adopt", :layout => "info_window")
       else
-        render("users/new", :layout => "info_window")
+        render("sessions/new", :layout => "info_window")
       end
     end
   end

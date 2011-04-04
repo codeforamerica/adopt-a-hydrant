@@ -1,4 +1,8 @@
 class SessionsController < Devise::SessionsController
+  def new
+    render("new", :layout => "info_window")
+  end
+
   def create
     resource = warden.authenticate(:scope => resource_name)
     if resource

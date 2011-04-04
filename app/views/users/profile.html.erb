@@ -3,5 +3,7 @@
 <% if user_signed_in? %>
 <%= render(:partial => 'users/edit_profile') %>
 <%= render(:partial => 'hydrants/steal') %>
-<%= render(:partial => 'users/sign_out') %>
+<%= render(:partial => 'sessions/sign_out') %>
+<% else %>
+<%= render(:partial => 'sessions/sign_in') %>
 <% end %>

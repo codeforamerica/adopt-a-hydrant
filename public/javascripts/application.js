@@ -378,36 +378,6 @@ $(function() {
     }
     return false;
   });
-  $('#sign_out_form').live('submit', function() {
-    var submitButton = $("#sign_out_form input[type='submit']");
-    $(submitButton).attr("disabled", true);
-    $.ajax({
-      type: 'GET',
-      url: '/users/sign_out.json',
-      data: {
-        'commit': $('#sign_out_form_submit').val(),
-        'utf8': '✓',
-        'authenticity_token': $('#sign_out_form input[name="authenticity_token"]').val()
-      },
-      beforeSend: function() {
-        $('#info_window').hide();
-        $('#loader').show();
-      },
-      success: function(data) {
-        $.ajax({
-          type: 'GET',
-          url: '/hydrant',
-          data: {
-            'hydrant_id': activeHydrantId
-          },
-          success: function(data) {
-            activeInfoWindow.setContent(data);
-          }
-        });
-      }
-    });
-    return false;
-  });
   $('#adoption_form').live('submit', function() {
     var submitButton = $("#adoption_form input[type='submit']");
     $(submitButton).attr("disabled", true);
@@ -677,13 +647,67 @@ $(function() {
     }
     return false;
   });
+  $('#sign_out_form').live('submit', function() {
+    var submitButton = $("#sign_out_form input[type='submit']");
+    $(submitButton).attr("disabled", true);
+    $.ajax({
+      type: 'GET',
+      url: '/users/sign_out.json',
+      data: {
+        'commit': $('#sign_out_form_submit').val(),
+        'utf8': '✓',
+        'authenticity_token': $('#sign_out_form input[name="authenticity_token"]').val()
+      },
+      beforeSend: function() {
+        $('#info_window').hide();
+        $('#loader').show();
+      },
+      success: function(data) {
+        $.ajax({
+          type: 'GET',
+          url: '/hydrant',
+          data: {
+            'hydrant_id': activeHydrantId
+          },
+          success: function(data) {
+            activeInfoWindow.setContent(data);
+          }
+        });
+      }
+    });
+    return false;
+  });
+  $('#sign_in_form').live('submit', function() {
+    var submitButton = $("#sign_in_form input[type='submit']");
+    $(submitButton).attr("disabled", true);
+    $.ajax({
+      type: 'GET',
+      url: '/users/sign_in',
+      data: {
+        'commit': $('#sign_in_form_submit').val(),
+        'utf8': '✓',
+        'authenticity_token': $('#sign_in_form input[name="authenticity_token"]').val(),
+      },
+      beforeSend: function() {
+        $('#info_window').hide();
+        $('#loader').show();
+      },
+      success: function(data) {
+        activeInfoWindow.setContent(data);
+      }
+    });
+    return false;
+  });
   $('#back_form').live('submit', function() {
-    var submitButton = $("#edit_form input[type='submit']");
+    var submitButton = $("#back_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     $.ajax({
       type: 'GET',
       url: '/hydrant',
       data: {
+        'commit': $('#back_form_submit').val(),
+        'utf8': '✓',
+        'authenticity_token': $('#back_form input[name="authenticity_token"]').val(),
         'hydrant_id': activeHydrantId
       },
       beforeSend: function() {
