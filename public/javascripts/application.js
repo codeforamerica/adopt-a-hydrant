@@ -386,7 +386,7 @@ $(function() {
       url: '/hydrant',
       data: {
         'id': $('#hydrant_id').val(),
-        'commit': $('#adoption_form_submit').val(),
+        'commit': submitButton.val(),
         'utf8': '✓',
         'authenticity_token': $('#adoption_form input[name="authenticity_token"]').val(),
         '_method': 'put',
@@ -432,7 +432,7 @@ $(function() {
         url: '/hydrant',
         data: {
           'id': $('#hydrant_id').val(),
-          'commit': $('#abandon_form_submit').val(),
+          'commit': submitButton.val(),
           'utf8': '✓',
           'authenticity_token': $('#abandon_form input[name="authenticity_token"]').val(),
           '_method': 'put',
@@ -478,7 +478,7 @@ $(function() {
         url: '/hydrant',
         data: {
           'id': $('#hydrant_id').val(),
-          'commit': $('#steal_form_submit').val(),
+          'commit': submitButton.val(),
           'utf8': '✓',
           'authenticity_token': $('#steal_form input[name="authenticity_token"]').val(),
           '_method': 'put',
@@ -515,11 +515,13 @@ $(function() {
     return false;
   });
   $('#edit_profile_form').live('submit', function() {
+    var submitButton = $("#edit_profile_form input[type='submit']");
+    $(submitButton).attr("disabled", true);
     $.ajax({
       type: 'GET',
       url: '/users/edit',
       data: {
-        'commit': $('#edit_profile_form_submit').val(),
+        'commit': submitButton.val(),
         'utf8': '✓',
         'authenticity_token': $('#edit_profile_form input[name="authenticity_token"]').val()
       },
@@ -579,7 +581,7 @@ $(function() {
         data: {
           'id': $('#id').val(),
           'hydrant_id': activeHydrantId,
-          'commit': $('#edit_form_submit').val(),
+          'commit': submitButton.val(),
           'utf8': '✓',
           'authenticity_token': $('#edit_form input[name="authenticity_token"]').val(),
           '_method': 'put',
@@ -654,7 +656,7 @@ $(function() {
       type: 'GET',
       url: '/users/sign_out.json',
       data: {
-        'commit': $('#sign_out_form_submit').val(),
+        'commit': submitButton.val(),
         'utf8': '✓',
         'authenticity_token': $('#sign_out_form input[name="authenticity_token"]').val()
       },
@@ -684,7 +686,7 @@ $(function() {
       type: 'GET',
       url: '/users/sign_in',
       data: {
-        'commit': $('#sign_in_form_submit').val(),
+        'commit': submitButton.val(),
         'utf8': '✓',
         'authenticity_token': $('#sign_in_form input[name="authenticity_token"]').val(),
       },
@@ -705,7 +707,7 @@ $(function() {
       type: 'GET',
       url: '/hydrant',
       data: {
-        'commit': $('#back_form_submit').val(),
+        'commit': submitButton.val(),
         'utf8': '✓',
         'authenticity_token': $('#back_form input[name="authenticity_token"]').val(),
         'hydrant_id': activeHydrantId

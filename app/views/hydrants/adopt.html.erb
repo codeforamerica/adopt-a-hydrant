@@ -4,7 +4,7 @@
   <%= f.hidden_field "user_id", :value => current_user.id %>
   <%= f.label "name", "Give this hydrant a name", :id => "hydrant_name_label" %>
   <%= f.text_field "name", :tabindex => 1 %>
-  <%= f.submit "Adopt!", :tabindex => 2, :id => "adoption_form_submit" %>
+  <%= f.submit "Adopt!", :tabindex => 2 %>
   <p>By adopting this hydrant, you agree to the <%= link_to "Terms of Service", "#", :tabindex => 3 %>.</p>
 <% end %>
 <%= render(:partial => 'users/edit_profile') %>
