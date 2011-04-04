@@ -12,6 +12,7 @@ $(function() {
   var activeHydrantId;
   var activeMarker;
   var activeInfoWindow;
+  var isWindowOpen = false;
   var hydrantIds = [];
   function addMarker(hydrantId, point, color) {
     if($.inArray(hydrantId, hydrantIds) != -1) {
@@ -41,6 +42,9 @@ $(function() {
       var infoWindow = new google.maps.InfoWindow({
         maxWidth: 350
       });
+      google.maps.event.addListener(infoWindow, 'closeclick', function() {
+        isWindowOpen = false;
+      });
       activeInfoWindow = infoWindow;
       activeHydrantId = hydrantId;
       activeMarker = marker;
@@ -55,6 +59,7 @@ $(function() {
           if(infoWindow == activeInfoWindow) {
             infoWindow.setContent(data);
             infoWindow.open(map, marker);
+            isWindowOpen = true;
           }
         }
       });
@@ -117,6 +122,9 @@ $(function() {
     });
   }
   google.maps.event.addListener(map, 'dragend', function() {
+    if(isWindowOpen == true) {
+      return;
+    }
     center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
   });
