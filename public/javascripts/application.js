@@ -66,7 +66,7 @@ $(function() {
       type: 'GET',
       url: '/hydrants.json',
       data: {
-        'commit': $('#address_submit').val(),
+        'commit': $('#address_form input[type="submit"]').val(),
         'utf8': '✓',
         'authenticity_token': $('#address_form input[name="authenticity_token"]').val(),
         'lat': lat,
@@ -136,7 +136,7 @@ $(function() {
         type: 'GET',
         url: '/address.json',
         data: {
-          'commit': $('#address_submit').val(),
+          'commit': submitButton.val(),
           'utf8': '✓',
           'authenticity_token': $('#address_form input[name="authenticity_token"]').val(),
           'city_state': $('#city_state').val(),
@@ -219,7 +219,7 @@ $(function() {
           type: 'POST',
           url: '/users.json',
           data: {
-            'commit': $('#user_sign_up_submit').val(),
+            'commit': submitButton.val(),
             'utf8': '✓',
             'authenticity_token': $('#combo_form input[name="authenticity_token"]').val(),
             'user': {
@@ -304,7 +304,7 @@ $(function() {
           type: 'POST',
           url: '/users/sign_in.json',
           data: {
-            'commit': $('#user_sign_in_submit').val(),
+            'commit': submitButton.val(),
             'utf8': '✓',
             'authenticity_token': $('#combo_form input[name="authenticity_token"]').val(),
             'user': {
@@ -349,7 +349,7 @@ $(function() {
           type: 'POST',
           url: '/users/password.json',
           data: {
-            'commit': $('#user_forgot_password_submit').val(),
+            'commit': submitButton.val(),
             'utf8': '✓',
             'authenticity_token': $('#combo_form input[name="authenticity_token"]').val(),
             'user': {

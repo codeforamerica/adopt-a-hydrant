@@ -17,18 +17,18 @@
     <%= f.text_field "sms_number", :tabindex => 6 %>
     <%= f.label "password_confirmation", "Choose a password", :id => "user_password_confirmation_label" %>
     <%= f.password_field "password_confirmation", :tabindex => 7 %>
-    <%= f.submit "Sign up", :tabindex => 8, :id => "user_sign_up_submit" %>
+    <%= f.submit "Sign up", :tabindex => 8 %>
     <p>By signing up, you agree to the <%= link_to "Terms of Service", "#", :tabindex => 9 %>.</p>
   </div>
   <div id="user_sign_in_fields" style="display: none;">
     <%= f.label "password", "Password", :id => "user_password_label" %>
     <%= f.password_field "password", :tabindex => 0 %>
     <%= f.label "remember_me", (f.check_box("remember_me", :checked => true, :tabindex => 0).html_safe + "Stay signed in"), :id => "user_remember_me_label" %><br />
-    <%= f.submit "Sign in", :tabindex => 0, :id => "user_sign_in_submit" %>
+    <%= f.submit "Sign in", :tabindex => 0 %>
     <p><%= link_to "Forgot your password?", "#", :id => "user_forgot_password_link", :tabindex => 0 %></p>
   </div>
   <div id="user_forgot_password_fields" style="display: none;">
-    <%= f.submit "Email me my password", :tabindex => 0, :id => "user_forgot_password_submit" %>
+    <%= f.submit "Email me my password", :tabindex => 0 %>
     <p><%= link_to "Never mind. I remembered my password.", "#", :id => "user_remembered_password", :tabindex => 0 %></p>
   </div>
 <% end %>
