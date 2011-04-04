@@ -15,9 +15,6 @@ $(function() {
   var isWindowOpen = false;
   var hydrantIds = [];
   function addMarker(hydrantId, point, color) {
-    if($.inArray(hydrantId, hydrantIds) != -1) {
-      return;
-    }
     var image = new google.maps.MarkerImage(color,
       new google.maps.Size(27.0, 37.0),
       new google.maps.Point(0, 0),
@@ -85,38 +82,24 @@ $(function() {
         } else {
           $('#address_label').removeClass('error', 500);
           $('#address').removeClass('error', 500);
-          var northMost;
-          var eastMost;
-          var southMost;
-          var westMost;
-          var i = 0;
+          var i = -1;
           $(data).each(function(index, hydrant) {
             hydrant = hydrant.hydrant;
-            if(!northMost || northMost > hydrant.lat) {
-              northMost = hydrant.lat;
-            }
-            if(!eastMost || eastMost > hydrant.lng) {
-              eastMost = hydrant.lng;
-            }
-            if(!southMost || southMost < hydrant.lat) {
-              southMost = hydrant.lat;
-            }
-            if(!westMost || westMost < hydrant.lng) {
-              westMost = hydrant.lng;
+            if($.inArray(hydrant.id, hydrantIds) == -1) {
+              i += 1;
+            } else {
+              // continue
+              return true;
             }
             setTimeout(function() {
               point = new google.maps.LatLng(hydrant.lat, hydrant.lng);
               color = '/images/markers/' + (hydrant.user_id ? 'green' : 'red') + '.png';
               addMarker(hydrant.id, point, color);
             }, i * 100);
-            if($.inArray(hydrant.id, hydrantIds) == -1) {
-              i += 1;
-            }
           });
-          southWest = new google.maps.LatLng(southMost, westMost);
-          northEast = new google.maps.LatLng(northMost, eastMost);
-          bounds = new google.maps.LatLngBounds(southWest, northEast);
-          map.fitBounds(bounds);
+          center = new google.maps.LatLng(lat, lng);
+          map.setCenter(center);
+          map.setZoom(18);
         }
       }
     });
