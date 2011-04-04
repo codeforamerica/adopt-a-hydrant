@@ -227,6 +227,12 @@ $(function() {
             $('#info_window').hide();
             $('#loader').show();
           },
+          error: function(data) {
+            console.log(data);
+            $('#loader').hide();
+            $('#info_window').show();
+            $(submitButton).attr("disabled", false);
+          },
           success: function(data) {
             if(data.errors) {
               $('#loader').hide();
@@ -308,6 +314,12 @@ $(function() {
             $('#info_window').hide();
             $('#loader').show();
           },
+          error: function(data) {
+            console.log(data);
+            $('#loader').hide();
+            $('#info_window').show();
+            $(submitButton).attr("disabled", false);
+          },
           success: function(data) {
             if(data.errors) {
               $('#loader').hide();
@@ -351,6 +363,12 @@ $(function() {
             $('#info_window').hide();
             $('#loader').show();
           },
+          error: function(data) {
+            console.log(data);
+            $('#loader').hide();
+            $('#info_window').show();
+            $(submitButton).attr("disabled", false);
+          },
           success: function() {
             if(data.errors) {
               $('#loader').hide();
@@ -389,6 +407,12 @@ $(function() {
       beforeSend: function() {
         $('#info_window').hide();
         $('#loader').show();
+      },
+      error: function(data) {
+        console.log(data);
+        $('#loader').hide();
+        $('#info_window').show();
+        $(submitButton).attr("disabled", false);
       },
       success: function(data) {
         $.ajax({
@@ -436,6 +460,12 @@ $(function() {
           $('#info_window').hide();
           $('#loader').show();
         },
+        error: function(data) {
+          console.log(data);
+          $('#loader').hide();
+          $('#info_window').show();
+          $(submitButton).attr("disabled", false);
+        },
         success: function(data) {
           $.ajax({
             type: 'GET',
@@ -482,6 +512,12 @@ $(function() {
           $('#info_window').hide();
           $('#loader').show();
         },
+        error: function(data) {
+          console.log(data);
+          $('#loader').hide();
+          $('#info_window').show();
+          $(submitButton).attr("disabled", false);
+        },
         success: function(data) {
           $.ajax({
             type: 'GET',
@@ -519,6 +555,12 @@ $(function() {
       beforeSend: function() {
         $('#info_window').hide();
         $('#loader').show();
+      },
+      error: function(data) {
+        console.log(data);
+        $('#loader').hide();
+        $('#info_window').show();
+        $(submitButton).attr("disabled", false);
       },
       success: function(data) {
         activeInfoWindow.setContent(data);
@@ -591,6 +633,12 @@ $(function() {
           $('#info_window').hide();
           $('#loader').show();
         },
+        error: function(data) {
+          console.log(data);
+          $('#loader').hide();
+          $('#info_window').show();
+          $(submitButton).attr("disabled", false);
+        },
         success: function(data) {
           if(data.errors) {
             $('#loader').hide();
@@ -655,6 +703,12 @@ $(function() {
         $('#info_window').hide();
         $('#loader').show();
       },
+      error: function(data) {
+        console.log(data);
+        $('#loader').hide();
+        $('#info_window').show();
+        $(submitButton).attr("disabled", false);
+      },
       success: function(data) {
         $.ajax({
           type: 'GET',
@@ -685,6 +739,12 @@ $(function() {
         $('#info_window').hide();
         $('#loader').show();
       },
+      error: function(data) {
+        console.log(data);
+        $('#loader').hide();
+        $('#info_window').show();
+        $(submitButton).attr("disabled", false);
+      },
       success: function(data) {
         activeInfoWindow.setContent(data);
       }
@@ -706,6 +766,12 @@ $(function() {
       beforeSend: function() {
         $('#info_window').hide();
         $('#loader').show();
+      },
+      error: function(data) {
+        console.log(data);
+        $('#loader').hide();
+        $('#info_window').show();
+        $(submitButton).attr("disabled", false);
       },
       success: function(data) {
         activeInfoWindow.setContent(data);
