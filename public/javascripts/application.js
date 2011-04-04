@@ -495,8 +495,8 @@ $(function() {
           });
         }
       });
-      return false;
     }
+    return false;
   });
   $('#steal_form').live('submit', function() {
     var answer = window.confirm("Are you sure you want to steal this hydrant?")
@@ -541,8 +541,8 @@ $(function() {
           });
         }
       });
-      return false;
     }
+    return false;
   });
   $('#edit_profile_form').live('submit', function() {
     $.ajax({
