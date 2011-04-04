@@ -3,15 +3,15 @@ class HydrantsController < ApplicationController
     @hydrant = Hydrant.find_by_id(params[:hydrant_id])
     if @hydrant.adopted?
       if user_signed_in? && current_user.id == @hydrant.user_id
-        render(:partial => "users/thank_you")
+        render("users/thank_you", :layout => "info_window")
       else
-        render(:partial => "users/profile")
+        render("users/profile", :layout => "info_window")
       end
     else
       if user_signed_in?
-        render(:partial => "adopt")
+        render("adopt", :layout => "info_window")
       else
-        render(:partial => "users/new")
+        render("users/new", :layout => "info_window")
       end
     end
   end

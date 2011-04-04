@@ -1,10 +1,7 @@
 class PasswordsController < Devise::PasswordsController
-  respond_to :json, :only => [:create, :update]
-
   # POST /resource/password
   def create
     self.resource = resource_class.send_reset_password_instructions(params[resource_name])
-
     if resource.errors.empty?
       render(:json => {"success" => true})
     else
@@ -22,7 +19,6 @@ class PasswordsController < Devise::PasswordsController
   # PUT /resource/password
   def update
     self.resource = resource_class.reset_password_by_token(params[resource_name])
-
     if resource.errors.empty?
       render(:json => {"success" => true})
     else
