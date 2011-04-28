@@ -43,5 +43,5 @@ Submitting a Pull Request
 
 Copyright
 ---------
-Copyright (c) 2011 Code for America
+Copyright (c) 2011 Code for America.
 See [LICENSE](https://github.com/codeforamerica/adopt-a-hydrant/blob/master/LICENSE.md) for details.
