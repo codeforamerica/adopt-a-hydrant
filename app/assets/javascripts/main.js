@@ -20,7 +20,7 @@ $(function() {
       new google.maps.Point(0, 0),
       new google.maps.Point(13.0, 18.0)
     );
-    var shadow = new google.maps.MarkerImage('/images/markers/shadow.png',
+    var shadow = new google.maps.MarkerImage('/assets/markers/shadow.png',
       new google.maps.Size(46.0, 37.0),
       new google.maps.Point(0, 0),
       new google.maps.Point(13.0, 18.0)
@@ -84,7 +84,6 @@ $(function() {
           $('#address').removeClass('error', 500);
           var i = -1;
           $(data).each(function(index, hydrant) {
-            hydrant = hydrant.hydrant;
             if($.inArray(hydrant.id, hydrantIds) == -1) {
               i += 1;
             } else {
@@ -93,7 +92,7 @@ $(function() {
             }
             setTimeout(function() {
               point = new google.maps.LatLng(hydrant.lat, hydrant.lng);
-              color = '/images/markers/' + (hydrant.user_id ? 'green' : 'red') + '.png';
+              color = '/assets/markers/' + (hydrant.user_id ? 'green' : 'red') + '.png';
               addMarker(hydrant.id, point, color);
             }, i * 100);
           });
@@ -424,7 +423,7 @@ $(function() {
           success: function(data) {
             activeInfoWindow.setContent(data);
             activeInfoWindow.setContent(data);
-            image = new google.maps.MarkerImage('/images/markers/green.png',
+            image = new google.maps.MarkerImage('/assets/markers/green.png',
               new google.maps.Size(27.0, 37.0),
               new google.maps.Point(0, 0),
               new google.maps.Point(13.0, 18.0)
@@ -475,7 +474,7 @@ $(function() {
             },
             success: function(data) {
               activeInfoWindow.setContent(data);
-              image = new google.maps.MarkerImage('/images/markers/red.png',
+              image = new google.maps.MarkerImage('/assets/markers/red.png',
                 new google.maps.Size(27.0, 37.0),
                 new google.maps.Point(0, 0),
                 new google.maps.Point(13.0, 18.0)
@@ -527,7 +526,7 @@ $(function() {
             },
             success: function(data) {
               activeInfoWindow.setContent(data);
-              image = new google.maps.MarkerImage('/images/markers/red.png',
+              image = new google.maps.MarkerImage('/assets/markers/red.png',
                 new google.maps.Size(27.0, 37.0),
                 new google.maps.Point(0, 0),
                 new google.maps.Point(13.0, 18.0)

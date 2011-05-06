@@ -1,4 +1,6 @@
 class HydrantsController < ApplicationController
+  respond_to :json, :only => [:list, :update]
+
   def show
     @hydrant = Hydrant.find_by_id(params[:hydrant_id])
     if @hydrant.adopted?
@@ -19,7 +21,7 @@ class HydrantsController < ApplicationController
   def list
     @hydrants = Hydrant.find_closest(params[:lat], params[:lng])
     unless @hydrants.blank?
-      render(:json => @hydrants)
+      respond_with @hydrants
     else
       render(:json => {"errors" => {"address" => ["Could not find address."]}})
     end
@@ -28,7 +30,7 @@ class HydrantsController < ApplicationController
   def update
     @hydrant = Hydrant.find(params[:id])
     if @hydrant.update_attributes(params[:hydrant])
-      render(:json => @hydrant)
+      respond_with @hydrant
     else
       render(:json => {"errors" => @hydrant.errors})
     end

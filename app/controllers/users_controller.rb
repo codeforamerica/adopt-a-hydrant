@@ -1,4 +1,6 @@
 class UsersController < Devise::RegistrationsController
+  respond_to :json, :only => [:create]
+
   def edit
     render("edit", :layout => "info_window")
   end
@@ -21,7 +23,7 @@ class UsersController < Devise::RegistrationsController
       else
         expire_session_data_after_sign_in!
       end
-      render(:json => resource)
+      respond_with resource
     else
       clean_up_passwords(resource)
       render(:json => {"errors" => resource.errors})
