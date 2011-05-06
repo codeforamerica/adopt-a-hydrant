@@ -12,7 +12,7 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 
-group :development do
+group :development, :production do
   gem 'pg'
 end
 
