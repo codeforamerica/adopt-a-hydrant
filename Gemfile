@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.0.beta1'
 gem 'geokit'
 gem 'devise'
+gem "therubyracer", :require => 'v8'
 
 # Asset template engines
 gem 'sass'
