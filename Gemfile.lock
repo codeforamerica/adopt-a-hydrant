@@ -88,6 +88,9 @@ GEM
       thor (~> 0.14.6)
     rake (0.8.7)
     sass (3.1.1)
+    simplecov (0.4.2)
+      simplecov-html (~> 0.4.4)
+    simplecov-html (0.4.4)
     sprockets (2.0.0.beta.2)
       hike (~> 1.0)
       rack (~> 1.0)
@@ -116,5 +119,6 @@ DEPENDENCIES
   pg
   rails (= 3.1.0.beta1)
   sass
+  simplecov
   therubyracer-heroku (= 0.8.1.pre3)
   turn

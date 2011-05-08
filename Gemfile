@@ -13,6 +13,7 @@ platforms :jruby do
 end
 
 group :test do
+  gem 'simplecov'
   gem 'turn', :require => false
 end
 
