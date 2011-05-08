@@ -1,0 +1,14 @@
+%h2
+  = @hydrant.name ? @hydrant.name.titleize : "This hydrant"
+  has been adopted by
+  = @hydrant.user.name
+- unless @hydrant.user.organization.blank?
+  %h3
+    of
+    = @hydrant.user.organization
+- if user_signed_in?
+  = render :partial => 'users/edit_profile'
+  = render :partial => 'hydrants/steal'
+  = render :partial => 'sessions/sign_out'
+- else
+  = render :partial => 'sessions/sign_in'

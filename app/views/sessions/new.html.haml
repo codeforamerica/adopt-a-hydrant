@@ -1,0 +1,34 @@
+= form_for :user, :html => {:id => "combo_form"} do |f|
+  %h2
+    Adopt this Hydrant
+  #common_fields
+    = f.label "email", "Email address", :id => "user_email_label"
+    = f.text_field "email", :tabindex => 1
+    = f.label "new" , radio_button_tag("user", "new", true, :tabindex => 2).html_safe + "I haven't signed up yet"
+    = f.label "existing", radio_button_tag("user", "existing").html_safe + "I've already signed up"
+  #user_sign_up_fields
+    = f.label "name", "Name", :id => "user_name_label"
+    = f.text_field "name", :tabindex => 3
+    = f.label "organization", "Organization", :id => "user_organization_label"
+    = f.text_field "organization", :tabindex => 4
+    = f.label "voice_number", "Phone number", :id => "user_voice_number_label"
+    = f.text_field "voice_number", :tabindex => 5
+    = f.label "sms_number", "SMS number", :id => "user_sms_number_label"
+    = f.text_field "sms_number", :tabindex => 6
+    = f.label "password_confirmation", "Choose a password", :id => "user_password_confirmation_label"
+    = f.password_field "password_confirmation", :tabindex => 7
+    = f.submit "Sign up", :tabindex => 8
+    %p
+      By signing up, you agree to the
+      = link_to("Terms of Service", "#", :tabindex => 9) + "."
+  #user_sign_in_fields{:style => "display: none;"}
+    = f.label "password", "Password", :id => "user_password_label"
+    = f.password_field "password", :tabindex => 0
+    = f.label "remember_me", (f.check_box("remember_me", :checked => true, :tabindex => 0).html_safe + "Stay signed in"), :id => "user_remember_me_label"
+    = f.submit "Sign in", :tabindex => 0
+    %p
+      = link_to "Forgot your password?", "#", :id => "user_forgot_password_link", :tabindex => 0
+  #user_forgot_password_fields{:style => "display: none;"}
+    = f.submit "Email me my password", :tabindex => 0
+    %p
+      = link_to "Never mind. I remembered my password.", "#", :id => "user_remembered_password", :tabindex => 0

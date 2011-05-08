@@ -1,0 +1,16 @@
+#sidebar
+  %h1
+    Adopt a Hydrant
+  %p#tagline
+    Claim responsibility for shoveling out a fire hydrant after it snows.
+  = form_for :address, :html => {:id => "address_form"} do |f|
+    = label_tag "city_state", "City", :id => "city_label"
+    = select_tag "city_state", '<option value="Boston, MA" selected="selected">Boston, MA</option>'.html_safe, :tabindex => 10
+    = label_tag "address", "Address", :id => "address_label"
+    = text_field_tag "address", params[:address], :tabindex => 11
+    = submit_tag "Find fire hydrants", :tabindex => 12
+  #logos
+    = image_tag "logos/cfa.png", :alt => "Code for America", :title => "Code for America"
+    = image_tag "logos/boston.png", :alt => "City of Boston", :title => "City of Boston"
+  = image_tag "hydrant-in-snow.jpg", :id => "hydrant-in-snow"
+#map_canvas

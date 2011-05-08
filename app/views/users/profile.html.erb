@@ -1,9 +1,0 @@
-<h2><%= @hydrant.name ? @hydrant.name.titleize : "This hydrant" %> has been adopted by <%= @hydrant.user.name %></h2>
-<%= @hydrant.user.organization.blank? ? nil : "<h3>of #{@hydrant.user.organization}</h3>".html_safe %>
-<% if user_signed_in? %>
-<%= render(:partial => 'users/edit_profile') %>
-<%= render(:partial => 'hydrants/steal') %>
-<%= render(:partial => 'sessions/sign_out') %>
-<% else %>
-<%= render(:partial => 'sessions/sign_in') %>
-<% end %>

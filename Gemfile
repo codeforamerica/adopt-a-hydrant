@@ -4,6 +4,7 @@ gem 'rails', '3.1.0.beta1'
 gem 'coffee-script'
 gem 'devise'
 gem 'geokit'
+gem 'haml'
 gem 'pg'
 gem 'sass'
 

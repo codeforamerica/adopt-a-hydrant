@@ -49,6 +49,7 @@ GEM
     execjs (0.3.3)
       multi_json (~> 1.0)
     geokit (1.5.0)
+    haml (3.1.1)
     hike (1.0.0)
     i18n (0.6.0beta1)
     jruby-openssl (0.7.4)
@@ -110,6 +111,7 @@ DEPENDENCIES
   coffee-script
   devise
   geokit
+  haml
   jruby-openssl (~> 0.7)
   pg
   rails (= 3.1.0.beta1)
