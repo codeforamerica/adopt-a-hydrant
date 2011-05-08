@@ -15,6 +15,7 @@ end
 group :test do
   gem 'simplecov'
   gem 'turn', :require => false
+  gem 'webmock'
 end
 
 group :production do

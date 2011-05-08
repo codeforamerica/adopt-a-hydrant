@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>City Hall, Boston, MA</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>Boston City Hall, 1 City Hall Square, Boston, MA 02201-1001, USA</address>
+    <AddressDetails Accuracy="9" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>MA</AdministrativeAreaName><Locality><LocalityName>Boston</LocalityName><Thoroughfare><ThoroughfareName>Boston City Hall, 1 City Hall Square</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>02201-1001</PostalCodeNumber></PostalCode><AddressLine>Boston City Hall</AddressLine></Locality></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="42.3686503" south="42.3521606" east="-71.0419856" west="-71.0740004" />
+    </ExtendedData>
+    <Point><coordinates>-71.0579930,42.3604060,0</coordinates></Point>
+  </Placemark>
+  <Placemark id="p2">
+    <address>State Highway 3, MA, USA</address>
+    <AddressDetails Accuracy="6" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>MA</AdministrativeAreaName><Thoroughfare><ThoroughfareName>Massachusetts 3</ThoroughfareName></Thoroughfare></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="42.3363770" south="42.2746700" east="-71.0481820" west="-71.0651655" />
+    </ExtendedData>
+    <Point><coordinates>-71.0536709,42.3062860,0</coordinates></Point>
+  </Placemark>
+  <Placemark id="p3">
+    <address>Boston, Massachusetts, USA</address>
+    <AddressDetails Accuracy="0" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><AddressLine>Boston</AddressLine></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="42.3987970" south="42.2277980" east="-70.9821865" west="-71.1911980" />
+    </ExtendedData>
+    <Point><coordinates>-71.0854325,42.3094288,0</coordinates></Point>
+  </Placemark>
+  <Placemark id="p4">
+    <address>Mayor&apos;S-Press Office, 1 City Hall Square, Boston, MA 02201-2013, USA</address>
+    <AddressDetails Accuracy="9" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>MA</AdministrativeAreaName><Locality><LocalityName>Boston</LocalityName><Thoroughfare><ThoroughfareName>Mayor'S-Press Office, 1 City Hall Square</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>02201-2013</PostalCodeNumber></PostalCode><AddressLine>Mayor'S-Press Office</AddressLine></Locality></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="42.2985646" south="42.2922694" east="-71.0865872" west="-71.0928824" />
+    </ExtendedData>
+    <Point><coordinates>-71.0897348,42.2954170,0</coordinates></Point>
+  </Placemark>
+  <Placemark id="p5">
+    <address>Boston City Hall, Boston, MA 02109, USA</address>
+    <AddressDetails Accuracy="9" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>MA</AdministrativeAreaName><Locality><LocalityName>Boston</LocalityName><Thoroughfare><ThoroughfareName>Boston City Hall</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>02109</PostalCodeNumber></PostalCode><AddressLine>Boston City Hall</AddressLine></Locality></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="42.3635641" south="42.3572688" east="-71.0548541" west="-71.0611494" />
+    </ExtendedData>
+    <Point><coordinates>-71.0577624,42.3601096,0</coordinates></Point>
+  </Placemark>
+</Response></kml>

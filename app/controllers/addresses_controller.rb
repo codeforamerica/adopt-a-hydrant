@@ -6,7 +6,7 @@ class AddressesController < ApplicationController
     unless @address.blank?
       respond_with @address
     else
-      render(:json => {"errors" => {"address" => ["Could not find address."]}})
+      render(:json => {"errors" => {"address" => ["Could not find address."]}}, :status => 404)
     end
   end
 end
