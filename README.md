@@ -15,6 +15,12 @@ Demo
 You can see a running version of the application at
 <http://adopt-a-hydrant.heroku.com/>.
 
+Installation
+------------
+    git clone git://github.com/codeforamerica/adopt-a-hydrant.git
+    cd adopt-a-hydrant
+    bundle install
+
 Contributing
 ------------
 In the spirit of [free software](http://www.fsf.org/licensing/essays/free-sw.html), **everyone** is encouraged to help improve this project.
