@@ -21,6 +21,10 @@ Installation
     cd adopt-a-hydrant
     bundle install
 
+Usage
+-----
+    rails server
+
 Contributing
 ------------
 In the spirit of [free software](http://www.fsf.org/licensing/essays/free-sw.html), **everyone** is encouraged to help improve this project.
