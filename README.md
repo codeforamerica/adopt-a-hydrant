@@ -6,6 +6,10 @@ Screenshot
 ----------
 ![Adopt a Hydrant](https://github.com/codeforamerica/adopt-a-hydrant/raw/master/screenshot.png "Adopt a Hydrant")
 
+Continuous Integration
+----------------------
+[![Build Status](http://travis-ci.org/codeforamerica/adopt-a-hydrant.png)](http://travis-ci.org/codeforamerica/adopt-a-hydrant)
+
 Contributing
 ------------
 In the spirit of [free software](http://www.fsf.org/licensing/essays/free-sw.html), **everyone** is encouraged to help improve this project.
