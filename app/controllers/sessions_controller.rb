@@ -9,7 +9,7 @@ class SessionsController < Devise::SessionsController
       sign_in(resource_name, resource)
       render(:json => resource)
     else
-      render(:json => {"errors" => {:password => ["You need to sign in or sign up before continuing."]}})
+      render(:json => {"errors" => {:password => ["You need to sign in or sign up before continuing."]}}, :status => 401)
     end
   end
 

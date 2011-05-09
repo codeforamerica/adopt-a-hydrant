@@ -1,0 +1,7 @@
+user:
+  name: User
+  organization: Code for America
+  email: user@example.com
+  voice_number: 1234567890
+  sms_number: 1234567890
+  encrypted_password: "$2a$10$KF/JMZ494ZLhWLgHZeBTf.cSL4l0Wjij4gIZP7BzkueAC1p4nW0ma"
