@@ -13,7 +13,7 @@ Continuous Integration
 Demo
 ----
 You can see a running version of the application at
-<http://adopt-a-hydrant.heroku.com/>.
+[http://adopt-a-hydrant.heroku.com/](http://adopt-a-hydrant.heroku.com/).
 
 Installation
 ------------
