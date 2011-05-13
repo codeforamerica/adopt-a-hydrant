@@ -31,7 +31,7 @@ GEM
       activesupport (= 3.1.0.beta1)
     activesupport (3.1.0.beta1)
       multi_json (~> 1.0)
-    addressable (2.2.5)
+    addressable (2.2.6)
     ansi (1.2.5)
     arel (2.1.0)
     bcrypt-ruby (2.1.4)
