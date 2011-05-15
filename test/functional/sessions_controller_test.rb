@@ -4,7 +4,7 @@ class SessionsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   setup do
     request.env["devise.mapping"] = Devise.mappings[:user]
-    @user = users(:user)
+    @user = users(:erik)
   end
 
   test 'should render combo form' do

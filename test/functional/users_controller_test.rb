@@ -4,7 +4,7 @@ class UsersControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   setup do
     request.env["devise.mapping"] = Devise.mappings[:user]
-    @user = users(:user)
+    @user = users(:erik)
   end
 
   test 'should render info window' do
@@ -35,27 +35,27 @@ class UsersControllerTest < ActionController::TestCase
 
   test 'should update user if password is correct' do
     sign_in @user
-    assert_not_equal @user.name, 'Erik Michaels-Ober'
-    put :update, :user => {:name => 'Erik Michaels-Ober', :current_password => 'correct'}
+    assert_not_equal @user.name, 'New Name'
+    put :update, :user => {:name => 'New Name', :current_password => 'correct'}
     @user.reload
-    assert_equal @user.name, 'Erik Michaels-Ober'
+    assert_equal @user.name, 'New Name'
     assert_response :redirect
     assert_redirected_to :controller => 'hydrants', :action => 'show'
   end
 
   test 'should return error if password is incorrect' do
     sign_in @user
-    put :update, :user => {:name => 'Erik Michaels-Ober', :current_password => 'incorrect'}
+    put :update, :user => {:name => 'New Name', :current_password => 'incorrect'}
     assert_response :error
   end
 
   test 'should create user if information is valid' do
-    post :create, :user => {:email => 'user1@example.com', :name => @user.name, :password => 'correct', :password_confirmation => 'correct'}
+    post :create, :user => {:email => 'user@example.com', :name => 'User', :password => 'correct', :password_confirmation => 'correct'}
     assert_response :success
   end
 
   test 'should return error if information is invalid' do
-    post :create, :user => {:email => 'user2@example.com', :name => @user.name, :password => 'correct', :password_confirmation => 'incorrect'}
+    post :create, :user => {:email => 'user@example.com', :name => 'User', :password => 'correct', :password_confirmation => 'incorrect'}
     assert_response :error
   end
 end
