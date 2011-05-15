@@ -4,7 +4,7 @@
   %p#tagline
     Claim responsibility for shoveling out a fire hydrant after it snows.
   = form_for :address, :html => {:id => "address_form"} do |f|
-    = label_tag "city_state", "City", :id => "city_label"
+    = label_tag "city_state", "City", :id => "city_state_label"
     = select_tag "city_state", '<option value="Boston, MA" selected="selected">Boston, MA</option>'.html_safe, :tabindex => 10
     = label_tag "address", "Address", :id => "address_label"
     = text_field_tag "address", params[:address], :tabindex => 11
