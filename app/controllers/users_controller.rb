@@ -9,7 +9,7 @@ class UsersController < Devise::RegistrationsController
       redirect_to(:controller => "hydrants", :action => "show", :hydrant_id => params[:hydrant_id])
     else
       clean_up_passwords(resource)
-      render(:json => {"errors" => resource.errors})
+      render(:json => {"errors" => resource.errors}, :status => 500)
     end
   end
 
@@ -20,7 +20,7 @@ class UsersController < Devise::RegistrationsController
       render(:json => resource)
     else
       clean_up_passwords(resource)
-      render(:json => {"errors" => resource.errors})
+      render(:json => {"errors" => resource.errors}, :status => 500)
     end
   end
 end
