@@ -19,6 +19,6 @@ group :test do
   gem 'webmock'
 end
 
-group :production do
-  gem 'therubyracer-heroku', '0.8.1.pre3', :platforms => :ruby
+group :test, :production do
+  gem 'therubyracer-heroku', '0.8.1.pre3'
 end
