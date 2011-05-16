@@ -23,7 +23,7 @@ class HydrantsController < ApplicationController
     unless @hydrants.blank?
       respond_with @hydrants
     else
-      render(:json => {"errors" => {"address" => ["Could not find address."]}})
+      render(:json => {"errors" => {"address" => ["Could not find hydrants."]}}, :status => 404)
     end
   end
 
@@ -32,7 +32,7 @@ class HydrantsController < ApplicationController
     if @hydrant.update_attributes(params[:hydrant])
       respond_with @hydrant
     else
-      render(:json => {"errors" => @hydrant.errors})
+      render(:json => {"errors" => @hydrant.errors}, :status => 500)
     end
   end
 end
