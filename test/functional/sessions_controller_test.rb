@@ -10,13 +10,15 @@ class SessionsControllerTest < ActionController::TestCase
   test 'should render combo form' do
     get :new
     assert_response :success
-    assert_select 'form' do
+    assert_template :new
+    assert_select 'form#combo_form' do
       assert_select '[action=?]', '/users/sign_in'
       assert_select '[method=?]', 'post'
     end
     assert_select 'h2', 'Adopt this Hydrant'
     assert_select 'input', :count => 15
     assert_select 'label', :count => 10
+    assert_select 'input[name="commit"]', :count => 3
   end
 
   test 'should redirect if user is already authenticated' do

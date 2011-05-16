@@ -227,59 +227,52 @@ $(function() {
             $('#loader').show();
           },
           error: function(data) {
-            console.log(data);
             $('#loader').hide();
             $('#info_window').show();
             $(submitButton).attr("disabled", false);
+            if(data.errors.email) {
+              errors.push($('#user_email'));
+              $('#user_email_label').addClass('error', 500);
+              $('#user_email').addClass('error', 500);
+            }
+            if(data.errors.name) {
+              errors.push($('#user_name'));
+              $('#user_name_label').addClass('error', 500);
+              $('#user_name').addClass('error', 500);
+            }
+            if(data.errors.organization) {
+              errors.push($('#user_organization'));
+              $('#user_organization_label').addClass('error', 500);
+              $('#user_organization').addClass('error', 500);
+            }
+            if(data.errors.voice_number) {
+              errors.push($('#user_voice_number'));
+              $('#user_voice_number_label').addClass('error', 500);
+              $('#user_voice_number').addClass('error', 500);
+            }
+            if(data.errors.sms_number) {
+              errors.push($('#user_sms_number'));
+              $('#user_sms_number_label').addClass('error', 500);
+              $('#user_sms_number').addClass('error', 500);
+            }
+            if(data.errors.password) {
+              errors.push($('#user_password_confirmation'));
+              $('#user_password_confirmation_label').addClass('error', 500);
+              $('#user_password_confirmation').addClass('error', 500);
+            }
+            errors[0].focus();
           },
           success: function(data) {
-            if(data.errors) {
-              $('#loader').hide();
-              $('#info_window').show();
-              $(submitButton).attr("disabled", false);
-              if(data.errors.email) {
-                errors.push($('#user_email'));
-                $('#user_email_label').addClass('error', 500);
-                $('#user_email').addClass('error', 500);
+            $.ajax({
+              type: 'GET',
+              url: '/hydrant',
+              data: {
+                'hydrant_id': activeHydrantId
+              },
+              success: function(data) {
+                activeInfoWindow.setContent(data);
               }
-              if(data.errors.name) {
-                errors.push($('#user_name'));
-                $('#user_name_label').addClass('error', 500);
-                $('#user_name').addClass('error', 500);
-              }
-              if(data.errors.organization) {
-                errors.push($('#user_organization'));
-                $('#user_organization_label').addClass('error', 500);
-                $('#user_organization').addClass('error', 500);
-              }
-              if(data.errors.voice_number) {
-                errors.push($('#user_voice_number'));
-                $('#user_voice_number_label').addClass('error', 500);
-                $('#user_voice_number').addClass('error', 500);
-              }
-              if(data.errors.sms_number) {
-                errors.push($('#user_sms_number'));
-                $('#user_sms_number_label').addClass('error', 500);
-                $('#user_sms_number').addClass('error', 500);
-              }
-              if(data.errors.password) {
-                errors.push($('#user_password_confirmation'));
-                $('#user_password_confirmation_label').addClass('error', 500);
-                $('#user_password_confirmation').addClass('error', 500);
-              }
-              errors[0].focus();
-            } else {
-              $.ajax({
-                type: 'GET',
-                url: '/hydrant',
-                data: {
-                  'hydrant_id': activeHydrantId
-                },
-                success: function(data) {
-                  activeInfoWindow.setContent(data);
-                }
-              });
-            }
+            });
           }
         });
       }
@@ -314,31 +307,24 @@ $(function() {
             $('#loader').show();
           },
           error: function(data) {
-            console.log(data);
             $('#loader').hide();
             $('#info_window').show();
             $(submitButton).attr("disabled", false);
+            $('#user_password_label').addClass('error', 500);
+            $('#user_password').addClass('error', 500);
+            $('#user_password').focus();
           },
           success: function(data) {
-            if(data.errors) {
-              $('#loader').hide();
-              $('#info_window').show();
-              $(submitButton).attr("disabled", false);
-              $('#user_password_label').addClass('error', 500);
-              $('#user_password').addClass('error', 500);
-              $('#user_password').focus();
-            } else {
-              $.ajax({
-                type: 'GET',
-                url: '/hydrant',
-                data: {
-                  'hydrant_id': activeHydrantId
-                },
-                success: function(data) {
-                  activeInfoWindow.setContent(data);
-                }
-              });
-            }
+            $.ajax({
+              type: 'GET',
+              url: '/hydrant',
+              data: {
+                'hydrant_id': activeHydrantId
+              },
+              success: function(data) {
+                activeInfoWindow.setContent(data);
+              }
+            });
           }
         });
       }
@@ -363,23 +349,16 @@ $(function() {
             $('#loader').show();
           },
           error: function(data) {
-            console.log(data);
             $('#loader').hide();
             $('#info_window').show();
             $(submitButton).attr("disabled", false);
+            $('#user_email_label').addClass('error', 500);
+            $('#user_email').addClass('error', 500);
+            $('#user_email').focus();
           },
           success: function() {
-            if(data.errors) {
-              $('#loader').hide();
-              $('#info_window').show();
-              $(submitButton).attr("disabled", false);
-              $('#user_email_label').addClass('error', 500);
-              $('#user_email').addClass('error', 500);
-              $('#user_email').focus();
-            } else {
-              $('#user_forgot_password_fields').slideUp();
-              $('#user_sign_in_fields').slideDown();
-            }
+            $('#user_forgot_password_fields').slideUp();
+            $('#user_sign_in_fields').slideDown();
           }
         });
       }
@@ -633,55 +612,48 @@ $(function() {
           $('#loader').show();
         },
         error: function(data) {
-          console.log(data);
           $('#loader').hide();
           $('#info_window').show();
           $(submitButton).attr("disabled", false);
+          if(data.errors.email) {
+            errors.push($('#user_email'));
+            $('#user_email_label').addClass('error', 500);
+            $('#user_email').addClass('error', 500);
+          }
+          if(data.errors.name) {
+            errors.push($('#user_name'));
+            $('#user_name_label').addClass('error', 500);
+            $('#user_name').addClass('error', 500);
+          }
+          if(data.errors.organization) {
+            errors.push($('#user_organization'));
+            $('#user_organization_label').addClass('error', 500);
+            $('#user_organization').addClass('error', 500);
+          }
+          if(data.errors.voice_number) {
+            errors.push($('#user_voice_number'));
+            $('#user_voice_number_label').addClass('error', 500);
+            $('#user_voice_number').addClass('error', 500);
+          }
+          if(data.errors.sms_number) {
+            errors.push($('#user_sms_number'));
+            $('#user_sms_number_label').addClass('error', 500);
+            $('#user_sms_number').addClass('error', 500);
+          }
+          if(data.errors.password) {
+            errors.push($('#user_password'));
+            $('#user_password_label').addClass('error', 500);
+            $('#user_password').addClass('error', 500);
+          }
+          if(data.errors.current_password) {
+            errors.push($('#user_current_password'));
+            $('#user_current_password_label').addClass('error', 500);
+            $('#user_current_password').addClass('error', 500);
+          }
+          errors[0].focus();
         },
         success: function(data) {
-          if(data.errors) {
-            $('#loader').hide();
-            $('#info_window').show();
-            $(submitButton).attr("disabled", false);
-            if(data.errors.email) {
-              errors.push($('#user_email'));
-              $('#user_email_label').addClass('error', 500);
-              $('#user_email').addClass('error', 500);
-            }
-            if(data.errors.name) {
-              errors.push($('#user_name'));
-              $('#user_name_label').addClass('error', 500);
-              $('#user_name').addClass('error', 500);
-            }
-            if(data.errors.organization) {
-              errors.push($('#user_organization'));
-              $('#user_organization_label').addClass('error', 500);
-              $('#user_organization').addClass('error', 500);
-            }
-            if(data.errors.voice_number) {
-              errors.push($('#user_voice_number'));
-              $('#user_voice_number_label').addClass('error', 500);
-              $('#user_voice_number').addClass('error', 500);
-            }
-            if(data.errors.sms_number) {
-              errors.push($('#user_sms_number'));
-              $('#user_sms_number_label').addClass('error', 500);
-              $('#user_sms_number').addClass('error', 500);
-            }
-            if(data.errors.password) {
-              errors.push($('#user_password'));
-              $('#user_password_label').addClass('error', 500);
-              $('#user_password').addClass('error', 500);
-            }
-            if(data.errors.current_password) {
-              errors.push($('#user_current_password'));
-              $('#user_current_password_label').addClass('error', 500);
-              $('#user_current_password').addClass('error', 500);
-            }
-            errors[0].focus();
-          } else {
-            activeInfoWindow.setContent(data);
-          }
+          activeInfoWindow.setContent(data);
         }
       });
     }

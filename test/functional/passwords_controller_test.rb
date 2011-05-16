@@ -28,11 +28,11 @@ class PasswordsControllerTest < ActionController::TestCase
     assert_response :error
   end
 
-  test 'should render edit view' do
-    # skip 'Password reset not yet implemented'
-    # get :edit, :reset_password_token => 'token'
-    # assert_response :success
-  end
+  # test 'should render edit view' do
+  #   skip 'Password reset not yet implemented'
+  #   get :edit, :reset_password_token => 'token'
+  #   assert_response :success
+  # end
 
   test 'should reset user password with an valid reset password token' do
     old_password = @user.password
