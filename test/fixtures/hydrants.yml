@@ -1,0 +1,50 @@
+---
+hydrant_1:
+  city_id: 1
+  lat: 42.383339
+  lng: -71.049226
+
+hydrant_2:
+  city_id: 2,
+  lat: 42.381021
+  lng: -71.075964
+
+hydrant_3:
+  city_id: 3
+  lat: 42.380106
+  lng: -71.073419
+
+hydrant_4:
+  city_id: 4
+  lat: 42.377728
+  lng: -71.070918
+
+hydrant_5:
+  city_id: 5
+  lat: 42.377281
+  lng: -71.071576
+
+hydrant_6:
+  city_id: 6
+  lat: 42.375331
+  lng: -71.065169
+
+hydrant_7:
+  city_id: 7
+  lat: 42.373212
+  lng: -71.056064
+
+hydrant_8:
+  city_id: 8
+  lat: 42.374992
+  lng: -71.038888
+
+hydrant_9:
+  city_id: 9
+  lat: 42.345635
+  lng: -71.139308
+
+hydrant_10:
+  city_id: 10
+  lat: 42.371378
+  lng: -71.038005
