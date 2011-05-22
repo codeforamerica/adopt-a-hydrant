@@ -1,4 +1,5 @@
 class Hydrant < ActiveRecord::Base
+  validates_presence_of :lat, :lng
   belongs_to :user
 
   def self.find_closest(lat, lng, limit=50)
