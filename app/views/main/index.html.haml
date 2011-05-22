@@ -8,6 +8,7 @@
     = select_tag "city_state", '<option value="Boston, MA" selected="selected">Boston, MA</option>'.html_safe, :tabindex => 10
     = label_tag "address", "Address", :id => "address_label"
     = text_field_tag "address", params[:address], :tabindex => 11
+    = hidden_field_tag "limit", params[:limit] || 50
     = submit_tag "Find fire hydrants", :tabindex => 12
   #logos
     = image_tag "logos/cfa.png", :alt => "Code for America", :title => "Code for America"

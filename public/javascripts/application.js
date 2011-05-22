@@ -72,7 +72,8 @@ $(function() {
         'utf8': '✓',
         'authenticity_token': $('#address_form input[name="authenticity_token"]').val(),
         'lat': lat,
-        'lng': lng
+        'lng': lng,
+        'limit': $('#address_form input[name="limit"]').val()
       },
       success: function(data) {
         if(data.errors) {

@@ -8,7 +8,7 @@ class Hydrant < ActiveRecord::Base
       ORDER BY distance
       LIMIT ?
       SQL
-    Hydrant.find_by_sql([query, lat, lng, lat, limit])
+    Hydrant.find_by_sql([query, lat.to_f, lng.to_f, lat.to_f, limit.to_i])
   end
 
   def adopted?

@@ -19,7 +19,7 @@ class HydrantsController < ApplicationController
   end
 
   def list
-    @hydrants = Hydrant.find_closest(params[:lat], params[:lng])
+    @hydrants = Hydrant.find_closest(params[:lat], params[:lng], params[:limit] || 50)
     unless @hydrants.blank?
       respond_with @hydrants
     else
