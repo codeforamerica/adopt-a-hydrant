@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110223180521) do
+ActiveRecord::Schema.define(:version => 3) do
 
   create_table "hydrants", :force => true do |t|
     t.datetime "created_at"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(:version => 20110223180521) do
   end
 
   add_index "hydrants", ["city_id"], :name => "index_hydrants_on_city_id", :unique => true
+
+  create_table "reminders", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "from_user_id", :null => false
+    t.integer  "to_user_id",   :null => false
+    t.integer  "hydrant_id",   :null => false
+  end
+
+  add_index "reminders", ["from_user_id"], :name => "index_reminders_on_from_user_id"
+  add_index "reminders", ["hydrant_id"], :name => "index_reminders_on_hydrant_id"
+  add_index "reminders", ["to_user_id"], :name => "index_reminders_on_to_user_id"
 
   create_table "users", :force => true do |t|
     t.datetime "created_at"
