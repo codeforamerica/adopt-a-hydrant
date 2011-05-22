@@ -8,7 +8,7 @@
 ._*
 .bundle
 .config
-.rvmrc
+.sass-cache/
 .yardoc
 Icon?
 InstalledFiles
