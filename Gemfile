@@ -4,7 +4,6 @@ gem 'rails', '3.1.0.rc1'
 gem 'devise'
 gem 'geokit'
 gem 'haml'
-gem 'sass'
 
 platforms :jruby do
   gem 'jruby-openssl', '~> 0.7'
