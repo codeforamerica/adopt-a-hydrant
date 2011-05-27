@@ -65,3 +65,5 @@ Copyright
 ---------
 Copyright (c) 2011 Code for America.
 See [LICENSE](https://github.com/codeforamerica/adopt-a-hydrant/blob/master/LICENSE.md) for details.
+
+[![Code for America Tracker](http://stats.codeforamerica.org/codeforamerica/adopt-a-hydrant)](http://stats.codeforamerica.org/projects/adopt-a-hydrant)
