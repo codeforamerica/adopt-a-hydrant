@@ -24,7 +24,7 @@ class UsersControllerTest < ActionController::TestCase
       assert_select '[value=?]', 'Update'
     end
     assert_select 'form#back_form' do
-      assert_select '[action=?]', '/hydrant'
+      assert_select '[action=?]', '/info_window'
       assert_select '[method=?]', 'get'
     end
     assert_select 'input[name="commit"]' do
@@ -40,7 +40,7 @@ class UsersControllerTest < ActionController::TestCase
     @user.reload
     assert_equal @user.name, 'New Name'
     assert_response :redirect
-    assert_redirected_to :controller => 'hydrants', :action => 'show'
+    assert_redirected_to :controller => 'info_window', :action => 'index'
   end
 
   test 'should return error if password is incorrect' do

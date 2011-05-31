@@ -6,7 +6,7 @@ class UsersController < Devise::RegistrationsController
   def update
     if resource.update_with_password(params[resource_name])
       sign_in(resource_name, resource, :bypass => true)
-      redirect_to(:controller => "hydrants", :action => "show", :hydrant_id => params[:hydrant_id])
+      redirect_to(:controller => "info_window", :action => "index", :hydrant_id => params[:hydrant_id])
     else
       clean_up_passwords(resource)
       render(:json => {"errors" => resource.errors}, :status => 500)

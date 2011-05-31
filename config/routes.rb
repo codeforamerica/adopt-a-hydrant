@@ -4,9 +4,9 @@ AdoptAHydrant::Application.routes.draw do
     :registrations => 'users',
     :sessions => 'sessions',
   }
-  get 'hydrants' => 'hydrants#list'
-  resource :hydrant
-  get 'address' => 'addresses#show'
+  get 'address' => 'addresses#show', :as => 'address'
+  get 'info_window' => 'info_window#index', :as => 'info_window'
   get 'sitemap' => 'sitemaps#index', :as => 'sitemap'
+  resource :hydrants
   root :to => 'main#index'
 end

@@ -1,4 +1,4 @@
-= form_for @hydrant, :html => {:id => "adoption_form"} do |f|
+= form_for :hydrant, :url => hydrants_path, :method => :put, :html => {:id => "adoption_form"} do |f|
   %h2
     Adopt this Hydrant
   = f.hidden_field "id"

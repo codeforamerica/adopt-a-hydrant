@@ -1,24 +1,7 @@
 class HydrantsController < ApplicationController
-  respond_to :json, :only => [:list, :update]
+  respond_to :json
 
   def show
-    @hydrant = Hydrant.find_by_id(params[:hydrant_id])
-    if @hydrant.adopted?
-      if user_signed_in? && current_user.id == @hydrant.user_id
-        render("users/thank_you", :layout => "info_window")
-      else
-        render("users/profile", :layout => "info_window")
-      end
-    else
-      if user_signed_in?
-        render("adopt", :layout => "info_window")
-      else
-        render("sessions/new", :layout => "info_window")
-      end
-    end
-  end
-
-  def list
     @hydrants = Hydrant.find_closest(params[:lat], params[:lng], params[:limit] || 50)
     unless @hydrants.blank?
       respond_with @hydrants

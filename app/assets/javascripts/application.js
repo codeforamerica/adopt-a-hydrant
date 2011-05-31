@@ -20,7 +20,7 @@ $(function() {
       new google.maps.Point(0, 0),
       new google.maps.Point(13.0, 18.0)
     );
-    var shadow = new google.maps.MarkerImage('/images/markers/shadow.png',
+    var shadow = new google.maps.MarkerImage('/assets/markers/shadow.png',
       new google.maps.Size(46.0, 37.0),
       new google.maps.Point(0, 0),
       new google.maps.Point(13.0, 18.0)
@@ -47,7 +47,7 @@ $(function() {
       activeMarker = marker;
       $.ajax({
         type: 'GET',
-        url: '/hydrant',
+        url: '/info_window',
         data: {
           'hydrant_id': hydrantId
         },
@@ -93,7 +93,7 @@ $(function() {
             }
             setTimeout(function() {
               point = new google.maps.LatLng(hydrant.lat, hydrant.lng);
-              color = '/images/markers/' + (hydrant.user_id ? 'green' : 'red') + '.png';
+              color = '/assets/markers/' + (hydrant.user_id ? 'green' : 'red') + '.png';
               addMarker(hydrant.id, point, color);
             }, i * 100);
           });
@@ -266,7 +266,7 @@ $(function() {
           success: function(data) {
             $.ajax({
               type: 'GET',
-              url: '/hydrant',
+              url: '/info_window',
               data: {
                 'hydrant_id': activeHydrantId
               },
@@ -318,7 +318,7 @@ $(function() {
           success: function(data) {
             $.ajax({
               type: 'GET',
-              url: '/hydrant',
+              url: '/info_window',
               data: {
                 'hydrant_id': activeHydrantId
               },
@@ -371,7 +371,7 @@ $(function() {
     $(submitButton).attr("disabled", true);
     $.ajax({
       type: 'POST',
-      url: '/hydrant',
+      url: '/hydrants.json',
       data: {
         'id': $('#hydrant_id').val(),
         'commit': submitButton.val(),
@@ -396,14 +396,14 @@ $(function() {
       success: function(data) {
         $.ajax({
           type: 'GET',
-          url: '/hydrant',
+          url: '/info_window',
           data: {
             'hydrant_id': activeHydrantId
           },
           success: function(data) {
             activeInfoWindow.setContent(data);
             activeInfoWindow.setContent(data);
-            image = new google.maps.MarkerImage('/images/markers/green.png',
+            image = new google.maps.MarkerImage('/assets/markers/green.png',
               new google.maps.Size(27.0, 37.0),
               new google.maps.Point(0, 0),
               new google.maps.Point(13.0, 18.0)
@@ -423,7 +423,7 @@ $(function() {
       $(submitButton).attr("disabled", true);
       $.ajax({
         type: 'POST',
-        url: '/hydrant',
+        url: '/hydrants.json',
         data: {
           'id': $('#hydrant_id').val(),
           'commit': submitButton.val(),
@@ -440,7 +440,6 @@ $(function() {
           $('#loader').show();
         },
         error: function(data) {
-          console.log(data);
           $('#loader').hide();
           $('#info_window').show();
           $(submitButton).attr("disabled", false);
@@ -448,13 +447,13 @@ $(function() {
         success: function(data) {
           $.ajax({
             type: 'GET',
-            url: '/hydrant',
+            url: '/info_window',
             data: {
               'hydrant_id': activeHydrantId
             },
             success: function(data) {
               activeInfoWindow.setContent(data);
-              image = new google.maps.MarkerImage('/images/markers/red.png',
+              image = new google.maps.MarkerImage('/assets/markers/red.png',
                 new google.maps.Size(27.0, 37.0),
                 new google.maps.Point(0, 0),
                 new google.maps.Point(13.0, 18.0)
@@ -475,7 +474,7 @@ $(function() {
       $(submitButton).attr("disabled", true);
       $.ajax({
         type: 'POST',
-        url: '/hydrant',
+        url: '/hydrants.json',
         data: {
           'id': $('#hydrant_id').val(),
           'commit': submitButton.val(),
@@ -500,13 +499,13 @@ $(function() {
         success: function(data) {
           $.ajax({
             type: 'GET',
-            url: '/hydrant',
+            url: '/info_window',
             data: {
               'hydrant_id': activeHydrantId
             },
             success: function(data) {
               activeInfoWindow.setContent(data);
-              image = new google.maps.MarkerImage('/images/markers/red.png',
+              image = new google.maps.MarkerImage('/assets/markers/red.png',
                 new google.maps.Size(27.0, 37.0),
                 new google.maps.Point(0, 0),
                 new google.maps.Point(13.0, 18.0)
@@ -684,7 +683,7 @@ $(function() {
       success: function(data) {
         $.ajax({
           type: 'GET',
-          url: '/hydrant',
+          url: '/info_window',
           data: {
             'hydrant_id': activeHydrantId
           },
@@ -701,7 +700,7 @@ $(function() {
     $(submitButton).attr("disabled", true);
     $.ajax({
       type: 'GET',
-      url: '/users/sign_in',
+      url: '/info_window',
       data: {
         'commit': submitButton.val(),
         'utf8': '✓',
@@ -728,7 +727,7 @@ $(function() {
     $(submitButton).attr("disabled", true);
     $.ajax({
       type: 'GET',
-      url: '/hydrant',
+      url: '/info_window',
       data: {
         'commit': submitButton.val(),
         'utf8': '✓',

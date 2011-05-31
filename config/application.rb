@@ -51,6 +51,6 @@ module AdoptAHydrant
     config.active_record.identity_map = true
 
     # Enable the asset pipeline
-    config.assets.enabled = false
+    config.assets.enabled = true
   end
 end
