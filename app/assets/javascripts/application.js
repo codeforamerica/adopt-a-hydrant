@@ -700,7 +700,7 @@ $(function() {
     $(submitButton).attr("disabled", true);
     $.ajax({
       type: 'GET',
-      url: '/info_window',
+      url: '/users/sign_in',
       data: {
         'commit': submitButton.val(),
         'utf8': '✓',
