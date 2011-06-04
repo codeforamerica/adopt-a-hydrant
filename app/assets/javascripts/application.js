@@ -227,7 +227,8 @@ $(function() {
             $('#info_window').hide();
             $('#loader').show();
           },
-          error: function(data) {
+          error: function(jqXHR) {
+            data = $.parseJSON(jqXHR.responseText);
             $('#loader').hide();
             $('#info_window').show();
             $(submitButton).attr("disabled", false);
@@ -307,7 +308,7 @@ $(function() {
             $('#info_window').hide();
             $('#loader').show();
           },
-          error: function(data) {
+          error: function(jqXHR) {
             $('#loader').hide();
             $('#info_window').show();
             $(submitButton).attr("disabled", false);
@@ -349,7 +350,7 @@ $(function() {
             $('#info_window').hide();
             $('#loader').show();
           },
-          error: function(data) {
+          error: function(jqXHR) {
             $('#loader').hide();
             $('#info_window').show();
             $(submitButton).attr("disabled", false);
@@ -387,8 +388,7 @@ $(function() {
         $('#info_window').hide();
         $('#loader').show();
       },
-      error: function(data) {
-        console.log(data);
+      error: function(jqXHR) {
         $('#loader').hide();
         $('#info_window').show();
         $(submitButton).attr("disabled", false);
@@ -439,7 +439,7 @@ $(function() {
           $('#info_window').hide();
           $('#loader').show();
         },
-        error: function(data) {
+        error: function(jqXHR) {
           $('#loader').hide();
           $('#info_window').show();
           $(submitButton).attr("disabled", false);
@@ -490,8 +490,7 @@ $(function() {
           $('#info_window').hide();
           $('#loader').show();
         },
-        error: function(data) {
-          console.log(data);
+        error: function(jqXHR) {
           $('#loader').hide();
           $('#info_window').show();
           $(submitButton).attr("disabled", false);
@@ -534,8 +533,7 @@ $(function() {
         $('#info_window').hide();
         $('#loader').show();
       },
-      error: function(data) {
-        console.log(data);
+      error: function(jqXHR) {
         $('#loader').hide();
         $('#info_window').show();
         $(submitButton).attr("disabled", false);
@@ -611,7 +609,8 @@ $(function() {
           $('#info_window').hide();
           $('#loader').show();
         },
-        error: function(data) {
+        error: function(jqXHR) {
+          data = $.parseJSON(jqXHR.responseText);
           $('#loader').hide();
           $('#info_window').show();
           $(submitButton).attr("disabled", false);
@@ -674,8 +673,7 @@ $(function() {
         $('#info_window').hide();
         $('#loader').show();
       },
-      error: function(data) {
-        console.log(data);
+      error: function(jqXHR) {
         $('#loader').hide();
         $('#info_window').show();
         $(submitButton).attr("disabled", false);
@@ -710,8 +708,7 @@ $(function() {
         $('#info_window').hide();
         $('#loader').show();
       },
-      error: function(data) {
-        console.log(data);
+      error: function(jqXHR) {
         $('#loader').hide();
         $('#info_window').show();
         $(submitButton).attr("disabled", false);
@@ -738,8 +735,7 @@ $(function() {
         $('#info_window').hide();
         $('#loader').show();
       },
-      error: function(data) {
-        console.log(data);
+      error: function(jqXHR) {
         $('#loader').hide();
         $('#info_window').show();
         $(submitButton).attr("disabled", false);
