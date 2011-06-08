@@ -3,6 +3,6 @@ rvm:
   - 1.8.7
   - 1.9.2
   - jruby
-  - rbx
+  - rbx-2.0
   - ree
 env: "RAILS_ENV=test"
