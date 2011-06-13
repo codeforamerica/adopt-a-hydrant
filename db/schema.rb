@@ -27,13 +27,15 @@ ActiveRecord::Schema.define(:version => 3) do
   create_table "reminders", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "from_user_id", :null => false
-    t.integer  "to_user_id",   :null => false
-    t.integer  "hydrant_id",   :null => false
+    t.integer  "from_user_id",                    :null => false
+    t.integer  "to_user_id",                      :null => false
+    t.integer  "hydrant_id",                      :null => false
+    t.boolean  "sent",         :default => false
   end
 
   add_index "reminders", ["from_user_id"], :name => "index_reminders_on_from_user_id"
   add_index "reminders", ["hydrant_id"], :name => "index_reminders_on_hydrant_id"
+  add_index "reminders", ["sent"], :name => "index_reminders_on_sent"
   add_index "reminders", ["to_user_id"], :name => "index_reminders_on_to_user_id"
 
   create_table "users", :force => true do |t|

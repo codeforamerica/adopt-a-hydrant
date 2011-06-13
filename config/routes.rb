@@ -8,5 +8,6 @@ AdoptAHydrant::Application.routes.draw do
   get 'info_window' => 'info_window#index', :as => 'info_window'
   get 'sitemap' => 'sitemaps#index', :as => 'sitemap'
   resource :hydrants
+  resource :reminders
   root :to => 'main#index'
 end

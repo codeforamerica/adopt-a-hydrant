@@ -4,8 +4,9 @@
   %h3
     = "of #{@hydrant.user.organization}"
 - if user_signed_in?
-  = render :partial => 'users/edit_profile'
+  = render :partial => 'users/reminder'
   = render :partial => 'hydrants/steal'
+  = render :partial => 'users/edit_profile'
   = render :partial => 'sessions/sign_out'
 - else
   = render :partial => 'sessions/sign_in'

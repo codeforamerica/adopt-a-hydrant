@@ -746,4 +746,44 @@ $(function() {
     });
     return false;
   });
+  $('#reminder_form').live('submit', function() {
+    var submitButton = $("#reminder_form input[type='submit']");
+    $(submitButton).attr("disabled", true);
+    $.ajax({
+      type: 'POST',
+      url: '/reminders.json',
+      data: {
+        'commit': submitButton.val(),
+        'utf8': '✓',
+        'authenticity_token': $('#sign_out_form input[name="authenticity_token"]').val(),
+        'reminder': {
+          'from_user_id': $('#reminder_from_user_id').val(),
+          'to_user_id': $('#reminder_to_user_id').val(),
+          'hydrant_id': activeHydrantId
+        }
+      },
+      beforeSend: function() {
+        $('#info_window').hide();
+        $('#loader').show();
+      },
+      error: function(jqXHR) {
+        $('#loader').hide();
+        $('#info_window').show();
+        $(submitButton).attr("disabled", false);
+      },
+      success: function(data) {
+        $.ajax({
+          type: 'GET',
+          url: '/info_window',
+          data: {
+            'hydrant_id': activeHydrantId
+          },
+          success: function(data) {
+            activeInfoWindow.setContent(data);
+          }
+        });
+      }
+    });
+    return false;
+  });
 });
