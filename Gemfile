@@ -21,7 +21,7 @@ group :test do
   gem 'ZenTest'
   gem 'simplecov'
   gem 'sqlite3'
-  gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer'
   gem 'therubyrhino', :platforms => :jruby
   gem 'turn', :require => false
   gem 'webmock'
