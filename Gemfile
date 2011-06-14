@@ -12,7 +12,7 @@ platforms :jruby do
   gem 'jruby-openssl', '~> 0.7'
 end
 
-group :production do
+group :test, :production do
   platforms :ruby do
     gem 'therubyracer-heroku', '0.8.1.pre3'
   end
