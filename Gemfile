@@ -13,8 +13,12 @@ platforms :jruby do
 end
 
 group :test, :production do
-  platforms :ruby do
+  platforms :mri do
     gem 'therubyracer-heroku', '0.8.1.pre3'
+  end
+
+  platforms :rbx do
+    gem 'therubyracer', '~> 0.9'
   end
 
   platforms :jruby do
