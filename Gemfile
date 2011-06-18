@@ -10,7 +10,7 @@ gem 'uglifier'
 gem 'jruby-openssl', :platforms => :jruby
 
 group :production do
-  gem 'therubyracer-heroku', '0.8.1.pre3', :platforms => :ruby
+  gem 'therubyracer', :platforms => :ruby
 end
 
 group :development, :production do
@@ -21,7 +21,7 @@ group :test do
   gem 'ZenTest'
   gem 'simplecov'
   gem 'sqlite3'
-  gem 'therubyracer', '0.9.0', :platforms => :ruby
+  gem 'therubyracer', :platforms => :ruby
   gem 'therubyrhino', :platforms => :jruby
   gem 'turn', :require => false
   gem 'webmock'
