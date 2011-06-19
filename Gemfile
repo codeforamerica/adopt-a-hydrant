@@ -5,12 +5,12 @@ gem 'coffee-script'
 gem 'devise'
 gem 'geokit'
 gem 'haml'
+gem 'therubyracer', '0.9.0', :platforms => :ruby
 gem 'uglifier'
 
-gem 'jruby-openssl', :platforms => :jruby
-
-group :production do
-  gem 'therubyracer', :platforms => :ruby
+platforms :jruby do
+  gem 'jruby-openssl'
+  gem 'therubyrhino'
 end
 
 group :development, :production do
@@ -21,8 +21,6 @@ group :test do
   gem 'ZenTest'
   gem 'simplecov'
   gem 'sqlite3'
-  gem 'therubyracer', :platforms => :ruby
-  gem 'therubyrhino', :platforms => :jruby
   gem 'turn', :require => false
   gem 'webmock'
 end
