@@ -57,7 +57,7 @@ GEM
     i18n (0.6.0)
     jruby-openssl (0.7.4)
       bouncy-castle-java
-    kgio (2.4.2)
+    kgio (2.5.0)
     libv8 (3.3.10.2)
     mail (2.3.0)
       i18n (>= 0.4.0)
@@ -121,7 +121,7 @@ GEM
     warden (1.0.4)
       rack (>= 1.0)
     webmock (1.6.4)
-      addressable (~> 2.2, > 2.2.5)
+      addressable (> 2.2.5, ~> 2.2)
       crack (>= 0.1.7)
 
 PLATFORMS
