@@ -1,12 +1,10 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc4'
-gem 'coffee-script'
 gem 'devise'
 gem 'geokit'
 gem 'haml'
 gem 'therubyracer', '0.9.0', :platforms => :ruby
-gem 'uglifier'
 
 platforms :jruby do
   gem 'jruby-openssl'

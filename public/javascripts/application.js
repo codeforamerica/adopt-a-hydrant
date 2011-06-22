@@ -20,7 +20,7 @@ $(function() {
       new google.maps.Point(0, 0),
       new google.maps.Point(13.0, 18.0)
     );
-    var shadow = new google.maps.MarkerImage('/assets/markers/shadow.png',
+    var shadow = new google.maps.MarkerImage('/images/markers/shadow.png',
       new google.maps.Size(46.0, 37.0),
       new google.maps.Point(0, 0),
       new google.maps.Point(13.0, 18.0)
@@ -93,7 +93,7 @@ $(function() {
             }
             setTimeout(function() {
               point = new google.maps.LatLng(hydrant.lat, hydrant.lng);
-              color = '/assets/markers/' + (hydrant.user_id ? 'green' : 'red') + '.png';
+              color = '/images/markers/' + (hydrant.user_id ? 'green' : 'red') + '.png';
               addMarker(hydrant.id, point, color);
             }, i * 100);
           });
@@ -403,7 +403,7 @@ $(function() {
           success: function(data) {
             activeInfoWindow.setContent(data);
             activeInfoWindow.setContent(data);
-            image = new google.maps.MarkerImage('/assets/markers/green.png',
+            image = new google.maps.MarkerImage('/images/markers/green.png',
               new google.maps.Size(27.0, 37.0),
               new google.maps.Point(0, 0),
               new google.maps.Point(13.0, 18.0)
@@ -453,7 +453,7 @@ $(function() {
             },
             success: function(data) {
               activeInfoWindow.setContent(data);
-              image = new google.maps.MarkerImage('/assets/markers/red.png',
+              image = new google.maps.MarkerImage('/images/markers/red.png',
                 new google.maps.Size(27.0, 37.0),
                 new google.maps.Point(0, 0),
                 new google.maps.Point(13.0, 18.0)
@@ -504,7 +504,7 @@ $(function() {
             },
             success: function(data) {
               activeInfoWindow.setContent(data);
-              image = new google.maps.MarkerImage('/assets/markers/red.png',
+              image = new google.maps.MarkerImage('/images/markers/red.png',
                 new google.maps.Size(27.0, 37.0),
                 new google.maps.Point(0, 0),
                 new google.maps.Point(13.0, 18.0)
