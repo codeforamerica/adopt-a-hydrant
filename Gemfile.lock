@@ -39,12 +39,18 @@ GEM
     bcrypt-ruby (2.1.4-java)
     bouncy-castle-java (1.5.0146.1)
     builder (3.0.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.1.1)
     crack (0.1.8)
     devise (1.4.0)
       bcrypt-ruby (~> 2.1.2)
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
     erubis (2.7.0)
+    execjs (1.2.0)
+      multi_json (~> 1.0)
     geokit (1.6.0)
     haml (3.1.2)
     hike (1.1.0)
@@ -91,7 +97,7 @@ GEM
     simplecov (0.4.2)
       simplecov-html (~> 0.4.4)
     simplecov-html (0.4.5)
-    sprockets (2.0.0.beta.11)
+    sprockets (2.0.0.beta.10)
       hike (~> 1.1)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
@@ -106,6 +112,9 @@ GEM
     turn (0.8.2)
       ansi (>= 1.2.2)
     tzinfo (0.3.28)
+    uglifier (1.0.0)
+      execjs (>= 0.3.0)
+      multi_json (>= 1.0.2)
     unicorn (3.7.0)
       kgio (~> 2.3)
       rack
@@ -121,6 +130,7 @@ PLATFORMS
 
 DEPENDENCIES
   ZenTest
+  coffee-script
   devise
   geokit
   haml
@@ -132,5 +142,6 @@ DEPENDENCIES
   therubyracer
   therubyrhino
   turn
+  uglifier
   unicorn
   webmock
