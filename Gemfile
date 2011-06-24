@@ -4,7 +4,7 @@ gem 'rails', '3.1.0.rc4'
 gem 'devise'
 gem 'geokit'
 gem 'haml'
-gem 'therubyracer', '0.9.0', :platforms => :ruby
+gem 'therubyracer', :platforms => :ruby
 
 platforms :jruby do
   gem 'jruby-openssl'
