@@ -17,10 +17,6 @@ group :development, :production do
   gem 'pg'
 end
 
-group :production do
-  gem 'unicorn'
-end
-
 group :test do
   gem 'ZenTest'
   gem 'simplecov'
