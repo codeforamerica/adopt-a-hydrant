@@ -1,4 +1,5 @@
 class Hydrant < ActiveRecord::Base
+  include Geokit::Geocoders
   validates_presence_of :lat, :lng
   belongs_to :user
   has_many :reminders
@@ -13,8 +14,47 @@ class Hydrant < ActiveRecord::Base
     Hydrant.find_by_sql([query, lat.to_f, lng.to_f, lat.to_f, limit.to_i])
   end
 
-  def adopted?
-    !user.nil?
+  def reverse_geocode
+    @reverse_geocode ||= MultiGeocoder.reverse_geocode([lat, lng])
   end
 
+  def street_number
+    reverse_geocode.street_number
+  end
+
+  def street_name
+    reverse_geocode.street_name
+  end
+
+  def street_address
+    reverse_geocode.street_address
+  end
+
+  def city
+    reverse_geocode.city
+  end
+
+  def state
+    reverse_geocode.state
+  end
+
+  def zip
+    reverse_geocode.zip
+  end
+
+  def country_code
+    reverse_geocode.country_code
+  end
+
+  def country
+    reverse_geocode.country
+  end
+
+  def full_address
+    reverse_geocode.full_address
+  end
+
+  def adopted?
+    !user_id.nil?
+  end
 end
