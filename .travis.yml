@@ -2,7 +2,6 @@ script: "bundle exec rake db:migrate test"
 rvm:
   - 1.8.7
   - 1.9.2
-  - jruby
   - rbx
   - ree
 env: "RAILS_ENV=test"
