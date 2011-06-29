@@ -12,15 +12,9 @@ class PasswordsControllerTest < ActionController::TestCase
     post :create, :user => {:email => @user.email}
     assert_equal num_deliveries + 1, ActionMailer::Base.deliveries.size
     assert_response :success
-
     email = ActionMailer::Base.deliveries.last
     assert_equal [@user.email], email.to
     assert_equal "Reset password instructions", email.subject
-    assert_match /Hello #{@user.email}!/, email.encoded
-    assert_match /Someone has requested a link to change your password, and you can do this through the link below./, email.encoded
-    assert_match /Change my password/, email.encoded
-    assert_match /If you didn't request this, please ignore this email./, email.encoded
-    assert_match /Your password won't change until you access the link above and create a new one./, email.encoded
   end
 
   test 'should not send password reset instructions if email address is not found' do
