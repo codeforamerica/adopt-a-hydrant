@@ -4,7 +4,7 @@ gem 'rails', '3.1.0.rc4'
 gem 'coffee-script'
 gem 'devise'
 gem 'geokit'
-gem 'haml'
+gem 'haml', '~> 3.2.0.alpha'
 gem 'therubyracer', :platforms => :ruby
 gem 'uglifier'
 
