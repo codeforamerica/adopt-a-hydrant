@@ -8,7 +8,7 @@ Screenshot
 
 Continuous Integration
 ----------------------
-[![Build Status](http://travis-ci.org/codeforamerica/adopt-a-hydrant.png)](http://travis-ci.org/codeforamerica/adopt-a-hydrant)
+[![Build Status](https://secure.travis-ci.org/codeforamerica/adopt-a-hydrant.png)](http://travis-ci.org/codeforamerica/adopt-a-hydrant)
 
 Demo
 ----
