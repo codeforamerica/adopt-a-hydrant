@@ -48,7 +48,7 @@ GEM
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
     erubis (2.7.0)
-    execjs (1.2.0)
+    execjs (1.2.1)
       multi_json (~> 1.0)
     geokit (1.6.0)
     haml (3.2.0.alpha.8)
