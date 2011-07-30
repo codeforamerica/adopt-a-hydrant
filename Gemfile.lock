@@ -38,10 +38,6 @@ GEM
     bcrypt-ruby (2.1.4-java)
     bouncy-castle-java (1.5.0146.1)
     builder (3.0.0)
-    coffee-script (2.2.0)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.1.1)
     crack (0.1.8)
     devise (1.4.2)
       bcrypt-ruby (~> 2.1.2)
@@ -126,7 +122,6 @@ PLATFORMS
 
 DEPENDENCIES
   ZenTest
-  coffee-script
   devise
   geokit
   haml (~> 3.2.0.alpha)
