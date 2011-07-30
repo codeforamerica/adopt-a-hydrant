@@ -14,13 +14,13 @@ $(function() {
   var activeInfoWindow;
   var isWindowOpen = false;
   var hydrantIds = [];
-  function addMarker(hydrantId, point, color) {
-    var image = new google.maps.MarkerImage(color,
+  function addMarker(hydrantId, point, image_path) {
+    var image = new google.maps.MarkerImage(image_path,
       new google.maps.Size(27.0, 37.0),
       new google.maps.Point(0, 0),
       new google.maps.Point(13.0, 18.0)
     );
-    var shadow = new google.maps.MarkerImage('/assets/markers/shadow.png',
+    var shadow = new google.maps.MarkerImage('<%= image_path 'markers/shadow.png' %>',
       new google.maps.Size(46.0, 37.0),
       new google.maps.Point(0, 0),
       new google.maps.Point(13.0, 18.0)
@@ -93,8 +93,12 @@ $(function() {
             }
             setTimeout(function() {
               point = new google.maps.LatLng(hydrant.lat, hydrant.lng);
-              color = '/assets/markers/' + (hydrant.user_id ? 'green' : 'red') + '.png';
-              addMarker(hydrant.id, point, color);
+              if(hydrant.user_id) {
+                image_path = '<%= image_path 'markers/green.png' %>';
+              } else {
+                image_path = '<%= image_path 'markers/red.png' %>';
+              }
+              addMarker(hydrant.id, point, image_path);
             }, i * 100);
           });
           center = new google.maps.LatLng(lat, lng);
@@ -403,7 +407,7 @@ $(function() {
           success: function(data) {
             activeInfoWindow.setContent(data);
             activeInfoWindow.setContent(data);
-            image = new google.maps.MarkerImage('/assets/markers/green.png',
+            image = new google.maps.MarkerImage('<%= image_path 'markers/green.png' %>',
               new google.maps.Size(27.0, 37.0),
               new google.maps.Point(0, 0),
               new google.maps.Point(13.0, 18.0)
@@ -453,7 +457,7 @@ $(function() {
             },
             success: function(data) {
               activeInfoWindow.setContent(data);
-              image = new google.maps.MarkerImage('/assets/markers/red.png',
+              image = new google.maps.MarkerImage('<%= image_path 'markers/red.png' %>',
                 new google.maps.Size(27.0, 37.0),
                 new google.maps.Point(0, 0),
                 new google.maps.Point(13.0, 18.0)
@@ -504,7 +508,7 @@ $(function() {
             },
             success: function(data) {
               activeInfoWindow.setContent(data);
-              image = new google.maps.MarkerImage('/assets/markers/red.png',
+              image = new google.maps.MarkerImage('<%= image_path 'markers/red.png' %>',
                 new google.maps.Size(27.0, 37.0),
                 new google.maps.Point(0, 0),
                 new google.maps.Point(13.0, 18.0)
