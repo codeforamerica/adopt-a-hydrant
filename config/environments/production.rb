@@ -37,7 +37,9 @@ AdoptAHydrant::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = {:host => 'adoptahydrant.org'}
 
   # Enable threaded mode
   # config.threadsafe!
