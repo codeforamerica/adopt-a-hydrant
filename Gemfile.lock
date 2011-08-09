@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 8256083a05491255d3a010c1af9a79f55b003bff
+  revision: 440213ac172fe5cfb7162f8c17633a7d7b2b68e5
   specs:
     rails_admin (0.0.1)
       builder (~> 3.0.0)
@@ -54,6 +54,7 @@ GEM
     erubis (2.7.0)
     execjs (1.2.4)
       multi_json (~> 1.0)
+    fastercsv (1.5.4)
     geokit (1.6.0)
     haml (3.2.0.alpha.8)
     hike (1.2.0)
@@ -130,6 +131,7 @@ DEPENDENCIES
   ZenTest
   arel (= 2.1.4)
   devise
+  fastercsv
   geokit
   haml (~> 3.2.0.alpha)
   jruby-openssl

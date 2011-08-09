@@ -13,6 +13,10 @@ platforms :jruby do
   gem 'therubyrhino'
 end
 
+platforms :ruby_18 do
+  gem 'fastercsv'
+end
+
 group :assets do
   gem 'uglifier'
 end
