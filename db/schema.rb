@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 20110809190528) do
 
   create_table "hydrants", :force => true do |t|
     t.datetime "created_at"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(:version => 3) do
   end
 
   add_index "hydrants", ["city_id"], :name => "index_hydrants_on_city_id", :unique => true
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.string   "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "reminders", :force => true do |t|
     t.datetime "created_at"

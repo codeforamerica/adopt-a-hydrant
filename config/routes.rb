@@ -9,5 +9,6 @@ AdoptAHydrant::Application.routes.draw do
   get 'sitemap' => 'sitemaps#index', :as => 'sitemap'
   resource :hydrants
   resource :reminders
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   root :to => 'main#index'
 end
