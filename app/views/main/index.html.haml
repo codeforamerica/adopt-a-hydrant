@@ -6,7 +6,7 @@
   = form_for :address, :html => {:id => "address_form"} do |f|
     = label_tag "city_state", "City", :id => "city_state_label"
     = select_tag "city_state", '<option value="Boston, MA" selected="selected">Boston, MA</option>'.html_safe, :tabindex => 10
-    = label_tag "address", "Address", :id => "address_label"
+    = label_tag "address", "Address, Neighborhood", :id => "address_label"
     = text_field_tag "address", params[:address], :tabindex => 11
     = hidden_field_tag "limit", params[:limit] || 20
     = submit_tag "Find fire hydrants", :tabindex => 12
