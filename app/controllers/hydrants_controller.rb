@@ -2,7 +2,7 @@ class HydrantsController < ApplicationController
   respond_to :json
 
   def show
-    @hydrants = Hydrant.find_closest(params[:lat], params[:lng], params[:limit] || 50)
+    @hydrants = Hydrant.find_closest(params[:lat], params[:lng], params[:limit] || 20)
     unless @hydrants.blank?
       respond_with @hydrants
     else
