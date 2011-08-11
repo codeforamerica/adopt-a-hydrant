@@ -129,7 +129,7 @@ PLATFORMS
 
 DEPENDENCIES
   ZenTest
-  arel (= 2.1.4)
+  arel
   devise
   fastercsv
   geokit
