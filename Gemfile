@@ -30,7 +30,6 @@ end
 
 group :test do
   gem 'ZenTest'
-  gem 'mustang', :platforms => :ruby
   gem 'simplecov'
   gem 'sqlite3'
   gem 'webmock'
