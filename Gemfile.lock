@@ -68,6 +68,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     multi_json (1.0.3)
+    mustang (0.2.2)
     orm_adapter (0.0.5)
     pg (0.11.0)
     polyglot (0.3.2)
@@ -135,6 +136,7 @@ DEPENDENCIES
   geokit
   haml (~> 3.2.0.alpha)
   jruby-openssl
+  mustang
   pg
   rails (= 3.1.0.rc5)
   rails_admin!
