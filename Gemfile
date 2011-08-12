@@ -29,7 +29,6 @@ group :production do
 end
 
 group :test do
-  gem 'ZenTest'
   gem 'simplecov'
   gem 'sqlite3'
   gem 'webmock'

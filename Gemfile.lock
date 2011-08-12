@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 450f2bd5fa4158add4624c3c52ec384bfe5acc21
+  revision: 811ddc5faa5a00da9d7461ae9dd0fb7e8512f517
   specs:
     rails_admin (0.0.1)
       builder (~> 3.0.0)
@@ -10,7 +10,6 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    ZenTest (4.6.0)
     actionmailer (3.1.0.rc5)
       actionpack (= 3.1.0.rc5)
       mail (~> 2.3.0)
@@ -128,7 +127,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ZenTest
   arel
   devise
   fastercsv
