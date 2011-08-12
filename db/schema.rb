@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110809190528) do
+ActiveRecord::Schema.define(:version => 4) do
 
   create_table "hydrants", :force => true do |t|
     t.datetime "created_at"
