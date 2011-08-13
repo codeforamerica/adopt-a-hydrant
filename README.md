@@ -2,30 +2,30 @@ Adopt a Hydrant
 ===============
 Claim responsibility for shoveling out a fire hydrant after it snows.
 
-Screenshot
+<a name="screenshots">Screenshot</a>
 ----------
 ![Adopt a Hydrant](https://github.com/codeforamerica/adopt-a-hydrant/raw/master/screenshot.png "Adopt a Hydrant")
 
-Continuous Integration
+<a name="ci">Continuous Integration</a>
 ----------------------
 [![Build Status](https://secure.travis-ci.org/codeforamerica/adopt-a-hydrant.png)](http://travis-ci.org/codeforamerica/adopt-a-hydrant)
 
-Demo
+<a name="demo">Demo</a>
 ----
 You can see a running version of the application at
 [http://adopt-a-hydrant.herokuapp.com/](http://adopt-a-hydrant.herokuapp.com/).
 
-Installation
+<a name="installation">Installation</a>
 ------------
     git clone git://github.com/codeforamerica/adopt-a-hydrant.git
     cd adopt-a-hydrant
     bundle install
 
-Usage
+<a name="usage">Usage</a>
 -----
     rails server
 
-Contributing
+<a name="contributing">Contributing</a>
 ------------
 In the spirit of [free software](http://www.fsf.org/licensing/essays/free-sw.html), **everyone** is encouraged to help improve this project.
 
@@ -42,7 +42,7 @@ Here are some ways *you* can contribute:
 * by reviewing patches
 * [financially](https://secure.codeforamerica.org/page/contribute)
 
-Submitting an Issue
+<a name="issues">Submitting an Issue</a>
 -------------------
 We use the [GitHub issue tracker](https://github.com/codeforamerica/adopt-a-hydrant/issues) to track bugs and
 features. Before submitting a bug report or feature request, check to make sure it hasn't already
@@ -51,7 +51,7 @@ bug report, please include a [Gist](https://gist.github.com/) that includes a st
 details that may be necessary to reproduce the bug, including your gem version, Ruby version, and
 operating system. Ideally, a bug report should include a pull request with failing specs.
 
-Submitting a Pull Request
+<a name="pulls">Submitting a Pull Request</a>
 -------------------------
 1. Fork the project.
 2. Create a topic branch.
@@ -61,7 +61,7 @@ Submitting a Pull Request
 6. Commit and push your changes.
 7. Submit a pull request. Please do not include changes to the gemspec or version file. (If you want to create your own version for some reason, please do so in a separate commit.)
 
-Supported Rubies
+<a name="rubies">Supported Rubies</a>
 ----------------
 This library aims to support and is [tested
 against](http://travis-ci.org/codeforamerica/adopt-a-hydrant) the following
@@ -85,7 +85,7 @@ implementation, you will be personally responsible for providing patches in a
 timely fashion. If critical issues for a particular implementation exist at the
 time of a major release, support for that Ruby version may be dropped.
 
-Copyright
+<a name="copyright">Copyright</a>
 ---------
 Copyright (c) 2011 Code for America.
 See [LICENSE](https://github.com/codeforamerica/adopt-a-hydrant/blob/master/LICENSE.md) for details.
