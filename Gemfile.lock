@@ -1,11 +1,11 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: e98362065a184ed972ef05ed8b2e576cbc3a5df5
+  revision: 5b297ce09a5cc83b0069aa714e06f6e27f9d1b18
   specs:
     rails_admin (0.0.1)
       builder (~> 3.0.0)
       haml (>= 3.1.0, < 3.3.0)
-      rails (~> 3.1.0.rc1)
+      rails (~> 3.1.0.rc6)
 
 GEM
   remote: http://rubygems.org/
@@ -118,7 +118,7 @@ GEM
       multi_json (>= 1.0.2)
     warden (1.0.5)
       rack (>= 1.0)
-    webmock (1.7.2)
+    webmock (1.7.3)
       addressable (> 2.2.5, ~> 2.2)
       crack (>= 0.1.7)
 
