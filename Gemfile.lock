@@ -56,7 +56,7 @@ GEM
     fastercsv (1.5.4)
     geokit (1.6.0)
     haml (3.2.0.alpha.8)
-    hike (1.2.0)
+    hike (1.2.1)
     i18n (0.6.0)
     jruby-openssl (0.7.4)
       bouncy-castle-java
@@ -119,7 +119,7 @@ GEM
     warden (1.0.5)
       rack (>= 1.0)
     webmock (1.7.4)
-      addressable (~> 2.2, > 2.2.5)
+      addressable (> 2.2.5, ~> 2.2)
       crack (>= 0.1.7)
 
 PLATFORMS
