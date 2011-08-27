@@ -53,6 +53,7 @@ GEM
       warden (~> 1.0.3)
     erubis (2.7.0)
     eventmachine (0.12.10)
+    eventmachine (0.12.10-java)
     execjs (1.2.4)
       multi_json (~> 1.0)
     fastercsv (1.5.4)
