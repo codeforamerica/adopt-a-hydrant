@@ -74,7 +74,7 @@ GEM
     pg (0.11.0)
     polyglot (0.3.2)
     rack (1.3.2)
-    rack-cache (1.0.2)
+    rack-cache (1.0.3)
       rack (>= 0.4)
     rack-mount (0.8.2)
       rack (>= 1.0.0)
