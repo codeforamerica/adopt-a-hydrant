@@ -47,6 +47,10 @@ form {
   padding: 10px 5px 0 5px;
 }
 
+#sidebar #feedback {
+  text-align: center;
+}
+
 #sidebar img#hydrant-in-snow {
   width: 100%;
 }
