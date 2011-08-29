@@ -51,6 +51,26 @@ form {
   width: 100%;
 }
 
+#error, #notice, #warning {
+  margin: auto;
+  padding: 5px 10px;
+}
+
+#error {
+  background-color: #ff7373;
+  border: 1px solid #c07373;
+}
+
+#notice {
+  background-color: #8fe38f;
+  border: 1px solid #82b082;
+}
+
+#warning {
+  background-color: #fff773;
+  border: 1px solid #c0bb73;
+}
+
 label, input {
   white-space: nowrap;
   text-align: left;

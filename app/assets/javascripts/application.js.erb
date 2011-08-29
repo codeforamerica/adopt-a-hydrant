@@ -273,7 +273,10 @@ $(function() {
               type: 'GET',
               url: '/info_window',
               data: {
-                'hydrant_id': activeHydrantId
+                'hydrant_id': activeHydrantId,
+                'flash': {
+                  'notice': "Thanks for signing up!"
+                }
               },
               success: function(data) {
                 activeInfoWindow.setContent(data);
@@ -325,7 +328,10 @@ $(function() {
               type: 'GET',
               url: '/info_window',
               data: {
-                'hydrant_id': activeHydrantId
+                'hydrant_id': activeHydrantId,
+                'flash': {
+                  'notice': "Signed in!"
+                }
               },
               success: function(data) {
                 activeInfoWindow.setContent(data);
@@ -402,7 +408,10 @@ $(function() {
           type: 'GET',
           url: '/info_window',
           data: {
-            'hydrant_id': activeHydrantId
+            'hydrant_id': activeHydrantId,
+            'flash': {
+              'notice': "You just adopted " + $('#hydrant_name').val() + "!"
+            }
           },
           success: function(data) {
             activeInfoWindow.setContent(data);
@@ -453,7 +462,10 @@ $(function() {
             type: 'GET',
             url: '/info_window',
             data: {
-              'hydrant_id': activeHydrantId
+              'hydrant_id': activeHydrantId,
+              'flash': {
+                'notice': "Hydrant abandoned!"
+              }
             },
             success: function(data) {
               activeInfoWindow.setContent(data);
@@ -504,7 +516,10 @@ $(function() {
             type: 'GET',
             url: '/info_window',
             data: {
-              'hydrant_id': activeHydrantId
+              'hydrant_id': activeHydrantId,
+              'flash': {
+                'notice': "Hydrant stolen!"
+              }
             },
             success: function(data) {
               activeInfoWindow.setContent(data);
@@ -687,7 +702,10 @@ $(function() {
           type: 'GET',
           url: '/info_window',
           data: {
-            'hydrant_id': activeHydrantId
+            'hydrant_id': activeHydrantId,
+            'flash': {
+              'notice': "Signed out."
+            }
           },
           success: function(data) {
             activeInfoWindow.setContent(data);
@@ -780,7 +798,10 @@ $(function() {
           type: 'GET',
           url: '/info_window',
           data: {
-            'hydrant_id': activeHydrantId
+            'hydrant_id': activeHydrantId,
+            'flash': {
+              'notice': "Reminder sent!"
+            }
           },
           success: function(data) {
             activeInfoWindow.setContent(data);
@@ -789,5 +810,11 @@ $(function() {
       }
     });
     return false;
+  });
+  $('#notice').live('click', function() {
+    $(this).fadeOut('slow');
+  });
+  $('#error').live('click', function() {
+    $(this).fadeOut('slow');
   });
 });
