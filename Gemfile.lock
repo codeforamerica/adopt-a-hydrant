@@ -1,15 +1,6 @@
 GIT
-  remote: git://github.com/plataformatec/devise.git
-  revision: 7b1418be3b33ac77cb185c15e641292767112f08
-  specs:
-    devise (1.4.2)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.0.3)
-      warden (~> 1.0.3)
-
-GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: e71eafaafd201227988034585303154011146713
+  revision: 0e1b032bd747718458950be02a4fe893ab35f86c
   specs:
     rails_admin (0.0.1)
       builder (~> 3.0.0)
@@ -56,6 +47,10 @@ GEM
     builder (3.0.0)
     crack (0.1.8)
     daemons (1.1.4)
+    devise (1.4.3)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.0.3)
     erubis (2.7.0)
     eventmachine (0.12.10)
     eventmachine (0.12.10-java)
@@ -140,7 +135,7 @@ PLATFORMS
 
 DEPENDENCIES
   arel
-  devise!
+  devise
   fastercsv
   geokit
   haml (~> 3.2.0.alpha)

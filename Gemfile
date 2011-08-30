@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '~> 3.1.0.rc6'
 
 gem 'arel'
-gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem 'devise'
 gem 'geokit'
 gem 'haml', '~> 3.2.0.alpha'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
