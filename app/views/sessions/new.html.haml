@@ -3,7 +3,7 @@
     Adopt this Hydrant
   #common_fields
     = f.label "email", "Email address", :id => "user_email_label"
-    = f.text_field "email", :tabindex => 1
+    = f.text_field "email", :value => params[:user] ? params[:user][:email] : nil, :tabindex => 1
     = f.label "new" , radio_button_tag("user", "new", true, :tabindex => 2).html_safe + "I haven't signed up yet"
     = f.label "existing", radio_button_tag("user", "existing").html_safe + "I've already signed up"
   #user_sign_up_fields

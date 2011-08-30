@@ -1,0 +1,7 @@
+= form_for resource, :as => resource_name, :url => password_path(resource_name), :html => {:id => "edit_form", :method => :put} do |f|
+  %h2
+    Edit your Profile
+  = f.hidden_field "reset_password_token"
+  = f.label "password", "New password", :id => "user_password_label"
+  = f.password_field "password", :tabindex => 1
+  = f.submit "Change my password", :tabindex => 2

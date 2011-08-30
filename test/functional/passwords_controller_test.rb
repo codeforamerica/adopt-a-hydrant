@@ -22,24 +22,26 @@ class PasswordsControllerTest < ActionController::TestCase
     assert_response :error
   end
 
-  # test 'should render edit view' do
-  #   skip 'Password reset not yet implemented'
-  #   get :edit, :reset_password_token => 'token'
-  #   assert_response :success
-  # end
-
-  test 'should reset user password with an valid reset password token' do
-    old_password = @user.password
-    @user.send :generate_reset_password_token!
-    put :update, :user => {:reset_password_token => @user.reset_password_token, :password => 'new_password', :password_confirmation => 'new_password'}
-    @user.reload
-    assert !@user.valid_password?(old_password)
-    assert @user.valid_password?('new_password')
+  test 'should render edit view' do
+    get :edit, :reset_password_token => 'token'
     assert_response :success
   end
 
+  test 'should reset user password with an valid reset password token' do
+    @user.send :generate_reset_password_token!
+    put :update, :user => {:reset_password_token => @user.reset_password_token, :password => 'new_password', :password_confirmation => 'new_password'}
+    @user.reload
+    assert @user.valid_password?('new_password')
+    assert_response :redirect
+    assert_redirected_to :controller => 'main', :action => 'index'
+  end
+
   test 'should not reset user password with an invalid reset password token' do
+    @user.send :generate_reset_password_token!
     put :update, :user => {:reset_password_token => 'invalid_token', :password => 'new_password', :password_confirmation => 'new_password'}
-    assert_response :error
+    @user.reload
+    assert !@user.valid_password?('new_password')
+    assert_response :redirect
+    assert_redirected_to :controller => 'main', :action => 'index'
   end
 end

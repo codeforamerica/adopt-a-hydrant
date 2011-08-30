@@ -369,8 +369,22 @@ $(function() {
             $('#user_email').focus();
           },
           success: function() {
-            $('#user_forgot_password_fields').slideUp();
-            $('#user_sign_in_fields').slideDown();
+            $.ajax({
+              type: 'GET',
+              url: '/users/sign_in',
+              data: {
+                'user': {
+                  'email': $('#user_email').val()
+                },
+                'flash': {
+                  'notice': "Password reset instructions sent! Check your email."
+                }
+              },
+              success: function(data) {
+                activeInfoWindow.setContent(data);
+                $('#user_existing').click();
+              }
+            });
           }
         });
       }
