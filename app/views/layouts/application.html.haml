@@ -11,5 +11,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tag
     %meta{:name => "viewport", :content => "initial-scale=1.0, user-scalable=no"}
+    %script{:type => "text/javascript"}
+      var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-20825280-2"]),_gaq.push(["_setDomainName",".adoptahydrant.org"]),_gaq.push(["_trackPageview"]),function(){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}();
   %body
     = yield
