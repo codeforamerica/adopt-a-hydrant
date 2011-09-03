@@ -1,6 +1,5 @@
 var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-23196323-1']);
-_gaq.push(['_setDomainName', '.adoptahydrant.org']);
+_gaq.push(['_setAccount', 'UA-20825280-2']);
 _gaq.push(['_trackPageview']);
 
 (function() {
