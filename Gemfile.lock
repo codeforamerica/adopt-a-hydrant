@@ -122,7 +122,7 @@ GEM
       multi_json (>= 1.0.2)
     warden (1.0.5)
       rack (>= 1.0)
-    webmock (1.7.5)
+    webmock (1.7.6)
       addressable (> 2.2.5, ~> 2.2)
       crack (>= 0.1.7)
 
