@@ -11,6 +11,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Helvetica, Arial, sans-serif;
+}
+
+h1, h2 {
   text-align: center;
 }
 
@@ -104,4 +107,16 @@ label.error {
 
 input.error {
   background-color: #ffc;
+}
+
+.upcase {
+  text-transform: uppercase;
+}
+
+.alpha {
+  list-style-type: lower-alpha;
+}
+
+.roman {
+  list-style-type: lower-roman;
 }

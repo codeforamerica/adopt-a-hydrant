@@ -20,7 +20,7 @@
     = f.submit "Sign up", :tabindex => 8
     %p
       By signing up, you agree to the
-      = link_to("Terms of Service", "#", :tabindex => 9) + "."
+      = link_to("Terms of Service", tos_path, :tabindex => 9, :id => "tos_link") + "."
   #user_sign_in_fields{:style => "display: none;"}
     = f.label "password", "Password", :id => "user_password_label"
     = f.password_field "password", :tabindex => 0

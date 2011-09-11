@@ -8,6 +8,6 @@
   = f.submit "Adopt!", :tabindex => 2
   %p
     By adopting this hydrant, you agree to the
-    = link_to("Terms of Service", "#", :tabindex => 3) + "."
+    = link_to("Terms of Service", tos_path, :tabindex => 3, :id => "tos_link") + "."
 = render :partial => 'users/edit_profile'
 = render :partial => 'sessions/sign_out'

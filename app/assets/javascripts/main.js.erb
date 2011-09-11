@@ -825,6 +825,24 @@ $(function() {
     });
     return false;
   });
+  $('#tos_link').live('click', function() {
+    $.ajax({
+      type: 'GET',
+      url: '/tos',
+      beforeSend: function() {
+        $('#info_window').hide();
+        $('#loader').show();
+      },
+      error: function(jqXHR) {
+        $('#loader').hide();
+        $('#info_window').show();
+      },
+      success: function(data) {
+        activeInfoWindow.setContent(data);
+      }
+    });
+    return false;
+  });
   $('#notice').live('click', function() {
     $(this).fadeOut('slow');
   });
