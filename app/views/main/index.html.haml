@@ -1,20 +1,20 @@
 #sidebar
   %h1
-    Adopt a Hydrant
+    = t("titles.main")
   %p#tagline
-    Claim responsibility for shoveling out a fire hydrant after it snows.
+    = t("defaults.tagline")
   = form_for :address, :html => {:id => "address_form"} do |f|
-    = label_tag "city_state", "City", :id => "city_state_label"
-    = select_tag "city_state", '<option value="Boston, MA" selected="selected">Boston, MA</option>'.html_safe, :tabindex => 10
-    = label_tag "address", "Address, Neighborhood", :id => "address_label"
+    = label_tag "city_state", t("labels.city_state"), :id => "city_state_label"
+    = select_tag "city_state", "<option value=\"#{t("defaults.city")}\" selected=\"selected\">#{t("defaults.city")}</option>".html_safe, :tabindex => 10
+    = label_tag "address", t("labels.address"), :id => "address_label"
     = text_field_tag "address", params[:address], :tabindex => 11
     = hidden_field_tag "limit", params[:limit] || 20
-    = submit_tag "Find fire hydrants", :tabindex => 12
+    = submit_tag t("buttons.find"), :tabindex => 12
   #logos
-    = image_tag "logos/cfa.png", :alt => "Code for America", :title => "Code for America"
-    = image_tag "logos/boston.png", :alt => "City of Boston", :title => "City of Boston"
+    = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
+    = image_tag "logos/boston.png", :alt => t("sponsors.city"), :title => t("sponsors.city")
   #feedback
-    %a{:href => "mailto:adoptahydrant@cityofboston.gov?subject=Adopt-a-Hydrant Feedback"}
-      Feedback
+    %a{:href => "mailto:adoptahydrant@cityofboston.gov?subject=#{t("titles.main")} #{t("links.feedback")}"}
+      = t("links.feedback")
   = image_tag "hydrant-in-snow.jpg", :id => "hydrant-in-snow"
 #map_canvas

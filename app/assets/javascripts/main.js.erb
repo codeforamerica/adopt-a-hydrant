@@ -166,7 +166,7 @@ $(function() {
         $('#user_forgot_password_link').click(function() {
           $('#user_sign_in_fields').slideUp();
           $('#user_forgot_password_fields').slideDown(function() {
-            $('#user_remembered_password').click(function() {
+            $('#user_remembered_password_link').click(function() {
               $('#user_forgot_password_fields').slideUp();
               $('#user_sign_in_fields').slideDown();
               $('#combo_form').data('state', 'user_sign_in');

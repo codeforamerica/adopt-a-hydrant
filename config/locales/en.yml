@@ -1,5 +1,55 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# Please maintain alphabetical order
 
 en:
-  hello: "Hello world"
+  buttons:
+    abandon: "Abandon this hydrant"
+    adopt: "Adopt!"
+    back: "Back"
+    change_password: "Change my password"
+    edit_profile: "Edit profile"
+    email_password: "Email me my password"
+    find: "Find fire hydrants"
+    send_reminder: "Send reminder to shovel"
+    sign_in: "Sign in"
+    sign_out: "Sign out"
+    sign_up: "Sign up"
+    steal: "Steal this hydrant"
+    update: "Update"
+  captions:
+    password: "(leave blank if you don't want to change it)"
+    password_current: "(we need your current password to confirm your changes)"
+  defaults:
+    city: "Boston, MA"
+    hydrant_name: "This hydrant"
+    tagline: "Claim responsibility for shoveling out a fire hydrant after it snows."
+    tos: "By signing up, you agree to the %{tos}."
+  labels:
+    address: "Address, Neighborhood"
+    city_state: "City"
+    email: "Email address"
+    name: "Name"
+    name_hydrant: "Give this hydrant a name"
+    organization: "Organization"
+    password: "Password"
+    password_choose: "Choose a password"
+    password_current: "Current password"
+    password_new: "New password"
+    remember_me: "Stay signed in"
+    sms_number: "Mobile phone number"
+    user_existing: "I've already signed up"
+    user_new: "I haven't signed up yet"
+    voice_number: "Home phone number"
+  links:
+    feedback: "Feedback"
+    forgot_password: "Forgot your password?"
+    remembered_password: "Never mind. I remembered my password."
+  titles:
+    adopt: "Adopt this Hydrant"
+    adopted: "%{hydrant_name} has been adopted by %{name}"
+    edit_profile: "Edit your Profile"
+    main: "Adopt a Hydrant"
+    thank_you: "Thank you for adopting this hydrant!"
+    tos: "Terms of Service"
+  sponsors:
+    cfa: "Code for America"
+    city: "City of Boston"

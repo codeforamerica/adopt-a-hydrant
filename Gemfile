@@ -7,6 +7,7 @@ gem 'devise'
 gem 'geokit'
 gem 'haml', '~> 3.2.0.alpha'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'rack-contrib'
 
 platforms :jruby do
   gem 'jruby-openssl'

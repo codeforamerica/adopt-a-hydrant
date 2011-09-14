@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_flash_from_params
+  before_filter :set_locale
 
 protected
 
@@ -10,5 +11,9 @@ protected
         flash.now[key.to_sym] = message
       end
     end
+  end
+
+  def set_locale
+    I18n.locale = env['rack.locale'] || I18n.default_locale
   end
 end

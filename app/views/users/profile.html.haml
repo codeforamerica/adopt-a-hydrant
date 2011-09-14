@@ -1,5 +1,5 @@
 %h2
-  = "#{@hydrant.name ? @hydrant.name.titleize : 'This hydrant'} has been adopted by #{@hydrant.user.name}"
+  = t("titles.adopted", :hydrant_name => @hydrant.name ? @hydrant.name.titleize : t("defaults.hydrant_name"), :name => @hydrant.user.name)
 - unless @hydrant.user.organization.blank?
   %h3
     = "of #{@hydrant.user.organization}"

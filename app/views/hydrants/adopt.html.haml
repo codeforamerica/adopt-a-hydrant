@@ -1,13 +1,10 @@
 = form_for :hydrant, :url => hydrants_path, :method => :put, :html => {:id => "adoption_form"} do |f|
   %h2
-    Adopt this Hydrant
+    = t("titles.adopt")
   = f.hidden_field "id"
   = f.hidden_field "user_id", :value => current_user.id
-  = f.label "name", "Give this hydrant a name", :id => "hydrant_name_label"
+  = f.label "name", t("labels.name_hydrant"), :id => "hydrant_name_label"
   = f.text_field "name", :tabindex => 1
-  = f.submit "Adopt!", :tabindex => 2
-  %p
-    By adopting this hydrant, you agree to the
-    = link_to("Terms of Service", tos_path, :tabindex => 3, :id => "tos_link") + "."
+  = f.submit t("buttons.adopt"), :tabindex => 2
 = render :partial => 'users/edit_profile'
 = render :partial => 'sessions/sign_out'

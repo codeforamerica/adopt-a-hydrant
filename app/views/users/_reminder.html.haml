@@ -2,4 +2,4 @@
   = f.hidden_field "from_user_id", :value => current_user.id
   = f.hidden_field "to_user_id", :value => @hydrant.user.id
   = f.hidden_field "hydrant_id", :value => @hydrant.id
-  = f.submit "Send reminder to shovel"
+  = f.submit t("buttons.send_reminder")

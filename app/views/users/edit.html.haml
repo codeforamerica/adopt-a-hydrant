@@ -1,24 +1,25 @@
 = form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => {:id => "edit_form", :method => :put} do |f|
   %h2
-    Edit your Profile
+    = t("titles.edit_profile")
   = f.hidden_field "id"
-  = f.label "email", "Email address", :id => "user_email_label"
+  = f.label "email", t("labels.email"), :id => "user_email_label"
   = f.text_field "email", :tabindex => 1
-  = f.label "name", "Name", :id => "user_name_label"
+  = f.label "name", t("labels.name"), :id => "user_name_label"
   = f.text_field "name", :tabindex => 2
-  = f.label "organization", "Organization", :id => "user_organization_label"
+  = f.label "organization", t("labels.organization"), :id => "user_organization_label"
   = f.text_field "organization", :tabindex => 3
-  = f.label "voice_number", "Phone number", :id => "user_voice_number_label"
+  = f.label "voice_number", t("labels.voice_number"), :id => "user_voice_number_label"
   = f.text_field "voice_number", :tabindex => 4
-  = f.label "sms_number", "SMS number", :id => "user_sms_number_label"
+  = f.label "sms_number", t("labels.sms_number"), :id => "user_sms_number_label"
   = f.text_field "sms_number", :tabindex => 5
-  = f.label "password", "New password", :id => "user_password_label"
+  = f.label "password", t("labels.password_new"), :id => "user_password_label"
   %em
-    (leave blank if you don't want to change it)
+    = t("captions.password")
   = f.password_field "password", :tabindex => 6
-  = f.label "current_password", "Current password", :id => "user_current_password_label"
+  = f.label "current_password", t("labels.password_current"), :id => "user_current_password_label"
   %em
+    = t("captions.current_password")
     (we need your current password to confirm your changes)
   = f.password_field "current_password", :tabindex => 7
-  = f.submit "Update", :tabindex => 8
+  = f.submit t("buttons.update"), :tabindex => 8
 = render :partial => 'hydrants/back'
