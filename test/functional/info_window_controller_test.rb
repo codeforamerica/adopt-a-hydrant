@@ -108,4 +108,11 @@ class InfoWindowControllerTest < ActionController::TestCase
     assert_select 'label', :count => 10
     assert_select 'input[name="commit"]', :count => 3
   end
+
+  test 'should show terms of service' do
+    get :tos
+    assert_response :success
+    assert_template 'info_window/tos'
+    assert_select 'h2', 'Terms of Service'
+  end
 end
