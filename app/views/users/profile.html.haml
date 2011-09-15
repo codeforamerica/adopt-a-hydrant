@@ -1,5 +1,5 @@
 %h2
-  = t("titles.adopted", :hydrant_name => @hydrant.name ? @hydrant.name.titleize : t("defaults.hydrant_name"))
+  = t("titles.adopted", :thing_name => @hydrant.name ? @hydrant.name.titleize : t("defaults.this_thing", :thing => t("defaults.thing")))
   %br
   = t("titles.byline", :name => @hydrant.user.name)
   %br

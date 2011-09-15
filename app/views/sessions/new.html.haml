@@ -1,6 +1,6 @@
 = form_for :user, :html => {:id => "combo_form"} do |f|
   %h2
-    = t("titles.adopt")
+    = t("titles.adopt", :thing => t("defaults.thing").titleize)
   #common_fields
     = f.label "email", t("labels.email"), :id => "user_email_label"
     %em

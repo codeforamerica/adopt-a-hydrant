@@ -19,7 +19,7 @@ class MainControllerTest < ActionController::TestCase
     assert_select 'input#address', true
     assert_select 'input[name="commit"]' do
       assert_select '[type=?]', 'submit'
-      assert_select '[value=?]', 'Find fire hydrants'
+      assert_select '[value=?]', 'Find hydrants'
     end
     assert_select 'div#map_canvas', true
   end

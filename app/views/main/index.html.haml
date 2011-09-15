@@ -1,6 +1,6 @@
 #sidebar
   %h1
-    = t("titles.main")
+    = t("titles.main", :thing => t("defaults.thing").titleize)
   %p#tagline
     = t("defaults.tagline")
   = form_for :address, :html => {:id => "address_form"} do |f|
@@ -9,12 +9,12 @@
     = label_tag "address", t("labels.address"), :id => "address_label"
     = text_field_tag "address", params[:address], :tabindex => 11
     = hidden_field_tag "limit", params[:limit] || 20
-    = submit_tag t("buttons.find"), :tabindex => 12
+    = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :tabindex => 12
   #logos
     = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
     = image_tag "logos/boston.png", :alt => t("sponsors.city"), :title => t("sponsors.city")
   #feedback
-    %a{:href => "mailto:adoptahydrant@cityofboston.gov?subject=#{t("titles.main")} #{t("links.feedback")}"}
+    %a{:href => "mailto:adoptahydrant@cityofboston.gov?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} #{t("links.feedback")}"}
       = t("links.feedback")
   = image_tag "hydrant-in-snow.jpg", :id => "hydrant-in-snow"
 #map_canvas
