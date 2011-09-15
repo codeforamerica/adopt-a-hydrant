@@ -18,6 +18,8 @@ en:
   captions:
     password: "(leave blank if you don't want to change it)"
     password_current: "(we need your current password to confirm your changes)"
+    private: "(private)"
+    public: "(may be visible to other users)"
   defaults:
     city: "Boston, MA"
     hydrant_name: "This hydrant"
