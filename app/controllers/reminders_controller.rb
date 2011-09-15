@@ -4,7 +4,7 @@ class RemindersController < ApplicationController
   def create
     @reminder = Reminder.new(params[:reminder])
     if @reminder.save
-      HydrantMailer.reminder_email(@reminder.hydrant).deliver
+      ThingMailer.reminder_email(@reminder.thing).deliver
       @reminder.update_attribute(:sent, true)
       render(:json => @reminder)
     else

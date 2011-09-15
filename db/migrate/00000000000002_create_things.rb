@@ -1,6 +1,6 @@
-class CreateHydrants < ActiveRecord::Migration
+class CreateThings < ActiveRecord::Migration
   def change
-    create_table :hydrants do |t|
+    create_table :things do |t|
       t.timestamps
       t.string :name
       t.decimal :lat, :null => false, :precision => 16, :scale => 14
@@ -9,6 +9,6 @@ class CreateHydrants < ActiveRecord::Migration
       t.integer :user_id
     end
 
-    add_index :hydrants, :city_id, :unique => true
+    add_index :things, :city_id, :unique => true
   end
 end

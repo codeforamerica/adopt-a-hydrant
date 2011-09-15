@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,18 +12,6 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 4) do
-
-  create_table "hydrants", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.decimal  "lat",        :precision => 16, :scale => 14, :null => false
-    t.decimal  "lng",        :precision => 17, :scale => 14, :null => false
-    t.integer  "city_id"
-    t.integer  "user_id"
-  end
-
-  add_index "hydrants", ["city_id"], :name => "index_hydrants_on_city_id", :unique => true
 
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
@@ -42,14 +31,26 @@ ActiveRecord::Schema.define(:version => 4) do
     t.datetime "updated_at"
     t.integer  "from_user_id",                    :null => false
     t.integer  "to_user_id",                      :null => false
-    t.integer  "hydrant_id",                      :null => false
+    t.integer  "thing_id",                        :null => false
     t.boolean  "sent",         :default => false
   end
 
   add_index "reminders", ["from_user_id"], :name => "index_reminders_on_from_user_id"
-  add_index "reminders", ["hydrant_id"], :name => "index_reminders_on_hydrant_id"
   add_index "reminders", ["sent"], :name => "index_reminders_on_sent"
+  add_index "reminders", ["thing_id"], :name => "index_reminders_on_thing_id"
   add_index "reminders", ["to_user_id"], :name => "index_reminders_on_to_user_id"
+
+  create_table "things", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.decimal  "lat",        :precision => 16, :scale => 14, :null => false
+    t.decimal  "lng",        :precision => 17, :scale => 14, :null => false
+    t.integer  "city_id"
+    t.integer  "user_id"
+  end
+
+  add_index "things", ["city_id"], :name => "index_things_on_city_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.datetime "created_at"

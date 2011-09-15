@@ -1,4 +1,4 @@
-class Hydrant < ActiveRecord::Base
+class Thing < ActiveRecord::Base
   include Geokit::Geocoders
   validates_presence_of :lat, :lng
   belongs_to :user
@@ -7,11 +7,11 @@ class Hydrant < ActiveRecord::Base
   def self.find_closest(lat, lng, limit=20)
     query = <<-SQL
       SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(radians(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance
-      FROM hydrants
+      FROM things
       ORDER BY distance
       LIMIT ?
       SQL
-    Hydrant.find_by_sql([query, lat.to_f, lng.to_f, lat.to_f, limit.to_i])
+    find_by_sql([query, lat.to_f, lng.to_f, lat.to_f, limit.to_i])
   end
 
   def reverse_geocode

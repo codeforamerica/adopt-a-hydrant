@@ -9,12 +9,12 @@ $(function() {
     zoom: zoomLevel
   };
   var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-  var activeHydrantId;
+  var activeThingId;
   var activeMarker;
   var activeInfoWindow;
   var isWindowOpen = false;
-  var hydrantIds = [];
-  function addMarker(hydrantId, point, image_path) {
+  var thingIds = [];
+  function addMarker(thingId, point, image_path) {
     var image = new google.maps.MarkerImage(image_path,
       new google.maps.Size(27.0, 37.0),
       new google.maps.Point(0, 0),
@@ -43,13 +43,13 @@ $(function() {
         isWindowOpen = false;
       });
       activeInfoWindow = infoWindow;
-      activeHydrantId = hydrantId;
+      activeThingId = thingId;
       activeMarker = marker;
       $.ajax({
         type: 'GET',
         url: '/info_window',
         data: {
-          'hydrant_id': hydrantId
+          'thing_id': thingId
         },
         success: function(data) {
           // Prevent race condition, which could lead to multiple windows being open at the same time.
@@ -61,12 +61,12 @@ $(function() {
         }
       });
     });
-    hydrantIds.push(hydrantId);
+    thingIds.push(thingId);
   }
   function addMarkersAround(lat, lng) {
     $.ajax({
       type: 'GET',
-      url: '/hydrants.json',
+      url: '/things.json',
       data: {
         'commit': $('#address_form input[type="submit"]').val(),
         'utf8': '✓',
@@ -84,21 +84,21 @@ $(function() {
           $('#address_label').removeClass('error', 500);
           $('#address').removeClass('error', 500);
           var i = -1;
-          $(data).each(function(index, hydrant) {
-            if($.inArray(hydrant.id, hydrantIds) == -1) {
+          $(data).each(function(index, thing) {
+            if($.inArray(thing.id, thingIds) == -1) {
               i += 1;
             } else {
               // continue
               return true;
             }
             setTimeout(function() {
-              point = new google.maps.LatLng(hydrant.lat, hydrant.lng);
-              if(hydrant.user_id) {
+              point = new google.maps.LatLng(thing.lat, thing.lng);
+              if(thing.user_id) {
                 image_path = '<%= image_path 'markers/green.png' %>';
               } else {
                 image_path = '<%= image_path 'markers/red.png' %>';
               }
-              addMarker(hydrant.id, point, image_path);
+              addMarker(thing.id, point, image_path);
             }, i * 100);
           });
           center = new google.maps.LatLng(lat, lng);
@@ -273,7 +273,7 @@ $(function() {
               type: 'GET',
               url: '/info_window',
               data: {
-                'hydrant_id': activeHydrantId,
+                'thing_id': activeThingId,
                 'flash': {
                   'notice': "Thanks for signing up!"
                 }
@@ -328,7 +328,7 @@ $(function() {
               type: 'GET',
               url: '/info_window',
               data: {
-                'hydrant_id': activeHydrantId,
+                'thing_id': activeThingId,
                 'flash': {
                   'notice': "Signed in!"
                 }
@@ -396,16 +396,16 @@ $(function() {
     $(submitButton).attr("disabled", true);
     $.ajax({
       type: 'POST',
-      url: '/hydrants.json',
+      url: '/things.json',
       data: {
-        'id': $('#hydrant_id').val(),
+        'id': $('#thing_id').val(),
         'commit': submitButton.val(),
         'utf8': '✓',
         'authenticity_token': $('#adoption_form input[name="authenticity_token"]').val(),
         '_method': 'put',
-        'hydrant': {
-          'user_id': $('#hydrant_user_id').val(),
-          'name': $('#hydrant_name').val()
+        'thing': {
+          'user_id': $('#thing_user_id').val(),
+          'name': $('#thing_name').val()
         }
       },
       beforeSend: function() {
@@ -422,9 +422,9 @@ $(function() {
           type: 'GET',
           url: '/info_window',
           data: {
-            'hydrant_id': activeHydrantId,
+            'thing_id': activeThingId,
             'flash': {
-              'notice': "You just adopted " + $('#hydrant_name').val() + "!"
+              'notice': "You just adopted " + $('#thing_name').val() + "!"
             }
           },
           success: function(data) {
@@ -450,16 +450,16 @@ $(function() {
       $(submitButton).attr("disabled", true);
       $.ajax({
         type: 'POST',
-        url: '/hydrants.json',
+        url: '/things.json',
         data: {
-          'id': $('#hydrant_id').val(),
+          'id': $('#thing_id').val(),
           'commit': submitButton.val(),
           'utf8': '✓',
           'authenticity_token': $('#abandon_form input[name="authenticity_token"]').val(),
           '_method': 'put',
-          'hydrant': {
-            'user_id': $('#hydrant_user_id').val(),
-            'name': $('#hydrant_name').val()
+          'thing': {
+            'user_id': $('#thing_user_id').val(),
+            'name': $('#thing_name').val()
           }
         },
         beforeSend: function() {
@@ -476,7 +476,7 @@ $(function() {
             type: 'GET',
             url: '/info_window',
             data: {
-              'hydrant_id': activeHydrantId,
+              'thing_id': activeThingId,
               'flash': {
                 'notice': "Hydrant abandoned!"
               }
@@ -504,16 +504,16 @@ $(function() {
       $(submitButton).attr("disabled", true);
       $.ajax({
         type: 'POST',
-        url: '/hydrants.json',
+        url: '/things.json',
         data: {
-          'id': $('#hydrant_id').val(),
+          'id': $('#thing_id').val(),
           'commit': submitButton.val(),
           'utf8': '✓',
           'authenticity_token': $('#steal_form input[name="authenticity_token"]').val(),
           '_method': 'put',
-          'hydrant': {
-            'user_id': $('#hydrant_user_id').val(),
-            'name': $('#hydrant_name').val()
+          'thing': {
+            'user_id': $('#thing_user_id').val(),
+            'name': $('#thing_name').val()
           }
         },
         beforeSend: function() {
@@ -530,7 +530,7 @@ $(function() {
             type: 'GET',
             url: '/info_window',
             data: {
-              'hydrant_id': activeHydrantId,
+              'thing_id': activeThingId,
               'flash': {
                 'notice': "Hydrant stolen!"
               }
@@ -622,7 +622,7 @@ $(function() {
         url: '/users.json',
         data: {
           'id': $('#id').val(),
-          'hydrant_id': activeHydrantId,
+          'thing_id': activeThingId,
           'commit': submitButton.val(),
           'utf8': '✓',
           'authenticity_token': $('#edit_form input[name="authenticity_token"]').val(),
@@ -716,7 +716,7 @@ $(function() {
           type: 'GET',
           url: '/info_window',
           data: {
-            'hydrant_id': activeHydrantId,
+            'thing_id': activeThingId,
             'flash': {
               'notice': "Signed out."
             }
@@ -765,7 +765,7 @@ $(function() {
         'commit': submitButton.val(),
         'utf8': '✓',
         'authenticity_token': $('#back_form input[name="authenticity_token"]').val(),
-        'hydrant_id': activeHydrantId
+        'thing_id': activeThingId
       },
       beforeSend: function() {
         $('#info_window').hide();
@@ -795,7 +795,7 @@ $(function() {
         'reminder': {
           'from_user_id': $('#reminder_from_user_id').val(),
           'to_user_id': $('#reminder_to_user_id').val(),
-          'hydrant_id': activeHydrantId
+          'thing_id': activeThingId
         }
       },
       beforeSend: function() {
@@ -812,7 +812,7 @@ $(function() {
           type: 'GET',
           url: '/info_window',
           data: {
-            'hydrant_id': activeHydrantId,
+            'thing_id': activeThingId,
             'flash': {
               'notice': "Reminder sent!"
             }

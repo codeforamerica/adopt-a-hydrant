@@ -2,4 +2,4 @@
 reminder_1:
   from_user: erik
   to_user: dan
-  hydrant: hydrant_1
+  thing: thing_1

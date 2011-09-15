@@ -1,4 +1,4 @@
-AdoptAHydrant::Application.routes.draw do
+AdoptAThing::Application.routes.draw do
   devise_for :users, :controllers => {
     :passwords => 'passwords',
     :registrations => 'users',
@@ -8,8 +8,8 @@ AdoptAHydrant::Application.routes.draw do
   get 'info_window' => 'info_window#index', :as => 'info_window'
   get 'sitemap' => 'sitemaps#index', :as => 'sitemap'
   get 'tos' => 'info_window#tos', :as => 'tos'
-  resource :hydrants
   resource :reminders
+  resource :things
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   root :to => 'main#index'
 end
