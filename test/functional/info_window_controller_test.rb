@@ -53,8 +53,7 @@ class InfoWindowControllerTest < ActionController::TestCase
     assert_not_nil assigns :hydrant
     assert_response :success
     assert_template 'users/profile'
-    assert_select 'h2', "This hydrant has been adopted by #{@user.name}"
-    assert_select 'h3', "of #{@user.organization}"
+    assert_select 'h2', /This hydrant has been adopted\s+by #{@user.name}\s+of #{@user.organization}/
   end
 
   test 'should show adoption form if hydrant is not adopted' do
