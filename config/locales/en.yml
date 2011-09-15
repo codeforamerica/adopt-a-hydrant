@@ -25,6 +25,10 @@ en:
     hydrant_name: "This hydrant"
     tagline: "Claim responsibility for shoveling out a fire hydrant after it snows."
     tos: "By signing up, you agree to the %{tos}."
+  errors:
+    address: "Could not find address."
+    password: "You need to sign in or sign up before continuing."
+    hydrants: "Could not find hydrants."
   labels:
     address: "Address, Neighborhood"
     city_state: "City"

@@ -6,7 +6,7 @@ class HydrantsController < ApplicationController
     unless @hydrants.blank?
       respond_with @hydrants
     else
-      render(:json => {"errors" => {"address" => ["Could not find hydrants."]}}, :status => 404)
+      render(:json => {"errors" => {"address" => [t("errors.hydrants")]}}, :status => 404)
     end
   end
 
