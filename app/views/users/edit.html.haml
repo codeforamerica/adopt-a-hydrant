@@ -16,10 +16,9 @@
   %em
     = t("captions.password")
   = f.password_field "password", :tabindex => 6
-  = f.label "current_password", t("labels.password_current"), :id => "user_current_password_label"
+  = f.label "current_password", t("labels.current_password"), :id => "user_current_password_label"
   %em
     = t("captions.current_password")
-    (we need your current password to confirm your changes)
   = f.password_field "current_password", :tabindex => 7
   = f.submit t("buttons.update"), :tabindex => 8
 = render :partial => 'hydrants/back'

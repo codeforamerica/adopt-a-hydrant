@@ -16,8 +16,8 @@ en:
     steal: "Steal this hydrant"
     update: "Update"
   captions:
+    current_password: "(we need your current password to confirm your changes)"
     password: "(leave blank if you don't want to change it)"
-    password_current: "(we need your current password to confirm your changes)"
     private: "(private)"
     public: "(may be visible to other users)"
   defaults:
@@ -51,9 +51,11 @@ en:
     remembered_password: "Never mind. I remembered my password."
   titles:
     adopt: "Adopt this Hydrant"
-    adopted: "%{hydrant_name} has been adopted by %{name}"
+    adopted: "%{hydrant_name} has been adopted"
+    byline: "by %{name}"
     edit_profile: "Edit your Profile"
     main: "Adopt a Hydrant"
+    ofline: "of %{organization}"
     thank_you: "Thank you for adopting this hydrant!"
     tos: "Terms of Service"
   sponsors:

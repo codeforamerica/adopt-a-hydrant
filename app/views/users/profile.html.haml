@@ -1,8 +1,9 @@
 %h2
-  = t("titles.adopted", :hydrant_name => @hydrant.name ? @hydrant.name.titleize : t("defaults.hydrant_name"), :name => @hydrant.user.name)
-- unless @hydrant.user.organization.blank?
-  %h3
-    = "of #{@hydrant.user.organization}"
+  = t("titles.adopted", :hydrant_name => @hydrant.name ? @hydrant.name.titleize : t("defaults.hydrant_name"))
+  %br
+  = t("titles.byline", :name => @hydrant.user.name)
+  %br
+  = t("titles.ofline", :organization => @hydrant.user.organization) unless @hydrant.user.organization.blank?
 - if user_signed_in?
   = render :partial => 'users/reminder'
   = render :partial => 'hydrants/steal'
