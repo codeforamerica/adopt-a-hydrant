@@ -6,6 +6,7 @@ class UsersController < Devise::RegistrationsController
   def update
     if resource.update_with_password(params[resource_name])
       sign_in(resource_name, resource, :bypass => true)
+      flash[:notice] = "Profile updated!"
       redirect_to(:controller => "info_window", :action => "index", :hydrant_id => params[:hydrant_id])
     else
       clean_up_passwords(resource)
