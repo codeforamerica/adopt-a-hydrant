@@ -3,14 +3,24 @@
     = t("titles.edit_profile")
   = f.hidden_field "id"
   = f.label "email", t("labels.email"), :id => "user_email_label"
+  %em
+    = image_tag "lock.svg", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
   = f.text_field "email", :tabindex => 1
   = f.label "name", t("labels.name"), :id => "user_name_label"
+  %em
+    = t("captions.public")
   = f.text_field "name", :tabindex => 2
   = f.label "organization", t("labels.organization"), :id => "user_organization_label"
+  %em
+    = t("captions.public")
   = f.text_field "organization", :tabindex => 3
   = f.label "voice_number", t("labels.voice_number"), :id => "user_voice_number_label"
+  %em
+    = image_tag "lock.svg", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
   = f.text_field "voice_number", :tabindex => 4
   = f.label "sms_number", t("labels.sms_number"), :id => "user_sms_number_label"
+  %em
+    = image_tag "lock.svg", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
   = f.text_field "sms_number", :tabindex => 5
   = f.label "password", t("labels.password_new"), :id => "user_password_label"
   %em
