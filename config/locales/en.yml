@@ -50,6 +50,15 @@ en:
     feedback: "Feedback"
     forgot_password: "Forgot your password?"
     remembered_password: "Never mind. I remembered my password."
+  notices:
+    abandoned: "%{thing} abandoned!"
+    adopted: "You just adopted a %{thing}!"
+    password_reset: "Password reset instructions sent! Check your email."
+    reminder_sent: "Reminder sent!"
+    signed_in: "Signed in!"
+    signed_out: "Signed out."
+    signed_up: "Thanks for signing up!"
+    stolen: "%{thing} stolen!"
   titles:
     adopt: "Adopt this %{thing}"
     adopted: "%{thing_name} has been adopted"

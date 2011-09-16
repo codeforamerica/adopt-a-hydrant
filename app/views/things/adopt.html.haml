@@ -1,9 +1,9 @@
-= form_for :hydrant, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
+= form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
   %h2
     = t("titles.adopt", :thing => t("defaults.thing").titleize)
   = f.hidden_field "id"
   = f.hidden_field "user_id", :value => current_user.id
-  = f.label "name", t("labels.name_thing", :thing => t("defaults.thing")), :id => "hydrant_name_label"
+  = f.label "name", t("labels.name_thing", :thing => t("defaults.thing")), :id => "thing_name_label"
   = f.text_field "name", :tabindex => 1
   = f.submit t("buttons.adopt"), :tabindex => 2
 = render :partial => 'users/edit_profile'

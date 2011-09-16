@@ -275,7 +275,7 @@ $(function() {
               data: {
                 'thing_id': activeThingId,
                 'flash': {
-                  'notice': "Thanks for signing up!"
+                  'notice': "<%= I18n.t("notices.signed_up") %>"
                 }
               },
               success: function(data) {
@@ -330,7 +330,7 @@ $(function() {
               data: {
                 'thing_id': activeThingId,
                 'flash': {
-                  'notice': "Signed in!"
+                  'notice': "<%= I18n.t("notices.signed_in") %>"
                 }
               },
               success: function(data) {
@@ -377,7 +377,7 @@ $(function() {
                   'email': $('#user_email').val()
                 },
                 'flash': {
-                  'notice': "Password reset instructions sent! Check your email."
+                  'notice': "<%= I18n.t("notices.password_reset") %>"
                 }
               },
               success: function(data) {
@@ -424,7 +424,7 @@ $(function() {
           data: {
             'thing_id': activeThingId,
             'flash': {
-              'notice': "You just adopted " + $('#thing_name').val() + "!"
+              'notice': "<%= I18n.t("notices.adopted", :thing => I18n.t("defaults.thing")) %>"
             }
           },
           success: function(data) {
@@ -444,7 +444,7 @@ $(function() {
     return false;
   });
   $('#abandon_form').live('submit', function() {
-    var answer = window.confirm("Are you sure you want to abandon this hydrant?")
+    var answer = window.confirm("Are you sure you want to abandon this <%= I18n.t("defaults.thing") %>?")
     if(answer) {
       var submitButton = $("#abandon_form input[type='submit']");
       $(submitButton).attr("disabled", true);
@@ -478,7 +478,7 @@ $(function() {
             data: {
               'thing_id': activeThingId,
               'flash': {
-                'notice': "Hydrant abandoned!"
+                'notice': "<%= I18n.t("notices.abandoned", :thing => I18n.t("defaults.thing").capitalize) %>"
               }
             },
             success: function(data) {
@@ -498,7 +498,7 @@ $(function() {
     return false;
   });
   $('#steal_form').live('submit', function() {
-    var answer = window.confirm("Are you sure you want to steal this hydrant?")
+    var answer = window.confirm("Are you sure you want to steal this <%= I18n.t("defaults.thing") %>?")
     if(answer) {
       var submitButton = $("#steal_form input[type='submit']");
       $(submitButton).attr("disabled", true);
@@ -532,7 +532,7 @@ $(function() {
             data: {
               'thing_id': activeThingId,
               'flash': {
-                'notice': "Hydrant stolen!"
+                'notice': "<%= I18n.t("notices.stolen", :thing => I18n.t("defaults.thing").capitalize) %>"
               }
             },
             success: function(data) {
@@ -718,7 +718,7 @@ $(function() {
           data: {
             'thing_id': activeThingId,
             'flash': {
-              'notice': "Signed out."
+              'notice': "<%= I18n.t("notices.signed_out") %>"
             }
           },
           success: function(data) {
@@ -814,7 +814,7 @@ $(function() {
           data: {
             'thing_id': activeThingId,
             'flash': {
-              'notice': "Reminder sent!"
+              'notice': "<%= I18n.t("notices.reminder_sent") %>"
             }
           },
           success: function(data) {

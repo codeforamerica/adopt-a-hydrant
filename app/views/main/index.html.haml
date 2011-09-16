@@ -14,7 +14,7 @@
     = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
     = image_tag "logos/boston.png", :alt => t("sponsors.city"), :title => t("sponsors.city")
   #feedback
-    %a{:href => "mailto:adoptahydrant@cityofboston.gov?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} #{t("links.feedback")}"}
+    %a{:href => "mailto:adoptahydrant@cityofboston.gov?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} #{t("links.feedback").titleize}"}
       = t("links.feedback")
   = image_tag "hydrant-in-snow.jpg", :id => "hydrant-in-snow"
 #map_canvas
