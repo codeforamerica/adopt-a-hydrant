@@ -6,6 +6,7 @@ gem 'arel'
 gem 'devise'
 gem 'geokit'
 gem 'haml', '~> 3.2.0.alpha'
+gem 'pg'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'rack-contrib'
 
@@ -20,10 +21,6 @@ end
 
 group :assets do
   gem 'uglifier'
-end
-
-group :development, :production do
-  gem 'pg'
 end
 
 group :production do
