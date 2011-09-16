@@ -1,5 +1,5 @@
 bundler_args: "--without assets:development:production"
-script: "bundle exec rake db:migrate test"
+script: "bundle exec rake db:create db:migrate test"
 rvm:
   - 1.8.7
   - 1.9.2
