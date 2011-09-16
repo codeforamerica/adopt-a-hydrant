@@ -23,13 +23,13 @@ fr:
   defaults:
     address: "Adresse"
     city: "Boston, MA"
-    thing: "%{thing}"
+    thing: "bouche d'incendie"
     this_thing: "Cette %{thing}"
     tagline: "La responsabilité Réclamation pour pelleter une %{thing} le feu après qu'il neige."
     tos: "En vous inscrivant, vous acceptez les %{tos}."
   errors:
     password: "Vous devez vous identifier ou vous inscrire avant de continuer."
-    not_found: "Impossible de trouver borne d'incendie."
+    not_found: "Impossible de trouver %{thing}."
   labels:
     address: "Adresse, Quartier"
     city_state: "Ville"
