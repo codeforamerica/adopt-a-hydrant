@@ -8,7 +8,7 @@
     = select_tag "city_state", "<option value=\"#{t("defaults.city")}\" selected=\"selected\">#{t("defaults.city")}</option>".html_safe, :tabindex => 10
     = label_tag "address", t("labels.address"), :id => "address_label"
     = text_field_tag "address", params[:address], :tabindex => 11
-    = hidden_field_tag "limit", params[:limit] || 20
+    = hidden_field_tag "limit", params[:limit] || 40
     = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :tabindex => 12
   #logos
     = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
