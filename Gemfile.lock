@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 1c99efce95c847a37e884f0fe3d875ff40332a6d
+  revision: d57c7e59a330a2fbd604970715bcacbaaf9afc9d
   specs:
     rails_admin (0.0.1)
       builder (~> 3.0.0)
@@ -54,7 +54,7 @@ GEM
     erubis (2.7.0)
     eventmachine (0.12.10)
     eventmachine (0.12.10-java)
-    execjs (1.2.6)
+    execjs (1.2.7)
       multi_json (~> 1.0)
     fastercsv (1.5.4)
     geokit (1.6.0)
@@ -107,7 +107,7 @@ GEM
     sprockets (2.0.0)
       hike (~> 1.2)
       rack (~> 1.0)
-      tilt (!= 1.3.0, ~> 1.1)
+      tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.4)
     therubyrhino (1.72.8)
     thin (1.2.11)
@@ -126,7 +126,7 @@ GEM
     warden (1.0.5)
       rack (>= 1.0)
     webmock (1.7.6)
-      addressable (> 2.2.5, ~> 2.2)
+      addressable (~> 2.2, > 2.2.5)
       crack (>= 0.1.7)
 
 PLATFORMS
