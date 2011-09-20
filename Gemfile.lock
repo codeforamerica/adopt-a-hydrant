@@ -47,7 +47,7 @@ GEM
     builder (3.0.0)
     crack (0.3.0)
     daemons (1.1.4)
-    devise (1.4.5)
+    devise (1.4.6)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
