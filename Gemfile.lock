@@ -45,7 +45,7 @@ GEM
     bcrypt-ruby (3.0.1-java)
     bouncy-castle-java (1.5.0146.1)
     builder (3.0.0)
-    crack (0.3.0)
+    crack (0.3.1)
     daemons (1.1.4)
     devise (1.4.6)
       bcrypt-ruby (~> 3.0)
