@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: fe46a8f51c899d90995a4357f99de5944e0f2f59
+  revision: 99d623b58b8ebb9ad8c8fffe8dfb795a50e3e33d
   specs:
     rails_admin (0.0.1)
       builder (~> 3.0.0)
@@ -54,7 +54,7 @@ GEM
     erubis (2.7.0)
     eventmachine (0.12.10)
     eventmachine (0.12.10-java)
-    execjs (1.2.8)
+    execjs (1.2.9)
       multi_json (~> 1.0)
     fastercsv (1.5.4)
     geokit (1.6.0)
