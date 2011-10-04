@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: a311e3b833ffa2ef134a2b1c4c1d073065c57ad1
+  revision: 1cb0628eea5be6120c4bfcbe609b3cea5f246290
   specs:
     rails_admin (0.0.1)
       builder (~> 3.0.0)
@@ -104,7 +104,7 @@ GEM
       multi_json (~> 1.0.3)
       simplecov-html (~> 0.5.3)
     simplecov-html (0.5.3)
-    sprockets (2.0.1)
+    sprockets (2.0.2)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
