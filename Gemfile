@@ -8,6 +8,7 @@ gem 'geokit'
 gem 'haml', '~> 3.2.0.alpha'
 gem 'pg'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'bootstrap-sass', '1.3.0'
 gem 'rack-contrib'
 
 platforms :jruby do
