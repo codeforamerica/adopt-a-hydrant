@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 992c2b84c46652c93d0d3f048025ed78c676762a
+  revision: d2c177af49f70aab51462cf61ee744ac24a0198b
   specs:
     rails_admin (0.0.1)
       bootstrap-sass
@@ -115,7 +115,7 @@ GEM
       thor (~> 0.14.6)
     rake (0.9.2)
     rdoc (3.9.4)
-    sass (3.1.8)
+    sass (3.1.10)
     sass-rails (3.1.4)
       actionpack (~> 3.1.0)
       railties (~> 3.1.0)
