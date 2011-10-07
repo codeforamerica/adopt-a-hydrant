@@ -156,6 +156,7 @@ PLATFORMS
 
 DEPENDENCIES
   arel
+  bootstrap-sass (= 1.3.0)
   devise
   fastercsv
   geokit
