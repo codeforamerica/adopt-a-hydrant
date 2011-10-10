@@ -1,5 +1,0 @@
-= form_for :thing, :url => things_path, :method => :put, :html => {:id => "steal_form"} do |f|
-  = f.hidden_field "id"
-  = f.hidden_field "user_id", :value => ""
-  = f.hidden_field "name", :value => ""
-  = f.submit t("buttons.steal", :thing => t("defaults.thing"))

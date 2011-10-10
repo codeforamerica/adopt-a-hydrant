@@ -13,7 +13,6 @@ es:
     sign_in: "Ingresar"
     sign_out: "Salir"
     sign_up: "Regístrate"
-    steal: "Robar esta %{thing}"
     update: "Actualización"
   captions:
     current_password: "(Necesitamos su contraseña actual para confirmar los cambios)"

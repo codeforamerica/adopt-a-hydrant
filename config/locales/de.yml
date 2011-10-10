@@ -13,7 +13,6 @@ de:
     sign_in: "Anmelden"
     sign_out: "Austragen"
     sign_up: "Registrieren"
-    steal: "Steal this %{thing}"
     update: "Aktualisierung"
   captions:
     current_password: "(Wir brauchen Ihr aktuelles Passwort, um Ihre Änderungen zu bestätigen)"

@@ -13,7 +13,6 @@ pt:
     sign_in: "Entrar"
     sign_out: "Sair"
     sign_up: "Inscrever-se"
-    steal: "Roubar este %{thing}"
     update: "Atualizar"
   captions:
     current_password: "(Nós precisamos de sua senha atual para confirmar as alterações)"

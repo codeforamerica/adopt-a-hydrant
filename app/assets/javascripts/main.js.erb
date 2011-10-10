@@ -496,60 +496,6 @@ $(function() {
     }
     return false;
   });
-  $('#steal_form').live('submit', function() {
-    var answer = window.confirm("Are you sure you want to steal this <%= I18n.t("defaults.thing") %>?")
-    if(answer) {
-      var submitButton = $("#steal_form input[type='submit']");
-      $(submitButton).attr("disabled", true);
-      $.ajax({
-        type: 'POST',
-        url: '/things.json',
-        data: {
-          'id': $('#thing_id').val(),
-          'commit': submitButton.val(),
-          'utf8': '✓',
-          'authenticity_token': $('#steal_form input[name="authenticity_token"]').val(),
-          '_method': 'put',
-          'thing': {
-            'user_id': $('#thing_user_id').val(),
-            'name': $('#thing_name').val()
-          }
-        },
-        beforeSend: function() {
-          $('#info_window').hide();
-          $('#loader').show();
-        },
-        error: function(jqXHR) {
-          $('#loader').hide();
-          $('#info_window').show();
-          $(submitButton).attr("disabled", false);
-        },
-        success: function(data) {
-          $.ajax({
-            type: 'GET',
-            url: '/info_window',
-            data: {
-              'thing_id': activeThingId,
-              'flash': {
-                'notice': "<%= I18n.t("notices.stolen", :thing => I18n.t("defaults.thing").capitalize) %>"
-              }
-            },
-            success: function(data) {
-              activeInfoWindow.setContent(data);
-              image = new google.maps.MarkerImage('<%= image_path 'markers/red.png' %>',
-                new google.maps.Size(27.0, 37.0),
-                new google.maps.Point(0, 0),
-                new google.maps.Point(13.0, 18.0)
-              );
-              activeMarker.setIcon(image);
-              activeMarker.setAnimation(null);
-            }
-          });
-        }
-      });
-    }
-    return false;
-  });
   $('#edit_profile_form').live('submit', function() {
     var submitButton = $("#edit_profile_form input[type='submit']");
     $(submitButton).attr("disabled", true);

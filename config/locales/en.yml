@@ -13,7 +13,6 @@ en:
     sign_in: "Sign in"
     sign_out: "Sign out"
     sign_up: "Sign up"
-    steal: "Steal this %{thing}"
     update: "Update"
   captions:
     current_password: "(we need your current password to confirm your changes)"
