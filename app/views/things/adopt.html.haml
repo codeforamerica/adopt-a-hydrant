@@ -4,7 +4,7 @@
   = f.hidden_field "id"
   = f.hidden_field "user_id", :value => current_user.id
   = f.label "name", t("labels.name_thing", :thing => t("defaults.thing")), :id => "thing_name_label"
-  = f.text_field "name", :tabindex => 1
-  = f.submit t("buttons.adopt"), :tabindex => 2
+  = f.text_field "name"
+  = f.submit t("buttons.adopt")
 = render :partial => 'users/edit_profile'
 = render :partial => 'sessions/sign_out'
