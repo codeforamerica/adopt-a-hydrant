@@ -16,6 +16,6 @@ class RemindersControllerTest < ActionController::TestCase
     assert_response :success
     email = ActionMailer::Base.deliveries.last
     assert_equal [@dan.email], email.to
-    assert_equal "Remember to Shovel", email.subject
+    assert_equal "Remember to shovel", email.subject
   end
 end

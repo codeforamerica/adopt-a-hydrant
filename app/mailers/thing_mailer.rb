@@ -1,13 +1,14 @@
 class ThingMailer < ActionMailer::Base
-  default :from => "hello@#{default_url_options[:host]}"
+  default :from => "adoptahydrant@cityofboston.gov"
 
-  def reminder_email(thing)
+  def reminder(thing)
     @thing = thing
     @user = thing.user
-    mail({
-      :to => thing.user.email,
-      :from => "reminder@#{default_url_options[:host]}",
-      :subject => ["Remember to Shovel", thing.name].compact.join(' '),
-    })
+    mail(
+      {
+        :to => thing.user.email,
+        :subject => ["Remember to shovel", thing.name].compact.join(' '),
+      }
+    )
   end
 end
