@@ -5,7 +5,6 @@ class MainControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_select 'title', 'Adopt a Hydrant'
-    assert_select 'h1', 'Adopt a Hydrant'
     assert_select 'p#tagline', 'Claim responsibility for shoveling out a fire hydrant after it snows.'
     assert_select 'form' do
       assert_select '[action=?]', '/'
