@@ -55,12 +55,13 @@ ActiveRecord::Schema.define(:version => 4) do
   create_table "users", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",                                                :null => false
+    t.string   "name",                                                   :null => false
     t.string   "organization"
-    t.string   "email",                               :default => "", :null => false
+    t.string   "email",                               :default => "",    :null => false
     t.string   "voice_number"
     t.string   "sms_number"
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.boolean  "admin",                               :default => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"

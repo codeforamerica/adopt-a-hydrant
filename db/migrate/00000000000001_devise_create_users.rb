@@ -7,6 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email, :null => false
       t.string :voice_number
       t.string :sms_number
+      t.boolean :admin, :default => false
       t.database_authenticatable :null => false
       t.recoverable
       t.rememberable
