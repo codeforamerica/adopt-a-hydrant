@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 20c41fbc1863878a7749ad56f20e11ccbf761e42
+  revision: cf3d74a83526fc48abb48f69eab6a6aabd014d51
   specs:
     rails_admin (0.0.1)
       bootstrap-sass
@@ -45,7 +45,7 @@ GEM
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-java)
-    bootstrap-sass (1.3.0)
+    bootstrap-sass (1.3.1)
       sass-rails (~> 3.1.0)
     bouncy-castle-java (1.5.0146.1)
     builder (3.0.0)
