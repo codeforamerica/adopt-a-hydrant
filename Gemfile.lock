@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 803670eed556970f129c9841f9ba5c84c94428ff
+  revision: 20c41fbc1863878a7749ad56f20e11ccbf761e42
   specs:
     rails_admin (0.0.1)
       bootstrap-sass
@@ -124,7 +124,7 @@ GEM
       sass (>= 3.1.4)
       sprockets (~> 2.0.0)
       tilt (~> 1.3.2)
-    simplecov (0.5.3)
+    simplecov (0.5.4)
       multi_json (~> 1.0.3)
       simplecov-html (~> 0.5.3)
     simplecov-html (0.5.3)
