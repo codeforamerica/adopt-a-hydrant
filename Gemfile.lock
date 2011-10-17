@@ -1,14 +1,14 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 236eb579fc522ccdb8e7ab953c55de4e6b965add
+  revision: 849898ff5bb1f4b2f3774320d7590b8c54946c31
   specs:
     rails_admin (0.0.1)
-      bootstrap-sass
-      builder (~> 3.0.0)
-      coffee-rails
-      haml (>= 3.1.0, < 3.3.0)
-      jquery-rails
-      rails (~> 3.1.1)
+      bootstrap-sass (~> 1.3, >= 1.3.1)
+      builder (~> 3.0)
+      coffee-rails (~> 3.1)
+      haml (~> 3.1)
+      jquery-rails (~> 1.0)
+      rails (~> 3.1)
 
 GEM
   remote: http://rubygems.org/
@@ -128,7 +128,7 @@ GEM
       multi_json (~> 1.0.3)
       simplecov-html (~> 0.5.3)
     simplecov-html (0.5.3)
-    sprockets (2.0.2)
+    sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
