@@ -5,12 +5,11 @@ class ThingsControllerTest < ActionController::TestCase
     @thing = things(:thing_1)
   end
 
-  # test 'should list hydrants' do
-  #   skip 'Cannot test query on sqlite3 test database'
-  #   get :show, :format => 'json', :lat => 42.358431, :lng => -71.059773
-  #   assert_not_nil assigns :things
-  #   assert_response :success
-  # end
+  test 'should list hydrants' do
+    get :show, :format => 'json', :lat => 42.358431, :lng => -71.059773
+    assert_not_nil assigns :things
+    assert_response :success
+  end
 
   test 'should update hydrant' do
     assert_not_equal 'Birdsill', @thing.name
