@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 5483935fd1709775d86591e3588bf60feac9f9d7
+  revision: 6580e907c3ad0702c264a0df745379fc1301a53a
   specs:
     rails_admin (0.0.1)
       bootstrap-sass (~> 1.4)
@@ -9,6 +9,7 @@ GIT
       haml (~> 3.1)
       jquery-rails (~> 1.0.17)
       kaminari (~> 0.12.4)
+      rack-pjax
       rails (~> 3.1)
       remotipart (~> 1.0)
 
@@ -73,6 +74,8 @@ GEM
     geokit (1.6.0)
     haml (3.2.0.alpha.8)
     hike (1.2.1)
+    hpricot (0.8.4)
+    hpricot (0.8.4-java)
     i18n (0.6.0)
     jquery-rails (1.0.17)
       railties (~> 3.0)
@@ -99,6 +102,9 @@ GEM
       rack (>= 0.9.1)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    rack-pjax (0.5.5)
+      hpricot (~> 0.8.4)
+      rack (~> 1.3)
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.1)
