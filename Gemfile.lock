@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 5594fde587d80cf141355c9b790bc1b15ae45d40
+  revision: 421d1b82761e5c7d55c3102b1884410cc76eb272
   specs:
     rails_admin (0.0.1)
       bootstrap-sass (~> 1.4)
@@ -90,7 +90,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.17.2)
-    multi_json (1.0.3)
+    multi_json (1.0.4)
     orm_adapter (0.0.5)
     pg (0.11.0)
     polyglot (0.3.3)
