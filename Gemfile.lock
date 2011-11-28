@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: bcd00a3a374a2f0474fea3a946b3724e45b07468
+  revision: 5594fde587d80cf141355c9b790bc1b15ae45d40
   specs:
     rails_admin (0.0.1)
       bootstrap-sass (~> 1.4)
@@ -82,8 +82,7 @@ GEM
       thor (~> 0.14)
     jruby-openssl (0.7.4)
       bouncy-castle-java
-    json (1.6.1)
-    json (1.6.1-java)
+    json (1.6.2)
     kaminari (0.12.4)
       rails (>= 3.0.0)
     mail (2.3.0)
