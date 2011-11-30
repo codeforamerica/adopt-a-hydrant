@@ -1,13 +1,14 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: e075d499c4b9fb71e88d016526d3af4e3ce25ec5
+  revision: 3a76cd8303364415a0384c635dc8983acdfb0de2
   specs:
     rails_admin (0.0.1)
+      bbenezech-nested_form (~> 0.0.2)
       bootstrap-sass (~> 1.4)
       builder (~> 3.0)
       coffee-rails (~> 3.1)
       haml (~> 3.1)
-      jquery-rails (~> 1.0.17)
+      jquery-rails (~> 1.0.19)
       kaminari (~> 0.12.4)
       rack-pjax
       rails (~> 3.1)
@@ -46,6 +47,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.6)
     arel (2.2.1)
+    bbenezech-nested_form (0.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-java)
     bootstrap-sass (1.4.0)
