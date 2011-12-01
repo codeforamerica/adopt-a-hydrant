@@ -84,8 +84,8 @@ GEM
       thor (~> 0.14)
     jruby-openssl (0.7.4)
       bouncy-castle-java
-    json (1.6.2)
-    json (1.6.2-java)
+    json (1.6.3)
+    json (1.6.3-java)
     kaminari (0.12.4)
       rails (>= 3.0.0)
     mail (2.3.0)
