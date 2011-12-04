@@ -4,10 +4,10 @@ Claim responsibility for shoveling out a fire hydrant after it snows.
 ## <a name="screenshots"></a>Screenshot
 ![Adopt a Hydrant](https://github.com/codeforamerica/adopt-a-hydrant/raw/master/screenshot.png "Adopt a Hydrant")
 
-## <a name="ci"></a>Build Status
-[![Build Status](https://secure.travis-ci.org/codeforamerica/adopt-a-hydrant.png)][ci]
+## <a name="build"></a>Build Status
+[![Build Status](https://secure.travis-ci.org/codeforamerica/adopt-a-hydrant.png?branch=master)][travis]
 
-[ci]: http://travis-ci.org/codeforamerica/adopt-a-hydrant
+[travis]: http://travis-ci.org/codeforamerica/adopt-a-hydrant
 
 ## <a name="dependencies"></a>Dependency Status
 [![Dependency Status](https://gemnasium.com/codeforamerica/adopt-a-hydrant.png?travis)][gemnasium]
@@ -77,7 +77,7 @@ bug report should include a pull request with failing specs.
    please do so in a separate commit.)
 
 ## <a name="versions"></a>Supported Ruby Versions
-This library aims to support and is [tested against][ci] the following Ruby
+This library aims to support and is [tested against][travis] the following Ruby
 implementations:
 
 * Ruby 1.8.7
