@@ -10,7 +10,7 @@ Claim responsibility for shoveling out a fire hydrant after it snows.
 [ci]: http://travis-ci.org/codeforamerica/adopt-a-hydrant
 
 ## <a name="dependencies"></a>Dependency Status
-[![Dependency Status](https://gemnasium.com/codeforamerica/adopt-a-hydrant.png)][gemnasium]
+[![Dependency Status](https://gemnasium.com/codeforamerica/adopt-a-hydrant.png?travis)][gemnasium]
 
 [gemnasium]: https://gemnasium.com/codeforamerica/adopt-a-hydrant
 
