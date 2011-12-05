@@ -1,10 +1,10 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 58ff398fd7b8f2375aa28343ce378ad8882a927c
+  revision: 87aff45576e914d63997735731d3a21f7ecf4390
   specs:
     rails_admin (0.0.1)
       bbenezech-nested_form (~> 0.0.2)
-      bootstrap-sass (~> 1.4)
+      bootstrap-sass (~> 1.4.1)
       builder (~> 3.0)
       coffee-rails (~> 3.1)
       haml (~> 3.1)
@@ -70,7 +70,7 @@ GEM
     erubis (2.7.0)
     eventmachine (0.12.10)
     eventmachine (0.12.10-java)
-    execjs (1.2.9)
+    execjs (1.2.11)
       multi_json (~> 1.0)
     fastercsv (1.5.4)
     geokit (1.6.0)
