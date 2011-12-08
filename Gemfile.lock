@@ -70,7 +70,7 @@ GEM
     erubis (2.7.0)
     eventmachine (0.12.10)
     eventmachine (0.12.10-java)
-    execjs (1.2.11)
+    execjs (1.2.12)
       multi_json (~> 1.0)
     fastercsv (1.5.4)
     geokit (1.6.0)
