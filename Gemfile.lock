@@ -50,7 +50,7 @@ GEM
     bbenezech-nested_form (0.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-java)
-    bootstrap-sass (1.4.1)
+    bootstrap-sass (1.4.2)
       sass-rails (~> 3.1.0)
     bouncy-castle-java (1.5.0146.1)
     builder (3.0.0)
