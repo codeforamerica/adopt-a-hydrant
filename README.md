@@ -1,18 +1,11 @@
-# Adopt a Hydrant
+# Adopt a Hydrant [![Build Status](https://secure.travis-ci.org/codeforamerica/adopt-a-hydrant.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/codeforamerica/adopt-a-hydrant.png?travis)][gemnasium]
 Claim responsibility for shoveling out a fire hydrant after it snows.
+
+[travis]: http://travis-ci.org/codeforamerica/adopt-a-hydrant
+[gemnasium]: https://gemnasium.com/codeforamerica/adopt-a-hydrant
 
 ## <a name="screenshots"></a>Screenshot
 ![Adopt a Hydrant](https://github.com/codeforamerica/adopt-a-hydrant/raw/master/screenshot.png "Adopt a Hydrant")
-
-## <a name="build"></a>Build Status
-[![Build Status](https://secure.travis-ci.org/codeforamerica/adopt-a-hydrant.png?branch=master)][travis]
-
-[travis]: http://travis-ci.org/codeforamerica/adopt-a-hydrant
-
-## <a name="dependencies"></a>Dependency Status
-[![Dependency Status](https://gemnasium.com/codeforamerica/adopt-a-hydrant.png?travis)][gemnasium]
-
-[gemnasium]: https://gemnasium.com/codeforamerica/adopt-a-hydrant
 
 ## <a name="demo"></a>Demo
 You can see a running version of the application at
