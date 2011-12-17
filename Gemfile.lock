@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 6dcac95259b47d74d892a5d6e39c9545a5995ad7
+  revision: e51e9e3393071ff3bc5181e3835aa38a880db9d1
   specs:
     rails_admin (0.0.1)
       bbenezech-nested_form (~> 0.0.2)
@@ -133,7 +133,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     remotipart (1.0.1)
-    sass (3.1.11)
+    sass (3.1.12)
     sass-rails (3.1.5)
       actionpack (~> 3.1.0)
       railties (~> 3.1.0)
