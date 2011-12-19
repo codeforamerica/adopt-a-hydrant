@@ -11,3 +11,7 @@ development: &DEVELOPMENT
 test:
   <<: *DEVELOPMENT
   database: adopt_a_thing_test
+
+production:
+  <<: *DEVELOPMENT
+  database: adopt_a_thing_production
