@@ -63,7 +63,7 @@ pt:
     adopted: "%{thing_name} foi adotada"
     byline: "por %{name}"
     edit_profile: "Editar seu Perfil"
-    main: "Adote um %{thing}"
+    main: "Adotar-um-%{thing}"
     ofline: "do %{organization}"
     thank_you: "Obrigado por adotar este %{thing}!"
     tos: "Termos de Serviço"

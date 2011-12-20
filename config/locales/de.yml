@@ -63,7 +63,7 @@ de:
     adopted: "{thing_name} wurde verabschiedet"
     byline: "von %{name}"
     edit_profile: "Ihr Profil bearbeiten"
-    main: "Adoptieren Sie einen %{thing}"
+    main: "Adopt-a-%{thing}"
     ofline: "der %{organization}"
     thank_you: "Vielen Dank für die Annahme dieser %{thing}!"
     tos: "Nutzungsbedingungen"
