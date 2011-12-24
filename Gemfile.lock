@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 2c63152e072e54e23f0e21b7c8ea3dbaf6889255
+  revision: 0ed7ef9ac500e3eff861df4baa0b103fea32cf6e
   specs:
     rails_admin (0.0.1)
       bbenezech-nested_form (~> 0.0)
@@ -84,8 +84,8 @@ GEM
       thor (~> 0.14)
     jruby-openssl (0.7.4)
       bouncy-castle-java
-    json (1.6.3)
-    json (1.6.3-java)
+    json (1.6.4)
+    json (1.6.4-java)
     kaminari (0.13.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
