@@ -86,7 +86,7 @@ form input.error:focus, form textarea.error:focus {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  text-align: center;
+  text-align: left;
   margin-bottom: 10px;
 }
 
@@ -134,26 +134,6 @@ form input.error:focus, form textarea.error:focus {
 #map {
   height: 100%;
   width: 100%;
-}
-
-#error, #notice, #warning {
-  margin: auto;
-  padding: 5px 10px;
-}
-
-#error {
-  background-color: #ff7373;
-  border: 1px solid #c07373;
-}
-
-#notice {
-  background-color: #8fe38f;
-  border: 1px solid #82b082;
-}
-
-#warning {
-  background-color: #fff773;
-  border: 1px solid #c0bb73;
 }
 
 .upcase {
