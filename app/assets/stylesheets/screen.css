@@ -79,6 +79,7 @@ form input.error:focus, form textarea.error:focus {
 .table-cell {
   display: table-cell;
   height: 100%;
+  vertical-align: top;
 }
 
 .alert-message {
@@ -126,9 +127,13 @@ form input.error:focus, form textarea.error:focus {
   margin: 10px 5px;
 }
 
-#map {
-  margin-top: 40px;
+.map-container {
   width: auto;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
 }
 
 #error, #notice, #warning {

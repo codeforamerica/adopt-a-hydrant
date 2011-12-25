@@ -18,5 +18,6 @@
       #feedback
         %a{:href => URI.escape("mailto:adoptahydrant@cityofboston.gov?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} #{t("links.feedback").titleize}")}
           = t("links.feedback")
-    .table-cell#map
-      &nbsp;
+    .table-cell.map-container
+      #map
+        &nbsp;
