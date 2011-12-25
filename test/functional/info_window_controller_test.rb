@@ -68,11 +68,4 @@ class InfoWindowControllerTest < ActionController::TestCase
     assert_template 'users/sign_in'
     assert_select 'h2', 'Sign in to adopt this Hydrant'
   end
-
-  test 'should show terms of service' do
-    get :tos
-    assert_response :success
-    assert_template 'info_window/tos'
-    assert_select 'h2', 'Terms of Service'
-  end
 end

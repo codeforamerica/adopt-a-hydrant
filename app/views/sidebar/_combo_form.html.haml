@@ -35,7 +35,7 @@
     = f.password_field "password_confirmation"
     = f.submit t("buttons.sign_up"), :class => "btn primary"
     %p
-      = t("defaults.tos", :tos => link_to(t("titles.tos"), tos_path, :id => "tos_link")).html_safe
+      = t("defaults.tos", :tos => link_to(t("titles.tos"), "#", :id => "tos_link", :"data-controls-modal" => "tos")).html_safe
   #user_sign_in_fields{:style => "display: none;"}
     %label{:for => "user_password", :id => "user_password_label"}
       = t("labels.password")
@@ -50,6 +50,7 @@
     = f.submit t("buttons.email_password"), :class => "btn primary"
     %p
       = link_to t("links.remembered_password"), "#", :id => "user_remembered_password_link"
+= render :partial => "sidebar/tos"
 :javascript
   $(function() {
     $('#user_email').focus();
