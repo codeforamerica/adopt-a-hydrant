@@ -3,7 +3,7 @@
     %label{:for => "user_email", :id => "user_email_label"}
       = t("labels.email")
       %small
-        = image_tag "lock.svg", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+        = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
     = f.text_field "email", :value => params[:user] ? params[:user][:email] : nil
     = f.label "new" , radio_button_tag("user", "new", true).html_safe + t("labels.user_new")
     = f.label "existing", radio_button_tag("user", "existing").html_safe + t("labels.user_existing")
@@ -21,17 +21,17 @@
     %label{:for => "user_voice_number", :id => "user_voice_number_label"}
       = t("labels.voice_number")
       %small
-        = image_tag "lock.svg", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+        = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
     = f.text_field "voice_number"
     %label{:for => "user_sms_number", :id => "user_sms_number_label"}
       = t("labels.sms_number")
       %small
-        = image_tag "lock.svg", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+        = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
     = f.text_field "sms_number"
     %label{:for => "user_password_confirmation", :id => "user_password_confirmation_label"}
       = t("labels.password_choose")
       %small
-        = image_tag "lock.svg", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+        = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
     = f.password_field "password_confirmation"
     = f.submit t("buttons.sign_up"), :class => "btn primary"
     %p
@@ -40,7 +40,7 @@
     %label{:for => "user_password", :id => "user_password_label"}
       = t("labels.password")
       %small
-        = image_tag "lock.svg", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+        = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
     = f.password_field "password"
     = f.label "remember_me" , f.check_box("remember_me", :checked => true).html_safe + t("labels.remember_me")
     = f.submit t("buttons.sign_in"), :class => "btn primary"
