@@ -1,0 +1,13 @@
+- if flash[:notice]
+  .alert-message.success
+    %p
+      = flash[:notice]
+- if flash[:warning]
+  .alert-message.warning
+    %p
+      = flash[:warning]
+- if flash[:error]
+  .alert-message.error
+    %p
+      = flash[:error]
+= yield

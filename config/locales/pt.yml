@@ -15,10 +15,9 @@ pt:
     sign_up: "Inscrever-se"
     update: "Atualizar"
   captions:
-    current_password: "(Nós precisamos de sua senha atual para confirmar as alterações)"
-    password: "(Deixe em branco se você não quer mudá-lo)"
-    private: "(Privado)"
-    public: "(Pode ser visível para outros usuários)"
+    optional: "(opcional)"
+    private: "(privado)"
+    public: "(visível para os outros)"
   defaults:
     address: "endereço"
     city: "Boston, MA"
@@ -46,7 +45,7 @@ pt:
     user_new: "Eu não se inscreveram ainda"
     voice_number: "Número de telefone residencial"
   links:
-    feedback: "Comentários"
+    feedback: "Envie seu comentário"
     forgot_password: "Esqueceu sua senha?"
     remembered_password: "Não se preocupe. Lembrei-me minha senha."
   notices:
@@ -65,6 +64,7 @@ pt:
     edit_profile: "Editar seu Perfil"
     main: "Adotar-um-%{thing}"
     ofline: "do %{organization}"
+    sign_in: "Entrar para adotar essa %{thing}"
     thank_you: "Obrigado por adotar este %{thing}!"
     tos: "Termos de Serviço"
   sponsors:

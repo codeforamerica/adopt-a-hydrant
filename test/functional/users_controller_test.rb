@@ -7,16 +7,14 @@ class UsersControllerTest < ActionController::TestCase
     @user = users(:erik)
   end
 
-  test 'should render info window' do
+  test 'should render edit form' do
     sign_in @user
     get :edit
     assert_response :success
-    assert_select 'div#info_window', true
     assert_select 'form#edit_form' do
       assert_select '[action=?]', '/users'
       assert_select '[method=?]', 'post'
     end
-    assert_select 'h2', 'Edit your Profile'
     assert_select 'input', :count => 14
     assert_select 'label', :count => 7
     assert_select 'input[name="commit"]' do
@@ -24,7 +22,7 @@ class UsersControllerTest < ActionController::TestCase
       assert_select '[value=?]', 'Update'
     end
     assert_select 'form#back_form' do
-      assert_select '[action=?]', '/info_window'
+      assert_select '[action=?]', '/'
       assert_select '[method=?]', 'get'
     end
     assert_select 'input[name="commit"]' do
@@ -40,7 +38,7 @@ class UsersControllerTest < ActionController::TestCase
     @user.reload
     assert_equal @user.name, 'New Name'
     assert_response :redirect
-    assert_redirected_to :controller => 'info_window', :action => 'index'
+    assert_redirected_to :controller => 'sidebar', :action => 'search'
   end
 
   test 'should return error if password is incorrect' do

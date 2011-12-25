@@ -1,11 +1,24 @@
 require 'test_helper'
 
 class MainControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
+  setup do
+    request.env["devise.mapping"] = Devise.mappings[:user]
+    @user = users(:erik)
+  end
+
   test 'should return the home page' do
     get :index
     assert_response :success
     assert_select 'title', 'Adopt-a-Hydrant'
     assert_select 'p#tagline', 'Claim responsibility for shoveling out a fire hydrant after it snows.'
+  end
+
+  test 'should show search form when signed in' do
+    sign_in @user
+    get :index
+    assert_response :success
     assert_select 'form' do
       assert_select '[action=?]', '/'
       assert_select '[method=?]', 'post'
@@ -20,6 +33,6 @@ class MainControllerTest < ActionController::TestCase
       assert_select '[type=?]', 'submit'
       assert_select '[value=?]', 'Find hydrants'
     end
-    assert_select 'div#map_canvas', true
+    assert_select 'div#map', true
   end
 end

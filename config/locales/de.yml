@@ -15,10 +15,9 @@ de:
     sign_up: "Registrieren"
     update: "Aktualisierung"
   captions:
-    current_password: "(Wir brauchen Ihr aktuelles Passwort, um Ihre Änderungen zu bestätigen)"
-    password: "(Freilassen, wenn Sie nicht wollen, es zu ändern)"
-    private: "(Privat)"
-    public: "(Kann für andere Benutzer sichtbar)"
+    optional: "(fakultativ)"
+    private: "(privat)"
+    public: "(für andere sichtbar)"
   defaults:
     address: "Adresse"
     city: "Boston, MA"
@@ -46,7 +45,7 @@ de:
     user_new: "Ich habe noch nicht registriert"
     voice_number: "Startseite Telefonnummer"
   links:
-    feedback: "Rückkopplung"
+    feedback: "Feedback senden"
     forgot_password: "Passwort vergessen?"
     remembered_password: "Das macht nichts. Ich erinnerte mich an mein Passwort vergessen."
   notices:
@@ -59,12 +58,13 @@ de:
     signed_up: "Vielen Dank für Ihre Anmeldung!"
     stolen: "%{thing} gestohlen!"
   titles:
-    adopt: "Nehmen Sie dieses %{thing}"
+    adopt: "Adopt diesem %{thing}"
     adopted: "{thing_name} wurde verabschiedet"
     byline: "von %{name}"
     edit_profile: "Ihr Profil bearbeiten"
     main: "Adopt-a-%{thing}"
     ofline: "der %{organization}"
+    sign_in: "Melden Sie sich in diesem %{thing} übernehmen"
     thank_you: "Vielen Dank für die Annahme dieser %{thing}!"
     tos: "Nutzungsbedingungen"
   sponsors:

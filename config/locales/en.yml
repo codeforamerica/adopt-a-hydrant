@@ -15,10 +15,9 @@ en:
     sign_up: "Sign up"
     update: "Update"
   captions:
-    current_password: "(we need your current password to confirm your changes)"
-    password: "(leave blank if you don't want to change it)"
+    optional: "(optional)"
     private: "(private)"
-    public: "(may be visible to other users)"
+    public: "(visible to others)"
   defaults:
     address: "address"
     city: "Boston, MA"
@@ -46,7 +45,7 @@ en:
     user_new: "I haven't signed up yet"
     voice_number: "Home phone number"
   links:
-    feedback: "Feedback"
+    feedback: "Send feedback"
     forgot_password: "Forgot your password?"
     remembered_password: "Never mind. I remembered my password."
   notices:
@@ -65,6 +64,7 @@ en:
     edit_profile: "Edit your Profile"
     main: "Adopt-a-%{thing}"
     ofline: "of %{organization}"
+    sign_in: "Sign in to adopt this %{thing}"
     thank_you: "Thank you for adopting this %{thing}!"
     tos: "Terms of Service"
   sponsors:

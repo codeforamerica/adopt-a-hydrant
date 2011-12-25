@@ -4,11 +4,13 @@ $(function() {
   var mapOptions = {
     center: center,
     mapTypeControl: false,
+    zoomControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     panControl: false,
+    scrollwheel: false,
     zoom: zoomLevel
   };
-  var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
   var activeThingId;
   var activeMarker;
   var activeInfoWindow;
@@ -37,7 +39,7 @@ $(function() {
         activeInfoWindow.close();
       }
       var infoWindow = new google.maps.InfoWindow({
-        maxWidth: 350
+        maxWidth: 230
       });
       google.maps.event.addListener(infoWindow, 'closeclick', function() {
         isWindowOpen = false;
@@ -68,7 +70,6 @@ $(function() {
       type: 'GET',
       url: '/things.json',
       data: {
-        'commit': $('#address_form input[type="submit"]').val(),
         'utf8': '✓',
         'authenticity_token': $('#address_form input[name="authenticity_token"]').val(),
         'lat': lat,
@@ -115,7 +116,7 @@ $(function() {
     center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
   });
-  $('#address_form').submit(function() {
+  $('#address_form').live('submit', function() {
     var submitButton = $("#address_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     var submitButtonText = $(submitButton).attr("value");
@@ -131,7 +132,6 @@ $(function() {
         type: 'GET',
         url: '/address.json',
         data: {
-          'commit': submitButton.val(),
           'utf8': '✓',
           'authenticity_token': $('#address_form input[name="authenticity_token"]').val(),
           'city_state': $('#city_state').val(),
@@ -152,33 +152,48 @@ $(function() {
     }
     return false;
   });
-  $('#combo_form input[type="radio"]').live('click', function() {
+  // Focus on the first non-empty text input or password field
+  function setComboFormFocus() {
+    $('#combo-form input[type="text"]:visible, #combo-form input[type="password"]:visible, #combo-form input[type="submit"]:visible, #combo-form button:visible').each(function(index) {
+      if($(this).val() === "" || $(this).attr('type') === 'submit' || this.tagName.toLowerCase() === 'button') {
+        $(this).focus();
+        return false;
+      }
+    });
+  }
+  $('#combo-form input[type="radio"]').live('click', function() {
     var self = $(this);
     if('new' == self.val()) {
+      $('#combo-form').data('state', 'user_sign_up');
       $('#user_forgot_password_fields').slideUp();
       $('#user_sign_in_fields').slideUp();
-      $('#user_sign_up_fields').slideDown();
-      $('#combo_form').data('state', 'user_sign_up');
+      $('#user_sign_up_fields').slideDown(function() {
+        setComboFormFocus();
+      });
     } else if('existing' == self.val()) {
       $('#user_sign_up_fields').slideUp();
       $('#user_sign_in_fields').slideDown(function() {
-      $('#combo_form').data('state', 'user_sign_in');
+        $('#combo-form').data('state', 'user_sign_in');
+        setComboFormFocus();
         $('#user_forgot_password_link').click(function() {
+          $('#combo-form').data('state', 'user_forgot_password');
           $('#user_sign_in_fields').slideUp();
           $('#user_forgot_password_fields').slideDown(function() {
+            setComboFormFocus();
             $('#user_remembered_password_link').click(function() {
+              $('#combo-form').data('state', 'user_sign_in');
               $('#user_forgot_password_fields').slideUp();
-              $('#user_sign_in_fields').slideDown();
-              $('#combo_form').data('state', 'user_sign_in');
+              $('#user_sign_in_fields').slideDown(function() {
+                setComboFormFocus();
+              });
             });
           });
-          $('#combo_form').data('state', 'user_forgot_password');
         });
       });
     }
   });
-  $('#combo_form').live('submit', function() {
-    var submitButton = $("#combo_form input[type='submit']");
+  $('#combo-form').live('submit', function() {
+    var submitButton = $("#combo-form input[type='submit']");
     $(submitButton).attr("disabled", true);
     var errors = []
     if(!/[\w\.%\+\]+@[\w\]+\.+[\w]{2,}/.test($('#user_email').val())) {
@@ -214,9 +229,8 @@ $(function() {
           type: 'POST',
           url: '/users.json',
           data: {
-            'commit': submitButton.val(),
             'utf8': '✓',
-            'authenticity_token': $('#combo_form input[name="authenticity_token"]').val(),
+            'authenticity_token': $('#combo-form input[name="authenticity_token"]').val(),
             'user': {
               'email': $('#user_email').val(),
               'name': $('#user_name').val(),
@@ -227,14 +241,8 @@ $(function() {
               'password_confirmation': $('#user_password_confirmation').val()
             }
           },
-          beforeSend: function() {
-            $('#info_window').hide();
-            $('#loader').show();
-          },
           error: function(jqXHR) {
             data = $.parseJSON(jqXHR.responseText);
-            $('#loader').hide();
-            $('#info_window').show();
             $(submitButton).attr("disabled", false);
             if(data.errors.email) {
               errors.push($('#user_email'));
@@ -271,15 +279,14 @@ $(function() {
           success: function(data) {
             $.ajax({
               type: 'GET',
-              url: '/info_window',
+              url: '/sidebar/search',
               data: {
-                'thing_id': activeThingId,
                 'flash': {
                   'notice': "<%= I18n.t("notices.signed_up") %>"
                 }
               },
               success: function(data) {
-                activeInfoWindow.setContent(data);
+                $('#content').html(data);
               }
             });
           }
@@ -302,22 +309,15 @@ $(function() {
           type: 'POST',
           url: '/users/sign_in.json',
           data: {
-            'commit': submitButton.val(),
             'utf8': '✓',
-            'authenticity_token': $('#combo_form input[name="authenticity_token"]').val(),
+            'authenticity_token': $('#combo-form input[name="authenticity_token"]').val(),
             'user': {
               'email': $('#user_email').val(),
               'password': $('#user_password').val(),
               'remember_me': $('#user_remember_me').val()
             }
           },
-          beforeSend: function() {
-            $('#info_window').hide();
-            $('#loader').show();
-          },
           error: function(jqXHR) {
-            $('#loader').hide();
-            $('#info_window').show();
             $(submitButton).attr("disabled", false);
             $('#user_password_label').addClass('error', 500);
             $('#user_password').addClass('error', 500);
@@ -326,15 +326,14 @@ $(function() {
           success: function(data) {
             $.ajax({
               type: 'GET',
-              url: '/info_window',
+              url: '/sidebar/search',
               data: {
-                'thing_id': activeThingId,
                 'flash': {
                   'notice': "<%= I18n.t("notices.signed_in") %>"
                 }
               },
               success: function(data) {
-                activeInfoWindow.setContent(data);
+                $('#content').html(data);
               }
             });
           }
@@ -349,42 +348,22 @@ $(function() {
           type: 'POST',
           url: '/users/password.json',
           data: {
-            'commit': submitButton.val(),
             'utf8': '✓',
-            'authenticity_token': $('#combo_form input[name="authenticity_token"]').val(),
+            'authenticity_token': $('#combo-form input[name="authenticity_token"]').val(),
             'user': {
               'email': $('#user_email').val()
             }
           },
-          beforeSend: function() {
-            $('#info_window').hide();
-            $('#loader').show();
-          },
           error: function(jqXHR) {
-            $('#loader').hide();
-            $('#info_window').show();
             $(submitButton).attr("disabled", false);
             $('#user_email_label').addClass('error', 500);
             $('#user_email').addClass('error', 500);
             $('#user_email').focus();
           },
           success: function() {
-            $.ajax({
-              type: 'GET',
-              url: '/users/sign_in',
-              data: {
-                'user': {
-                  'email': $('#user_email').val()
-                },
-                'flash': {
-                  'notice': "<%= I18n.t("notices.password_reset") %>"
-                }
-              },
-              success: function(data) {
-                activeInfoWindow.setContent(data);
-                $('#user_existing').click();
-              }
-            });
+            $(submitButton).attr("disabled", false);
+            $('#user_remembered_password_link').click();
+            $('#user_password').focus();
           }
         });
       }
@@ -399,7 +378,6 @@ $(function() {
       url: '/things.json',
       data: {
         'id': $('#thing_id').val(),
-        'commit': submitButton.val(),
         'utf8': '✓',
         'authenticity_token': $('#adoption_form input[name="authenticity_token"]').val(),
         '_method': 'put',
@@ -452,7 +430,6 @@ $(function() {
         url: '/things.json',
         data: {
           'id': $('#thing_id').val(),
-          'commit': submitButton.val(),
           'utf8': '✓',
           'authenticity_token': $('#abandon_form input[name="authenticity_token"]').val(),
           '_method': 'put',
@@ -477,7 +454,7 @@ $(function() {
             data: {
               'thing_id': activeThingId,
               'flash': {
-                'notice': "<%= I18n.t("notices.abandoned", :thing => I18n.t("defaults.thing").capitalize) %>"
+                'warning': "<%= I18n.t("notices.abandoned", :thing => I18n.t("defaults.thing").capitalize) %>"
               }
             },
             success: function(data) {
@@ -503,21 +480,14 @@ $(function() {
       type: 'GET',
       url: '/users/edit',
       data: {
-        'commit': submitButton.val(),
         'utf8': '✓',
         'authenticity_token': $('#edit_profile_form input[name="authenticity_token"]').val()
       },
-      beforeSend: function() {
-        $('#info_window').hide();
-        $('#loader').show();
-      },
       error: function(jqXHR) {
-        $('#loader').hide();
-        $('#info_window').show();
         $(submitButton).attr("disabled", false);
       },
       success: function(data) {
-        activeInfoWindow.setContent(data);
+        $('#content').html(data);
       }
     });
     return false;
@@ -568,7 +538,6 @@ $(function() {
         data: {
           'id': $('#id').val(),
           'thing_id': activeThingId,
-          'commit': submitButton.val(),
           'utf8': '✓',
           'authenticity_token': $('#edit_form input[name="authenticity_token"]').val(),
           '_method': 'put',
@@ -583,14 +552,8 @@ $(function() {
             'current_password': $('#user_current_password').val()
           }
         },
-        beforeSend: function() {
-          $('#info_window').hide();
-          $('#loader').show();
-        },
         error: function(jqXHR) {
           data = $.parseJSON(jqXHR.responseText);
-          $('#loader').hide();
-          $('#info_window').show();
           $(submitButton).attr("disabled", false);
           if(data.errors.email) {
             errors.push($('#user_email'));
@@ -630,7 +593,7 @@ $(function() {
           errors[0].focus();
         },
         success: function(data) {
-          activeInfoWindow.setContent(data);
+          $('#content').html(data);
         }
       });
     }
@@ -643,31 +606,23 @@ $(function() {
       type: 'GET',
       url: '/users/sign_out.json',
       data: {
-        'commit': submitButton.val(),
         'utf8': '✓',
         'authenticity_token': $('#sign_out_form input[name="authenticity_token"]').val()
       },
-      beforeSend: function() {
-        $('#info_window').hide();
-        $('#loader').show();
-      },
       error: function(jqXHR) {
-        $('#loader').hide();
-        $('#info_window').show();
         $(submitButton).attr("disabled", false);
       },
       success: function(data) {
         $.ajax({
           type: 'GET',
-          url: '/info_window',
+          url: '/sidebar/combo_form',
           data: {
-            'thing_id': activeThingId,
             'flash': {
-              'notice': "<%= I18n.t("notices.signed_out") %>"
+              'warning': "<%= I18n.t("notices.signed_out") %>"
             }
           },
           success: function(data) {
-            activeInfoWindow.setContent(data);
+            $('#content').html(data);
           }
         });
       }
@@ -681,7 +636,6 @@ $(function() {
       type: 'GET',
       url: '/users/sign_in',
       data: {
-        'commit': submitButton.val(),
         'utf8': '✓',
         'authenticity_token': $('#sign_in_form input[name="authenticity_token"]').val(),
       },
@@ -705,24 +659,12 @@ $(function() {
     $(submitButton).attr("disabled", true);
     $.ajax({
       type: 'GET',
-      url: '/info_window',
-      data: {
-        'commit': submitButton.val(),
-        'utf8': '✓',
-        'authenticity_token': $('#back_form input[name="authenticity_token"]').val(),
-        'thing_id': activeThingId
-      },
-      beforeSend: function() {
-        $('#info_window').hide();
-        $('#loader').show();
-      },
+      url: '/sidebar/search',
       error: function(jqXHR) {
-        $('#loader').hide();
-        $('#info_window').show();
         $(submitButton).attr("disabled", false);
       },
       success: function(data) {
-        activeInfoWindow.setContent(data);
+        $('#content').html(data);
       }
     });
     return false;
@@ -734,9 +676,8 @@ $(function() {
       type: 'POST',
       url: '/reminders.json',
       data: {
-        'commit': submitButton.val(),
         'utf8': '✓',
-        'authenticity_token': $('#sign_out_form input[name="authenticity_token"]').val(),
+        'authenticity_token': $('#reminder_form input[name="authenticity_token"]').val(),
         'reminder': {
           'from_user_id': $('#reminder_from_user_id').val(),
           'to_user_id': $('#reminder_to_user_id').val(),

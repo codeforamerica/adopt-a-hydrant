@@ -15,10 +15,9 @@ es:
     sign_up: "Regístrate"
     update: "Actualización"
   captions:
-    current_password: "(Necesitamos su contraseña actual para confirmar los cambios)"
-    password: "(Dejar en blanco si no desea cambiarlo)"
-    private: "(Privado)"
-    public: "(Puede ser visible para otros usuarios)"
+    optional: "(opcional)"
+    private: "(privado)"
+    public: "(visible para los demás)"
   defaults:
     address: "dirección"
     city: "Boston, MA"
@@ -46,7 +45,7 @@ es:
     user_new: "No se ha inscrito"
     voice_number: "Número de teléfono"
   links:
-    feedback: "Realimentación"
+    feedback: "Envíenos sus comentarios"
     forgot_password: "¿Olvidaste tu contraseña?"
     remembered_password: "No importa. Me acordé de mi contraseña."
   notices:
@@ -65,6 +64,7 @@ es:
     edit_profile: "Edita tu perfil"
     main: "Adopt-a-%{thing}"
     ofline: "de %{organization}"
+    sign_in: "Iniciar sesión para adoptar esta %{thing}"
     thank_you: "Gracias por la adopción de esta %{thing}!"
     tos: "Términos de Servicio"
   sponsors:

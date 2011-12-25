@@ -6,10 +6,7 @@
       %p.alert-message#tagline
         = t("defaults.tagline")
       #content
-        - if signed_in?
-          = render :partial => "sidebar/search"
-        - else
-          = render :partial => "sidebar/combo_form"
+        = render :partial => "sidebar/combo_form"
       #logos
         %a{:href => "http://codeforamerica.org/"}
           = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")

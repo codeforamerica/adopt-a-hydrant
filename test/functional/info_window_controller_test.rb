@@ -16,14 +16,6 @@ class InfoWindowControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'users/thank_you'
     assert_select 'h2', 'Thank you for adopting this hydrant!'
-    assert_select 'form#edit_profile_form' do
-      assert_select '[action=?]', '/users/edit'
-      assert_select '[method=?]', 'get'
-    end
-    assert_select 'input[name="commit"]' do
-      assert_select '[type=?]', 'submit'
-      assert_select '[value=?]', 'Edit profile'
-    end
     assert_select 'form#abandon_form' do
       assert_select '[action=?]', "/things"
       assert_select '[method=?]', 'post'
@@ -35,14 +27,6 @@ class InfoWindowControllerTest < ActionController::TestCase
     assert_select 'input[name="commit"]' do
       assert_select '[type=?]', 'submit'
       assert_select '[value=?]', 'Abandon this hydrant'
-    end
-    assert_select 'form#sign_out_form' do
-      assert_select '[action=?]', '/info_window'
-      assert_select '[method=?]', 'post'
-    end
-    assert_select 'input[name="commit"]' do
-      assert_select '[type=?]', 'submit'
-      assert_select '[value=?]', 'Sign out'
     end
   end
 
@@ -75,37 +59,14 @@ class InfoWindowControllerTest < ActionController::TestCase
       assert_select '[type=?]', 'submit'
       assert_select '[value=?]', 'Adopt!'
     end
-    assert_select 'form#edit_profile_form' do
-      assert_select '[action=?]', '/users/edit'
-      assert_select '[method=?]', 'get'
-    end
-    assert_select 'input[name="commit"]' do
-      assert_select '[type=?]', 'submit'
-      assert_select '[value=?]', 'Edit profile'
-    end
-    assert_select 'form#sign_out_form' do
-      assert_select '[action=?]', '/info_window'
-      assert_select '[method=?]', 'post'
-    end
-    assert_select 'input[name="commit"]' do
-      assert_select '[type=?]', 'submit'
-      assert_select '[value=?]', 'Sign out'
-    end
   end
 
   test 'should show sign-in form if signed out' do
     get :index, :thing_id => @thing.id
     assert_not_nil assigns :thing
     assert_response :success
-    assert_template 'sessions/new'
-    assert_select 'form#combo_form' do
-      assert_select '[action=?]', '/info_window'
-      assert_select '[method=?]', 'post'
-    end
-    assert_select 'h2', 'Adopt this Hydrant'
-    assert_select 'input', :count => 15
-    assert_select 'label', :count => 10
-    assert_select 'input[name="commit"]', :count => 3
+    assert_template 'users/sign_in'
+    assert_select 'h2', 'Sign in to adopt this Hydrant'
   end
 
   test 'should show terms of service' do

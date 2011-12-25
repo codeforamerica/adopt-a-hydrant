@@ -1,0 +1,43 @@
+= form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => {:id => "edit_form", :class => "form-stacked", :method => :put} do |f|
+  = f.hidden_field "id"
+  %label{:for => "user_email", :id => "user_email_label"}
+    = t("labels.email")
+    %small
+      = image_tag "lock.svg", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.text_field "email"
+  %label{:for => "user_name", :id => "user_name_label"}
+    = t("labels.name")
+    %small
+      = t("captions.public")
+  = f.text_field "name"
+  %label{:for => "user_organization", :id => "user_organization_label"}
+    = t("labels.organization")
+    %small
+      = t("captions.public")
+  = f.text_field "organization"
+  %label{:for => "user_voice_number", :id => "user_voice_number_label"}
+    = t("labels.voice_number")
+    %small
+      = image_tag "lock.svg", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.text_field "voice_number"
+  %label{:for => "user_sms_number", :id => "user_sms_number_label"}
+    = t("labels.sms_number")
+    %small
+      = image_tag "lock.svg", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.text_field "sms_number"
+  %label{:for => "user_password", :id => "user_password_label"}
+    = t("labels.password_new")
+    %small
+      = t("captions.optional")
+  = f.password_field "password"
+  %label{:for => "user_current_password", :id => "user_current_password_label"}
+    = t("labels.current_password")
+  = f.password_field "current_password"
+  = f.submit t("buttons.update"), :class => "btn primary"
+= form_for :things, :url => root_path, :html => {:id => "back_form", :class => "form-stacked", :method => "get"} do |f|
+  = f.hidden_field "id"
+  = f.submit t("buttons.back"), :class => "btn"
+:javascript
+  $(function() {
+    $('#user_email').focus();
+  });

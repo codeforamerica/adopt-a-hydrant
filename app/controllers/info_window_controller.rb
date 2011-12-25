@@ -11,7 +11,7 @@ class InfoWindowController < ApplicationController
       if user_signed_in?
         render("things/adopt")
       else
-        render("sessions/new")
+        render("users/sign_in")
       end
     end
   end

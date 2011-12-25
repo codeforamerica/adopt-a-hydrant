@@ -1,0 +1,15 @@
+= form_tag "/address", :method => "get", :id => "address_form", :class => "form-stacked" do
+  = label_tag "city_state", t("labels.city_state"), :id => "city_state_label"
+  = select_tag "city_state", "<option value=\"#{t("defaults.city")}\" selected=\"selected\">#{t("defaults.city")}</option>".html_safe
+  = label_tag "address", t("labels.address"), :id => "address_label"
+  = text_field_tag "address", params[:address], :placeholder => "1 City Hall Plaza, Downtown"
+  = hidden_field_tag "limit", params[:limit] || 40
+  = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :class => "btn primary"
+= form_for :user, :url => edit_user_registration_path, :html => {:id => "edit_profile_form", :class => "form-stacked", :method => "get"} do |f|
+  = f.submit t("buttons.edit_profile"), :class => "btn"
+= form_for :sign_out, :html => {:id => "sign_out_form", :class => "form-stacked"} do |f|
+  = f.submit t("buttons.sign_out"), :class => "btn danger"
+:javascript
+  $(function() {
+    $('#address').focus();
+  });

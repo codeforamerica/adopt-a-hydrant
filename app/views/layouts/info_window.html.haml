@@ -1,7 +1,16 @@
 #loader{:style => "display: none;"}
   = image_tag "ajax-loader.gif"
 #info_window
-  - flash.each do |key, message|
-    %div{:id => key}
-      = message
+  - if flash[:notice]
+    .alert-message.success
+      %p
+        = flash[:notice]
+  - if flash[:warning]
+    .alert-message.warning
+      %p
+        = flash[:warning]
+  - if flash[:error]
+    .alert-message.error
+      %p
+        = flash[:error]
   = yield

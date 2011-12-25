@@ -3,59 +3,132 @@ html {
 }
 
 body {
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
   height: 100%;
-  margin: 0px;
-  padding: 0px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 
 h1, h2 {
   text-align: center;
 }
 
-#map_canvas {
-  float: left;
+h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+form.form-stacked {
+  padding-left: 10px;
+  margin-bottom: 0;
+}
+
+label, input {
+  white-space: nowrap;
+  text-align: left;
+}
+
+input {
+  width: 200px;
+}
+
+input, select, option, button, input[type="submit"] {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  display: inline;
+  width: auto;
+  margin: 0 10px 10px 0;
+}
+
+input#user_new {
+  margin-bottom: 0;
+}
+
+button.btn, input[type="submit"].btn {
+  display: block;
+  text-align: center;
+  width: 210px;
+}
+
+form label.error {
+  color: #b94a48;
+}
+
+form input.error, form textarea.error {
+  border-color: #ee5f5b;
+}
+
+form input.error:focus, form textarea.error:focus {
+  border-color: #e9322d;
+  -webkit-box-shadow: 0 0 6px #f8b9b7;
+  -moz-box-shadow: 0 0 6px #f8b9b7;
+  box-shadow: 0 0 6px #f8b9b7;
+}
+
+.table {
+  display: table;
   height: 100%;
-  width: 75%;
-}
-
-#sidebar {
-  float: left;
-  height: 100%;
-  width: 25%;
-  overflow: hidden;
-}
-
-form {
-  width: 90%;
-  margin: auto;
-}
-
-#sidebar #tagline {
-  text-align: center;
-  padding: 10px;
-  background: #c33;
-  color: #fff;
-}
-
-#sidebar #logos {
-  text-align: center;
-}
-
-#sidebar #logos img {
-  padding: 10px 5px 0 5px;
-}
-
-#sidebar #feedback {
-  text-align: center;
-}
-
-#sidebar img#hydrant-in-snow {
   width: 100%;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-cell {
+  display: table-cell;
+  height: 100%;
+}
+
+.alert-message {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.sidebar {
+  padding-top: 20px;
+  width: 250px;
+  text-align: center;
+}
+
+.sidebar form.form-stacked {
+  padding-left: 20px;
+}
+
+.sidebar p {
+  width: 210px;
+}
+
+.sidebar p#tagline {
+  color: #ffffff;
+  padding: 10px 20px;
+  background-color: #c43c35;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#ee5f5b), to(#c43c35));
+  background-image: -moz-linear-gradient(top, #ee5f5b, #c43c35);
+  background-image: -ms-linear-gradient(top, #ee5f5b, #c43c35);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee5f5b), color-stop(100%, #c43c35));
+  background-image: -webkit-linear-gradient(top, #ee5f5b, #c43c35);
+  background-image: -o-linear-gradient(top, #ee5f5b, #c43c35);
+  background-image: linear-gradient(top, #ee5f5b, #c43c35);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#c43c35', GradientType=0);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: #c43c35 #c43c35 #882a25;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.sidebar #logos img {
+  margin: 10px 5px;
+}
+
+#map {
+  margin-top: 40px;
+  width: auto;
 }
 
 #error, #notice, #warning {
@@ -76,37 +149,6 @@ form {
 #warning {
   background-color: #fff773;
   border: 1px solid #c0bb73;
-}
-
-label, input {
-  white-space: nowrap;
-  text-align: left;
-}
-
-input, select, option, button, input[type="submit"] {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1.0em;
-  width: 100%;
-}
-
-input[type="radio"], input[type="checkbox"] {
-  display: inline;
-  width: auto;
-  margin-right: 10px;
-}
-
-button, input[type="submit"] {
-  width: 100%;
-  text-align: center;
-}
-
-label.error {
-  color: #c33;
-}
-
-input.error {
-  background-color: #ffc;
 }
 
 .upcase {

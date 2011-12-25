@@ -6,7 +6,3 @@
   = t("titles.ofline", :organization => @thing.user.organization) unless @thing.user.organization.blank?
 - if user_signed_in?
   = render :partial => 'users/reminder'
-  = render :partial => 'users/edit_profile'
-  = render :partial => 'sessions/sign_out'
-- else
-  = render :partial => 'sessions/sign_in'

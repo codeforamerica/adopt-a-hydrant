@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
   def new
-    render("new", :layout => "info_window")
+    redirect_to root_path
   end
 
   def create
