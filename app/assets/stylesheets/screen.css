@@ -9,11 +9,12 @@ body {
 
 h1, h2 {
   text-align: center;
+  margin: 20px 0 10px;
 }
 
 h2 {
   font-size: 22px;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 form.form-stacked {
@@ -91,7 +92,6 @@ form input.error:focus, form textarea.error:focus {
 }
 
 .sidebar {
-  padding-top: 20px;
   width: 250px;
   text-align: center;
 }
@@ -134,6 +134,11 @@ form input.error:focus, form textarea.error:focus {
 #map {
   height: 100%;
   width: 100%;
+}
+
+.modal {
+  max-height: 500px;
+  overflow: auto;
 }
 
 .upcase {
