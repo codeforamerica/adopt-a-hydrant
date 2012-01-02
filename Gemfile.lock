@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 086cfed1481bd9551262cbd4814a7fc260985cad
+  revision: 4e3014605b734f28942db836a2fc78692af05b10
   specs:
     rails_admin (0.0.1)
       bbenezech-nested_form (~> 0.0)
@@ -164,7 +164,7 @@ GEM
     uglifier (1.2.1)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
-    validates_formatting_of (0.3.7)
+    validates_formatting_of (0.4.0)
       rails (~> 3.0)
     warden (1.1.0)
       rack (>= 1.0)
