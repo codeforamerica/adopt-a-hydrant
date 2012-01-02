@@ -4,7 +4,7 @@
       = t("labels.email")
       %small
         = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-    = f.text_field "email", :value => params[:user] ? params[:user][:email] : nil
+    = f.email_field "email", :value => params[:user] ? params[:user][:email] : nil
     = f.label "new" , radio_button_tag("user", "new", true).html_safe + t("labels.user_new")
     = f.label "existing", radio_button_tag("user", "existing").html_safe + t("labels.user_existing")
   #user_sign_up_fields
@@ -22,12 +22,12 @@
       = t("labels.voice_number")
       %small
         = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-    = f.text_field "voice_number", :placeholder => "617-555-5555"
+    = f.telephone_field "voice_number", :placeholder => t("defaults.voice_number")
     %label{:for => "user_sms_number", :id => "user_sms_number_label"}
       = t("labels.sms_number")
       %small
         = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-    = f.text_field "sms_number", :placeholder => "857-555-5555"
+    = f.telephone_field "sms_number", :placeholder => t("defaults.sms_number")
     %label{:for => "user_password_confirmation", :id => "user_password_confirmation_label"}
       = t("labels.password_choose")
       %small

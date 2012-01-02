@@ -164,6 +164,8 @@ GEM
     uglifier (1.2.1)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    validates_formatting_of (0.3.7)
+      rails (~> 3.0)
     warden (1.1.0)
       rack (>= 1.0)
     webmock (1.7.8)
@@ -190,4 +192,5 @@ DEPENDENCIES
   therubyrhino
   thin
   uglifier
+  validates_formatting_of
   webmock

@@ -4,7 +4,7 @@
     = t("labels.email")
     %small
       = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-  = f.text_field "email"
+  = f.email_field "email"
   %label{:for => "user_name", :id => "user_name_label"}
     = t("labels.name")
     %small
@@ -19,12 +19,37 @@
     = t("labels.voice_number")
     %small
       = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-  = f.text_field "voice_number", :placeholder => "617-555-5555"
+  = f.telephone_field "voice_number", :placeholder => t("defaults.voice_number"), :value => number_to_phone(f.object.voice_number)
   %label{:for => "user_sms_number", :id => "user_sms_number_label"}
     = t("labels.sms_number")
     %small
       = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-  = f.text_field "sms_number", :placeholder => "857-555-5555"
+  = f.telephone_field "sms_number", :placeholder => t("defaults.sms_number"), :value => number_to_phone(f.object.sms_number)
+  %label{:for => "user_address_1", :id => "user_address_1_label"}
+    = t("labels.address_1")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.text_field "address_1", :placeholder => t("defaults.address_1")
+  %label{:for => "user_address_2", :id => "user_address_2_label"}
+    = t("labels.address_2")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.text_field "address_2", :placeholder => t("defaults.address_2")
+  %label{:for => "user_city", :id => "user_city_label"}
+    = t("labels.city")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.text_field "city", :placeholder => t("defaults.city")
+  %label{:for => "user_state", :id => "user_state_label"}
+    = t("labels.state")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.select "state", us_states, :include_blank => true
+  %label{:for => "user_zip", :id => "user_zip_label"}
+    = t("labels.zip")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.text_field "zip", :placeholder => t("defaults.zip")
   %label{:for => "user_password", :id => "user_password_label"}
     = t("labels.password_new")
     %small
@@ -32,6 +57,8 @@
   = f.password_field "password"
   %label{:for => "user_current_password", :id => "user_current_password_label"}
     = t("labels.current_password")
+    %small
+      = t("captions.required")
   = f.password_field "current_password"
   = f.submit t("buttons.update"), :class => "btn primary"
 = form_for :things, :url => root_path, :html => {:id => "back_form", :class => "form-stacked", :method => "get"} do |f|

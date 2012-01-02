@@ -154,7 +154,7 @@ $(function() {
   });
   // Focus on the first non-empty text input or password field
   function setComboFormFocus() {
-    $('#combo-form input[type="text"]:visible, #combo-form input[type="password"]:visible, #combo-form input[type="submit"]:visible, #combo-form button:visible').each(function(index) {
+    $('#combo-form input[type="email"], #combo-form input[type="text"]:visible, #combo-form input[type="password"]:visible, #combo-form input[type="submit"]:visible, #combo-form input[type="tel"]:visible, #combo-form button:visible').each(function(index) {
       if($(this).val() === "" || $(this).attr('type') === 'submit' || this.tagName.toLowerCase() === 'button') {
         $(this).focus();
         return false;
@@ -512,6 +512,14 @@ $(function() {
       $('#user_name_label').removeClass('error');
       $('#user_name').removeClass('error');
     }
+    if($('#user_zip').val() != '' && !/^\d{5}(-\d{4})?$/.test($('#user_zip').val())) {
+      errors.push($('#user_zip'));
+      $('#user_zip_label').addClass('error', 500);
+      $('#user_zip').addClass('error', 500);
+    } else {
+      $('#user_zip_label').removeClass('error');
+      $('#user_zip').removeClass('error');
+    }
     if($('#user_password').val() && ($('#user_password').val().length < 6 || $('#user_password').val().length > 20)) {
       errors.push($('#user_password'));
       $('#user_password_label').addClass('error', 500);
@@ -547,6 +555,11 @@ $(function() {
             'organization': $('#user_organization').val(),
             'voice_number': $('#user_voice_number').val(),
             'sms_number': $('#user_sms_number').val(),
+            'address_1': $('#user_address_1').val(),
+            'address_2': $('#user_address_2').val(),
+            'city': $('#user_city').val(),
+            'state': $('#user_state').val(),
+            'zip': $('#user_zip').val(),
             'password': $('#user_password').val(),
             'password_confirmation': $('#user_password').val(),
             'current_password': $('#user_current_password').val()
@@ -579,6 +592,31 @@ $(function() {
             errors.push($('#user_sms_number'));
             $('#user_sms_number_label').addClass('error', 500);
             $('#user_sms_number').addClass('error', 500);
+          }
+          if(data.errors.address_1) {
+            errors.push($('#user_address_1'));
+            $('#user_address_1_label').addClass('error', 500);
+            $('#user_address_1').addClass('error', 500);
+          }
+          if(data.errors.address_2) {
+            errors.push($('#user_address_2'));
+            $('#user_address_2_label').addClass('error', 500);
+            $('#user_address_2').addClass('error', 500);
+          }
+          if(data.errors.city) {
+            errors.push($('#user_city'));
+            $('#user_city_label').addClass('error', 500);
+            $('#user_city').addClass('error', 500);
+          }
+          if(data.errors.state) {
+            errors.push($('#user_state'));
+            $('#user_state_label').addClass('error', 500);
+            $('#user_state').addClass('error', 500);
+          }
+          if(data.errors.zip) {
+            errors.push($('#user_zip'));
+            $('#user_zip_label').addClass('error', 500);
+            $('#user_zip').addClass('error', 500);
           }
           if(data.errors.password) {
             errors.push($('#user_password'));
