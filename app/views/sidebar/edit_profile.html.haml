@@ -19,12 +19,12 @@
     = t("labels.voice_number")
     %small
       = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-  = f.text_field "voice_number"
+  = f.text_field "voice_number", :placeholder => "617-555-5555"
   %label{:for => "user_sms_number", :id => "user_sms_number_label"}
     = t("labels.sms_number")
     %small
       = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-  = f.text_field "sms_number"
+  = f.text_field "sms_number", :placeholder => "857-555-5555"
   %label{:for => "user_password", :id => "user_password_label"}
     = t("labels.password_new")
     %small
