@@ -6,6 +6,7 @@
       %p.alert-message#tagline
         = t("defaults.tagline")
       #content
+        = render :partial => "layouts/flash", :locals => {:flash => flash}
         - if signed_in?
           = render :partial => "sidebar/search"
         - else

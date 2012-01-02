@@ -1,22 +1,5 @@
 #loader{:style => "display: none;"}
   = image_tag "ajax-loader.gif"
 #info_window
-  - if flash[:notice]
-    .alert-message.success{:"data-alert" => true}
-      %a{:class => "close", :href => "#"}
-        &times;
-      %p
-        = flash[:notice]
-  - if flash[:warning]
-    .alert-message.warning{:"data-alert" => true}
-      %a{:class => "close", :href => "#"}
-        &times;
-      %p
-        = flash[:warning]
-  - if flash[:error]
-    .alert-message.error{:"data-alert" => true}
-      %a{:class => "close", :href => "#"}
-        &times;
-      %p
-        = flash[:error]
+  = render :partial => "layouts/flash", :locals => {:flash => flash}
   = yield
