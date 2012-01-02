@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 0ed7ef9ac500e3eff861df4baa0b103fea32cf6e
+  revision: 086cfed1481bd9551262cbd4814a7fc260985cad
   specs:
     rails_admin (0.0.1)
       bbenezech-nested_form (~> 0.0)
@@ -8,7 +8,7 @@ GIT
       builder (~> 3.0)
       coffee-rails (~> 3.1)
       haml (~> 3.1)
-      jquery-rails (~> 1.0)
+      jquery-rails (>= 1.0)
       kaminari (~> 0.12)
       rack-pjax (~> 0.5)
       rails (~> 3.1)
