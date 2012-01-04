@@ -75,6 +75,9 @@ implementations:
 
 * Ruby 1.9.2
 * Ruby 1.9.3
+* [Rubinius][] (in 1.9 mode)
+
+[rubinius]: http://rubini.us/
 
 If something doesn't work on one of these interpreters, it should be considered
 a bug.
