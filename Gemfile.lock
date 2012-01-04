@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: cd2eaa2b2903c315cf15f283088c20abf22822c4
+  revision: 20faf78a3ea38d39db41681b436391ac7dbe6ec0
   specs:
     rails_admin (0.0.1)
       bbenezech-nested_form (~> 0.0)
@@ -165,7 +165,7 @@ GEM
       rails (~> 3.0)
     warden (1.1.0)
       rack (>= 1.0)
-    webmock (1.7.8)
+    webmock (1.7.10)
       addressable (~> 2.2, > 2.2.5)
       crack (>= 0.1.7)
 
