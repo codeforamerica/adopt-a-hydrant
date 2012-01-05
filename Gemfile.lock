@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 20faf78a3ea38d39db41681b436391ac7dbe6ec0
+  revision: 77784c80bc900cf9041a0bd608a17bc87ac5bffe
   specs:
     rails_admin (0.0.1)
       bbenezech-nested_form (~> 0.0)
@@ -74,7 +74,7 @@ GEM
       multi_json (~> 1.0)
     fastercsv (1.5.4)
     geokit (1.6.0)
-    haml (3.2.0.alpha.8)
+    haml (3.2.0.alpha.10)
     hike (1.2.1)
     hpricot (0.8.5)
     hpricot (0.8.5-java)
