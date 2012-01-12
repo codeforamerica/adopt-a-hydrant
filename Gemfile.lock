@@ -78,7 +78,7 @@ GEM
     hpricot (0.8.5)
     hpricot (0.8.5-java)
     i18n (0.6.0)
-    journey (1.0.0.rc4)
+    journey (1.0.0)
     jquery-rails (2.0.0)
       railties (>= 3.2.0.beta, < 5.0)
       thor (~> 0.14)
