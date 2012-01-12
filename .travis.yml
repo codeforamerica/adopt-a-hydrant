@@ -3,5 +3,4 @@ script: "bundle exec rake db:create db:migrate test"
 rvm:
   - 1.9.2
   - 1.9.3
-  - rbx-19mode
 env: "RAILS_ENV=test"
