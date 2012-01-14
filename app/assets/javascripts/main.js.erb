@@ -4,35 +4,45 @@ $(function() {
   var mapOptions = {
     center: center,
     mapTypeControl: false,
-    zoomControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     panControl: false,
     scrollwheel: false,
-    zoom: zoomLevel
-  };
+    zoom: zoomLevel,
+    zoomControl: false
+    };
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  var greenMarkerImage = new google.maps.MarkerImage('<%= image_path 'markers/green.png' %>',
+    new google.maps.Size(27.0, 37.0),
+    new google.maps.Point(0, 0),
+    new google.maps.Point(13.0, 18.0)
+  );
+  var redMarkerImage = new google.maps.MarkerImage('<%= image_path 'markers/red.png' %>',
+    new google.maps.Size(27.0, 37.0),
+    new google.maps.Point(0, 0),
+    new google.maps.Point(13.0, 18.0)
+  );
+  var markerShadowImage = new google.maps.MarkerImage('<%= image_path 'markers/shadow.png' %>',
+    new google.maps.Size(46.0, 37.0),
+    new google.maps.Point(0, 0),
+    new google.maps.Point(13.0, 18.0)
+  );
   var activeThingId;
   var activeMarker;
   var activeInfoWindow;
   var isWindowOpen = false;
   var thingIds = [];
-  function addMarker(thingId, point, image_path) {
-    var image = new google.maps.MarkerImage(image_path,
-      new google.maps.Size(27.0, 37.0),
-      new google.maps.Point(0, 0),
-      new google.maps.Point(13.0, 18.0)
-    );
-    var shadow = new google.maps.MarkerImage('<%= image_path 'markers/shadow.png' %>',
-      new google.maps.Size(46.0, 37.0),
-      new google.maps.Point(0, 0),
-      new google.maps.Point(13.0, 18.0)
-    );
+  function addMarker(thingId, point, color) {
+    if(color == 'green') {
+      var image = greenMarkerImage;
+    } else if(color == 'red') {
+      var image = redMarkerImage;
+    }
     var marker = new google.maps.Marker({
       animation: google.maps.Animation.DROP,
       icon: image,
       map: map,
       position: point,
-      shadow: shadow
+      shadow: markerShadowImage
     });
     google.maps.event.addListener(marker, 'click', function() {
       if(activeInfoWindow) {
@@ -66,6 +76,7 @@ $(function() {
     thingIds.push(thingId);
   }
   function addMarkersAround(lat, lng) {
+    var submitButton = $("#address_form input[type='submit']");
     $.ajax({
       type: 'GET',
       url: '/things.json',
@@ -76,7 +87,11 @@ $(function() {
         'lng': lng,
         'limit': $('#address_form input[name="limit"]').val()
       },
+      error: function(jqXHR) {
+        $(submitButton).attr("disabled", false);
+      },
       success: function(data) {
+        $(submitButton).attr("disabled", false);
         if(data.errors) {
           $('#address_label').addClass('error', 500);
           $('#address').addClass('error', 500);
@@ -93,37 +108,29 @@ $(function() {
               return true;
             }
             setTimeout(function() {
-              point = new google.maps.LatLng(thing.lat, thing.lng);
+              var point = new google.maps.LatLng(thing.lat, thing.lng);
               if(thing.user_id) {
-                image_path = '<%= image_path 'markers/green.png' %>';
+                var color = 'green';
               } else {
-                image_path = '<%= image_path 'markers/red.png' %>';
+                var color = 'red';
               }
-              addMarker(thing.id, point, image_path);
+              addMarker(thing.id, point, color);
             }, i * 100);
           });
-          center = new google.maps.LatLng(lat, lng);
-          map.setCenter(center);
           map.setZoom(18);
         }
       }
     });
   }
   google.maps.event.addListener(map, 'dragend', function() {
-    if(isWindowOpen == true) {
-      return;
-    }
-    center = map.getCenter();
+    var center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
   });
   $('#address_form').live('submit', function() {
     var submitButton = $("#address_form input[type='submit']");
     $(submitButton).attr("disabled", true);
-    var submitButtonText = $(submitButton).attr("value");
-    $(submitButton).attr("value", "Please Wait...");
     if($('#address').val() === '') {
       $(submitButton).attr("disabled", false);
-      $(submitButton).attr("value", submitButtonText);
       $('#address_label').addClass('error', 500);
       $('#address').addClass('error', 500);
       $('#address').focus();
@@ -137,15 +144,24 @@ $(function() {
           'city_state': $('#city_state').val(),
           'address': $('#address').val()
         },
+        error: function(jqXHR) {
+          $(submitButton).attr("disabled", false);
+          $('#address_label').addClass('error', 500);
+          $('#address').addClass('error', 500);
+          $('#address').focus();
+        },
         success: function(data) {
           $(submitButton).attr("disabled", false);
-          $(submitButton).attr("value", submitButtonText);
           if(data.errors) {
             $('#address_label').addClass('error', 500);
             $('#address').addClass('error', 500);
             $('#address').focus();
           } else {
+            $('#address_label').removeClass('error', 500);
+            $('#address').removeClass('error', 500);
             addMarkersAround(data[0], data[1]);
+            var center = new google.maps.LatLng(data[0], data[1]);
+            map.setCenter(center);
           }
         }
       });
@@ -162,15 +178,15 @@ $(function() {
     });
   }
   $('#combo-form input[type="radio"]').live('click', function() {
-    var self = $(this);
-    if('new' == self.val()) {
+    var radioInput = $(this);
+    if('new' == radioInput.val()) {
       $('#combo-form').data('state', 'user_sign_up');
       $('#user_forgot_password_fields').slideUp();
       $('#user_sign_in_fields').slideUp();
       $('#user_sign_up_fields').slideDown(function() {
         setComboFormFocus();
       });
-    } else if('existing' == self.val()) {
+    } else if('existing' == radioInput.val()) {
       $('#user_sign_up_fields').slideUp();
       $('#user_sign_in_fields').slideDown(function() {
         $('#combo-form').data('state', 'user_sign_in');
@@ -242,7 +258,7 @@ $(function() {
             }
           },
           error: function(jqXHR) {
-            data = $.parseJSON(jqXHR.responseText);
+            var data = $.parseJSON(jqXHR.responseText);
             $(submitButton).attr("disabled", false);
             if(data.errors.email) {
               errors.push($('#user_email'));
@@ -407,12 +423,7 @@ $(function() {
           },
           success: function(data) {
             activeInfoWindow.setContent(data);
-            image = new google.maps.MarkerImage('<%= image_path 'markers/green.png' %>',
-              new google.maps.Size(27.0, 37.0),
-              new google.maps.Point(0, 0),
-              new google.maps.Point(13.0, 18.0)
-            );
-            activeMarker.setIcon(image);
+            activeMarker.setIcon(greenMarkerImage);
             activeMarker.setAnimation(google.maps.Animation.BOUNCE);
           }
         });
@@ -459,12 +470,7 @@ $(function() {
             },
             success: function(data) {
               activeInfoWindow.setContent(data);
-              image = new google.maps.MarkerImage('<%= image_path 'markers/red.png' %>',
-                new google.maps.Size(27.0, 37.0),
-                new google.maps.Point(0, 0),
-                new google.maps.Point(13.0, 18.0)
-              );
-              activeMarker.setIcon(image);
+              activeMarker.setIcon(redMarkerImage);
               activeMarker.setAnimation(null);
             }
           });
@@ -566,7 +572,7 @@ $(function() {
           }
         },
         error: function(jqXHR) {
-          data = $.parseJSON(jqXHR.responseText);
+          var data = $.parseJSON(jqXHR.responseText);
           $(submitButton).attr("disabled", false);
           if(data.errors.email) {
             errors.push($('#user_email'));
