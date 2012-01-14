@@ -6,6 +6,7 @@ pt:
     adopt: "Adote!"
     back: "De volta"
     change_password: "Alterar a minha senha"
+    close: "Fechar"
     edit_profile: "Editar perfil"
     email_password: "E-mail minha senha"
     find: "Encontrar %{thing}"

@@ -15,20 +15,13 @@ class UsersControllerTest < ActionController::TestCase
       assert_select '[action=?]', '/users'
       assert_select '[method=?]', 'post'
     end
-    assert_select 'input', :count => 18
+    assert_select 'input', :count => 15
     assert_select 'label', :count => 12
     assert_select 'input[name="commit"]' do
       assert_select '[type=?]', 'submit'
       assert_select '[value=?]', 'Update'
     end
-    assert_select 'form#back_form' do
-      assert_select '[action=?]', '/'
-      assert_select '[method=?]', 'get'
-    end
-    assert_select 'input[name="commit"]' do
-      assert_select '[type=?]', 'submit'
-      assert_select '[value=?]', 'Back'
-    end
+    assert_select 'a.btn', 'Back'
   end
 
   test 'should update user if password is correct' do

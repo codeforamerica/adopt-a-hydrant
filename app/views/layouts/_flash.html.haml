@@ -1,18 +1,18 @@
 - if flash[:notice]
-  .alert-message.success{:"data-alert" => true}
-    %a{:class => "close", :href => "#"}
+  .alert-message.block-message.info.fade.in{:"data-alert" => true}
+    %a{:class => "close", :"data-dismiss" => "alert", :href => "#"}
       &times;
     %p
       = flash[:notice]
 - if flash[:warning]
-  .alert-message.warning{:"data-alert" => true}
-    %a{:class => "close", :href => "#"}
+  .alert-message.block-message.warning.fade.in{:"data-alert" => true}
+    %a{:class => "close", :"data-dismiss" => "alert", :href => "#"}
       &times;
     %p
       = flash[:warning]
 - if flash[:error]
-  .alert-message.error{:"data-alert" => true}
-    %a{:class => "close", :href => "#"}
+  .alert-message.block-message.error.fade.in{:"data-alert" => true}
+    %a{:class => "close", :"data-dismiss" => "alert", :href => "#"}
       &times;
     %p
       = flash[:error]

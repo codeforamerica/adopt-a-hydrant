@@ -4,7 +4,7 @@ class Thing < ActiveRecord::Base
   belongs_to :user
   has_many :reminders
 
-  def self.find_closest(lat, lng, limit=40)
+  def self.find_closest(lat, lng, limit=10)
     query = <<-SQL
       SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(radians(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance
       FROM things

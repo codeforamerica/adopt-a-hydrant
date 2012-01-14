@@ -1,14 +1,17 @@
-= form_tag "/address", :method => "get", :id => "address_form", :class => "form-stacked" do
-  = label_tag "city_state", t("labels.city_state"), :id => "city_state_label"
-  = select_tag "city_state", "<option value=\"#{t("defaults.city_state")}\" selected=\"selected\">#{t("defaults.city_state")}</option>".html_safe
-  = label_tag "address", t("labels.address"), :id => "address_label"
-  = search_field_tag "address", params[:address], :placeholder => [t("defaults.address_1"), t("defaults.neighborhood")].join(", ")
-  = hidden_field_tag "limit", params[:limit] || 40
-  = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :class => "btn primary"
-= form_for :user, :url => edit_user_registration_path, :html => {:id => "edit_profile_form", :class => "form-stacked", :method => "get"} do |f|
-  = f.submit t("buttons.edit_profile"), :class => "btn"
-= form_for :sign_out, :html => {:id => "sign_out_form", :class => "form-stacked"} do |f|
-  = f.submit t("buttons.sign_out"), :class => "btn danger"
+= form_tag "/address", :method => "get", :id => "address_form", :class => "search-form form-stacked" do
+  = hidden_field_tag "limit", params[:limit] || 10
+  %fieldset.control-group
+    = label_tag "city_state", t("labels.city_state"), :id => "city_state_label"
+    = select_tag "city_state", "<option value=\"#{t("defaults.city_state")}\" selected=\"selected\">#{t("defaults.city_state")}</option>".html_safe
+  %fieldset.control-group
+    = label_tag "address", t("labels.address"), :id => "address_label"
+    = search_field_tag "address", params[:address], :placeholder => [t("defaults.address_1"), t("defaults.neighborhood")].join(", "), :class => "search-query"
+  %fieldset.form-actions
+    = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :class => "btn primary"
+    %a{:href => edit_user_registration_path, :id => "edit_profile_link", :class => "btn"}
+      = t("buttons.edit_profile")
+    %a{:href => destroy_user_session_path, :id => "sign_out_link", :class => "btn danger"}
+      = t("buttons.sign_out")
 :javascript
   $(function() {
     $('#address').focus();

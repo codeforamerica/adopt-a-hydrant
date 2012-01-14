@@ -2,4 +2,5 @@
   = f.hidden_field "from_user_id", :value => current_user.id
   = f.hidden_field "to_user_id", :value => @thing.user.id
   = f.hidden_field "thing_id", :value => @thing.id
-  = f.submit t("buttons.send_reminder"), :class => "btn"
+  %fieldset.form-actions
+    = f.submit t("buttons.send_reminder"), :class => "btn"

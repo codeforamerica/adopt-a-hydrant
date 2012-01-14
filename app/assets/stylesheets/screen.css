@@ -19,12 +19,15 @@ h2 {
 }
 
 form.form-stacked {
-  padding-left: 10px;
+  padding-left: 0;
   margin-bottom: 0;
 }
 
-label, input {
-  white-space: nowrap;
+form.form-stacked fieldset.control-group {
+  padding: 0;
+}
+
+label {
   text-align: left;
 }
 
@@ -32,7 +35,7 @@ input {
   width: 200px;
 }
 
-input, select, option, button, input[type="submit"] {
+.sidebar input, .sidebar select, .sidebar option, .sidebar button, .sidebar form.search-form input, .sidebar form.search-form select, .sidebar form.search-form option, .sidebar a.btn {
   display: block;
   margin-bottom: 10px;
 }
@@ -40,32 +43,108 @@ input, select, option, button, input[type="submit"] {
 input[type="radio"], input[type="checkbox"] {
   display: inline;
   width: auto;
-  margin: 0 10px 10px 0;
+  margin-right: 10px;
 }
 
 input#user_new {
   margin-bottom: 0;
 }
 
-button.btn, input[type="submit"].btn {
-  display: block;
-  text-align: center;
+input#user_existing {
+  margin-bottom: 10px;
+}
+
+form select, button.btn, input[type="submit"].btn {
   width: 210px;
 }
 
-form label.error {
+/* Copied from Bootstrap 2.0-wip
+ * Modifications:
+ *   width: 180px
+ */
+form input.search-query {
+  -moz-border-radius: 14px;
+  -webkit-border-radius: 14px;
+  border-radius: 14px;
+  margin-bottom: 0;
+  padding-left: 14px;
+  padding-right: 14px;
+  width: 180px;
+}
+
+p {
+  padding: 0 10px;
+}
+
+a.btn {
+  width: 180px;
+}
+
+/* Copied from Bootstrap 2.0-wip */
+.control-group.error > label, .control-group.error .help-block, .control-group.error .help-inline {
   color: #b94a48;
 }
 
-form input.error, form textarea.error {
+.control-group.error input, .control-group.error textarea {
+  color: #b94a48;
   border-color: #ee5f5b;
 }
 
-form input.error:focus, form textarea.error:focus {
+.control-group.error input:focus, .control-group.error textarea:focus {
   border-color: #e9322d;
   -webkit-box-shadow: 0 0 6px #f8b9b7;
   -moz-box-shadow: 0 0 6px #f8b9b7;
   box-shadow: 0 0 6px #f8b9b7;
+}
+
+.control-group.error .input-prepend .add-on, .control-group.error .input-append .add-on {
+  color: #b94a48;
+  background-color: #fce6e6;
+  border-color: #b94a48;
+}
+
+.control-group.warning > label, .control-group.warning .help-block, .control-group.warning .help-inline {
+  color: #c09853;
+}
+
+.control-group.warning input, .control-group.warning textarea {
+  color: #c09853;
+  border-color: #ccae64;
+}
+
+.control-group.warning input:focus, .control-group.warning textarea:focus {
+  border-color: #be9a3f;
+  -webkit-box-shadow: 0 0 6px #e5d6b1;
+  -moz-box-shadow: 0 0 6px #e5d6b1;
+  box-shadow: 0 0 6px #e5d6b1;
+}
+
+.control-group.warning .input-prepend .add-on, .control-group.warning .input-append .add-on {
+  color: #c09853;
+  background-color: #d2b877;
+  border-color: #c09853;
+}
+
+.control-group.success > label, .control-group.success .help-block, .control-group.success .help-inline {
+  color: #468847;
+}
+
+.control-group.success input, .control-group.success textarea {
+  color: #468847;
+  border-color: #57a957;
+}
+
+.control-group.success input:focus, .control-group.success textarea:focus {
+  border-color: #458845;
+  -webkit-box-shadow: 0 0 6px #9acc9a;
+  -moz-box-shadow: 0 0 6px #9acc9a;
+  box-shadow: 0 0 6px #9acc9a;
+}
+
+.control-group.success .input-prepend .add-on, .control-group.success .input-append .add-on {
+  color: #468847;
+  background-color: #bcddbc;
+  border-color: #468847;
 }
 
 .table {
@@ -84,32 +163,49 @@ form input.error:focus, form textarea.error:focus {
   vertical-align: top;
 }
 
-.alert-message {
+.alert-message.block-message {
+  padding: 8px 12px 8px;
+  margin-bottom: 10px;
+}
+
+.sidebar .alert-message.block-message {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
   text-align: left;
-  margin-bottom: 10px;
-  padding: 8px 20px;
+  padding-left: 10px;
+}
+
+fieldset {
+  margin-bottom: 0;
 }
 
 .sidebar {
-  width: 252px;
+  width: 250px;
   border-right: 1px solid #ccc;
   text-align: center;
 }
 
-.sidebar form.form-stacked {
-  padding-left: 20px;
+.sidebar fieldset.control-group {
+  margin-left: 20px;
 }
 
-.sidebar p {
-  width: 210px;
+/* Copied from Bootstrap 2.0-wip
+ * Modifications:
+ *   padding-bottom: 10px
+ *   margin-top: 10px
+ *   margin-bottom: 10px
+ */
+.sidebar fieldset.form-actions {
+  padding: 17px 20px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
 }
 
 .sidebar p#tagline {
   color: #ffffff;
-  padding: 10px 20px;
   background-color: #c43c35;
   background-repeat: repeat-x;
   background-image: -khtml-gradient(linear, left top, left bottom, from(#ee5f5b), to(#c43c35));
@@ -119,11 +215,12 @@ form input.error:focus, form textarea.error:focus {
   background-image: -webkit-linear-gradient(top, #ee5f5b, #c43c35);
   background-image: -o-linear-gradient(top, #ee5f5b, #c43c35);
   background-image: linear-gradient(top, #ee5f5b, #c43c35);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#c43c35', GradientType=0);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   border-color: #c43c35 #c43c35 #882a25;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#c43c35', GradientType=0);
+  padding: 10px 20px;
   text-align: center;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
 .sidebar #logos img {

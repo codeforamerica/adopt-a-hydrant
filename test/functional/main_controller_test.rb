@@ -20,8 +20,8 @@ class MainControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_select 'form' do
-      assert_select '[action=?]', '/'
-      assert_select '[method=?]', 'post'
+      assert_select '[action=?]', '/address'
+      assert_select '[method=?]', 'get'
     end
     assert_select 'label#city_state_label', 'City'
     assert_select 'select#city_state' do

@@ -6,6 +6,7 @@ fr:
     adopt: "Adopter!"
     back: "Retour"
     change_password: "Changer mon mot de passe"
+    close: "Fermer"
     edit_profile: "Modifier le profil"
     email_password: "Envoyez-moi mon mot de passe"
     find: "Trouver %{thing}"

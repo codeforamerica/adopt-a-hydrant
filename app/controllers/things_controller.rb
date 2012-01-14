@@ -2,7 +2,7 @@ class ThingsController < ApplicationController
   respond_to :json
 
   def show
-    @things = Thing.find_closest(params[:lat], params[:lng], params[:limit] || 40)
+    @things = Thing.find_closest(params[:lat], params[:lng], params[:limit] || 10)
     unless @things.blank?
       respond_with @things
     else

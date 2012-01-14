@@ -3,7 +3,7 @@
     .table-cell.sidebar
       %h1
         = image_tag "logos/adopt-a-hydrant.png", :alt => t("titles.main", :thing => t("defaults.thing").titleize), :title => t("titles.main", :thing => t("defaults.thing").titleize)
-      %p.alert-message#tagline
+      %p.alert-message.block-message#tagline
         = t("defaults.tagline")
       #content
         = render :partial => "layouts/flash", :locals => {:flash => flash}
@@ -17,8 +17,9 @@
         %a{:href => "http://bostonbuilt.org/"}
           = image_tag "logos/boston.png", :alt => t("sponsors.city"), :title => t("sponsors.city")
       #feedback
-        %a{:href => URI.escape("mailto:adoptahydrant@cityofboston.gov?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} #{t("links.feedback").titleize}")}
-          = t("links.feedback")
+        %p
+          %a{:href => URI.escape("mailto:adoptahydrant@cityofboston.gov?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} #{t("links.feedback").titleize}")}
+            = t("links.feedback")
     .table-cell.map-container
       #map
         &nbsp;
