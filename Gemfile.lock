@@ -84,8 +84,8 @@ GEM
       thor (~> 0.14)
     jruby-openssl (0.7.4)
       bouncy-castle-java
-    json (1.6.4)
-    json (1.6.4-java)
+    json (1.6.5)
+    json (1.6.5-java)
     kaminari (0.13.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
