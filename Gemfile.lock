@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: d09c89afcf46697f356463f01a8eb4af77aef171
+  revision: 9bd785a9c9ab8b5f09d2a0233d70bb1f10e59cc5
   specs:
     rails_admin (0.0.1)
       bbenezech-nested_form (~> 0.0)
@@ -59,7 +59,7 @@ GEM
       execjs
     coffee-script-source (1.2.0)
     crack (0.3.1)
-    daemons (1.1.5)
+    daemons (1.1.6)
     devise (1.5.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
