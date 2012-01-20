@@ -86,3 +86,6 @@ de:
     built: "Erbaut in Boston"
     cfa: "Code für Amerika"
     city: "City of Boston"
+    mayor:
+      name: "Thomas M. Menino"
+      title: "Mayor"

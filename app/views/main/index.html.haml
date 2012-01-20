@@ -21,6 +21,11 @@
         #col2
           %a{:href => "http://www.cityofboston.gov/"}
             = image_tag "logos/boston.png", :alt => t("sponsors.city"), :title => t("sponsors.city")
+          %p#mayor
+            %a{:href => "http://www.cityofboston.gov/mayor/"}
+              = "#{t("sponsors.mayor.name")},"
+              %em
+                = t("sponsors.mayor.title")
       #feedback
         %p
           %a{:href => URI.escape("mailto:adoptahydrant@cityofboston.gov?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} #{t("links.feedback").titleize}")}

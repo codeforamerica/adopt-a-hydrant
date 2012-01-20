@@ -223,23 +223,41 @@ fieldset {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
+.sidebar #logos {
+  height: 100px;
+}
+
 .sidebar #logos #col1 {
   float: left;
   margin-left: 20px;
+  width: 100px;
 }
 
 .sidebar #logos #col1 img {
   float: left;
-  margin-top: 5px;
+  margin: 5px 0;
 }
 
 .sidebar #logos #col2 {
   float: left;
   margin-left: 10px;
+  width: 100px;
+}
+
+.sidebar #mayor {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 8px;
+  padding: 0;
+  margin: -5px 0 0 0;
+}
+
+.sidebar #mayor a, .sidebar #mayor a:active, .sidebar #mayor a:hover, .sidebar #mayor a:visited {
+  color: #000;
+  text-decoration: none;
 }
 
 .sidebar #feedback {
-  clear: both;
+  margin-top: 5px;
 }
 
 .map-container {
