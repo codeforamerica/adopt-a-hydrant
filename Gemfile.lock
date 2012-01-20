@@ -171,6 +171,7 @@ DEPENDENCIES
   rack-contrib
   rails (~> 3.2)
   rails_admin!
+  sass-rails
   simplecov
   sqlite3
   thin

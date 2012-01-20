@@ -16,6 +16,7 @@ platforms :ruby_18 do
 end
 
 group :assets do
+  gem 'sass-rails'
   gem 'uglifier'
 end
 
