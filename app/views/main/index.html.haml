@@ -12,10 +12,15 @@
         - else
           = render :partial => "sidebar/combo_form"
       #logos
-        %a{:href => "http://codeforamerica.org/"}
-          = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
-        %a{:href => "http://bostonbuilt.org/"}
-          = image_tag "logos/boston.png", :alt => t("sponsors.city"), :title => t("sponsors.city")
+        #col1
+          %a{:href => "http://codeforamerica.org/"}
+            = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
+          %br
+          %a{:href => "http://bostonbuilt.org/"}
+            = image_tag "logos/bostonbuilt.png", :alt => t("sponsors.built"), :title => t("sponsors.built")
+        #col2
+          %a{:href => "http://www.cityofboston.gov/"}
+            = image_tag "logos/boston.png", :alt => t("sponsors.city"), :title => t("sponsors.city")
       #feedback
         %p
           %a{:href => URI.escape("mailto:adoptahydrant@cityofboston.gov?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} #{t("links.feedback").titleize}")}

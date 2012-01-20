@@ -72,8 +72,8 @@ form input.search-query {
   width: 180px;
 }
 
-p {
-  padding: 0 10px;
+.sidebar p {
+  padding: 0 20px;
 }
 
 a.btn {
@@ -223,8 +223,23 @@ fieldset {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
-.sidebar #logos img {
-  margin: 10px 5px;
+.sidebar #logos #col1 {
+  float: left;
+  margin-left: 20px;
+}
+
+.sidebar #logos #col1 img {
+  float: left;
+  margin-top: 5px;
+}
+
+.sidebar #logos #col2 {
+  float: left;
+  margin-left: 10px;
+}
+
+.sidebar #feedback {
+  clear: both;
 }
 
 .map-container {

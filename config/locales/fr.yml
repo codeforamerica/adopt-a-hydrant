@@ -83,5 +83,6 @@ fr:
     thank_you: "Merci pour l'adoption de cette %{thing}!"
     tos: "Conditions d'utilisation"
   sponsors:
+    built: "Construit à Boston"
     cfa: "Code pour l'Amérique"
     city: "Ville de Boston"

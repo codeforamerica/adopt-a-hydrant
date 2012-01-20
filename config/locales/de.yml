@@ -83,5 +83,6 @@ de:
     thank_you: "Vielen Dank für die Annahme dieser %{thing}!"
     tos: "Nutzungsbedingungen"
   sponsors:
+    built: "Erbaut in Boston"
     cfa: "Code für Amerika"
     city: "City of Boston"
