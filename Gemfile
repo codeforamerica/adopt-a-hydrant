@@ -6,9 +6,9 @@ gem 'arel'
 gem 'devise'
 gem 'geokit'
 gem 'haml', '~> 3.2.0.alpha'
+gem 'http_accept_language'
 gem 'pg'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
-gem 'rack-contrib'
 gem 'validates_formatting_of'
 
 platforms :ruby_18 do
