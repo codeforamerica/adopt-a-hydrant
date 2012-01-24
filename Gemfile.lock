@@ -93,7 +93,7 @@ GEM
     orm_adapter (0.0.6)
     pg (0.12.2)
     polyglot (0.3.3)
-    rack (1.4.0)
+    rack (1.4.1)
     rack-cache (1.1)
       rack (>= 0.4)
     rack-contrib (1.1.0)
