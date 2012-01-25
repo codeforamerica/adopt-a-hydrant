@@ -215,7 +215,7 @@ $(function() {
     var submitButton = $("#combo-form input[type='submit']");
     $(submitButton).attr("disabled", true);
     var errors = []
-    if(!/[\w\.%\+\]+@[\w\]+\.+[\w]{2,}/.test($('#user_email').val())) {
+    if(!/[\w\.%\+]+@[\w]+\.+[\w]{2,}/.test($('#user_email').val())) {
       errors.push($('#user_email'));
       $('#user_email').parent().addClass('error');
     } else {
