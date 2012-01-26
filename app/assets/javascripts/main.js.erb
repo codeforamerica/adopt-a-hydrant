@@ -602,7 +602,7 @@ $(function() {
     var link = $(this);
     $(link).addClass('disabled');
     $.ajax({
-      type: 'GET',
+      type: 'DELETE',
       url: '/users/sign_out.json',
       error: function(jqXHR) {
         $(link).removeClass('disabled');

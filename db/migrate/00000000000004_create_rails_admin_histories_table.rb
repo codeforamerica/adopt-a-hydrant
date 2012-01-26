@@ -1,5 +1,5 @@
 class CreateRailsAdminHistoriesTable < ActiveRecord::Migration
-   def self.up
+   def change
      create_table :rails_admin_histories do |t|
        t.string :message # title, name, or object_id
        t.string :username
@@ -10,9 +10,5 @@ class CreateRailsAdminHistoriesTable < ActiveRecord::Migration
        t.timestamps
     end
     add_index(:rails_admin_histories, [:item, :table, :month, :year], :name => 'index_rails_admin_histories' )
-  end
-
-  def self.down
-    drop_table :rails_admin_histories
   end
 end
