@@ -51,9 +51,9 @@ GEM
     bootstrap-sass (1.4.4)
       sass-rails (~> 3.1)
     builder (3.0.0)
-    coffee-rails (3.2.1)
+    coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
-      railties (~> 3.2.0.beta)
+      railties (~> 3.2.0)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
