@@ -14,12 +14,20 @@ You can see a running version of the application at
 [demo]: http://adopt-a-hydrant.herokuapp.com/
 
 ## <a name="installation"></a>Installation
+This application requires [Postgres](http://www.postgresql.org/) to be installed
+
     git clone git://github.com/codeforamerica/adopt-a-hydrant.git
     cd adopt-a-hydrant
     bundle install
 
+    bundle exec rake db:create
+    bundle exec rake db:schema
+
 ## <a name="usage"></a>Usage
     rails server
+
+## <a name="usage"></a>Seed Data
+    bundle exec rake db:seed
 
 ## <a name="contributing"></a>Contributing
 In the spirit of [free software][free-sw], **everyone** is encouraged to help
@@ -91,7 +99,7 @@ timely fashion. If critical issues for a particular implementation exist at the
 time of a major release, support for that Ruby version may be dropped.
 
 ## <a name="copyright"></a>Copyright
-Copyright (c) 2011 Code for America. See [LICENSE][] for details.
+Copyright (c) 2012 Code for America. See [LICENSE][] for details.
 
 [license]: https://github.com/codeforamerica/adopt-a-hydrant/blob/master/LICENSE.md
 
