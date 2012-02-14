@@ -151,7 +151,7 @@ GEM
     uglifier (1.2.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
-    validates_formatting_of (0.4.0)
+    validates_formatting_of (0.4.1)
       rails (~> 3.0)
     warden (1.1.0)
       rack (>= 1.0)
