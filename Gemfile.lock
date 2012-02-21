@@ -154,8 +154,8 @@ GEM
       rails (~> 3.0)
     warden (1.1.1)
       rack (>= 1.0)
-    webmock (1.7.10)
-      addressable (~> 2.2, > 2.2.5)
+    webmock (1.8.0)
+      addressable (>= 2.2.7)
       crack (>= 0.1.7)
 
 PLATFORMS
