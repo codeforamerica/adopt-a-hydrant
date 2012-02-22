@@ -93,7 +93,7 @@ GEM
     mime-types (1.17.2)
     multi_json (1.1.0)
     orm_adapter (0.0.6)
-    pg (0.13.1)
+    pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.1)
