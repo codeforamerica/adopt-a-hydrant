@@ -21,7 +21,7 @@ This application requires [Postgres](http://www.postgresql.org/) to be installed
     bundle install
 
     bundle exec rake db:create
-    bundle exec rake db:schema
+    bundle exec rake db:schema:load
 
 ## <a name="usage"></a>Usage
     rails server
