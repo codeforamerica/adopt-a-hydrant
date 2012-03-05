@@ -97,7 +97,7 @@ GEM
     pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
-    rack-cache (1.1)
+    rack-cache (1.2)
       rack (>= 0.4)
     rack-pjax (0.5.8)
       hpricot (~> 0.8.6)
