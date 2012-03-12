@@ -1,7 +1,6 @@
-before_install: "gem update --system"
-bundler_args: "--without assets:development:production"
 before_script: "bundle exec rake db:create db:schema:load"
+bundler_args: "--without assets:development:production"
+language: ruby
 rvm:
   - 1.9.2
   - 1.9.3
-env: "RAILS_ENV=test"
