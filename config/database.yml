@@ -2,7 +2,7 @@ development: &DEVELOPMENT
   adapter: postgresql
   database: adopt_a_thing_development
   host: localhost
-  password: 
+  password: Drewby!23
   username: postgres
 
 # Warning: The database defined as "test" will be erased and
