@@ -91,7 +91,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.17.2)
+    mime-types (1.18)
     multi_json (1.1.0)
     orm_adapter (0.0.6)
     pg (0.13.2)
