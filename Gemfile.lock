@@ -93,7 +93,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.18)
     multi_json (1.1.0)
-    orm_adapter (0.0.6)
+    orm_adapter (0.0.7)
     pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
