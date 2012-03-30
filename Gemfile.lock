@@ -47,7 +47,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.7)
     arel (3.0.2)
-    bbenezech-nested_form (0.0.2)
+    bbenezech-nested_form (0.0.6)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (1.4.4)
       sass-rails (~> 3.1)
