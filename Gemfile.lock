@@ -126,7 +126,7 @@ GEM
       json (~> 1.4)
     remotipart (1.0.2)
     sass (3.1.15)
-    sass-rails (3.2.4)
+    sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
