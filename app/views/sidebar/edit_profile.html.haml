@@ -1,4 +1,4 @@
-= form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => {:id => "edit_form", :class => "form-stacked", :method => :put} do |f|
+= form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => {:id => "edit_form", :method => :put} do |f|
   = f.hidden_field "id"
   %fieldset.control-group
     %label{:for => "user_email", :id => "user_email_label"}
@@ -73,7 +73,7 @@
         = t("captions.required")
     = f.password_field "current_password"
   %fieldset.form-actions
-    = f.submit t("buttons.update"), :class => "btn primary"
+    = f.submit t("buttons.update"), :class => "btn btn-primary"
     %a{:href => root_path, :id => "back_link", :class => "btn"}
       = t("buttons.back")
 :javascript

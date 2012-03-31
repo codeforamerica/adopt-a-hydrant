@@ -105,8 +105,7 @@ $(function() {
           $('#address').parent().addClass('error');
           $('#address').focus();
         } else {
-          $('#address_label').removeClass('error', 500);
-          $('#address').removeClass('error', 500);
+          $('#address').parent().removeClass('error');
           var i = -1;
           $(data).each(function(index, thing) {
             if($.inArray(thing.id, thingIds) == -1) {
@@ -161,8 +160,7 @@ $(function() {
             $('#address').parent().addClass('error');
             $('#address').focus();
           } else {
-            $('#address_label').removeClass('error', 500);
-            $('#address').removeClass('error', 500);
+            $('#address').parent().removeClass('error');
             addMarkersAround(data[0], data[1]);
             var center = new google.maps.LatLng(data[0], data[1]);
             map.setCenter(center);
@@ -695,8 +693,4 @@ $(function() {
     return false;
   });
   $('.alert-message').alert();
-  $('#tos').modal({
-    backdrop: true,
-    keyboard: true
-  });
 });

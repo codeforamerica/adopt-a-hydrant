@@ -1,4 +1,4 @@
-= form_tag "/address", :method => "get", :id => "address_form", :class => "search-form form-stacked" do
+= form_tag "/address", :method => "get", :id => "address_form", :class => "search-form" do
   = hidden_field_tag "limit", params[:limit] || 10
   %fieldset.control-group
     = label_tag "city_state", t("labels.city_state"), :id => "city_state_label"
@@ -7,10 +7,10 @@
     = label_tag "address", t("labels.address"), :id => "address_label"
     = search_field_tag "address", params[:address], :placeholder => [t("defaults.address_1"), t("defaults.neighborhood")].join(", "), :class => "search-query"
   %fieldset.form-actions
-    = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :class => "btn primary"
+    = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :class => "btn btn-primary"
     %a{:href => edit_user_registration_path, :id => "edit_profile_link", :class => "btn"}
       = t("buttons.edit_profile")
-    %a{:href => destroy_user_session_path, :id => "sign_out_link", :class => "btn danger"}
+    %a{:href => destroy_user_session_path, :id => "sign_out_link", :class => "btn btn-danger"}
       = t("buttons.sign_out")
 :javascript
   $(function() {
