@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 68f5258e9af2110b02318bf76176a70eca6e55f7
+  revision: c70beff76fdad15e09b197387ed0a8df4ee47924
   specs:
     rails_admin (0.0.1)
       bbenezech-nested_form (~> 0.0.6)
@@ -79,7 +79,7 @@ GEM
     http_accept_language (1.0.2)
     i18n (0.6.0)
     journey (1.0.3)
-    jquery-rails (2.0.1)
+    jquery-rails (2.0.2)
       railties (>= 3.2.0, < 5.0)
       thor (~> 0.14)
     jquery-ui-rails (0.2.2)
