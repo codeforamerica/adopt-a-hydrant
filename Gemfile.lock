@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: c70beff76fdad15e09b197387ed0a8df4ee47924
+  revision: db1ac45d8e9248a5f93ccbc4df162a3a5568f41d
   specs:
     rails_admin (0.0.1)
       bbenezech-nested_form (~> 0.0.6)
@@ -151,7 +151,7 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.32)
+    tzinfo (0.3.33)
     uglifier (1.2.4)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
