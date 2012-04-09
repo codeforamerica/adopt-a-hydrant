@@ -1,6 +1,6 @@
 %h2
   = t("titles.edit_profile")
-= form_for resource, :as => resource_name, :url => password_path(resource_name), :html => {:id => "edit_form", :class => "form-stacked", :method => :put} do |f|
+= form_for resource, :as => resource_name, :url => password_path(resource_name), :html => {:id => "edit_form", :method => :put} do |f|
   = f.hidden_field "reset_password_token"
   %fieldset.control-group
     = f.label "password", t("labels.password_new"), :id => "user_password_label"

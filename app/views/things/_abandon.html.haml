@@ -1,6 +1,6 @@
-= form_for :thing, :url => things_path, :method => :put, :html => {:id => "abandon_form", :class => "form-stacked"} do |f|
+= form_for :thing, :url => things_path, :method => :put, :html => {:id => "abandon_form"} do |f|
   = f.hidden_field "id"
   = f.hidden_field "user_id", :value => ""
   = f.hidden_field "name", :value => ""
-  %fieldset.form-actions
+  %fieldset.control-group
     = f.submit t("buttons.abandon", :thing => t("defaults.thing")), :class => "btn danger"

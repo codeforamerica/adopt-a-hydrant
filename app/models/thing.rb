@@ -7,7 +7,7 @@ class Thing < ActiveRecord::Base
 
   def self.find_closest(lat, lng, limit=10) #TODO: filter by user_id, filter by city_id
     query = <<-SQL
-      SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(radians(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance
+      SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(RADIANS(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance
       FROM things
       ORDER BY distance
       LIMIT ?
