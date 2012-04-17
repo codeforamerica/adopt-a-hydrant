@@ -1,21 +1,3 @@
-GIT
-  remote: git://github.com/sferik/rails_admin.git
-  revision: d3ca17aefa27e07aa998d43eabe071616b1ba23d
-  specs:
-    rails_admin (0.0.1)
-      bbenezech-nested_form (~> 0.0.6)
-      bootstrap-sass (~> 2.0)
-      builder (~> 3.0)
-      coffee-rails (~> 3.1)
-      haml (~> 3.1)
-      jquery-rails (>= 1.0)
-      jquery-ui-rails (~> 0.2.2)
-      kaminari (~> 0.12)
-      rack-pjax (~> 0.5)
-      rails (~> 3.1)
-      remotipart (~> 1.0)
-      sass-rails (~> 3.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -117,6 +99,19 @@ GEM
       activesupport (= 3.2.3)
       bundler (~> 1.0)
       railties (= 3.2.3)
+    rails_admin (0.0.1)
+      bbenezech-nested_form (~> 0.0.6)
+      bootstrap-sass (~> 2.0)
+      builder (~> 3.0)
+      coffee-rails (~> 3.1)
+      haml (~> 3.1)
+      jquery-rails (>= 1.0)
+      jquery-ui-rails (~> 0.2.2)
+      kaminari (~> 0.12)
+      rack-pjax (~> 0.5)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      sass-rails (~> 3.1)
     railties (3.2.3)
       actionpack (= 3.2.3)
       activesupport (= 3.2.3)
@@ -175,7 +170,7 @@ DEPENDENCIES
   http_accept_language
   pg
   rails (~> 3.2)
-  rails_admin!
+  rails_admin
   sass-rails
   simplecov
   sqlite3
