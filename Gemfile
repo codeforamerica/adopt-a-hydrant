@@ -21,7 +21,7 @@ group :assets do
 end
 
 group :production do
-  gem 'thin'
+  gem 'puma'
 end
 
 group :test do
