@@ -41,9 +41,9 @@ $(function() {
   var isWindowOpen = false;
   var thingIds = [];
   function addMarker(thingId, point, color) {
-    if(color == 'green') {
+    if(color === 'green') {
       var image = greenMarkerImage;
-    } else if(color == 'red') {
+    } else if(color === 'red') {
       var image = redMarkerImage;
     }
     var marker = new google.maps.Marker({
@@ -74,7 +74,7 @@ $(function() {
         },
         success: function(data) {
           // Prevent race condition, which could lead to multiple windows being open at the same time.
-          if(infoWindow == activeInfoWindow) {
+          if(infoWindow === activeInfoWindow) {
             infoWindow.setContent(data);
             infoWindow.open(map, marker);
             isWindowOpen = true;
@@ -108,7 +108,7 @@ $(function() {
           $('#address').parent().removeClass('error');
           var i = -1;
           $(data).each(function(index, thing) {
-            if($.inArray(thing.id, thingIds) == -1) {
+            if($.inArray(thing.id, thingIds) === -1) {
               i += 1;
             } else {
               // continue
@@ -182,14 +182,14 @@ $(function() {
   }
   $('#combo-form input[type="radio"]').live('click', function() {
     var radioInput = $(this);
-    if('new' == radioInput.val()) {
+    if('new' === radioInput.val()) {
       $('#combo-form').data('state', 'user_sign_up');
       $('#user_forgot_password_fields').slideUp();
       $('#user_sign_in_fields').slideUp();
       $('#user_sign_up_fields').slideDown(function() {
         setComboFormFocus();
       });
-    } else if('existing' == radioInput.val()) {
+    } else if('existing' === radioInput.val()) {
       $('#user_sign_up_fields').slideUp();
       $('#user_sign_in_fields').slideDown(function() {
         $('#combo-form').data('state', 'user_sign_in');
