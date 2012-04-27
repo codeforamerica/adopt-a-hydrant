@@ -9,7 +9,7 @@ Claim responsibility for shoveling out a fire hydrant after it snows.
 
 ## <a name="demo"></a>Demo
 You can see a running version of the application at
-[http://adopt-a-hydrant.herokuapp.com/][demo].
+[http://adopt-a-hydrant-syracuse.herokuapp.com/][demo].
 
 [demo]: http://adopt-a-hydrant-syracuse.herokuapp.com/
 
