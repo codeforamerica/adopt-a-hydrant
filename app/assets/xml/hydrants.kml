@@ -20815,6 +20815,636 @@
 				<coordinates>-76.08444167476389,43.03950916324232,159.7552638052023</coordinates>
 			</Point>
 		</Placemark>
+		<Placemark>
+			<name>p151</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.0874057329026</longitude>
+				<latitude>43.04048905426184</latitude>
+				<altitude>0</altitude>
+				<heading>165.7045098591032</heading>
+				<tilt>79.71403342796236</tilt>
+				<range>9.801165855149064</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08744858750632,43.04053595513216,166.8057371765013</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Untitled Placemark</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08726322894208</longitude>
+				<latitude>43.04050747693775</latitude>
+				<altitude>0</altitude>
+				<heading>159.4062377615157</heading>
+				<tilt>76.59505246180503</tilt>
+				<range>8.743872591875503</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08726925138242,43.04054849052839,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p152</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08715776419272</longitude>
+				<latitude>43.04043261054214</latitude>
+				<altitude>0</altitude>
+				<heading>175.7932071347996</heading>
+				<tilt>87.39071478049104</tilt>
+				<range>16.9161005696192</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08719871753473,43.04049053024163,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Untitled Placemark</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08619419805663</longitude>
+				<latitude>43.04044033849405</latitude>
+				<altitude>0</altitude>
+				<heading>-94.17188330134786</heading>
+				<tilt>78.84894572796127</tilt>
+				<range>8.830182779655823</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08620111333836,43.04045000064711,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p153</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08547701740166</longitude>
+				<latitude>43.04003401832991</latitude>
+				<altitude>0</altitude>
+				<heading>-153.5418397977051</heading>
+				<tilt>83.95397656360718</tilt>
+				<range>14.87767893218838</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08545095636426,43.04008556838382,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Untitled Placemark</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08525961072088</longitude>
+				<latitude>43.03996358537783</latitude>
+				<altitude>0</altitude>
+				<heading>-154.4442140551368</heading>
+				<tilt>79.18859247620178</tilt>
+				<range>10.10202679700848</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08524493239496,43.04001663178524,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p154</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08515592044169</longitude>
+				<latitude>43.03980884424736</latitude>
+				<altitude>0</altitude>
+				<heading>-170.9064076280952</heading>
+				<tilt>85.66453372306481</tilt>
+				<range>19.57745903174097</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08514965561184,43.03991653130783,158.8301577493552</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p155</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08515592044169</longitude>
+				<latitude>43.03980884424736</latitude>
+				<altitude>0</altitude>
+				<heading>-170.9064076280952</heading>
+				<tilt>85.66453372306481</tilt>
+				<range>19.57745903174097</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08514948183226,43.03991461389146,158.8301577493552</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p156</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08488631313368</longitude>
+				<latitude>43.03957334491149</latitude>
+				<altitude>0</altitude>
+				<heading>-162.9859007497762</heading>
+				<tilt>88.37931582817862</tilt>
+				<range>26.51365587763869</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08480755335937,43.03971247648796,158.8184892893806</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p157</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08204147134744</longitude>
+				<latitude>43.04067276313552</latitude>
+				<altitude>0</altitude>
+				<heading>66.54939854366448</heading>
+				<tilt>88.58115337240719</tilt>
+				<range>243.9265790629211</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08456774573121,43.03989902174006,158.5722127563939</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p158</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.06616322679217</longitude>
+				<latitude>43.05322709687802</latitude>
+				<altitude>0</altitude>
+				<heading>46.17540661267096</heading>
+				<tilt>85.73007812229126</tilt>
+				<range>2128.416656306223</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08490744641149,43.04007665202124,157.6341318015047</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p159</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.06616322679217</longitude>
+				<latitude>43.05322709687802</latitude>
+				<altitude>0</altitude>
+				<heading>46.17540661267096</heading>
+				<tilt>85.73007812229126</tilt>
+				<range>2128.416656306223</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08491052768049,43.04007577697623,157.6341318015047</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p160</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.07523733206762</longitude>
+				<latitude>43.05042271735305</latitude>
+				<altitude>0</altitude>
+				<heading>35.81074801490519</heading>
+				<tilt>83.52020001204278</tilt>
+				<range>1407.982554065993</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08523898553959,43.04033032689109,156.6691898157929</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p161</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08509072337374</longitude>
+				<latitude>43.04719158162001</latitude>
+				<altitude>0</altitude>
+				<heading>1.867670166982919</heading>
+				<tilt>78.32226435641361</tilt>
+				<range>785.8649223002158</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08539070501902,43.04034723559887,156.4238008333303</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p162</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.10467710711337</longitude>
+				<latitude>43.05080484656244</latitude>
+				<altitude>0</altitude>
+				<heading>-53.65497429366469</heading>
+				<tilt>85.17767756362771</tilt>
+				<range>1882.678794897897</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08620043444211,43.04083607512966,155.8927251679396</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p163</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.10467710711337</longitude>
+				<latitude>43.05080484656244</latitude>
+				<altitude>0</altitude>
+				<heading>-53.65497429366469</heading>
+				<tilt>85.17767756362771</tilt>
+				<range>1882.678794897897</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08621025398897,43.04082940177238,155.8943490041918</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p164</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.10188360489788</longitude>
+				<latitude>43.05358241147849</latitude>
+				<altitude>0</altitude>
+				<heading>-40.87568837897494</heading>
+				<tilt>85.12540796782041</tilt>
+				<range>1910.306145837916</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08664269292464,43.04069249047448,160.5333656925175</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p165</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08653527320078</longitude>
+				<latitude>43.04384090011682</latitude>
+				<altitude>0</altitude>
+				<heading>4.393102168863972</heading>
+				<tilt>65.1691632107753</tilt>
+				<range>390.5871575976371</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08686474129723,43.04070693609413,161.1867666965027</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p166</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.10072117657613</longitude>
+				<latitude>43.04983983723366</latitude>
+				<altitude>0</altitude>
+				<heading>-47.53605601930386</heading>
+				<tilt>83.78850603709047</tilt>
+				<range>1520.486009813383</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08709658733893,43.04071067428007,163.1706772815409</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p167</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.10530430814288</longitude>
+				<latitude>43.06607432416116</latitude>
+				<altitude>0</altitude>
+				<heading>-27.7541020012616</heading>
+				<tilt>87.0636619529668</tilt>
+				<range>3199.488718069146</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08709839479299,43.04071045113941,163.669085937097</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p168</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08137265872719</longitude>
+				<latitude>43.04456154103042</latitude>
+				<altitude>0</altitude>
+				<heading>48.66308727567367</heading>
+				<tilt>75.71521215123448</tilt>
+				<range>677.3262649982543</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08730821825083,43.04079522524839,163.498023298771</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p169</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08137265872719</longitude>
+				<latitude>43.04456154103042</latitude>
+				<altitude>0</altitude>
+				<heading>48.66308727567367</heading>
+				<tilt>75.71521215123448</tilt>
+				<range>677.3262649982543</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08730854185031,43.04080243287923,163.498023298771</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p170</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.11262757007079</longitude>
+				<latitude>43.06521465135249</latitude>
+				<altitude>0</altitude>
+				<heading>-36.39164822561178</heading>
+				<tilt>87.16688790841505</tilt>
+				<range>3405.729607248005</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08789161737904,43.04064022059556,168.1300607542085</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p171</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.09080905906684</longitude>
+				<latitude>43.04784954733504</latitude>
+				<altitude>0</altitude>
+				<heading>-15.3697607821713</heading>
+				<tilt>78.52541751619545</tilt>
+				<range>858.2778369086165</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.0881132558701,43.04067151170504,167.8359320630056</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p172</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.10887680593349</longitude>
+				<latitude>43.07502628079128</latitude>
+				<altitude>0</altitude>
+				<heading>-21.56945576174127</heading>
+				<tilt>87.59951494863947</tilt>
+				<range>4145.766388674233</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.09019166008045,43.04051517852557,173.7124299347758</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p173</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08769656951318</longitude>
+				<latitude>43.04621043007498</latitude>
+				<altitude>0</altitude>
+				<heading>19.07270659493588</heading>
+				<tilt>75.59405789139335</tilt>
+				<range>703.211886689595</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.09042479464408,43.04050263159069,172.2043887052028</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p174</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08769656951318</longitude>
+				<latitude>43.04621043007498</latitude>
+				<altitude>0</altitude>
+				<heading>19.07270659493588</heading>
+				<tilt>75.59405789139335</tilt>
+				<range>703.211886689595</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.09042525896773,43.04050562771533,172.2043887052028</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p175</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.09897531021136</longitude>
+				<latitude>43.06763225922317</latitude>
+				<altitude>0</altitude>
+				<heading>-11.99475453429383</heading>
+				<tilt>86.77250629336704</tilt>
+				<range>3096.713493864613</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.0911115981651,43.04053160503936,173.8866704424148</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p176</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.09614768884802</longitude>
+				<latitude>43.04849632578266</latitude>
+				<altitude>0</altitude>
+				<heading>-23.78361514529343</heading>
+				<tilt>79.81641167328226</tilt>
+				<range>988.9599135856004</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.09133168530317,43.040567098098,172.3435691380786</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>p177</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08575598310155</longitude>
+				<latitude>43.05017412198741</latitude>
+				<altitude>0</altitude>
+				<heading>26.79092850262312</heading>
+				<tilt>81.67421308679901</tilt>
+				<range>1190.91880352739</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.0921966935441,43.04083416427982,170.0655890843674</coordinates>
+			</Point>
+		</Placemark>
 	</Folder>
 </Document>
 </kml>
