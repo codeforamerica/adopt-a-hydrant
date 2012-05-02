@@ -28,7 +28,7 @@ GEM
     activesupport (3.2.3)
       i18n (~> 0.6)
       multi_json (~> 1.0)
-    addressable (2.2.7)
+    addressable (2.2.8)
     arel (3.0.2)
     bbenezech-nested_form (0.0.6)
     bcrypt-ruby (3.0.1)
