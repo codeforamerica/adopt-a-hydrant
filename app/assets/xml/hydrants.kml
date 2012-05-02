@@ -23523,6 +23523,27 @@
 				<coordinates>-76.09308533708816,43.04462242941084,183.3340220687284</coordinates>
 			</Point>
 		</Placemark>
+		<Placemark>
+			<name>Untitled Placemark</name>
+			<LookAt>
+				<gx:ViewerOptions>
+					<gx:option enabled="0" name="historicalimagery"></gx:option>
+					<gx:option enabled="0" name="sunlight"></gx:option>
+					<gx:option name="streetview"></gx:option>
+				</gx:ViewerOptions>
+				<longitude>-76.08974770904025</longitude>
+				<latitude>43.04474264780404</latitude>
+				<altitude>0</altitude>
+				<heading>-171.6477998396197</heading>
+				<tilt>60.72210966635048</tilt>
+				<range>5.592169233547744</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-76.08970433427091,43.04471541311124,0</coordinates>
+			</Point>
+		</Placemark>
 	</Folder>
 </Document>
 </kml>
