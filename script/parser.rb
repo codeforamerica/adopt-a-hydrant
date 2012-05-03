@@ -22,7 +22,8 @@ while container.read
   unless container.node_type == XML::Reader::TYPE_END_ELEMENT
     name, value = display container
     if prev_name == "coordinates"
-      seed = "Thing.create(:city_id => " + i.to_s + ", :lng => " + value.to_s.split(",").first + ", " + ":lat => " + value.to_s.split(",").last.split(",").first + ")"
+      # seed = "Thing.create(:city_id => " + i.to_s + ", :lng => " + value.to_s.split(",").first + ", " + ":lat => " + value.to_s.split(",").last.split(",").first + ")"
+      seed = "Thing.create(:city_id => " + i.to_s + ", :lng => " + value.to_s.split(",").first + ", " + ":lat => " + value.to_s.split(",")[1] + ")"
       seeds << seed + "\n"
       i += 1
     end
