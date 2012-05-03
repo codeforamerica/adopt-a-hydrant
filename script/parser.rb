@@ -31,6 +31,7 @@ while container.read
   end
 end
 #puts seeds.chop
-File.open("../db/seeds.rb", 'w') {|f| f.write(seeds.chop) } #system("rake db:seed")
+File.open("../db/seeds.rb", 'w') {|f| f.write(seeds.chop) }
+system("rake db:seed")
 
 container.close
