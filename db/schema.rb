@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(:version => 6) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.decimal  "lat",        :precision => 16, :scale => 14, :null => false
-    t.decimal  "lng",        :precision => 17, :scale => 14, :null => false
+    t.decimal  "lat",        :precision => 18, :scale => 14, :null => false
+    t.decimal  "lng",        :precision => 18, :scale => 14, :null => false
     t.integer  "city_id"
     t.integer  "user_id"
   end
