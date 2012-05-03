@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-#AdoptAThing::Application.load_tasks
+AdoptAThing::Application.load_tasks
