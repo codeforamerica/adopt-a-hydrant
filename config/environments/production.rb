@@ -63,8 +63,8 @@ AdoptAThing::Application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
-  config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
-  puts "production.rb: " + Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s].to_s
+  config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**/*.{rb,yml}').to_s]
+  puts "production.rb: " + config.i18n.load_path.to_s
   config.i18n.fallbacks = true
   #config.i18n.available_locales = :en
   #config.i18n.default_locale = :en
