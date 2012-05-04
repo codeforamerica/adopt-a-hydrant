@@ -1,6 +1,7 @@
 # Please maintain alphabetical order
 
 en:
+  
   buttons:
     abandon: "Abandon this %{thing}"
     adopt: "Adopt!"
