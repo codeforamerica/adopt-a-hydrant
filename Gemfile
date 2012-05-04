@@ -10,6 +10,7 @@ gem 'http_accept_language'
 gem 'pg'
 gem 'rails_admin'
 gem 'validates_formatting_of'
+gem 'i18n'
 
 platforms :ruby_18 do
   gem 'fastercsv'

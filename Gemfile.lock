@@ -164,6 +164,7 @@ DEPENDENCIES
   geokit
   haml (~> 3.2.0.alpha)
   http_accept_language
+  i18n
   pg
   puma
   rails (~> 3.2)
