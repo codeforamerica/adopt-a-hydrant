@@ -10,6 +10,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
+#TODO: handle race conditions
 
 ActiveRecord::Schema.define(:version => 6) do
 
@@ -47,7 +48,8 @@ ActiveRecord::Schema.define(:version => 6) do
     t.decimal  "lat",        :precision => 18, :scale => 14, :null => false
     t.decimal  "lng",        :precision => 18, :scale => 14, :null => false
     t.integer  "city_id"
-    t.integer  "user_id"
+    t.integer "user_id"
+    #location_id 
   end
 
   add_index "things", ["city_id"], :name => "index_things_on_city_id", :unique => true
@@ -76,6 +78,7 @@ ActiveRecord::Schema.define(:version => 6) do
     t.string   "state"
     t.string   "zip"
     t.datetime "reset_password_sent_at"
+    #location_id
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
