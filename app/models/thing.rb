@@ -3,7 +3,7 @@ class Thing < ActiveRecord::Base
   #validates_uniqueness_of :city_id, :allow_nil => true
   validates_presence_of :lat, :lng
   belongs_to :user
-  has_many :reminders, :dependent => :delete
+  has_many :reminders
 
   def self.find_closest(lat, lng, limit=10)
     query = <<-SQL
