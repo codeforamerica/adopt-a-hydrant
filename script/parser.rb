@@ -5,7 +5,7 @@
 require 'rubygems'
 require 'xml'
 
-def extract(filename) #kml
+def extract(filename)
   return XML::Reader.file(filename, :options => XML::Parser::Options::NOBLANKS | XML::Parser::Options::NOENT)
 end
 
@@ -17,21 +17,17 @@ end
 container = extract "../app/assets/xml/hydrants.xml"
 prev_name = ""
 seeds = ""
-i = 0
+
 while container.read
   unless container.node_type == XML::Reader::TYPE_END_ELEMENT
     name, value = display container
     if prev_name == "coordinates"
-      # seed = "Thing.create(:city_id => " + i.to_s + ", :lng => " + value.to_s.split(",").first + ", " + ":lat => " + value.to_s.split(",").last.split(",").first + ")"
-      seed = "Thing.create(:city_id => " + i.to_s + ", :lng => " + value.to_s.split(",").first + ", " + ":lat => " + value.to_s.split(",")[1] + ")"
-      seeds << seed + "\n"
-      i += 1
+      seeds << "Thing.create(:lng => " + value.to_s.split(",").first + ", " + ":lat => " + value.to_s.split(",")[1] + ")\n"
     end
     prev_name = name
   end
 end
-#puts seeds.chop
+
 File.open("../db/seeds.rb", 'w') {|f| f.write(seeds.chop) }
 system("rake db:seed")
-
 container.close
