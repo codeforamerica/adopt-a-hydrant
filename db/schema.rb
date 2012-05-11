@@ -10,9 +10,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
-#TODO: handle race conditions
 
-ActiveRecord::Schema.define(:version => 6) do
+ActiveRecord::Schema.define(:version => 20120511171814) do
 
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
@@ -47,8 +46,11 @@ ActiveRecord::Schema.define(:version => 6) do
     t.string   "name"
     t.decimal  "lat",        :precision => 18, :scale => 14, :null => false
     t.decimal  "lng",        :precision => 18, :scale => 14, :null => false
-    t.integer "user_id"
+    #t.integer  "city_id"
+    t.integer  "user_id"
   end
+
+  #add_index "things", ["city_id"], :name => "index_things_on_city_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.datetime "created_at"
@@ -78,5 +80,11 @@ ActiveRecord::Schema.define(:version => 6) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  add_foreign_key "reminders", "things", :name => "reminders_thing_id_fk"
+  add_foreign_key "reminders", "users", :name => "reminders_from_user_id_fk", :column => "from_user_id"
+  add_foreign_key "reminders", "users", :name => "reminders_to_user_id_fk", :column => "to_user_id"
+
+  add_foreign_key "things", "users", :name => "things_user_id_fk"
 
 end
