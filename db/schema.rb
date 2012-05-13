@@ -46,11 +46,8 @@ ActiveRecord::Schema.define(:version => 20120511171814) do
     t.string   "name"
     t.decimal  "lat",        :precision => 18, :scale => 14, :null => false
     t.decimal  "lng",        :precision => 18, :scale => 14, :null => false
-    #t.integer  "city_id"
     t.integer  "user_id"
   end
-
-  #add_index "things", ["city_id"], :name => "index_things_on_city_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.datetime "created_at"
