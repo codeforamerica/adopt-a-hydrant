@@ -32,7 +32,7 @@ GEM
     arel (3.0.2)
     bbenezech-nested_form (0.0.6)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.0.2)
+    bootstrap-sass (2.0.3)
     builder (3.0.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -77,12 +77,13 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
       railties (>= 3.0.0)
+    libxml-ruby (2.3.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.18)
-    multi_json (1.3.4)
+    multi_json (1.3.5)
     orm_adapter (0.0.7)
     pg (0.13.2)
     polyglot (0.3.3)
@@ -130,7 +131,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     remotipart (1.0.2)
-    sass (3.1.17)
+    sass (3.1.18)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -161,7 +162,7 @@ GEM
       rails (~> 3.0)
     warden (1.1.1)
       rack (>= 1.0)
-    webmock (1.8.6)
+    webmock (1.8.7)
       addressable (>= 2.2.7)
       crack (>= 0.1.7)
 
@@ -176,9 +177,9 @@ DEPENDENCIES
   haml (~> 3.2.0.alpha)
   http_accept_language
   immigrant
+  libxml-ruby
   pg
   puma
-  rails (~> 3.2)
   rails_admin
   sass-rails
   simplecov
