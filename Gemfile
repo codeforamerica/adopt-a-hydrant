@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2'
+gem "rails", '~> 3.2'
 
 gem 'arel'
 gem 'devise'
@@ -12,6 +12,7 @@ gem 'rails_admin'
 gem 'validates_formatting_of'
 gem 'immigrant'
 gem 'twilio-ruby'
+gem 'libxml-ruby'
 
 platforms :ruby_18 do
   gem 'fastercsv'
