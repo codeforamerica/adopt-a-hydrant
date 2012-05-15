@@ -3,10 +3,6 @@
 # http://api.rubyonrails.org/classes/String.html#method-i-truncate
 desc 'This task is called by the Heroku scheduler add-on'
 task :update_feed => :environment do
-  @account_sid = 'AC0b322d7367604e7a852a1d59193738a2'
-  @auth_token = 'c32bcf082cb7cee728a99832858db23b'
-  @client = Twilio::REST::Client.new(@account_sid, @auth_token)
-  @account = @client.account
   # coordinate_list = ''
   # if Thing.where('user_id IS NOT NULL').any?
   #     Thing.where('user_id IS NOT NULL').find_each do |thing|
@@ -20,19 +16,20 @@ task :update_feed => :environment do
   #       puts amount
   #     end
   #   end
-  @thing = Thing.new
-    if Thing.where('user_id IS NOT NULL').any?
-      Thing.where('user_id IS NOT NULL').find_each do |thing|
-        snow_amounts = @thing.get_snow_amounts(LibXML::XML::Reader.string(Net::HTTP.get(URI('http://graphical.weather.gov/xml/sample_products/browser_interface/ndfdXMLclient.php?lat=' + thing.lat.to_s + '&lon=' + thing.lng.to_s + '&product=time-series&begin=' + DateTime.now.utc.new_offset(0).to_s + '&end=' + DateTime.now.utc.new_offset(0).to_s + '&snow=snow'))))
-        snow_amounts.each do |amount|
-          if amount.to_i == 0.00
-            @user = User.find(thing.user_id)
-            extra = (101-(amount.length+thing.full_address.length))
-            requested = @user.name.length + thing.name.length
-            @account.sms.messages.create(:from => '+18599030353', :to => @user.sms_number, :body => @user.name + ', look out for ' + thing.name.truncate(thing.name.length-(requested-extra)) + ' ! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.') if requested > extra
-            @account.sms.messages.create(:from => '+18599030353', :to => @user.sms_number, :body => @user.name + ', look out for ' + thing.name + '! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.') if requested < extra
-          end
+  
+  if Thing.where('user_id IS NOT NULL').any?
+    @thing = Thing.new
+    Thing.where('user_id IS NOT NULL').find_each do |thing|
+      snow_amounts = @thing.get_snow_amounts(LibXML::XML::Reader.string(Net::HTTP.get(URI('http://graphical.weather.gov/xml/sample_products/browser_interface/ndfdXMLclient.php?lat=' + thing.lat.to_s + '&lon=' + thing.lng.to_s + '&product=time-series&begin=' + DateTime.now.utc.new_offset(0).to_s + '&end=' + DateTime.now.utc.new_offset(0).to_s + '&snow=snow'))))
+      snow_amounts.each do |amount|
+        if amount.to_i == 0.00
+          @user = User.find(thing.user_id)
+          extra = (101-(amount.length+thing.full_address.length))
+          requested = @user.name.length + thing.name.length
+          @account.sms.messages.create(:from => '+18599030353', :to => @user.sms_number, :body => @user.name + ', look out for ' + thing.name.truncate(thing.name.length-(requested-extra)) + ' ! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.') if requested > extra
+          @account.sms.messages.create(:from => '+18599030353', :to => @user.sms_number, :body => @user.name + ', look out for ' + thing.name + '! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.') if requested < extra
         end
       end
     end
+  end
 end
