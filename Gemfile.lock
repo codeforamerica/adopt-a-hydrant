@@ -180,6 +180,7 @@ DEPENDENCIES
   libxml-ruby
   pg
   puma
+  rails (~> 3.2)
   rails_admin
   sass-rails
   simplecov
