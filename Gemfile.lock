@@ -99,7 +99,7 @@ GEM
       activesupport (= 3.2.3)
       bundler (~> 1.0)
       railties (= 3.2.3)
-    rails_admin (0.0.2)
+    rails_admin (0.0.3)
       bbenezech-nested_form (~> 0.0.6)
       bootstrap-sass (~> 2.0)
       builder (~> 3.0)
