@@ -18,7 +18,12 @@ task :update_feed => :environment do
   #   end
   
   if Thing.where('user_id IS NOT NULL').any?
+    @account_sid = 'AC0b322d7367604e7a852a1d59193738a2'
+    @auth_token = 'c32bcf082cb7cee728a99832858db23b'
+    @client = Twilio::REST::Client.new(@account_sid, @auth_token)
+    @account = @client.account
     @thing = Thing.new
+    
     Thing.where('user_id IS NOT NULL').find_each do |thing|
       snow_amounts = @thing.get_snow_amounts(LibXML::XML::Reader.string(Net::HTTP.get(URI('http://graphical.weather.gov/xml/sample_products/browser_interface/ndfdXMLclient.php?lat=' + thing.lat.to_s + '&lon=' + thing.lng.to_s + '&product=time-series&begin=' + DateTime.now.utc.new_offset(0).to_s + '&end=' + DateTime.now.utc.new_offset(0).to_s + '&snow=snow'))))
       snow_amounts.each do |amount|
