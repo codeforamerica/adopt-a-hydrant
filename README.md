@@ -5,7 +5,7 @@ Claim responsibility for shoveling out a fire hydrant after it snows.
 [gemnasium]: https://gemnasium.com/codeforamerica/adopt-a-hydrant
 
 ## <a name="screenshots"></a>Screenshot
-![Adopt-a-Hydrant](https://github.com/codeforamerica/adopt-a-hydrant/screen.png "Adopt-a-Hydrant")
+![Adopt-a-Hydrant](https://github.com/codeforamerica/adopt-a-hydrant/raw/master/screenshot.png "Adopt-a-Hydrant")
 
 ## <a name="demo"></a>Demo
 You can see a running version of the application at
