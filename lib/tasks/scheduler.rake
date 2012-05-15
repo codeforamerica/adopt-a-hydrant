@@ -1,5 +1,6 @@
 # https://devcenter.heroku.com/articles/scheduler
 # http://graphical.weather.gov/xml/rest.php
+# http://api.rubyonrails.org/classes/String.html#method-i-truncate
 desc 'This task is called by the Heroku scheduler add-on'
 task :update_feed => :environment do
   @account_sid = 'AC0b322d7367604e7a852a1d59193738a2'
@@ -21,16 +22,37 @@ task :update_feed => :environment do
   #     end
   #   end
   @thing = Thing.new
-  if Thing.where('user_id IS NOT NULL').any?
-    Thing.where('user_id IS NOT NULL').find_each do |thing|
-      snow_amounts = @thing.get_snow_amounts(LibXML::XML::Reader.string(Net::HTTP.get(URI('http://graphical.weather.gov/xml/sample_products/browser_interface/ndfdXMLclient.php?lat=' + thing.lat.to_s + '&lon=' + thing.lng.to_s + '&product=time-series&begin=' + DateTime.now.utc.new_offset(0).to_s + '&end=' + DateTime.now.utc.new_offset(0).to_s + '&snow=snow'))))
-      snow_amounts.each do |amount|
-        if amount.to_i > 0.00
-          @account.sms.messages.create(:from => '+18599030353', :to => User.find(thing.user_id).sms_number, :body => User.find(thing.user_id).name + ', look out for ' + thing.name + '! Snowfall: ~' + amount + ' inches. Location: ~' + thing.full_address + '.')
-          # puts User.find(thing.user_id).name + ', look out! ' + thing.name + ' might be surrounded by up to ' + amount + ' inches of snow at some point today.' + ' ' + thing.name + "'s" + ' approximate location: ' + thing.full_address + '.'
-          # puts User.find(thing.user_id).name + ', look out for ' + thing.name + '! Snowfall: ~' + amount + ' inches. Location: ~' + thing.full_address + '.'
+    if Thing.where('user_id IS NOT NULL').any?
+      Thing.where('user_id IS NOT NULL').find_each do |thing|
+        snow_amounts = @thing.get_snow_amounts(LibXML::XML::Reader.string(Net::HTTP.get(URI('http://graphical.weather.gov/xml/sample_products/browser_interface/ndfdXMLclient.php?lat=' + thing.lat.to_s + '&lon=' + thing.lng.to_s + '&product=time-series&begin=' + DateTime.now.utc.new_offset(0).to_s + '&end=' + DateTime.now.utc.new_offset(0).to_s + '&snow=snow'))))
+        snow_amounts.each do |amount|
+          if amount.to_i == 0.00
+            @user = User.find(thing.user_id)
+            # if (@user.name.length + thing.name.length) > 38
+            #            puts (@user.name.length + thing.name.length)
+            #          end
+            extra = (101-(amount.length+thing.full_address.length))
+            # puts extra
+            requested = @user.name.length + thing.name.length
+            # puts requested
+            @account.sms.messages.create(:from => '+18599030353', :to => @user.sms_number, :body => @user.name + ', look out for ' + thing.name.truncate(thing.name.length-(requested-extra)) + ' ! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.') if requested > extra
+            @account.sms.messages.create(:from => '+18599030353', :to => @user.sms_number, :body => @user.name + ', look out for ' + thing.name + '! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.') if requested < extra
+            
+            # puts @user.name + ', look out for ' + thing.name.truncate(thing.name.length-(requested-extra)) + ' ! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.' if requested > extra
+            #             puts @user.name + ', look out for ' + thing.name + '! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.' if requested < extra
+            
+            # puts @user.name.truncate(20) + ', look out for ' + thing.name.truncate(20) + '! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.'
+            # puts User.find(thing.user_id).name + ', look out! ' + thing.name + ' might be surrounded by up to ' + amount + ' inches of snow at some point today.' + ' ' + thing.name + "'s" + ' approximate location: ' + thing.full_address + '.'
+            # puts User.find(thing.user_id).name + ', look out for ' + thing.name + '! Snowfall: ~' + amount + ' inches. Location: ~' + thing.full_address + '.'
+          end
         end
       end
     end
-  end
+  # length = 0
+  #   Thing.find_each do |thing|
+  #     if thing.full_address.length > length
+  #       length = thing.full_address.length
+  #     end
+  #   end
+  #   puts length
 end
