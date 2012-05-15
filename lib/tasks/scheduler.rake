@@ -7,7 +7,6 @@ task :update_feed => :environment do
   @auth_token = 'c32bcf082cb7cee728a99832858db23b'
   @client = Twilio::REST::Client.new(@account_sid, @auth_token)
   @account = @client.account
-  
   # coordinate_list = ''
   # if Thing.where('user_id IS NOT NULL').any?
   #     Thing.where('user_id IS NOT NULL').find_each do |thing|
@@ -28,31 +27,12 @@ task :update_feed => :environment do
         snow_amounts.each do |amount|
           if amount.to_i == 0.00
             @user = User.find(thing.user_id)
-            # if (@user.name.length + thing.name.length) > 38
-            #            puts (@user.name.length + thing.name.length)
-            #          end
             extra = (101-(amount.length+thing.full_address.length))
-            # puts extra
             requested = @user.name.length + thing.name.length
-            # puts requested
             @account.sms.messages.create(:from => '+18599030353', :to => @user.sms_number, :body => @user.name + ', look out for ' + thing.name.truncate(thing.name.length-(requested-extra)) + ' ! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.') if requested > extra
             @account.sms.messages.create(:from => '+18599030353', :to => @user.sms_number, :body => @user.name + ', look out for ' + thing.name + '! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.') if requested < extra
-            
-            # puts @user.name + ', look out for ' + thing.name.truncate(thing.name.length-(requested-extra)) + ' ! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.' if requested > extra
-            #             puts @user.name + ', look out for ' + thing.name + '! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.' if requested < extra
-            
-            # puts @user.name.truncate(20) + ', look out for ' + thing.name.truncate(20) + '! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.'
-            # puts User.find(thing.user_id).name + ', look out! ' + thing.name + ' might be surrounded by up to ' + amount + ' inches of snow at some point today.' + ' ' + thing.name + "'s" + ' approximate location: ' + thing.full_address + '.'
-            # puts User.find(thing.user_id).name + ', look out for ' + thing.name + '! Snowfall: ~' + amount + ' inches. Location: ~' + thing.full_address + '.'
           end
         end
       end
     end
-  # length = 0
-  #   Thing.find_each do |thing|
-  #     if thing.full_address.length > length
-  #       length = thing.full_address.length
-  #     end
-  #   end
-  #   puts length
 end
