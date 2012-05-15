@@ -30,9 +30,15 @@ task :update_feed => :environment do
         if amount.to_i == 0.00
           @user = User.find(thing.user_id)
           extra = (101-(amount.length+thing.full_address.length))
-          requested = @user.name.length + thing.name.length
-          @account.sms.messages.create(:from => '+18599030353', :to => @user.sms_number, :body => @user.name + ', look out for ' + thing.name.truncate(thing.name.length-(requested-extra)) + ' ! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.') if requested > extra
-          @account.sms.messages.create(:from => '+18599030353', :to => @user.sms_number, :body => @user.name + ', look out for ' + thing.name + '! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.') if requested < extra
+          thing_name_length = thing.name.length
+          requested = @user.name.length + thing_name_length
+          if requested < extra
+            @account.sms.messages.create(:from => '+18599030353', :to => @user.sms_number, :body => @user.name + ', look out for ' + thing.name + '! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.')
+          else
+            requested_extra_difference = requested-extra
+            @account.sms.messages.create(:from => '+18599030353', :to => @user.sms_number, :body => @user.name + ', look out for ' + thing.name.truncate(thing_name_length-requested_extra_difference) + ' ! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.') if (requested > extra) && (thing_name_length > requested_extra_difference)
+            @account.sms.messages.create(:from => '+18599030353', :to => @user.sms_number, :body => @user.name.truncate(requested_extra_difference-thing_name_length) + ', look out for ... ! Forecasted snowfall: ' + amount + ' inches. Location: ' + thing.full_address + '.') if (requested > extra) && (thing_name_length < requested_extra_difference)
+          end
         end
       end
     end
