@@ -64,7 +64,7 @@ form input.search-query {
 }
 
 .sidebar p {
-  padding: 0 20px;
+  padding: 12px 20px;
   margin: 0;
 }
 
@@ -151,7 +151,8 @@ a.btn {
 
 .sidebar #logos #col2 {
   float: left;
-  margin-left: 10px;
+  margin-left: 12px;
+  margin-top: 12px;
   width: 100px;
 }
 
