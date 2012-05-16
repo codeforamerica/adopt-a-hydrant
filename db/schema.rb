@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120511171814) do
+ActiveRecord::Schema.define(:version => 20120516004037) do
 
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
@@ -44,9 +44,10 @@ ActiveRecord::Schema.define(:version => 20120511171814) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.decimal  "lat",        :precision => 18, :scale => 14, :null => false
-    t.decimal  "lng",        :precision => 18, :scale => 14, :null => false
+    t.decimal  "lat",          :precision => 18, :scale => 14,                :null => false
+    t.decimal  "lng",          :precision => 18, :scale => 14,                :null => false
     t.integer  "user_id"
+    t.integer  "lock_version",                                 :default => 0, :null => false
   end
 
   create_table "users", :force => true do |t|
