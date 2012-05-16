@@ -7,7 +7,11 @@ class InfoWindowController < ApplicationController
     
     if session[:thing].adopted?
       if user_signed_in? && current_user.id == session[:thing].user_id
-        render("users/thank_you")
+        if session[:conflict] == true
+          render('users/conflict')
+        else
+          render("users/thank_you")
+        end
       else
         render("users/profile")
       end

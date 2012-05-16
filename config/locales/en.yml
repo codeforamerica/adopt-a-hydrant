@@ -77,6 +77,7 @@ en:
     adopt: "Adopt this %{thing}"
     adopted: "%{thing_name} has been adopted"
     byline: "by %{name}"
+    conflict: "Thank you for adopting this %{thing} earlier!"
     edit_profile: "Edit your Profile"
     main: "Adopt-a-%{thing}"
     ofline: "of %{organization}"
