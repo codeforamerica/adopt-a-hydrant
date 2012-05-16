@@ -13,8 +13,13 @@ class User < ActiveRecord::Base
   has_many :reminders_from, :class_name => "Reminder", :foreign_key => "from_user_id"
   has_many :things
   before_validation :remove_non_digits_from_phone_numbers
+  
+  def filter(number)
+    return number.to_s.gsub(/\D/, '').to_i
+  end
+  
   def remove_non_digits_from_phone_numbers
-    self.sms_number = self.sms_number.to_s.gsub(/\D/, '').to_i if self.sms_number.present?
-    self.voice_number = self.voice_number.to_s.gsub(/\D/, '').to_i if self.voice_number.present?
+    self.sms_number = filter(self.sms_number) if self.sms_number.present?
+    self.voice_number = filter(self.voice_number) if self.voice_number.present?
   end
 end
