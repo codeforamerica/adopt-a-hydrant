@@ -27,7 +27,7 @@ task :update_feed => :environment do
     Thing.where('user_id IS NOT NULL').find_each do |thing|
       snow_amounts = @thing.get_snow_amounts(LibXML::XML::Reader.string(Net::HTTP.get(URI('http://graphical.weather.gov/xml/sample_products/browser_interface/ndfdXMLclient.php?lat=' + thing.lat.to_s + '&lon=' + thing.lng.to_s + '&product=time-series&begin=' + DateTime.now.utc.new_offset(0).to_s + '&end=' + DateTime.now.utc.new_offset(0).to_s + '&snow=snow'))))
       snow_amounts.each do |amount|
-        if amount.to_i == 0.00
+        if amount.to_i > 0.00
           @user = User.find(thing.user_id)
           extra = (101-(amount.length+thing.full_address.length))
           thing_name_length = thing.name.length
