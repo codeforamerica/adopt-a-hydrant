@@ -1,6 +1,8 @@
+-# http://railscasts.com/episodes/59-optimistic-locking
 = form_for :thing, :url => things_path, :method => :put, :html => {:id => "abandon_form"} do |f|
   = f.hidden_field "id"
   = f.hidden_field "user_id", :value => ""
   = f.hidden_field "name", :value => ""
+  = f.hidden_field "lock_version"
   %fieldset.control-group
     = f.submit t("buttons.abandon", :thing => t("defaults.thing")), :class => "btn btn-danger"

@@ -1,8 +1,11 @@
+# http://oldwiki.rubyonrails.org/rails/pages/HowtoWorkWithSessions
 class InfoWindowController < ApplicationController
   def index
-    @thing = Thing.find_by_id(params[:thing_id])
-    if @thing.adopted?
-      if user_signed_in? && current_user.id == @thing.user_id
+    # @thing = Thing.find_by_id(params[:thing_id])
+    session[:thing] = Thing.find_by_id(params[:thing_id])
+    
+    if session[:thing].adopted?
+      if user_signed_in? && current_user.id == session[:thing].user_id
         render("users/thank_you")
       else
         render("users/profile")

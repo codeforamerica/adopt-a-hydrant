@@ -1,3 +1,4 @@
+# http://www.engineyard.com/blog/2011/a-guide-to-optimistic-locking/
 class ThingsController < ApplicationController
   respond_to :json
 
@@ -11,11 +12,14 @@ class ThingsController < ApplicationController
   end
 
   def update
-    @thing = Thing.find(params[:id])
-    if @thing.update_attributes(params[:thing])
-      respond_with @thing
+    # @thing = session[:thing]
+    if session[:thing].update_attributes(params[:thing])
+      respond_with session[:thing]
     else
-      render(:json => {"errors" => @thing.errors}, :status => 500)
+      render(:json => {"errors" => session[:thing].errors}, :status => 500)
     end
+    rescue ActiveRecord::StaleObjectError
+      # session[:things] .reload.attributes
+      redirect_to(:controller => "info_window", :action => "index")
   end
 end
