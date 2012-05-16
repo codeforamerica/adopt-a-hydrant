@@ -10,6 +10,7 @@ class Thing < ActiveRecord::Base
     query = <<-SQL
       SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(RADIANS(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance
       FROM things
+      where id = 1
       ORDER BY distance
       LIMIT ?
       SQL
