@@ -12,7 +12,7 @@ $(function() {
     rotateControl: false,
     scaleControl: false,
     scrollwheel: false,
-    streetViewControl: false,
+    streetViewControl: true,
     zoom: 15,
     zoomControl: true
   };
@@ -41,48 +41,48 @@ $(function() {
   var isWindowOpen = false;
   var thingIds = [];
   function addMarker(thingId, point, color) {
-    if(color === 'green') {
-      var image = greenMarkerImage;
-    } else if(color === 'red') {
-      var image = redMarkerImage;
-    }
-    var marker = new google.maps.Marker({
-      animation: google.maps.Animation.DROP,
-      icon: image,
-      map: map,
-      position: point,
-      shadow: markerShadowImage
-    });
-    google.maps.event.addListener(marker, 'click', function() {
-      if(activeInfoWindow) {
-        activeInfoWindow.close();
-      }
-      var infoWindow = new google.maps.InfoWindow({
-        maxWidth: 210
-      });
-      google.maps.event.addListener(infoWindow, 'closeclick', function() {
-        isWindowOpen = false;
-      });
-      activeInfoWindow = infoWindow;
-      activeThingId = thingId;
-      activeMarker = marker;
-      $.ajax({
-        type: 'GET',
-        url: '/info_window',
-        data: {
-          'thing_id': thingId
-        },
-        success: function(data) {
-          // Prevent race condition, which could lead to multiple windows being open at the same time.
-          if(infoWindow === activeInfoWindow) {
-            infoWindow.setContent(data);
-            infoWindow.open(map, marker);
-            isWindowOpen = true;
-          }
-        }
-      });
-    });
-    thingIds.push(thingId);
+    	if(color === 'green') {
+	      var image = greenMarkerImage;
+	    } else if(color === 'red') {
+	      var image = redMarkerImage;
+	    }
+	    var marker = new google.maps.Marker({
+	      animation: google.maps.Animation.DROP,
+	      icon: image,
+	      map: map,
+	      position: point,
+	      shadow: markerShadowImage
+	    });
+	    google.maps.event.addListener(marker, 'click', function() {
+	      if(activeInfoWindow) {
+	        activeInfoWindow.close();
+	      }
+	      var infoWindow = new google.maps.InfoWindow({
+	        maxWidth: 210
+	      });
+	      google.maps.event.addListener(infoWindow, 'closeclick', function() {
+	        isWindowOpen = false;
+	      });
+	      activeInfoWindow = infoWindow;
+	      activeThingId = thingId;
+	      activeMarker = marker;
+	      $.ajax({
+	        type: 'GET',
+	        url: '/info_window',
+	        data: {
+	          'thing_id': thingId
+	        },
+	        success: function(data) {
+	          // Prevent race condition, which could lead to multiple windows being open at the same time.
+	          if(infoWindow === activeInfoWindow) {
+	            infoWindow.setContent(data);
+	            infoWindow.open(map, marker);
+	            isWindowOpen = true;
+	          }
+	        }
+	      });
+	    });
+	    thingIds.push(thingId);
   }
   function addMarkersAround(lat, lng) {
     var submitButton = $("#address_form input[type='submit']");
