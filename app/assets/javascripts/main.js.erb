@@ -1,5 +1,6 @@
 // http://stackoverflow.com/questions/3010840/loop-through-array-in-javascript
 // http://stackoverflow.com/questions/351495/dynamically-creating-keys-in-javascript-associative-array
+// http://www.w3schools.com/jsref/jsref_undefined.asp
 var users = [];
 $(function() {
   var center = new google.maps.LatLng(43.048122, -76.147424);
@@ -79,7 +80,21 @@ $(function() {
 	          // Prevent race condition, which could lead to multiple windows being open at the same time.
 	          if(infoWindow === activeInfoWindow) {
 	            infoWindow.setContent(data);
+				// alert(activeMarker.getMap().getStreetView().position());
+				// if(marker.getMap().getStreetView().getPosition() != undefined){
+				// 					alert("Hello");
+				// 					size = new google.maps.Size(0, 100, 'px', 'px');
+				// 					infoWindow.pixelOffset(size);
+				// 				}
+				// alert(activeMarker.getPosition());
+				// 				alert(marker.getPosition());
+				// 				infoWindow.setPosition(activeMarker.getPosition());
 	            infoWindow.open(map, marker);
+			
+				// if(marker.getStreetView().position() != )
+				// alert("Hello");
+				
+				// infoWindow.setPosition(marker.getPosition());
 	            isWindowOpen = true;
 	          }
 	        }
@@ -136,7 +151,14 @@ $(function() {
     var center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
   });
-  $('#address_form').live('submit', function() {
+  function stateChange(color){
+	activeMarker.setMap();
+	var point = new google.maps.LatLng(activeMarker.getPosition().lat(), activeMarker.getPosition().lng());
+	activeMarker = addMarker(activeThingId, point, color);
+	activeInfoWindow.close();
+	activeInfoWindow.open(map, activeMarker);
+  }
+$('#address_form').live('submit', function() {
     var submitButton = $("#address_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     if($('#address').val() === '') {
@@ -407,14 +429,8 @@ $(function() {
             }
           },
           success: function(data) {
-			activeMarker.setMap();
-			var point = new google.maps.LatLng(activeMarker.getPosition().lat(), activeMarker.getPosition().lng());
-			activeMarker = addMarker(activeThingId, point, 'green');
-            activeInfoWindow.close();
-            activeInfoWindow.setContent(data);
-            activeInfoWindow.open(map, activeMarker);
-            activeMarker.setIcon(greenMarkerImage);
-            // activeMarker.setAnimation(google.maps.Animation.BOUNCE);
+			stateChange('green');
+			activeInfoWindow.setContent(data);
           }
         });
       }
@@ -453,14 +469,8 @@ $(function() {
               }
             },
             success: function(data) {
-			  activeMarker.setMap();
-			  var point = new google.maps.LatLng(activeMarker.getPosition().lat(), activeMarker.getPosition().lng());
-			  activeMarker = addMarker(activeThingId, point, 'red');
-              activeInfoWindow.close();
-              activeInfoWindow.setContent(data);
-              activeInfoWindow.open(map, activeMarker);
-              activeMarker.setIcon(redMarkerImage);
-              // activeMarker.setAnimation(null);
+				stateChange('red');
+				activeInfoWindow.setContent(data);
             }
           });
         }
