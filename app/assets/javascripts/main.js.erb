@@ -1,3 +1,6 @@
+// http://stackoverflow.com/questions/3010840/loop-through-array-in-javascript
+// http://stackoverflow.com/questions/351495/dynamically-creating-keys-in-javascript-associative-array
+var users = [];
 $(function() {
   var center = new google.maps.LatLng(43.048122, -76.147424);
   var mapOptions = {
@@ -82,7 +85,7 @@ $(function() {
 	        }
 	      });
 	    });
-	    thingIds.push(thingId);
+		thingIds.push(thingId);
   }
   function addMarkersAround(lat, lng) {
     var submitButton = $("#address_form input[type='submit']");
@@ -121,6 +124,7 @@ $(function() {
               } else {
                 var color = 'red';
               }
+			  users[thing.id] = point;
               addMarker(thing.id, point, color);
             }, i * 100);
           });
@@ -403,11 +407,13 @@ $(function() {
             }
           },
           success: function(data) {
+			activeMarker.setMap();
+			addMarker(activeThingId, users[activeThingId], 'green');
             activeInfoWindow.close();
             activeInfoWindow.setContent(data);
             activeInfoWindow.open(map, activeMarker);
             activeMarker.setIcon(greenMarkerImage);
-            activeMarker.setAnimation(google.maps.Animation.BOUNCE);
+            // activeMarker.setAnimation(google.maps.Animation.BOUNCE);
           }
         });
       }
@@ -446,11 +452,13 @@ $(function() {
               }
             },
             success: function(data) {
+			  activeMarker.setMap();
+			  addMarker(activeThingId, users[activeThingId], 'red');
               activeInfoWindow.close();
               activeInfoWindow.setContent(data);
               activeInfoWindow.open(map, activeMarker);
               activeMarker.setIcon(redMarkerImage);
-              activeMarker.setAnimation(null);
+              // activeMarker.setAnimation(null);
             }
           });
         }
