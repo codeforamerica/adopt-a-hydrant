@@ -86,6 +86,7 @@ $(function() {
 	      });
 	    });
 		thingIds.push(thingId);
+		return marker;
   }
   function addMarkersAround(lat, lng) {
     var submitButton = $("#address_form input[type='submit']");
@@ -124,7 +125,6 @@ $(function() {
               } else {
                 var color = 'red';
               }
-			  users[thing.id] = point;
               addMarker(thing.id, point, color);
             }, i * 100);
           });
@@ -408,7 +408,8 @@ $(function() {
           },
           success: function(data) {
 			activeMarker.setMap();
-			addMarker(activeThingId, users[activeThingId], 'green');
+			var point = new google.maps.LatLng(activeMarker.getPosition().lat(), activeMarker.getPosition().lng());
+			activeMarker = addMarker(activeThingId, point, 'green');
             activeInfoWindow.close();
             activeInfoWindow.setContent(data);
             activeInfoWindow.open(map, activeMarker);
@@ -453,7 +454,8 @@ $(function() {
             },
             success: function(data) {
 			  activeMarker.setMap();
-			  addMarker(activeThingId, users[activeThingId], 'red');
+			  var point = new google.maps.LatLng(activeMarker.getPosition().lat(), activeMarker.getPosition().lng());
+			  activeMarker = addMarker(activeThingId, point, 'red');
               activeInfoWindow.close();
               activeInfoWindow.setContent(data);
               activeInfoWindow.open(map, activeMarker);
