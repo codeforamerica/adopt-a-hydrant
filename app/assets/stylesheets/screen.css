@@ -179,7 +179,7 @@ a.btn {
 #map {
   height: 100%;
   width: 100%;
-  padding: 1px;
+  /*padding: 1px;*/
 }
 
 #tos {
