@@ -120,13 +120,11 @@ $(function() {
               return true;
             }
             setTimeout(function() {
-              var point = new google.maps.LatLng(thing.lat, thing.lng);
               if(thing.user_id) {
-                var color = 'green';
+                addMarker(thing.id, new google.maps.LatLng(thing.lat, thing.lng), 'green');
               } else {
-                var color = 'red';
+                addMarker(thing.id, new google.maps.LatLng(thing.lat, thing.lng), 'red');
               }
-              addMarker(thing.id, point, color);
             }, i * 100);
           });
         }
@@ -138,9 +136,10 @@ $(function() {
     addMarkersAround(center.lat(), center.lng());
   });
   function stateChange(color){
-	activeMarker.setMap();
-	var point = new google.maps.LatLng(activeMarker.getPosition().lat(), activeMarker.getPosition().lng());
-	activeMarker = addMarker(activeThingId, point, color);
+	if(color != undefined){
+		activeMarker.setMap();
+		activeMarker = addMarker(activeThingId, new google.maps.LatLng(activeMarker.getPosition().lat(), activeMarker.getPosition().lng()), color);
+	}
 	activeInfoWindow.close();
 	activeInfoWindow.open(map, activeMarker);
   }
@@ -174,8 +173,7 @@ $('#address_form').live('submit', function() {
           } else {
             $('#address').parent().removeClass('error');
             addMarkersAround(data[0], data[1]);
-            var center = new google.maps.LatLng(data[0], data[1]);
-            map.setCenter(center);
+            map.setCenter(new google.maps.LatLng(data[0], data[1]));
             map.setZoom(19);
           }
         }
@@ -638,9 +636,8 @@ $('#address_form').live('submit', function() {
         $(submitButton).attr("disabled", false);
       },
       success: function(data) {
-        activeInfoWindow.close();
+		stateChange();
         activeInfoWindow.setContent(data);
-        activeInfoWindow.open(map, activeMarker);
       }
     });
     return false;
@@ -689,9 +686,8 @@ $('#address_form').live('submit', function() {
             }
           },
           success: function(data) {
-            activeInfoWindow.close();
+			stateChange();
             activeInfoWindow.setContent(data);
-            activeInfoWindow.open(map, activeMarker);
           }
         });
       }
