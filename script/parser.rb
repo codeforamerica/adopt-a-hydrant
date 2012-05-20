@@ -17,21 +17,25 @@ module Parser
   def transform(nodes)
     prev_name = ''
     seeds = ''
+    # i = 0
 
     while nodes.read
       unless nodes.node_type == XML::Reader::TYPE_END_ELEMENT
         seeds << 'Thing.create(:lng => ' + nodes.value.to_s.split(',').first + ', ' + ':lat => ' + nodes.value.to_s.split(',')[1] + ")\n" if (prev_name == 'coordinates') 
+        # seeds << 'thing_' + (i+=1).to_s + ":\n  lat: " + nodes.value.to_s.split(',')[1] + "\n  lng: " + nodes.value.to_s.split(',').first + "\n\n" if (prev_name == 'coordinates') 
         prev_name = nodes.name
       end
     end
     
     nodes.close
+    # puts seeds.chop
     return seeds
   end
   
   def load(seeds)
     File.open('../db/seeds.rb', 'w') {|f| f.write(seeds.chop)}
-    # system('rake db:seed')
+    # File.open('../test/fixtures/things.yml', 'w') {|f| f.write(seeds.chop.chop)}
+    system('rake db:seed')
   end
   
   def transformLoad(nodes)
