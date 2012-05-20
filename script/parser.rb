@@ -34,10 +34,7 @@ module Parser
   
   def load(seeds)
     File.open('../db/seeds.rb', 'w') {|f| f.write(seeds.chop)}
-<<<<<<< HEAD
     # File.open('../test/fixtures/things.yml', 'w') {|f| f.write(seeds.chop.chop)}
-=======
->>>>>>> 33d62b7ee76a7f583e8ca4704a339626291fc8ef
     system('rake db:seed')
   end
   
