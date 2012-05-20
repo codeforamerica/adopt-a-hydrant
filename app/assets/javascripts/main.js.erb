@@ -417,7 +417,6 @@ $('#address_form').live('submit', function() {
           success: function(data) {
 			stateChange('green');
 			activeInfoWindow.setContent(data);
-			alert(activeInfoWindow.getPosition());
           }
         });
       }
@@ -458,7 +457,6 @@ $('#address_form').live('submit', function() {
             success: function(data) {
 				stateChange('red');
 				activeInfoWindow.setContent(data);
-				alert(activeInfoWindow.getPosition());
             }
           });
         }
