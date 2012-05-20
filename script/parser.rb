@@ -31,7 +31,7 @@ module Parser
   
   def load(seeds)
     File.open('../db/seeds.rb', 'w') {|f| f.write(seeds.chop)}
-    # system('rake db:seed')
+    system('rake db:seed')
   end
   
   def transformLoad(nodes)
