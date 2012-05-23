@@ -1,3 +1,4 @@
+# https://github.com/plataformatec/devise/wiki/How-To:-Change-the-default-sign_in-and-sign_out-routes
 AdoptAThing::Application.routes.draw do
   devise_for :users, :controllers => {
     :passwords => 'passwords',
@@ -14,9 +15,10 @@ AdoptAThing::Application.routes.draw do
     get :combo_form, :as => 'combo_form'
     get :edit_profile , :as => 'edit_profile'
   end
-
-  resource :reminders
-  resource :things
+    
+  resource :reminders, :things
+  
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  match '/:locale' => 'main#index'
   root :to => 'main#index'
 end
