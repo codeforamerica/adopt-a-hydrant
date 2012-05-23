@@ -1,4 +1,5 @@
 # Please maintain alphabetical order
+# http://translate.google.com/
 
 de:
   buttons:
@@ -22,19 +23,19 @@ de:
     required: "(erforderlich)"
   defaults:
     address: "Adresse"
-    address_1: "1 City Hall Plaza"
-    address_2: "Suite 500"
-    city: "Boston"
-    city_state: "Boston, Massachusetts"
+    address_1: "233 E. Washington St."
+    address_2: ""
+    city: "Syracuse"
+    city_state: "Syracuse, New York"
     neighborhood: "Downtown"
-    sms_number: "857-555-1212"
-    state: "MA"
+    sms_number: "315-555-5555"
+    state: "NY"
     thing: "Hydranten"
     this_thing: "Dieser %{thing}"
     tagline: "Claim Verantwortung für schaufeln ein Feuer Hydrant, nachdem es schneit."
     tos: "Mit der Anmeldung erklären Sie sich mit den %{tos}."
-    voice_number: "617-555-1212"
-    zip: "02201-2013"
+    voice_number: "315-555-5555"
+    zip: "13202"
   errors:
     password: "Sie müssen sich einloggen oder registrieren, bevor Sie fortfahren."
     not_found: "Konnte nicht gefunden werden %{thing}."
@@ -76,6 +77,7 @@ de:
     adopt: "Adopt diesem %{thing}"
     adopted: "{thing_name} wurde verabschiedet"
     byline: "von %{name}"
+    conflict: "Vielen Dank für die Annahme dieser %{thing} fruher!"
     edit_profile: "Ihr Profil bearbeiten"
     main: "Adopt-a-%{thing}"
     ofline: "der %{organization}"
