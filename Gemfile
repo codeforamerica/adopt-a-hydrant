@@ -1,3 +1,4 @@
+# http://about.travis-ci.org/docs/user/languages/ruby/
 source 'https://rubygems.org'
 
 gem "rails", '~> 3.2'
@@ -31,4 +32,7 @@ group :test do
   gem 'simplecov'
   gem 'sqlite3'
   gem 'webmock'
+  gem 'rake'
+  # gem 'cucumber-rails', :require => false
+  # gem 'database_cleaner'
 end
