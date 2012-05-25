@@ -92,4 +92,4 @@ fr:
     ofline: "de %{organization}"
     sign_in: "Connectez-vous à adopter cette %{thing}"
     thank_you: "Merci pour l'adoption de cette %{thing}!"
-    tos: "Conditions d'utilisation"
+    tos: "Conditions D'utilisation"
