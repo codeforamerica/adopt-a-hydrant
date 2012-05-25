@@ -10,11 +10,11 @@ protected
   def set_flash_from_params
     if params[:flash]
       params[:flash].each do |key, message|
-        # if message.include? 'notices'
-        flash.now[key.to_sym] = I18n.t(message)
-        # else
-        #   flash.now[key.to_sym] = message
-        # end
+        if message.include? 'notices'
+          flash.now[key.to_sym] = I18n.t(message)
+        else
+          flash.now[key.to_sym] = message
+        end
       end
     end
   end
