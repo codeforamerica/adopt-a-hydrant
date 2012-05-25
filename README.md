@@ -1,11 +1,11 @@
 # Adopt-a-Hydrant Syracuse [![Build Status](https://secure.travis-ci.org/ahcarpenter/adopt-a-hydrant.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/ahcarpenter/adopt-a-hydrant.png?travis)][gemnasium]
 Claim responsibility for shoveling out a fire hydrant after it snows. Available in: 
 
-Deutsch: [link]http://adopt-a-hydrant-syracuse.herokuapp.com/de<br>
-English: [link]http://adopt-a-hydrant-syracuse.herokuapp.com/en<br>
-Español*: [link]http://adopt-a-hydrant-syracuse.herokuapp.com/es<br>
-Français*: [link]http://adopt-a-hydrant-syracuse.herokuapp.com/fr<br>
-Português*: [link]http://adopt-a-hydrant-syracuse.herokuapp.com/pt
+Deutsch: http://adopt-a-hydrant-syracuse.herokuapp.com/de<br>
+English: http://adopt-a-hydrant-syracuse.herokuapp.com/en<br>
+Español*: http://adopt-a-hydrant-syracuse.herokuapp.com/es<br>
+Français*: http://adopt-a-hydrant-syracuse.herokuapp.com/fr<br>
+Português*: http://adopt-a-hydrant-syracuse.herokuapp.com/pt
 
 *source: [link](http://translate.google.com)
 
