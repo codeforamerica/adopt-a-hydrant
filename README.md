@@ -1,7 +1,8 @@
 # Adopt-a-Hydrant Syracuse [![Build Status](https://secure.travis-ci.org/ahcarpenter/adopt-a-hydrant.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/ahcarpenter/adopt-a-hydrant.png?travis)][gemnasium]
-Claim responsibility for shoveling out a fire hydrant after it snows. Available in [Deutsch](http://adopt-a-hydrant-syracuse.herokuapp.com/de), [English](http://adopt-a-hydrant-syracuse.herokuapp.com/en), [Español](http://adopt-a-hydrant-syracuse.herokuapp.com/es) (1), [Français](http://adopt-a-hydrant-syracuse.herokuapp.com/fr) (1) & [Português](http://adopt-a-hydrant-syracuse.herokuapp.com/pt) (1).
+Claim responsibility for shoveling out a fire hydrant after it snows. Available in [Deutsch](http://adopt-a-hydrant-syracuse.herokuapp.com/de), [English](http://adopt-a-hydrant-syracuse.herokuapp.com/en), [Español](http://adopt-a-hydrant-syracuse.herokuapp.com/es) (1), [Français](http://adopt-a-hydrant-syracuse.herokuapp.com/fr) (1), [Português](http://adopt-a-hydrant-syracuse.herokuapp.com/pt) (1) &[繁體字](http://adopt-a-hydrant-syracuse.herokuapp.com/cn) (2).
 
 (1) http://translate.google.com
+(2) http://en.wikipedia.org/wiki/Traditional_Chinese
 
 [travis]: http://travis-ci.org/ahcarpenter/adopt-a-hydrant
 [gemnasium]: https://gemnasium.com/ahcarpenter/adopt-a-hydrant
