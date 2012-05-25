@@ -1,16 +1,17 @@
 # Please maintain alphabetical order
 # http://translate.google.com/
+# http://dict.tu-chemnitz.de/
 
 de:
   buttons:
-    abandon: "Abandon diesem %{thing}"
-    adopt: "Adopt!"
+    abandon: "Verlassen diesem %{thing}"
+    adopt: "Übernehmen!"
     back: "Zurück"
     change_password: "Mein Passwort ändern"
     close: "Schließen"
     edit_profile: "Profil bearbeiten"
     email_password: "Bitte schicken Sie mir mein Passwort"
-    find: "Finden Sie %{thing}"
+    find: "Finden Sie Hydranten"
     send_reminder: "Send Erinnerung zu schaufeln"
     sign_in: "Anmelden"
     sign_out: "Austragen"
@@ -30,7 +31,7 @@ de:
     neighborhood: "Downtown"
     sms_number: "315-555-5555"
     state: "NY"
-    thing: "Hydranten"
+    thing: "Hydrant"
     this_thing: "Dieser %{thing}"
     tagline: "Claim Verantwortung für schaufeln ein Feuer Hydrant, nachdem es schneit."
     tos: "Mit der Anmeldung erklären Sie sich mit den %{tos}."
@@ -47,7 +48,7 @@ de:
     city_state: "Stadt"
     email: "E-Mail-Adresse"
     name: "Name"
-    name_thing: "Geben Sie diese %{thing} einen Namen"
+    name_thing: "Geben Sie diesem %{thing} einen Namen"
     organization: "Organisation"
     password: "Kennwort"
     password_choose: "Wählen Sie ein Passwort"
@@ -65,25 +66,16 @@ de:
     forgot_password: "Passwort vergessen?"
     remembered_password: "Das macht nichts. Ich erinnerte mich an mein Passwort vergessen."
   notices:
-    abandoned: "%{thing} verlassen!"
-    adopted: "Sie haben soeben verabschiedete einen %{thing}!"
+    abandoned: "Hydrant verlassen!"
+    adopted: "Hydrant übernommen!"
     password_reset: "Password Reset Anleitung geschickt! Überprüfen Sie Ihre E-Mail."
     reminder_sent: "Reminder versendet!"
     signed_in: "Unterzeichnet in!"
     signed_out: "Abgemeldet."
     signed_up: "Vielen Dank für Ihre Anmeldung!"
-    stolen: "%{thing} gestohlen!"
-  titles:
-    adopt: "Adopt diesem %{thing}"
-    adopted: "{thing_name} wurde verabschiedet"
-    byline: "von %{name}"
-    conflict: "Vielen Dank für die Annahme dieser %{thing} fruher!"
-    edit_profile: "Ihr Profil bearbeiten"
-    main: "Adopt-a-%{thing}"
-    ofline: "der %{organization}"
-    sign_in: "Melden Sie sich in diesem %{thing} übernehmen"
-    thank_you: "Vielen Dank für die Annahme dieser %{thing}!"
-    tos: "Nutzungsbedingungen"
+    stolen: "Hydrant gestohlen!"
+  questions:
+    abandon: "Sind Sie sicher, Sie wollen diesem Hydrant aufgeben?"
   sponsors:
     built: "Erbaut in Boston"
     cfa: "Code für Amerika"
@@ -91,3 +83,14 @@ de:
     mayor:
       name: "Thomas M. Menino"
       title: "Mayor"
+  titles:
+    adopt: "Übernehmen diesem %{thing}"
+    adopted: "{thing_name} wurde verabschiedet"
+    byline: "von %{name}"
+    conflict: "Vielen Dank für die Annahme dieser %{thing} fruher!"
+    edit_profile: "Ihr Profil bearbeiten"
+    main: "Adopt-a-%{thing}"
+    ofline: "der %{organization}"
+    sign_in: "Melden Sie sich in dieser %{thing} übernehmen"
+    thank_you: "Vielen Dank für die Annahme dieser %{thing}!"
+    tos: "Nutzungsbedingungen"

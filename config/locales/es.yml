@@ -2,7 +2,7 @@
 
 es:
   buttons:
-    abandon: "Abandona esta boca de ince… !"
+    abandon: "Abandona esta boca"
     adopt: "Adoptar!"
     back: "De nuevo"
     change_password: "Cambiar mi contraseña"
@@ -65,13 +65,22 @@ es:
     remembered_password: "No importa. Me acordé de mi contraseña."
   notices:
     abandoned: "toma de agua abandonada!"
-    adopted: "Usted se acaba de aprobar una %{thing}!"
+    adopted: "Hidrante adoptado!"
     password_reset: "Las instrucciones de restablecimiento de contraseña enviado! Revise su correo electrónico."
     reminder_sent: "Recordatorio enviado!"
     signed_in: "Sesión!"
     signed_out: "La sesión."
     signed_up: "¡Gracias por registrarte!"
-    stolen: "%{thing} robado!"
+    stolen: "Boca robado!"
+  questions:
+    abandon: "¿Está seguro que desea abandonar esta boca?"
+  sponsors:
+    built: "Construido en Boston"
+    cfa: "Código de los Estados Unidos"
+    city: "Ciudad de Boston"
+    mayor:
+      name: "Thomas M. Menino"
+      title: "Mayor"
   titles:
     adopt: "Adoptar esta %{thing}"
     adopted: "%{thing_name} ha sido adoptada."
@@ -83,10 +92,3 @@ es:
     sign_in: "Iniciar sesión para adoptar esta %{thing}"
     thank_you: "Gracias por la adopción de esta %{thing}!"
     tos: "Términos de Servicio"
-  sponsors:
-    built: "Construido en Boston"
-    cfa: "Código de los Estados Unidos"
-    city: "Ciudad de Boston"
-    mayor:
-      name: "Thomas M. Menino"
-      title: "Mayor"

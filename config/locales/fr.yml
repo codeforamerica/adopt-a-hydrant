@@ -3,7 +3,7 @@
 
 fr:
   buttons:
-    abandon: "Abandonner cette bouche d'i… !"
+    abandon: "Abandonner cette bouche"
     adopt: "Adopter!"
     back: "Retour"
     change_password: "Changer mon mot de passe"
@@ -65,14 +65,23 @@ fr:
     forgot_password: "Mot de passe oublié?"
     remembered_password: "Jamais l'esprit. J'ai rappelé mon mot de passe."
   notices:
-    abandoned: "%{thing} abandonné!"
-    adopted: "Vous avez juste a adopté une %{thing}!"
+    abandoned: "Bouche abandonné!"
+    adopted: "Bouche adopté!"
     password_reset: "Les instructions de réinitialisation de mot de passe envoyé! Vérifiez votre adresse email."
     reminder_sent: "Rappel envoyé!"
     signed_in: "Signé en!"
     signed_out: "Signé à."
     signed_up: "Merci pour votre inscription!"
-    stolen: "%{thing} volé!"
+    stolen: "Bouche volé!"
+  questions:
+    abandon: "Etes-vous sûr de vouloir abandonner cette bouche?"
+  sponsors:
+    built: "Construit à Boston"
+    cfa: "Code pour l'Amérique"
+    city: "Ville de Boston"
+    mayor:
+      name: "Thomas M. Menino"
+      title: "Mayor"
   titles:
     adopt: "Adoptez cette %{thing}"
     adopted: "%{thing_name} a été adoptée"
@@ -84,10 +93,3 @@ fr:
     sign_in: "Connectez-vous à adopter cette %{thing}"
     thank_you: "Merci pour l'adoption de cette %{thing}!"
     tos: "Conditions d'utilisation"
-  sponsors:
-    built: "Construit à Boston"
-    cfa: "Code pour l'Amérique"
-    city: "Ville de Boston"
-    mayor:
-      name: "Thomas M. Menino"
-      title: "Mayor"

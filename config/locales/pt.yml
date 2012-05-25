@@ -64,14 +64,23 @@ pt:
     forgot_password: "Esqueceu sua senha?"
     remembered_password: "Não se preocupe. Lembrei-me minha senha."
   notices:
-    abandoned: "%{thing} abandonada!"
-    adopted: "Você acaba de aprovar um %{thing}!"
+    abandoned: "Hidrante abandonada!"
+    adopted: "Hidrante adotada!"
     password_reset: "Instruções de redefinição de senha enviada! Verifique se o seu e-mail."
     reminder_sent: "Lembrete enviado!"
     signed_in: "Assinado em!"
     signed_out: "Assinado para fora."
     signed_up: "Obrigado por se inscrever!"
-    stolen: "%{thing} roubado!"
+    stolen: "Hidrante roubado!"
+  questions:
+    abandon: "Tem certeza que deseja abandonar este hidrante?"
+  sponsors:
+    built: "Construído em Boston"
+    cfa: "Código para a América"
+    city: "Cidade de Boston"
+    mayor:
+      name: "Thomas M. Menino"
+      title: "Mayor"
   titles:
     adopt: "Adotar esse %{thing}"
     adopted: "%{thing_name} foi adotada"
@@ -83,10 +92,3 @@ pt:
     sign_in: "Entrar para adotar essa %{thing}"
     thank_you: "Obrigado por adotar este %{thing}!"
     tos: "Termos de Serviço"
-  sponsors:
-    built: "Construído em Boston"
-    cfa: "Código para a América"
-    city: "Cidade de Boston"
-    mayor:
-      name: "Thomas M. Menino"
-      title: "Mayor"

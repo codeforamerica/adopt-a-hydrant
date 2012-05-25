@@ -1,7 +1,6 @@
 # Please maintain alphabetical order
 
 en:
-  
   buttons:
     abandon: "Abandon this %{thing}"
     adopt: "Adopt!"
@@ -65,14 +64,23 @@ en:
     forgot_password: "Forgot your password?"
     remembered_password: "Never mind. I remembered my password."
   notices:
-    abandoned: "%{thing} abandoned!"
-    adopted: "You just adopted a %{thing}!"
+    abandoned: "Hydrant abandoned!"
+    adopted: "Hydrant adopted!"
     password_reset: "Password reset instructions sent! Check your email."
     reminder_sent: "Reminder sent!"
     signed_in: "Signed in!"
     signed_out: "Signed out."
     signed_up: "Thanks for signing up!"
-    stolen: "%{thing} stolen!"
+    stolen: "Hydrant stolen!"
+  questions:
+    abandon: "Are you sure you want to abandon this hydrant?"
+  sponsors:
+    built: "Built in Boston & Lexington"
+    cfa: "Code for America"
+    city: "City of Boston"
+    mayor:
+      name: "Thomas M. Menino"
+      title: "Mayor"
   titles:
     adopt: "Adopt this %{thing}"
     adopted: "%{thing_name} has been adopted"
@@ -84,10 +92,3 @@ en:
     sign_in: "Sign in to adopt this %{thing}"
     thank_you: "Thank you for adopting this %{thing}!"
     tos: "Terms of Service"
-  sponsors:
-    built: "Built in Boston & Lexington"
-    cfa: "Code for America"
-    city: "City of Boston"
-    mayor:
-      name: "Thomas M. Menino"
-      title: "Mayor"
