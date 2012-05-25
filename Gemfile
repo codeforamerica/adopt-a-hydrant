@@ -14,6 +14,8 @@ gem 'validates_formatting_of'
 gem 'immigrant'
 gem 'twilio-ruby'
 gem 'libxml-ruby'
+# gem 'bootstrap-sass', '2.0.3'
+# gem 'execjs', '1.3.2'
 
 platforms :ruby_18 do
   gem 'fastercsv'
@@ -35,4 +37,8 @@ group :test do
   gem 'rake'
   # gem 'cucumber-rails', :require => false
   # gem 'database_cleaner'
+  # gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  # gem 'guard-livereload'
+  # gem 'guard-webrick'
+  # gem 'guard-puma'
 end

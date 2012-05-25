@@ -182,6 +182,7 @@ DEPENDENCIES
   puma
   rails (~> 3.2)
   rails_admin
+  rake
   sass-rails
   simplecov
   sqlite3
