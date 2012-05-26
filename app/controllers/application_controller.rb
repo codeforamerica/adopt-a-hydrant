@@ -20,11 +20,10 @@ protected
   end
 
   def set_locale
-    @@locale = I18n.default_locale
     available_languages = Dir.glob(Rails.root + "config/locales/??.yml").map do |file|
       File.basename(file, ".yml")
     end
-    @@locale = params[:locale]  if ((params[:locale] == 'cn') || (params[:locale] == 'de') || (params[:locale] == 'en') || (params[:locale] == 'es') || (params[:locale] == 'fr') || (params[:locale] == 'ht') || (params[:locale] == 'it') || (params[:locale] == 'pt') || (params[:locale] == 'ru') || (params[:locale] == 'yi'))
-    I18n.locale = @@locale || I18n.default_locale
+    cookies[:locale] = params[:locale]  if ((params[:locale] == 'cn') || (params[:locale] == 'de') || (params[:locale] == 'en') || (params[:locale] == 'es') || (params[:locale] == 'fr') || (params[:locale] == 'ht') || (params[:locale] == 'it') || (params[:locale] == 'pt') || (params[:locale] == 'ru') || (params[:locale] == 'yi'))
+    I18n.locale = cookies[:locale] || I18n.default_locale
   end
 end
