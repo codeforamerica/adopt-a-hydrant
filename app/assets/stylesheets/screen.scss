@@ -150,25 +150,13 @@ a.btn {
 	#col2 {
 	  float: left;
 	  margin-left: 12px;
-	  margin-top: 12px;
+	  margin-top: -2px;
 	  width: 100px;
 	}
   }
 
-  #mayor {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 8px;
-    padding: 0;
-    margin: -5px 0 0 0;
-
-    a, a:active, a:hover, a:visited {
-      color: #000;
-	  text-decoration: none;
-    }
-  }
-
   #feedback {
-    margin-top: 5px;
+    margin-top: -50px;
   }
 }
 
