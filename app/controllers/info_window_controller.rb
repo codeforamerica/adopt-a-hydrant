@@ -2,12 +2,12 @@
 class InfoWindowController < ApplicationController
   def index
     # @thing = Thing.find_by_id(params[:thing_id])
-    @@thing = Thing.find_by_id(params[:thing_id])
-    @@thing = Thing.find_by_id(@@id) if @@thing.nil?
+    session[:thing] = Thing.find_by_id(params[:thing_id])
+    session[:thing] = Thing.find_by_id(session[:id]) if session[:thing].nil?
     
-    if @@thing.adopted?
-      if user_signed_in? && current_user.id == @@thing.user_id
-        if @@conflict == true
+    if session[:thing].adopted?
+      if user_signed_in? && current_user.id == session[:thing].user_id
+        if session[:conflict] == true
           render('users/conflict')
         else
           render("users/thank_you")
