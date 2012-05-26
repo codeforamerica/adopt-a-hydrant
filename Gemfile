@@ -14,8 +14,6 @@ gem 'validates_formatting_of'
 gem 'immigrant'
 gem 'twilio-ruby'
 gem 'libxml-ruby'
-# gem 'bootstrap-sass', '2.0.3'
-# gem 'execjs', '1.3.2'
 
 platforms :ruby_18 do
   gem 'fastercsv'
