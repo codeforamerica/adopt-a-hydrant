@@ -2,7 +2,7 @@
   .table-row
     .table-cell.sidebar
       %h1
-        = image_tag "logos/adopt-a-hydrant-syracuse-snow-capped.png", :alt => t("titles.main", :thing => t("defaults.thing").titleize), :title => t("titles.main", :thing => t("defaults.thing").titleize)
+        = image_tag "logos/adopt-a-hydrant.png", :alt => t("titles.main", :thing => t("defaults.thing").titleize), :title => t("titles.main", :thing => t("defaults.thing").titleize)
       %p.alert-message.block-message#tagline
         = t("defaults.tagline")
       #content
@@ -17,7 +17,7 @@
             = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
           %br
           %a{:href => "http://bostonbuilt.org/"}
-            = image_tag "logos/boston&lexingtonbuilt.png", :alt => t("sponsors.built"), :title => t("sponsors.built")
+            = image_tag "logos/bostonbuilt.png", :alt => t("sponsors.built"), :title => t("sponsors.built")
         #col2
           %a{:href => "http://www.cityofboston.gov/"}
             = image_tag "logos/boston.png", :alt => t("sponsors.city"), :title => t("sponsors.city")
@@ -28,7 +28,7 @@
                 = t("sponsors.mayor.title")
       #feedback
         %p
-          %a{:href => URI.escape("mailto:adoptahydrantsyracuse@gmail.com?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} #{t("links.feedback").titleize}")}
+          %a{:href => URI.escape("mailto:adoptahydrant@cityofboston.gov?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} #{t("links.feedback").titleize}")}
             = t("links.feedback")
     .table-cell.map-container
       #map
