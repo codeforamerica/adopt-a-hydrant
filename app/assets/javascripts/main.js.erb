@@ -24,7 +24,7 @@ $(function() {
   var size = new google.maps.Size(27.0, 37.0);
   var origin = new google.maps.Point(0, 0);
   var anchor = new google.maps.Point(13.0, 18.0);
-  var greenMarkerImage = new google.maps.MarkerImage('<%= image_path 'markers/green.png' %>',
+  var blueMarkerImage = new google.maps.MarkerImage('<%= image_path 'markers/blue.png' %>',
     size,
     origin,
     anchor
@@ -45,8 +45,8 @@ $(function() {
   var isWindowOpen = false;
   var thingIds = [];
   function addMarker(thingId, point, color) {
-    	if(color === 'green') {
-	      var image = greenMarkerImage;
+    	if(color === 'blue') {
+	      var image = blueMarkerImage;
 	    } else if(color === 'red') {
 	      var image = redMarkerImage;
 	    }
@@ -121,7 +121,7 @@ $(function() {
             }
             setTimeout(function() {
               if(thing.user_id) {
-                addMarker(thing.id, new google.maps.LatLng(thing.lat, thing.lng), 'green');
+                addMarker(thing.id, new google.maps.LatLng(thing.lat, thing.lng), 'blue');
               } else {
                 addMarker(thing.id, new google.maps.LatLng(thing.lat, thing.lng), 'red');
               }
@@ -413,7 +413,7 @@ $('#address_form').live('submit', function() {
             }
           },
           success: function(data) {
-			stateChange('green');
+			stateChange('blue');
 			activeInfoWindow.setContent(data);
           }
         });
