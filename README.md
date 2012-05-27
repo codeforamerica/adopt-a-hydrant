@@ -1,9 +1,9 @@
+<!-- http://answers.yahoo.com/question/index?qid=20101015130208AAIWWGO -->
 # Adopt-a-Hydrant Syracuse [![Build Status](https://secure.travis-ci.org/ahcarpenter/adopt-a-hydrant.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/ahcarpenter/adopt-a-hydrant.png?travis)][gemnasium]
-Claim responsibility for shoveling out a fire hydrant after it snows. Available in [Deutsch](http://adopt-a-hydrant-syracuse.herokuapp.com/de), [English](http://adopt-a-hydrant-syracuse.herokuapp.com/en), [Español](http://adopt-a-hydrant-syracuse.herokuapp.com/es) (1), [Français](http://adopt-a-hydrant-syracuse.herokuapp.com/fr) (1), [Kreyòl Ayisyen](http://adopt-a-hydrant-syracuse.herokuapp.com/ht) (1), [Italiano](http://adopt-a-hydrant-syracuse.herokuapp.com/it) (1), [Português](http://adopt-a-hydrant-syracuse.herokuapp.com/pt) (1), [繁體字](http://adopt-a-hydrant-syracuse.herokuapp.com/cn) (2), [русский](http://adopt-a-hydrant-syracuse.herokuapp.com/ru) (1), & (1) 
-[ייִדיש] (http://adopt-a-hydrant-syracuse.herokuapp.com/yi).
+Claim responsibility for shoveling out a fire hydrant after it snows. Available in [Deutsch](http://adopt-a-hydrant-syracuse.herokuapp.com/de), [English](http://adopt-a-hydrant-syracuse.herokuapp.com/en), [Español](http://adopt-a-hydrant-syracuse.herokuapp.com/es)¹, [Français](http://adopt-a-hydrant-syracuse.herokuapp.com/fr)¹, [Kreyòl Ayisyen](http://adopt-a-hydrant-syracuse.herokuapp.com/ht)¹, [Italiano](http://adopt-a-hydrant-syracuse.herokuapp.com/it)¹, [Português](http://adopt-a-hydrant-syracuse.herokuapp.com/pt)¹, [繁體字](http://adopt-a-hydrant-syracuse.herokuapp.com/cn)², [русский](http://adopt-a-hydrant-syracuse.herokuapp.com/ru)¹, & [ייִדיש] (http://adopt-a-hydrant-syracuse.herokuapp.com/yi)¹.
 
-(1) http://translate.google.com<br>
-(2) http://en.wikipedia.org/wiki/Traditional_Chinese
+¹http://translate.google.com<br>
+²http://en.wikipedia.org/wiki/Traditional_Chinese
 
 [travis]: http://travis-ci.org/ahcarpenter/adopt-a-hydrant
 [gemnasium]: https://gemnasium.com/ahcarpenter/adopt-a-hydrant
