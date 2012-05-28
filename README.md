@@ -65,16 +65,20 @@ Ideally, a bug report should include a pull request with failing specs.
 [gist]: https://gist.github.com/
 
 ## Submitting a Pull Request
-1. Fork the project.
-2. Create a topic branch.
-3. Implement your feature or bug fix.
-4. Add tests for your feature or bug fix.
-5. Run `bundle exec rake test`. If your changes are not 100% covered, go back
-   to step 4.
-6. Commit and push your changes.
-7. Submit a pull request. Please do not include changes to the gemspec or
-   version file. (If you want to create your own version for some reason,
-   please do so in a separate commit.)
+1. [Fork the repository.][fork]
+2. [Create a topic branch.][branch]
+3. Add specs for your unimplemented feature or bug fix.
+4. Run `bundle exec rake test`. If your specs pass, return to step 3.
+5. Implement your feature or bug fix.
+6. Run `bundle exec rake test`. If your specs fail, return to step 5.
+7. Run `open coverage/index.html`. If your changes are not completely covered
+   by your tests, return to step 3.
+8. Add, commit, and push your changes.
+9. [Submit a pull request.][pr]
+
+[fork]: http://help.github.com/fork-a-repo/
+[branch]: http://learn.github.com/p/branching.html
+[pr]: http://help.github.com/send-pull-requests/
 
 ## Supported Ruby Versions
 This library aims to support and is [tested against][travis] the following Ruby
