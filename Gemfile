@@ -1,7 +1,7 @@
 # http://about.travis-ci.org/docs/user/languages/ruby/
 source 'https://rubygems.org'
 
-gem "rails", '~> 3.2'
+gem 'rails', '~> 3.2'
 
 gem 'arel'
 gem 'devise'
