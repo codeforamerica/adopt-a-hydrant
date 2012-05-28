@@ -2,7 +2,7 @@
 
 es:
   buttons:
-    abandon: "Abandona esta %{thing}"
+    abandon: "Abandona esta boca"
     adopt: "Adoptar!"
     back: "De nuevo"
     change_password: "Cambiar mi contraseña"
@@ -22,19 +22,19 @@ es:
     required: "(necesario)"
   defaults:
     address: "dirección"
-    address_1: "1 City Hall Plaza"
-    address_2: "Suite 500"
-    city: "Boston"
-    city_state: "Boston, Massachusetts"
+    address_1: "233 E. Washington St."
+    address_2: ""
+    city: "Syracuse"
+    city_state: "Syracuse, New York"
     neighborhood: "Downtown"
-    sms_number: "857-555-1212"
-    state: "MA"
+    sms_number: "315-555-5555"
+    state: "NY"
     thing: "boca de incendio"
     this_thing: "Esta %{thing}"
     tagline: "Reclamar la responsabilidad para palear un hidrante de incendios después de que las nieves."
     tos: "Al registrarse, usted está de acuerdo con los %{tos}."
-    voice_number: "617-555-1212"
-    zip: "02201-2013"
+    voice_number: "315-555-5555"
+    zip: "13202"
   errors:
     password: "Es necesario iniciar sesión o registrarse antes de continuar."
     not_found: "No se pudo encontrar %{thing}."
@@ -65,27 +65,30 @@ es:
     remembered_password: "No importa. Me acordé de mi contraseña."
   notices:
     abandoned: "toma de agua abandonada!"
-    adopted: "Usted se acaba de aprobar una %{thing}!"
+    adopted: "Hidrante adoptado!"
     password_reset: "Las instrucciones de restablecimiento de contraseña enviado! Revise su correo electrónico."
     reminder_sent: "Recordatorio enviado!"
     signed_in: "Sesión!"
     signed_out: "La sesión."
     signed_up: "¡Gracias por registrarte!"
-    stolen: "%{thing} robado!"
+    stolen: "Boca robado!"
+  questions:
+    abandon: "¿Está seguro que desea abandonar esta boca?"
+  sponsors:
+    built: "Construido en Boston & Lexington"
+    cfa: "Código de los Estados Unidos"
+    city: "Ciudad de Boston"
+    mayor:
+      name: "Thomas M. Menino"
+      title: "Mayor"
   titles:
     adopt: "Adoptar esta %{thing}"
     adopted: "%{thing_name} ha sido adoptada."
     byline: "por %{name}"
+    conflict: "Gracias por la adopción de esta %{thing} antes!"
     edit_profile: "Edita tu perfil"
     main: "Adopt-a-%{thing}"
     ofline: "de %{organization}"
     sign_in: "Iniciar sesión para adoptar esta %{thing}"
     thank_you: "Gracias por la adopción de esta %{thing}!"
     tos: "Términos de Servicio"
-  sponsors:
-    built: "Construido en Boston"
-    cfa: "Código de los Estados Unidos"
-    city: "Ciudad de Boston"
-    mayor:
-      name: "Thomas M. Menino"
-      title: "Mayor"

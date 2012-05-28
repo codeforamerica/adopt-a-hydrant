@@ -8,10 +8,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :voice_number
       t.string :sms_number
       t.boolean :admin, :default => false
-      t.database_authenticatable :null => false
-      t.recoverable
-      t.rememberable
-      t.trackable
+      # t.database_authenticatable :null => false
+      # t.recoverable
+      # t.rememberable
+      # t.trackable
     end
 
     add_index :users, :email, :unique => true

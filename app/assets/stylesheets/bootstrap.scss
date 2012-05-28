@@ -1,3 +1,4 @@
+/*http://www.w3schools.com/css/css_padding.asp*/
 /*!
  * Bootstrap v2.0.2
  *
@@ -2425,8 +2426,9 @@ input[type="submit"].btn.btn-mini {
   filter: alpha(opacity=75);
 }
 .alert {
-  padding: 8px 35px 8px 14px;
-  margin-bottom: 18px;
+  padding: 8px 20px 8px 14px;
+  margin-bottom: 12px;
+  margin-top: 12px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   background-color: #fcf8e3;
   border: 1px solid #fbeed5;
@@ -2440,9 +2442,9 @@ input[type="submit"].btn.btn-mini {
 }
 .alert .close {
   position: relative;
-  top: -2px;
-  right: -21px;
-  line-height: 18px;
+  top: -10px;
+  right: -16px;
+  line-height: 20px;
 }
 .alert-success {
   background-color: #dff0d8;
