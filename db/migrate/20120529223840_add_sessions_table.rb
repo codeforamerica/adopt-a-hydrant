@@ -1,3 +1,4 @@
+# http://stackoverflow.com/questions/9473808/cookie-overflow-in-rails-application
 class AddSessionsTable < ActiveRecord::Migration
   def change
     create_table :sessions do |t|
