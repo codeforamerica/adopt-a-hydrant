@@ -51,6 +51,8 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     fastercsv (1.5.5)
+    foreigner (1.1.6)
+      activerecord (>= 3.0.0)
     geokit (1.6.5)
       multi_json
     haml (3.2.0.alpha.13)
@@ -59,6 +61,9 @@ GEM
     hpricot (0.8.6)
     http_accept_language (1.0.2)
     i18n (0.6.0)
+    immigrant (0.1.1)
+      activerecord (>= 3.0)
+      foreigner (>= 1.1.3)
     journey (1.0.3)
     jquery-rails (2.0.2)
       railties (>= 3.2.0, < 5.0)
@@ -67,10 +72,13 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.7.3)
+    jwt (0.1.4)
+      json (>= 1.2.4)
     kaminari (0.13.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
       railties (>= 3.0.0)
+    libxml-ruby (2.3.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -124,7 +132,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     remotipart (1.0.2)
-    sass (3.1.19)
+    sass (3.1.18)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -143,6 +151,10 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    twilio-ruby (3.7.0)
+      builder (>= 2.1.2)
+      jwt (>= 0.1.2)
+      multi_json (>= 1.3.0)
     tzinfo (0.3.33)
     uglifier (1.2.4)
       execjs (>= 0.3.0)
@@ -165,13 +177,17 @@ DEPENDENCIES
   geokit
   haml (~> 3.2.0.alpha)
   http_accept_language
+  immigrant
+  libxml-ruby
   pg
   puma
   rails (~> 3.2)
   rails_admin
+  rake
   sass-rails
   simplecov
   sqlite3
+  twilio-ruby
   uglifier
   validates_formatting_of
   webmock

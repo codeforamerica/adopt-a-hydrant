@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 6) do
+ActiveRecord::Schema.define(:version => 20120529223840) do
 
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
@@ -40,17 +40,25 @@ ActiveRecord::Schema.define(:version => 6) do
   add_index "reminders", ["thing_id"], :name => "index_reminders_on_thing_id"
   add_index "reminders", ["to_user_id"], :name => "index_reminders_on_to_user_id"
 
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
   create_table "things", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.decimal  "lat",        :precision => 16, :scale => 14, :null => false
-    t.decimal  "lng",        :precision => 17, :scale => 14, :null => false
-    t.integer  "city_id"
+    t.decimal  "lat",          :precision => 18, :scale => 14,                :null => false
+    t.decimal  "lng",          :precision => 18, :scale => 14,                :null => false
     t.integer  "user_id"
+    t.integer  "lock_version",                                 :default => 0, :null => false
   end
-
-  add_index "things", ["city_id"], :name => "index_things_on_city_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.datetime "created_at"
@@ -81,4 +89,9 @@ ActiveRecord::Schema.define(:version => 6) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
+  add_foreign_key "reminders", "things", :name => "reminders_thing_id_fk"
+  add_foreign_key "reminders", "users", :name => "reminders_from_user_id_fk", :column => "from_user_id"
+  add_foreign_key "reminders", "users", :name => "reminders_to_user_id_fk", :column => "to_user_id"
+
+  add_foreign_key "things", "users", :name => "things_user_id_fk"
 end

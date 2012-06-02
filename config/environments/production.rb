@@ -58,7 +58,8 @@ AdoptAThing::Application.configure do
   config.action_mailer.default_url_options = {:host => 'adoptahydrant.org'}
 
   # Enable threaded mode
-  config.threadsafe!
+  # config.threadsafe!
+  config.threadsafe! unless $rails_rake_task #http://www.matthewratzloff.com/blog/2011/02/09/getting-rake-dbseed-and-config-threadsafe-to-play-nice/
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)

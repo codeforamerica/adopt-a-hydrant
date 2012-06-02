@@ -1,6 +1,6 @@
 = form_for :reminder, :url => reminders_path, :html => {:id => "reminder_form", :method => "post"} do |f|
   = f.hidden_field "from_user_id", :value => current_user.id
-  = f.hidden_field "to_user_id", :value => @thing.user.id
-  = f.hidden_field "thing_id", :value => @thing.id
+  = f.hidden_field "to_user_id", :value => session[:thing].user.id
+  = f.hidden_field "thing_id", :value => session[:thing].id
   %fieldset.control-group
     = f.submit t("buttons.send_reminder"), :class => "btn"
