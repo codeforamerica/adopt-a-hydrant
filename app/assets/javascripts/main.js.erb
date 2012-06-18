@@ -399,7 +399,7 @@ $(function() {
           data: {
             'thing_id': activeThingId,
             'flash': {
-              'notice': "<%= I18n.t("notices.adopted", :thing => I18n.t("defaults.thing")) %>"
+              'notice': "<%= I18n.t("notices.adopted", thing: I18n.t("defaults.thing")) %>"
             }
           },
           success: function(data) {
@@ -442,7 +442,7 @@ $(function() {
             data: {
               'thing_id': activeThingId,
               'flash': {
-                'warning': "<%= I18n.t("notices.abandoned", :thing => I18n.t("defaults.thing").capitalize) %>"
+                'warning': "<%= I18n.t("notices.abandoned", thing: I18n.t("defaults.thing").capitalize) %>"
               }
             },
             success: function(data) {
@@ -664,7 +664,6 @@ $(function() {
         'utf8': '✓',
         'authenticity_token': $('#reminder_form input[name="authenticity_token"]').val(),
         'reminder': {
-          'from_user_id': $('#reminder_from_user_id').val(),
           'to_user_id': $('#reminder_to_user_id').val(),
           'thing_id': activeThingId
         }

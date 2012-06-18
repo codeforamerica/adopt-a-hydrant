@@ -19,12 +19,12 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test 'should authenticate user if password is correct' do
-    post :create, :user => {:email => @user.email, :password => 'correct'}
+    post :create, user: {email: @user.email, password: 'correct'}
     assert_response :success
   end
 
   test 'should return error if password is incorrect' do
-    post :create, :user => {:email => @user.email, :password => 'incorrect'}
+    post :create, user: {email: @user.email, password: 'incorrect'}
     assert_response 401
   end
 

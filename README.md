@@ -80,19 +80,13 @@ Ideally, a bug report should include a pull request with failing specs.
 [branch]: http://learn.github.com/p/branching.html
 [pr]: http://help.github.com/send-pull-requests/
 
-## Supported Ruby Versions
-This library aims to support and is [tested against][travis] the following Ruby
-implementations:
+## Supported Ruby Version
+This library aims to support and is [tested against][travis] Ruby version 1.9.3.
 
-* Ruby 1.9.2
-* Ruby 1.9.3
-
-If something doesn't work on one of these interpreters, it should be considered
-a bug.
+If something doesn't work on this version, it should be considered a bug.
 
 This library may inadvertently work (or seem to work) on other Ruby
-implementations, however support will only be provided for the versions listed
-above.
+implementations, however support will only be provided for the version above.
 
 If you would like this library to support another Ruby version, you may
 volunteer to be a maintainer. Being a maintainer entails making sure all tests
