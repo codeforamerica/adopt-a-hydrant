@@ -67,10 +67,9 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.7.5)
-    kaminari (0.13.0)
+    kaminari (0.14.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-      railties (>= 3.0.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
