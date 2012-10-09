@@ -52,7 +52,7 @@ GEM
     fastercsv (1.5.5)
     geokit (1.6.5)
       multi_json
-    haml (3.2.0.beta.3)
+    haml (3.2.0.rc.1)
       tilt
     hike (1.2.1)
     http_accept_language (1.0.2)
