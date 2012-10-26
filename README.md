@@ -14,10 +14,11 @@ You can see a running version of the application at
 [demo]: http://adopt-a-hydrant.herokuapp.com/
 
 ## Installation
-This application requires [Postgres](http://www.postgresql.org/) to be installed
+This application requires [Postgres](http://www.postgresql.org/) to be installed. The easiest way to install Postgres on a Mac is with Homebrew, as detailed in this [Postgres installation guide](http://www.moncefbelyamani.com/how-to-install-postgresql-on-a-mac-with-homebrew-and-lunchy/).
 
     git clone git://github.com/codeforamerica/adopt-a-hydrant.git
     cd adopt-a-hydrant
+    gem update bundler
     bundle install
 
     bundle exec rake db:create
