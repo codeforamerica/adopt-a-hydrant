@@ -1,5 +1,5 @@
 # Adopt-a-Hydrant [![Build Status](https://secure.travis-ci.org/codeforamerica/adopt-a-hydrant.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/codeforamerica/adopt-a-hydrant.png?travis)][gemnasium]
-Claim responsibility for shoveling out a fire hydrant after it snows.
+Claim responsibility for shoveling out a fire hydrant in Washington, DC after it snows.
 
 [travis]: http://travis-ci.org/codeforamerica/adopt-a-hydrant
 [gemnasium]: https://gemnasium.com/codeforamerica/adopt-a-hydrant
@@ -9,9 +9,9 @@ Claim responsibility for shoveling out a fire hydrant after it snows.
 
 ## Demo
 You can see a running version of the application at
-[http://adopt-a-hydrant.herokuapp.com/][demo].
+[http://hydrants.codefordc.org/][demo].
 
-[demo]: http://adopt-a-hydrant.herokuapp.com/
+[demo]: http://hydrants.codefordc.org/
 
 ## Installation
 This application requires [Postgres](http://www.postgresql.org/) to be installed. The easiest way to install Postgres on a Mac is with Homebrew, as detailed in this [Postgres installation guide](http://www.moncefbelyamani.com/how-to-install-postgresql-on-a-mac-with-homebrew-and-lunchy/).
@@ -29,6 +29,24 @@ This application requires [Postgres](http://www.postgresql.org/) to be installed
 
 ## Seed Data
     bundle exec rake db:seed
+
+## Deploying to Heroku
+A successful deployment to Heroku requires a few setup steps:
+1. [Precompile your assets](https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar)
+    RAILS_ENV=production bundle exec rake assets:precompile
+    git add public/assets
+    git commit -m "vendor compiled assets"
+
+2. Add a production database to config/database.yml
+
+3. In order to seed the production db, you need to temporarily disable threaded mode in config/environments/production.rb (comment out `config.threadsafe!` on line 56), and you need to add `:city_id, :lng, :lat` to `attr_accessible` on line 3 of app/models/thing.rb. Once you've done that and pushed to heroku, you can seed the prod db:
+    heroku run bundle exec rake db:seed
+
+4. After you seed your prod db, remember to undo the changes you made in Step 3.
+
+5. If you're planning on using the New Relic add-on, you will need to use the `thin` web server instead of `puma`. Just replace `puma` with `thin` in the Gemfile.
+
+6. Keep in mind that the Heroku free Postgres plan only allows up to 10,000 rows, so if your city has more than 10,000 fire hydrants, you will need to upgrade to the $9/month plan. 
 
 ## Contributing
 In the spirit of [free software][free-sw], **everyone** is encouraged to help
