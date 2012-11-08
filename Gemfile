@@ -11,6 +11,7 @@ gem 'http_accept_language'
 gem 'pg'
 gem 'rails_admin'
 gem 'validates_formatting_of'
+gem 'newrelic_rpm'
 
 platforms :ruby_18 do
   gem 'fastercsv'
@@ -23,7 +24,6 @@ end
 
 group :production do
   gem 'puma'
-  gem 'newrelic_rpm'
 end
 
 group :test do
