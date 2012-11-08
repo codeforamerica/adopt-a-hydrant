@@ -45,15 +45,15 @@ A successful deployment to Heroku requires a few setup steps:
 
 2. Add a production database to config/database.yml
 
-3. In order to seed the production db, you need to temporarily disable threaded mode in config/environments/production.rb (comment out `config.threadsafe!` on line 56), and you need to add `:city_id, :lng, :lat` to `attr_accessible` on line 3 of app/models/thing.rb. Once you've done that and pushed to heroku, you can seed the prod db:
+3. In order to be able to seed the production db, you need to update the [threaded mode](https://github.com/rails/rails/issues/2662) setting on line 56 in config/environments/production.rb to `config.threadsafe! unless $rails_rake_task`, and you need to add `:city_id, :lng, :lat` to `attr_accessible` on line 3 of app/models/thing.rb (see [issue #13](https://github.com/codeforamerica/adopt-a-hydrant/issues/13)). Once you've done that and pushed to heroku, you can seed the prod db:
 
     `heroku run bundle exec rake db:seed`
 
-4. After you seed your prod db, remember to undo the changes you made in Step 3.
+4. After you seed your prod db, remember to undo the `attr_accessible` changes you made in Step 3.
 
 5. If you're planning on using the New Relic add-on, you will need to use the `thin` web server instead of `puma`. Just replace `puma` with `thin` in the Gemfile.
 
-6. Keep in mind that the Heroku free Postgres plan only allows up to 10,000 rows, so if your city has more than 10,000 fire hydrants, you will need to upgrade to the $9/month plan. 
+6. Keep in mind that the Heroku free Postgres plan only allows up to 10,000 rows, so if your city has more than 10,000 fire hydrants (or other thing to be adopted), you will need to upgrade to the $9/month plan. 
 
 ## Contributing
 In the spirit of [free software][free-sw], **everyone** is encouraged to help
