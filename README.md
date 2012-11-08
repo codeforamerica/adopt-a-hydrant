@@ -32,7 +32,9 @@ This application requires [Postgres](http://www.postgresql.org/) to be installed
 
 ## Deploying to Heroku
 A successful deployment to Heroku requires a few setup steps:
+
 1. [Precompile your assets](https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar)
+
     RAILS_ENV=production bundle exec rake assets:precompile
     git add public/assets
     git commit -m "vendor compiled assets"
@@ -40,6 +42,7 @@ A successful deployment to Heroku requires a few setup steps:
 2. Add a production database to config/database.yml
 
 3. In order to seed the production db, you need to temporarily disable threaded mode in config/environments/production.rb (comment out `config.threadsafe!` on line 56), and you need to add `:city_id, :lng, :lat` to `attr_accessible` on line 3 of app/models/thing.rb. Once you've done that and pushed to heroku, you can seed the prod db:
+
     heroku run bundle exec rake db:seed
 
 4. After you seed your prod db, remember to undo the changes you made in Step 3.
