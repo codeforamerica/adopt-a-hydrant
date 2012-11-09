@@ -2,18 +2,17 @@ $(function() {
   var center = new google.maps.LatLng(38.908934, -77.025833);
   var mapOptions = {
     center: center,
-    disableDoubleClickZoom: false,
     keyboardShortcuts: false,
     mapTypeControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     maxZoom: 19,
-    minZoom: 15,
+    minZoom: 10,
     panControl: false,
     rotateControl: false,
     scaleControl: false,
-    scrollwheel: false,
+    scrollwheel: true,
     streetViewControl: true,
-    zoom: 15,
+    zoom: 11,
     zoomControl: true
   };
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
