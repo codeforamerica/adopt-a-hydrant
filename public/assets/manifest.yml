@@ -5,11 +5,13 @@ logos/adopt-a-hydrant_large.png: logos/adopt-a-hydrant_large-9c1d5056f4d4bba9812
 logos/boston.png: logos/boston-943404510709d3eca5a9b91db0cf7f7c.png
 logos/bostonbuilt.png: logos/bostonbuilt-8049607e25fa66e911b741508db5a308.png
 logos/cfa.png: logos/cfa-3fdfb979df03137ba5257d48b6b0ccbc.png
+logos/dc.png: logos/dc-c7f8bef981def1e27b380f25eaee0f20.png
+logos/dc_small.png: logos/dc_small-ac9eb9102776ab8f3e40a5bca136115b.png
 markers/green.png: markers/green-b1dc0b7a12869cc19e09a36ac9745d58.png
 markers/marker.psd: markers/marker-d2e5bae5d1e34571bd44bd63fb3e1945.psd
 markers/red.png: markers/red-e03aa4193a58c012faf322ec4edc11c8.png
 markers/shadow.png: markers/shadow-de7111e855f2a6c1c69d0f1626d62e9f.png
-application.js: application-251f84b9a8b4153c048354666e882d68.js
+application.js: application-c348569c5d2be27810a0ea9249aa153b.js
 application.css: application-a394b86806adfb2da5d4eef3b966c66d.css
 rails_admin/aristo/images/bg_fallback.png: rails_admin/aristo/images/bg_fallback-55829c6af9b9af338904d5a0ed9c191d.png
 rails_admin/aristo/images/icon_sprite.png: rails_admin/aristo/images/icon_sprite-555074e93c8d91f9f72d1a211d5a820e.png

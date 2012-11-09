@@ -127,7 +127,7 @@ $(function() {
       }
     });
   }
-  google.maps.event.addListener(map, 'dragend', function() {
+  google.maps.event.addListener(map, 'tilesloaded', function() {
     var center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
   });
