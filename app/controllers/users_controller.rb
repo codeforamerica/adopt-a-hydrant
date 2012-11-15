@@ -24,4 +24,14 @@ class UsersController < Devise::RegistrationsController
       render(json: {errors: resource.errors}, status: 500)
     end
   end
+
+private
+
+  def resource_params
+    params.require(:user).permit(:address_1, :address_2, :city,
+                                 :current_password, :email, :name,
+                                 :organization, :password,
+                                 :password_confirmation, :remember_me,
+                                 :sms_number, :state, :voice_number, :zip)
+  end
 end
