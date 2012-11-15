@@ -50,7 +50,7 @@ AdoptAThing::Application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = {:host => 'adoptahydrant.org'}
+  config.action_mailer.default_url_options = {:host => 'hydrants.codefordc.org'}
 
   # Enable threaded mode
   config.threadsafe! unless $rails_rake_task
