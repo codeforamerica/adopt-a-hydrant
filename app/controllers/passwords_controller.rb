@@ -18,4 +18,10 @@ class PasswordsController < Devise::PasswordsController
     self.resource = resource_class.reset_password_by_token(resource_params)
     redirect_to(controller: "main", action: "index")
   end
+
+private
+
+  def resource_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :reset_password_token)
+  end
 end

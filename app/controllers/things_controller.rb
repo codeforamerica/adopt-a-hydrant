@@ -12,10 +12,16 @@ class ThingsController < ApplicationController
 
   def update
     @thing = Thing.find(params[:id])
-    if @thing.update_attributes(params[:thing])
+    if @thing.update_attributes(thing_params)
       respond_with @thing
     else
       render(json: {errors: @thing.errors}, status: 500)
     end
+  end
+
+  private
+
+  def thing_params
+    params.require(:thing).permit(:name, :user_id)
   end
 end
