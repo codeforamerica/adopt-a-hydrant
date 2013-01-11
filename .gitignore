@@ -22,3 +22,6 @@
 
 # Ignore .env
 .env
+
+# Ignore secret token
+/config/app_environment_variables.rb
