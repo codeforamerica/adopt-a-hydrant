@@ -24,7 +24,11 @@ This application requires [Postgres](http://www.postgresql.org/) to be installed
     bundle exec rake db:schema:load
 
 ## Usage
-    rails server
+    rails s
+
+or
+
+    unicorn_rails
 
 ## Seed Data
     bundle exec rake db:seed
