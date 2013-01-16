@@ -1,0 +1,5 @@
+%title
+  = t("titles.main", :thing => t("defaults.thing").titleize)
+= csrf_meta_tag
+%meta{:name => "viewport", :content => "width=800, user-scalable=no"}
+= javascript_include_tag "polyfills" 

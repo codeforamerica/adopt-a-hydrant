@@ -56,4 +56,8 @@ module ApplicationHelper
       ['Wyoming', 'WY']
     ]
   end
+
+  def body_classes
+    [ controller_name, action_name ].flatten.join(" ")
+  end
 end
