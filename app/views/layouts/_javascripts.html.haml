@@ -1,0 +1,8 @@
+= javascript_include_tag "//maps.google.com/maps/api/js?sensor=false&language=#{I18n.locale}"
+= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"
+= javascript_include_tag "application"
+
+= content_for :javascripts
+
+= render "layouts/analytics"

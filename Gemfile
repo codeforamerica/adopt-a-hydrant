@@ -4,6 +4,7 @@ ruby '1.9.3'
 gem 'rails', '~> 3.2'
 
 gem 'arel'
+gem 'bootstrap-sass', '~> 2.2.2.0'
 gem 'devise'
 gem 'geokit'
 gem 'haml', '~> 3.2.0.alpha'
