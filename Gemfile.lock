@@ -42,6 +42,7 @@ GEM
       execjs
     coffee-script-source (1.4.0)
     crack (0.3.2)
+    daemons (1.1.9)
     devise (2.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
