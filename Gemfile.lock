@@ -129,7 +129,7 @@ GEM
     rdoc (3.12.1)
       json (~> 1.4)
     remotipart (1.0.2)
-    safe_yaml (0.6.3)
+    safe_yaml (0.7.0)
     sass (3.2.5)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
