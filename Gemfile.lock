@@ -128,7 +128,7 @@ GEM
     rake (10.0.3)
     rdoc (3.12.1)
       json (~> 1.4)
-    remotipart (1.0.3)
+    remotipart (1.0.5)
     safe_yaml (0.7.0)
     sass (3.2.5)
     sass-rails (3.2.6)
