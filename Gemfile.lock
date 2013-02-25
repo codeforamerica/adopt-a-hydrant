@@ -40,7 +40,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.4.0)
+    coffee-script-source (1.5.0)
     crack (0.3.2)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
