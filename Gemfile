@@ -27,7 +27,8 @@ group :production do
 end
 
 group :test do
-  gem 'simplecov'
+  gem 'coveralls', :require => false
+  gem 'simplecov', :require => false
   gem 'sqlite3'
   gem 'webmock'
 end

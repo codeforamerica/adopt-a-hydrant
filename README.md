@@ -1,8 +1,14 @@
-# Adopt-a-Hydrant [![Build Status](https://secure.travis-ci.org/codeforamerica/adopt-a-hydrant.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/codeforamerica/adopt-a-hydrant.png?travis)][gemnasium]
-Claim responsibility for shoveling out a fire hydrant after it snows.
+# Adopt-a-Hydrant
+
+[![Build Status](https://secure.travis-ci.org/codeforamerica/adopt-a-hydrant.png?branch=master)][travis]
+[![Dependency Status](https://gemnasium.com/codeforamerica/adopt-a-hydrant.png?travis)][gemnasium]
+[![Coverage Status](https://coveralls.io/repos/codeforamerica/adopt-a-hydrant/badge.png?branch=master)][coveralls]
 
 [travis]: http://travis-ci.org/codeforamerica/adopt-a-hydrant
 [gemnasium]: https://gemnasium.com/codeforamerica/adopt-a-hydrant
+[coveralls]: https://coveralls.io/r/codeforamerica/adopt-a-hydrant
+
+Claim responsibility for shoveling out a fire hydrant after it snows.
 
 ## Screenshot
 ![Adopt-a-Hydrant](https://github.com/codeforamerica/adopt-a-hydrant/raw/master/screenshot.png "Adopt-a-Hydrant")
@@ -60,7 +66,7 @@ A successful deployment to Heroku requires a few setup steps:
 
     `heroku run bundle exec rake db:seed`
 
-6. Keep in mind that the Heroku free Postgres plan only allows up to 10,000 rows, so if your city has more than 10,000 fire hydrants (or other thing to be adopted), you will need to upgrade to the $9/month plan. 
+6. Keep in mind that the Heroku free Postgres plan only allows up to 10,000 rows, so if your city has more than 10,000 fire hydrants (or other thing to be adopted), you will need to upgrade to the $9/month plan.
 
 ## Contributing
 In the spirit of [free software][free-sw], **everyone** is encouraged to help
