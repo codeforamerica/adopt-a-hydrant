@@ -60,7 +60,7 @@ GEM
       tilt
     hike (1.2.1)
     http_accept_language (1.0.2)
-    i18n (0.6.2)
+    i18n (0.6.4)
     journey (1.0.4)
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
