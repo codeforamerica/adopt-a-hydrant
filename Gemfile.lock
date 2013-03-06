@@ -42,7 +42,7 @@ GEM
       execjs
     coffee-script-source (1.6.1)
     colorize (0.5.8)
-    coveralls (0.6.0)
+    coveralls (0.6.2)
       colorize
       multi_json (~> 1.3)
       rest-client
