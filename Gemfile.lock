@@ -63,7 +63,7 @@ GEM
       sass-rails (>= 3.1.1)
     geokit (1.6.5)
       multi_json
-    haml (4.0.0)
+    haml (4.0.1)
       tilt
     hike (1.2.1)
     http_accept_language (1.0.2)
