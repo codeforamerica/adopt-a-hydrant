@@ -88,7 +88,7 @@ GEM
     nested_form (0.3.1)
     nokogiri (1.5.9)
     orm_adapter (0.4.0)
-    pg (0.14.1)
+    pg (0.15.0)
     polyglot (0.3.3)
     puma (1.6.3)
       rack (~> 1.2)
