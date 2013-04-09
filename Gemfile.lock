@@ -65,7 +65,7 @@ GEM
       multi_json
     haml (4.0.2)
       tilt
-    hike (1.2.1)
+    hike (1.2.2)
     http_accept_language (1.0.2)
     i18n (0.6.1)
     journey (1.0.4)
