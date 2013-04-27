@@ -86,6 +86,7 @@ GEM
     mime-types (1.23)
     multi_json (1.7.2)
     nested_form (0.3.2)
+    newrelic_rpm (3.3.5)
     nokogiri (1.5.9)
     orm_adapter (0.4.0)
     pg (0.15.1)
@@ -186,6 +187,7 @@ DEPENDENCIES
   geokit
   haml
   http_accept_language
+  newrelic_rpm
   pg
   puma
   rails (~> 3.2)
