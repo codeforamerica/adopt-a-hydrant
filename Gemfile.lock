@@ -187,6 +187,7 @@ DEPENDENCIES
   geokit
   haml
   http_accept_language
+  nokogiri
   pg
   puma
   rails (~> 3.2)
