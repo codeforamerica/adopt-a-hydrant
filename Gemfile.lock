@@ -91,7 +91,7 @@ GEM
     orm_adapter (0.4.0)
     pg (0.15.1)
     polyglot (0.3.3)
-    puma (2.1.1)
+    puma (2.2.0)
       rack (>= 1.1, < 2.0)
     rack (1.4.5)
     rack-cache (1.2)
