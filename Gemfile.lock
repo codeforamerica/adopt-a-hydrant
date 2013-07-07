@@ -136,7 +136,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    remotipart (1.1.1)
+    remotipart (1.2.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     safe_yaml (0.9.3)
