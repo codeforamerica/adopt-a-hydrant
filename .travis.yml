@@ -4,11 +4,11 @@ before_script: bundle exec rake db:create db:schema:load
 bundler_args: --without assets:development:production
 language: ruby
 rvm:
-- 1.9.3
+- 2.0.0
 deploy:
   api_key:
     secure: "q1sCaofDYIfYNgiqTjR1awMsfmy3mleYRPzLvksJMfQF3iY3mfntXu98exuv1vHK+qoQWyXLhLjhRhpfxVJ+QULltvFavrhv35WEDzGRnDDn2saVaOhOFaJ+Izgq3Dw8vFrN7Y6zhGkMa7QY48D+Ux29kvQ4j7TV3A8lijsusOk="
   on:
-    rvm: 1.9.3
+    rvm: 2.0.0
   provider: heroku
   run: "rake db:migrate"
