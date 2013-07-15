@@ -170,7 +170,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     validates_formatting_of (0.8.0)
       activemodel (~> 3.0)
-    warden (1.2.2)
+    warden (1.2.3)
       rack (>= 1.0)
     webmock (1.13.0)
       addressable (>= 2.2.7)
