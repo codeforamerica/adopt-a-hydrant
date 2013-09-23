@@ -64,7 +64,7 @@ GEM
     haml (4.0.3)
       tilt
     hike (1.2.3)
-    http_accept_language (1.0.2)
+    http_accept_language (2.0.0)
     i18n (0.6.5)
     journey (1.0.4)
     jquery-rails (3.0.4)
