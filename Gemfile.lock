@@ -138,7 +138,7 @@ GEM
     rest-client (1.6.7)
       mime-types (>= 1.16)
     safe_yaml (0.9.7)
-    sass (3.2.10)
+    sass (3.2.11)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
