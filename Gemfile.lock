@@ -110,6 +110,9 @@ GEM
       activesupport (= 3.2.15)
       bundler (~> 1.0)
       railties (= 3.2.15)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
     rails_admin (0.4.9)
       bootstrap-sass (~> 2.2)
       builder (~> 3.0)
@@ -125,6 +128,8 @@ GEM
       remotipart (~> 1.0)
       safe_yaml (~> 0.6)
       sass-rails (~> 3.1)
+    rails_serve_static_assets (0.0.1)
+    rails_stdout_logging (0.0.3)
     railties (3.2.15)
       actionpack (= 3.2.15)
       activesupport (= 3.2.15)
@@ -194,6 +199,7 @@ DEPENDENCIES
   pg
   puma
   rails (~> 3.2)
+  rails_12factor
   rails_admin
   sass-rails
   simplecov
