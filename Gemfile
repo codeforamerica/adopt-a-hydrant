@@ -24,6 +24,13 @@ group :assets do
   gem 'uglifier'
 end
 
+group :development, :test do
+  gem 'pry'
+  gem 'pry-debugger', :platforms => :mri_19
+  gem 'pry-rescue'
+  gem 'pry-stack_explorer', :platforms => :mri_19
+end
+
 group :production do
   gem 'puma'
 end
