@@ -57,6 +57,6 @@ class Thing < ActiveRecord::Base
   end
 
   def adopted?
-    !user_id.nil?
+    !user.nil?
   end
 end
