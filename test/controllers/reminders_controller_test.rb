@@ -9,9 +9,9 @@ class RemindersControllerTest < ActionController::TestCase
     @user = users(:erik)
     @thing.user = @dan
     @thing.save!
-    stub_request(:get, "http://maps.google.com/maps/geo").
-      with(:query => {:key => "REPLACE_WITH_YOUR_GOOGLE_KEY", :ll => "42.383339,-71.049226", :oe => "utf-8", :output => "xml"}).
-      to_return(:body => File.read(File.expand_path('../../fixtures/geo.kml', __FILE__)))
+    stub_request(:get, "http://maps.google.com/maps/api/geocode/json").
+      with(:query => {:latlng => "42.383339,-71.049226", :sensor => "false"}).
+      to_return(:body => File.read(File.expand_path('../../fixtures/city_hall.json', __FILE__)))
   end
 
   test 'should send a reminder email' do

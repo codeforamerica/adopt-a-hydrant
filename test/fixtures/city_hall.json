@@ -1,0 +1,574 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "Boston City Hall",
+               "short_name" : "Boston City Hall",
+               "types" : [ "point_of_interest", "establishment" ]
+            },
+            {
+               "long_name" : "1",
+               "short_name" : "1",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "City Hall Square",
+               "short_name" : "City Hall Square",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Downtown",
+               "short_name" : "Downtown",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Boston",
+               "short_name" : "Boston",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Suffolk",
+               "short_name" : "Suffolk",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Massachusetts",
+               "short_name" : "MA",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "02201",
+               "short_name" : "02201",
+               "types" : [ "postal_code" ]
+            },
+            {
+               "long_name" : "1001",
+               "short_name" : "1001",
+               "types" : []
+            }
+         ],
+         "formatted_address" : "Boston City Hall, 1 City Hall Square, Boston, MA 02201, USA",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.360406,
+               "lng" : -71.057993
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.3686503,
+                  "lng" : -71.0419856
+               },
+               "southwest" : {
+                  "lat" : 42.3521606,
+                  "lng" : -71.0740004
+               }
+            }
+         },
+         "partial_match" : true,
+         "types" : [
+            "city_hall",
+            "point_of_interest",
+            "local_government_office",
+            "locality",
+            "political",
+            "establishment"
+         ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Faneuil Hall",
+               "short_name" : "Faneuil Hall",
+               "types" : [ "point_of_interest", "establishment" ]
+            },
+            {
+               "long_name" : "Boston National Historical Park",
+               "short_name" : "Boston National Historical Park",
+               "types" : [ "establishment" ]
+            },
+            {
+               "long_name" : "1",
+               "short_name" : "1",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Faneuil Hall Square",
+               "short_name" : "Faneuil Hall Square",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Downtown",
+               "short_name" : "Downtown",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Boston",
+               "short_name" : "Boston",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Boston",
+               "short_name" : "Boston",
+               "types" : [ "administrative_area_level_3", "political" ]
+            },
+            {
+               "long_name" : "Suffolk",
+               "short_name" : "Suffolk",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Massachusetts",
+               "short_name" : "MA",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "02109",
+               "short_name" : "02109",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Faneuil Hall, Boston National Historical Park, 1 Faneuil Hall Square, Boston, MA 02109, USA",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.3600619,
+               "lng" : -71.05610299999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.36141088029149,
+                  "lng" : -71.05475401970848
+               },
+               "southwest" : {
+                  "lat" : 42.3587129197085,
+                  "lng" : -71.0574519802915
+               }
+            }
+         },
+         "partial_match" : true,
+         "types" : [ "point_of_interest", "establishment" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Hall Street",
+               "short_name" : "Hall St",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Jamaica Plain",
+               "short_name" : "Jamaica Plain",
+               "types" : [ "sublocality", "political" ]
+            },
+            {
+               "long_name" : "Boston",
+               "short_name" : "Boston",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Suffolk",
+               "short_name" : "Suffolk",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Massachusetts",
+               "short_name" : "MA",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "02130",
+               "short_name" : "02130",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Hall Street, Boston, MA 02130, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 42.3054659,
+                  "lng" : -71.1118637
+               },
+               "southwest" : {
+                  "lat" : 42.3046598,
+                  "lng" : -71.1146641
+               }
+            },
+            "location" : {
+               "lat" : 42.3048254,
+               "lng" : -71.1134469
+            },
+            "location_type" : "GEOMETRIC_CENTER",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.3064118302915,
+                  "lng" : -71.1118637
+               },
+               "southwest" : {
+                  "lat" : 42.3037138697085,
+                  "lng" : -71.1146641
+               }
+            }
+         },
+         "partial_match" : true,
+         "types" : [ "route" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "City Hall Square",
+               "short_name" : "City Hall Square",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Downtown",
+               "short_name" : "Downtown",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Boston",
+               "short_name" : "Boston",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Suffolk",
+               "short_name" : "Suffolk",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Massachusetts",
+               "short_name" : "MA",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "City Hall Square, Boston, MA, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 42.360398,
+                  "lng" : -71.05729599999999
+               },
+               "southwest" : {
+                  "lat" : 42.3579646,
+                  "lng" : -71.0593976
+               }
+            },
+            "location" : {
+               "lat" : 42.360248,
+               "lng" : -71.0574544
+            },
+            "location_type" : "GEOMETRIC_CENTER",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.3605302802915,
+                  "lng" : -71.05699781970849
+               },
+               "southwest" : {
+                  "lat" : 42.3578323197085,
+                  "lng" : -71.05969578029149
+               }
+            }
+         },
+         "partial_match" : true,
+         "types" : [ "route" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Newhall Street",
+               "short_name" : "Newhall St",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Dorchester",
+               "short_name" : "Dorchester",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Boston",
+               "short_name" : "Boston",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Suffolk",
+               "short_name" : "Suffolk",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Massachusetts",
+               "short_name" : "MA",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "02122",
+               "short_name" : "02122",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Newhall Street, Boston, MA 02122, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 42.2893203,
+                  "lng" : -71.050439
+               },
+               "southwest" : {
+                  "lat" : 42.2877758,
+                  "lng" : -71.051587
+               }
+            },
+            "location" : {
+               "lat" : 42.2886742,
+               "lng" : -71.05117170000001
+            },
+            "location_type" : "GEOMETRIC_CENTER",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.2898970302915,
+                  "lng" : -71.04966401970849
+               },
+               "southwest" : {
+                  "lat" : 42.2871990697085,
+                  "lng" : -71.05236198029149
+               }
+            }
+         },
+         "partial_match" : true,
+         "types" : [ "route" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "City Hall Avenue",
+               "short_name" : "City Hall Avenue",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Downtown",
+               "short_name" : "Downtown",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Boston",
+               "short_name" : "Boston",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Suffolk",
+               "short_name" : "Suffolk",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Massachusetts",
+               "short_name" : "MA",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "City Hall Avenue, Boston, MA, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 42.3582279,
+                  "lng" : -71.058887
+               },
+               "southwest" : {
+                  "lat" : 42.357693,
+                  "lng" : -71.0593676
+               }
+            },
+            "location" : {
+               "lat" : 42.358086,
+               "lng" : -71.05902329999999
+            },
+            "location_type" : "GEOMETRIC_CENTER",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.3593094302915,
+                  "lng" : -71.05777831970849
+               },
+               "southwest" : {
+                  "lat" : 42.3566114697085,
+                  "lng" : -71.0604762802915
+               }
+            }
+         },
+         "partial_match" : true,
+         "types" : [ "route" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Hall Place",
+               "short_name" : "Hall Pl",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Telegraph Hill",
+               "short_name" : "Telegraph Hill",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Boston",
+               "short_name" : "Boston",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Suffolk",
+               "short_name" : "Suffolk",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Massachusetts",
+               "short_name" : "MA",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "02127",
+               "short_name" : "02127",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Hall Place, Boston, MA 02127, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 42.3339539,
+                  "lng" : -71.034485
+               },
+               "southwest" : {
+                  "lat" : 42.3335792,
+                  "lng" : -71.0347695
+               }
+            },
+            "location" : {
+               "lat" : 42.3336703,
+               "lng" : -71.0347611
+            },
+            "location_type" : "GEOMETRIC_CENTER",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.3351155302915,
+                  "lng" : -71.0332782697085
+               },
+               "southwest" : {
+                  "lat" : 42.3324175697085,
+                  "lng" : -71.03597623029151
+               }
+            }
+         },
+         "partial_match" : true,
+         "types" : [ "route" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Hall Avenue",
+               "short_name" : "Hall Ave",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Dudley / Brunswick King",
+               "short_name" : "Dudley / Brunswick King",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Roxbury",
+               "short_name" : "Roxbury",
+               "types" : [ "sublocality", "political" ]
+            },
+            {
+               "long_name" : "Boston",
+               "short_name" : "Boston",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Suffolk",
+               "short_name" : "Suffolk",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Massachusetts",
+               "short_name" : "MA",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "02121",
+               "short_name" : "02121",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Hall Avenue, Boston, MA 02121, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 42.3084888,
+                  "lng" : -71.082103
+               },
+               "southwest" : {
+                  "lat" : 42.3082657,
+                  "lng" : -71.0821694
+               }
+            },
+            "location" : {
+               "lat" : 42.30838,
+               "lng" : -71.0821347
+            },
+            "location_type" : "GEOMETRIC_CENTER",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.3097262302915,
+                  "lng" : -71.0807872197085
+               },
+               "southwest" : {
+                  "lat" : 42.3070282697085,
+                  "lng" : -71.0834851802915
+               }
+            }
+         },
+         "partial_match" : true,
+         "types" : [ "route" ]
+      }
+   ],
+   "status" : "OK"
+}
