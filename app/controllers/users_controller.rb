@@ -4,7 +4,10 @@ class UsersController < Devise::RegistrationsController
   end
 
   def update
-    if resource.update_with_password(resource_params)
+    self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+    prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
+    if update_resource(resource, account_update_params)
+      yield resource if block_given?
       sign_in(resource_name, resource, bypass: true)
       flash[:notice] = "Profile updated!"
       redirect_to(controller: "sidebar", action: "search")
@@ -15,8 +18,9 @@ class UsersController < Devise::RegistrationsController
   end
 
   def create
-    build_resource
+    build_resource(sign_up_params)
     if resource.save
+      yield resource if block_given?
       sign_in(resource_name, resource)
       render(json: resource)
     else
@@ -27,11 +31,12 @@ class UsersController < Devise::RegistrationsController
 
 private
 
-  def resource_params
-    params.require(:user).permit(:address_1, :address_2, :city,
-                                 :current_password, :email, :name,
-                                 :organization, :password,
-                                 :password_confirmation, :remember_me,
-                                 :sms_number, :state, :voice_number, :zip)
+  def sign_up_params
+    params.require(:user).permit(:email, :name, :organization, :password, :password_confirmation, :sms_number, :voice_number)
   end
+
+  def account_update_params
+    params.require(:user).permit(:address_1, :address_2, :city, :current_password, :email, :name, :organization, :password, :password_confirmation, :remember_me, :sms_number, :state, :voice_number, :zip)
+  end
+
 end

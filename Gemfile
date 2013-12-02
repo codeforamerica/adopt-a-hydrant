@@ -4,7 +4,7 @@ ruby '2.0.0'
 gem 'rails', '~> 3.2'
 
 gem 'arel'
-gem 'devise', '~> 2.2'
+gem 'devise'
 gem 'geokit'
 gem 'haml'
 gem 'http_accept_language'

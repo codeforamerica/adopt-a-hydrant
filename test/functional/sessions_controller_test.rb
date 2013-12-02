@@ -19,19 +19,19 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test 'should authenticate user if password is correct' do
-    post :create, user: {email: @user.email, password: 'correct'}
+    post :create, user: {email: @user.email, password: 'correct'}, format: :json
     assert_response :success
   end
 
   test 'should return error if password is incorrect' do
-    post :create, user: {email: @user.email, password: 'incorrect'}
+    post :create, user: {email: @user.email, password: 'incorrect'}, format: :json
     assert_response 401
   end
 
   test 'should empty session on sign out' do
     sign_in @user
-    get :destroy
-    assert_equal Hash.new, session
+    get :destroy, format: :json
+    assert_equal {}, session
     assert_response :success
   end
 end

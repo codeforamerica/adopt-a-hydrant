@@ -5,7 +5,7 @@ class AddressesControllerTest < ActionController::TestCase
     stub_request(:get, "http://maps.google.com/maps/geo").
       with(query: {key: "REPLACE_WITH_YOUR_GOOGLE_KEY", oe: "utf-8", output: "xml", q: "City Hall, Boston, MA"}).
       to_return(body: File.read(File.expand_path('../../fixtures/city_hall.kml', __FILE__)))
-    get :show, address: 'City Hall', city_state: "Boston, MA"
+    get :show, address: 'City Hall', city_state: "Boston, MA", format: 'json'
     assert_not_nil assigns :address
   end
 
@@ -16,7 +16,7 @@ class AddressesControllerTest < ActionController::TestCase
     stub_request(:get, "http://maps.google.com/maps/geo").
       with(query: {key: "REPLACE_WITH_YOUR_GOOGLE_KEY", oe: "utf-8", output: "xml", q: ", "}).
       to_return(body: File.read(File.expand_path('../../fixtures/unknown_address.kml', __FILE__)))
-    get :show, address: '', city_state: ''
+    get :show, address: '', city_state: '', format: 'json'
     assert_response :missing
   end
 end
