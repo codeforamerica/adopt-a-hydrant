@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '~> 3.2'
+gem 'rails', '~> 4.0.1'
 
 gem 'arel'
 gem 'devise'
@@ -12,7 +12,6 @@ gem 'nokogiri'
 gem 'pg'
 gem 'rails_12factor'
 gem 'rails_admin'
-gem 'strong_parameters'
 gem 'validates_formatting_of'
 
 platforms :ruby_18 do

@@ -91,7 +91,6 @@ $(function() {
       url: '/things.json',
       data: {
         'utf8': '✓',
-        'authenticity_token': $('#address_form input[name="authenticity_token"]').val(),
         'lat': lat,
         'lng': lng,
         'limit': $('#address_form input[name="limit"]').val()
@@ -145,7 +144,6 @@ $(function() {
         url: '/address.json',
         data: {
           'utf8': '✓',
-          'authenticity_token': $('#address_form input[name="authenticity_token"]').val(),
           'city_state': $('#city_state').val(),
           'address': $('#address').val()
         },
@@ -380,10 +378,10 @@ $(function() {
       type: 'POST',
       url: '/things.json',
       data: {
+        '_method': 'patch',
         'id': $('#thing_id').val(),
         'utf8': '✓',
         'authenticity_token': $('#adoption_form input[name="authenticity_token"]').val(),
-        '_method': 'put',
         'thing': {
           'user_id': $('#thing_user_id').val(),
           'name': $('#thing_name').val()
@@ -423,10 +421,10 @@ $(function() {
         type: 'POST',
         url: '/things.json',
         data: {
+          '_method': 'patch',
           'id': $('#thing_id').val(),
           'utf8': '✓',
           'authenticity_token': $('#abandon_form input[name="authenticity_token"]').val(),
-          '_method': 'put',
           'thing': {
             'user_id': $('#thing_user_id').val(),
             'name': $('#thing_name').val()
@@ -515,11 +513,11 @@ $(function() {
         type: 'POST',
         url: '/users.json',
         data: {
+          '_method': 'patch',
           'id': $('#id').val(),
           'thing_id': activeThingId,
           'utf8': '✓',
           'authenticity_token': $('#edit_form input[name="authenticity_token"]').val(),
-          '_method': 'put',
           'user': {
             'email': $('#user_email').val(),
             'name': $('#user_name').val(),

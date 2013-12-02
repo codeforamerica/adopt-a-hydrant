@@ -1,6 +1,6 @@
 class UsersController < Devise::RegistrationsController
   def edit
-    render("sidebar/edit_profile", layout: "sidebar")
+    render("sidebar/edit_profile", :layout => "sidebar")
   end
 
   def update
@@ -8,12 +8,12 @@ class UsersController < Devise::RegistrationsController
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
     if update_resource(resource, account_update_params)
       yield resource if block_given?
-      sign_in(resource_name, resource, bypass: true)
+      sign_in(resource_name, resource, :bypass => true)
       flash[:notice] = "Profile updated!"
-      redirect_to(controller: "sidebar", action: "search")
+      redirect_to(:controller => "sidebar", :action => "search")
     else
       clean_up_passwords(resource)
-      render(json: {errors: resource.errors}, status: 500)
+      render(:json => {:errors => resource.errors}, :status => 500)
     end
   end
 
@@ -22,10 +22,10 @@ class UsersController < Devise::RegistrationsController
     if resource.save
       yield resource if block_given?
       sign_in(resource_name, resource)
-      render(json: resource)
+      render(:json => resource)
     else
       clean_up_passwords(resource)
-      render(json: {errors: resource.errors}, status: 500)
+      render(:json => {:errors => resource.errors}, :status => 500)
     end
   end
 

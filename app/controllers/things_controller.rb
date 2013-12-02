@@ -6,7 +6,7 @@ class ThingsController < ApplicationController
     unless @things.blank?
       respond_with @things
     else
-      render(json: {errors: {address: [t("errors.not_found", thing: t("defaults.thing"))]}}, status: 404)
+      render(:json => {:errors => {:address => [t("errors.not_found", :thing => t("defaults.thing"))]}}, :status => 404)
     end
   end
 
@@ -15,7 +15,7 @@ class ThingsController < ApplicationController
     if @thing.update_attributes(thing_params)
       respond_with @thing
     else
-      render(json: {errors: @thing.errors}, status: 500)
+      render(:json => {:errors => @thing.errors}, :status => 500)
     end
   end
 
