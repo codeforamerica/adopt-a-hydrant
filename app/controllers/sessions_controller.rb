@@ -4,7 +4,7 @@ class SessionsController < Devise::SessionsController
   end
 
   def create
-    resource = warden.authenticate(:scope => resource_name)
+    resource = warden.authenticate(scope: resource_name)
     if resource
       sign_in(resource_name, resource)
       render(json: resource)

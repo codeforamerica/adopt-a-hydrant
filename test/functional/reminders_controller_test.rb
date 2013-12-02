@@ -10,7 +10,7 @@ class RemindersControllerTest < ActionController::TestCase
     @thing.user = @dan
     @thing.save!
     stub_request(:get, "http://maps.google.com/maps/geo").
-      with(:query => {:key => "REPLACE_WITH_YOUR_GOOGLE_KEY", :ll => "42.383339,-71.049226", :oe => "utf-8", :output => "xml"}).
+      with(query: {key: "REPLACE_WITH_YOUR_GOOGLE_KEY", ll: "42.383339,-71.049226", oe: "utf-8", output: "xml"}).
       to_return(body: File.read(File.expand_path('../../fixtures/geo.kml', __FILE__)))
   end
 
