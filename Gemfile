@@ -23,6 +23,10 @@ group :assets do
   gem 'uglifier'
 end
 
+group :development do
+  gem 'debugger'
+end
+
 group :development, :test do
   gem 'pry'
   gem 'pry-debugger', :platforms => :mri_19
