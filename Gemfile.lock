@@ -196,7 +196,7 @@ GEM
       activemodel (~> 4.0)
     warden (1.2.3)
       rack (>= 1.0)
-    webmock (1.16.0)
+    webmock (1.16.1)
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
 
