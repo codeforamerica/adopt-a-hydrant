@@ -145,7 +145,7 @@ GEM
       remotipart (~> 1.0)
       safe_yaml (~> 0.9)
       sass-rails (~> 4.0)
-    rails_serve_static_assets (0.0.1)
+    rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
     railties (4.0.2)
       actionpack (= 4.0.2)
