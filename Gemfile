@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.0'
 
 gem 'rails', '~> 4.0.1'
 
@@ -23,15 +23,9 @@ group :assets do
   gem 'uglifier'
 end
 
-group :development do
-  gem 'debugger'
-end
-
 group :development, :test do
   gem 'pry'
-  gem 'pry-debugger', :platforms => :mri_19
   gem 'pry-rescue'
-  gem 'pry-stack_explorer', :platforms => :mri_19
 end
 
 group :production do

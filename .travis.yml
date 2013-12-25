@@ -1,7 +1,6 @@
 ---
-before_install: gem install bundler --pre
 before_script: bundle exec rake db:create db:schema:load
 bundler_args: --without assets:development:production
 language: ruby
 rvm:
-- 2.0.0
+- 2.1.0
