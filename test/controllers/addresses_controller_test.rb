@@ -13,6 +13,9 @@ class AddressesControllerTest < ActionController::TestCase
     stub_request(:get, "http://maps.google.com/maps/api/geocode/json").
       with(:query => {:address => ", ", :sensor => "false"}).
       to_return(:body => File.read(File.expand_path('../../fixtures/unknown_address.json', __FILE__)))
+    stub_request(:get, "http://geocoder.us/service/csv/geocode").
+      with(:query => {:address => ", "}).
+      to_return(:body => File.read(File.expand_path('../../fixtures/unknown_address.json', __FILE__)))
     get :show, :address => '', :city_state => '', :format => 'json'
     assert_response :missing
   end

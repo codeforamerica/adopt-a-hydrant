@@ -1,6 +1,7 @@
+require 'geokit'
+
 class Thing < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
-  include Geokit::Geocoders
   validates_uniqueness_of :city_id, :allow_nil => true
   validates_presence_of :lat, :lng
   belongs_to :user
@@ -17,7 +18,7 @@ class Thing < ActiveRecord::Base
   end
 
   def reverse_geocode
-    @reverse_geocode ||= MultiGeocoder.reverse_geocode([lat, lng])
+    @reverse_geocode ||= Geokit::Geocoders::MultiGeocoder.reverse_geocode([lat, lng])
   end
 
   def street_number
