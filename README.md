@@ -120,7 +120,7 @@ Ideally, a bug report should include a pull request with failing specs.
 [pr]: http://help.github.com/send-pull-requests/
 
 ## Supported Ruby Version
-This library aims to support and is [tested against][travis] Ruby version 1.9.3.
+This library aims to support and is [tested against][travis] Ruby version 2.1.0.
 
 If something doesn't work on this version, it should be considered a bug.
 
@@ -135,7 +135,7 @@ timely fashion. If critical issues for a particular implementation exist at the
 time of a major release, support for that Ruby version may be dropped.
 
 ## Copyright
-Copyright (c) 2012 Code for America. See [LICENSE][] for details.
+Copyright (c) 2014 Code for America. See [LICENSE][] for details.
 
 [license]: https://github.com/codeforamerica/adopt-a-hydrant/blob/master/LICENSE.md
 
