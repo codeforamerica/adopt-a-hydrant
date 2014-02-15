@@ -25,7 +25,6 @@ end
 
 group :development, :test do
   gem 'pry'
-  gem 'pry-rescue'
 end
 
 group :production do
