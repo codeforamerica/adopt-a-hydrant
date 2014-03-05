@@ -1,8 +1,8 @@
 # Adopt-a-Hydrant
 
-[![Build Status](https://secure.travis-ci.org/codeforamerica/adopt-a-hydrant.png?branch=master)][travis]
-[![Dependency Status](https://gemnasium.com/codeforamerica/adopt-a-hydrant.png?travis)][gemnasium]
-[![Coverage Status](https://coveralls.io/repos/codeforamerica/adopt-a-hydrant/badge.png?branch=master)][coveralls]
+[![Build Status](http://img.shields.io/travis/codeforamerica/adopt-a-hydrant.svg)][travis]
+[![Dependency Status](http://img.shields.io/gemnasium/codeforamerica/adopt-a-hydrant.svg)][gemnasium]
+[![Coverage Status](http://img.shields.io/coveralls/codeforamerica/adopt-a-hydrant.svg)][coveralls]
 
 [travis]: http://travis-ci.org/codeforamerica/adopt-a-hydrant
 [gemnasium]: https://gemnasium.com/codeforamerica/adopt-a-hydrant
