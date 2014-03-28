@@ -2,16 +2,23 @@ AllCops:
   Includes:
     - 'Gemfile'
     - 'Rakefile'
-    - 'twitter.gemspec'
+  Excludes:
+    - 'db/schema.rb'
 
 # Avoid long parameter lists
 ParameterLists:
   Max: 4
   CountKeywordArgs: true
 
+ClassLength:
+  Max: 100
+
+LineLength:
+  Enabled: false
+
 MethodLength:
   CountComments: false
-  Max: 14
+  Max: 15
 
 # Avoid more than `Max` levels of nesting.
 BlockNesting:
@@ -25,15 +32,11 @@ CollectionMethods:
     find:     'detect'
     find_all: 'select'
 
-# Limit line length
-LineLength:
-  Enabled: false
-
 # Disable documentation checking until a class needs to be documented once
 Documentation:
   Enabled: false
 
-# Enforce Ruby 1.8-compatible hash syntax
+# Enforce Ruby 1.9-compatible hash syntax
 HashSyntax:
   EnforcedStyle: ruby19
 
@@ -67,3 +70,32 @@ CaseIndentation:
 
 Lambda:
   Enabled: false
+
+RaiseArgs:
+  EnforcedStyle: compact
+
+TrailingComma:
+  Enabled: false
+
+DoubleNegation:
+  Enabled: false
+
+PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%':  ()
+    '%i': ()
+    '%q': ()
+    '%Q': ()
+    '%r': '{}'
+    '%s': ()
+    '%w': '[]'
+    '%W': '[]'
+    '%x': ()
+
+WordArray:
+  Exclude:
+    - 'app/helpers/application_helper.rb'
+
+NumericLiterals:
+  Exclude:
+    - 'db/seeds.rb'

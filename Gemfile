@@ -33,6 +33,7 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'rubocop'
   gem 'simplecov', require: false
   gem 'sqlite3'
   gem 'webmock'
