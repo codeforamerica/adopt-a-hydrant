@@ -1,5 +1,5 @@
 class SessionsController < Devise::SessionsController
-  skip_before_filter :verify_authenticity_token, only: [:destroy]
+  skip_before_action :verify_authenticity_token, only: [:destroy]
 
   def new
     redirect_to(root_path)
@@ -12,7 +12,7 @@ class SessionsController < Devise::SessionsController
       yield resource if block_given?
       render(json: resource)
     else
-      render(json: {errors: {password: [t("errors.password")]}}, status: 401)
+      render(json: {errors: {password: [t('errors.password')]}}, status: 401)
     end
   end
 

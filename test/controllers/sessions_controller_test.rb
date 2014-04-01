@@ -3,7 +3,7 @@ require 'test_helper'
 class SessionsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   setup do
-    request.env["devise.mapping"] = Devise.mappings[:user]
+    request.env['devise.mapping'] = Devise.mappings[:user]
     @user = users(:erik)
   end
 
@@ -31,7 +31,7 @@ class SessionsControllerTest < ActionController::TestCase
   test 'should empty session on sign out' do
     sign_in @user
     get :destroy, format: :json
-    assert_equal {}, session
+    assert session.empty?
     assert_response :success
   end
 end

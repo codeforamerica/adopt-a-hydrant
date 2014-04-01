@@ -12,7 +12,7 @@ class PasswordsController < Devise::PasswordsController
   def edit
     self.resource = resource_class.new
     resource.reset_password_token = params[:reset_password_token]
-    render("edit", layout: "info_window")
+    render('edit', layout: 'info_window')
   end
 
   def update
@@ -22,7 +22,7 @@ class PasswordsController < Devise::PasswordsController
       resource.unlock_access! if unlockable?(resource)
       sign_in(resource_name, resource)
     end
-    redirect_to(controller: "main", action: "index")
+    redirect_to(controller: 'main', action: 'index')
   end
 
 private

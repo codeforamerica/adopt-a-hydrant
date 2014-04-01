@@ -3,14 +3,14 @@ require 'test_helper'
 class RemindersControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   setup do
-    request.env["devise.mapping"] = Devise.mappings[:user]
+    request.env['devise.mapping'] = Devise.mappings[:user]
     @thing = things(:thing_1)
     @dan = users(:dan)
     @user = users(:erik)
     @thing.user = @dan
     @thing.save!
-    stub_request(:get, "http://maps.google.com/maps/api/geocode/json").
-      with(query: {latlng: "42.383339,-71.049226", sensor: "false"}).
+    stub_request(:get, 'http://maps.google.com/maps/api/geocode/json').
+      with(query: {latlng: '42.383339,-71.049226', sensor: 'false'}).
       to_return(body: File.read(File.expand_path('../../fixtures/city_hall.json', __FILE__)))
   end
 
