@@ -1,8 +1,8 @@
 AllCops:
-  Includes:
+  Include:
     - 'Gemfile'
     - 'Rakefile'
-  Excludes:
+  Exclude:
     - 'db/schema.rb'
 
 # Avoid long parameter lists
