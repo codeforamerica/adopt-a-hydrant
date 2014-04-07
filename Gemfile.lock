@@ -175,7 +175,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.2)
     tilt (1.4.1)
-    tins (1.0.1)
+    tins (1.1.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
