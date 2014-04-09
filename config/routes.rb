@@ -1,4 +1,4 @@
-AdoptAThing::Application.routes.draw do
+Rails.application.routes.draw do
   devise_for :users, controllers: {
     passwords: 'passwords',
     registrations: 'users',
