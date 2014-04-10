@@ -19,7 +19,7 @@ platforms :ruby_18 do
 end
 
 group :assets do
-  gem 'sass-rails'
+  gem 'sass-rails', '>= 4.0.3'
   gem 'uglifier'
 end
 
