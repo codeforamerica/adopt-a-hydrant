@@ -1,5 +1,5 @@
 # Data from http://data.dc.gov/Main_DataCatalog.aspx?id=411
-# I'll be writing a tutorial soon on www.moncefbelyamani.com 
+# I'll be writing a tutorial soon on www.moncefbelyamani.com
 # for extracting the lat/long from that data
 
 Thing.create(city_id:     1,lng: -77.00896639534831, lat: 38.870310061087913)

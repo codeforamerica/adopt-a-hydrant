@@ -1,16 +1,17 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.1.1'
 
-gem 'rails', '~> 3.2'
+gem 'rails', '~> 4.1.0'
 
 gem 'arel'
 gem 'devise'
 gem 'geokit'
-gem 'haml', '~> 3.2.0.alpha'
+gem 'haml'
 gem 'http_accept_language'
+gem 'nokogiri'
 gem 'pg'
+gem 'rails_12factor'
 gem 'rails_admin'
-gem 'strong_parameters'
 gem 'validates_formatting_of'
 gem 'newrelic_rpm'
 
@@ -19,8 +20,16 @@ platforms :ruby_18 do
 end
 
 group :assets do
-  gem 'sass-rails'
+  gem 'sass-rails', '>= 4.0.3'
   gem 'uglifier'
+end
+
+group :development do
+  gem 'spring'
+end
+
+group :development, :test do
+  gem 'pry'
 end
 
 group :production do
@@ -28,7 +37,9 @@ group :production do
 end
 
 group :test do
-  gem 'simplecov'
+  gem 'coveralls', require: false
+  gem 'rubocop'
+  gem 'simplecov', require: false
   gem 'sqlite3'
   gem 'webmock'
 end

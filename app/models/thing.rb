@@ -1,12 +1,14 @@
+require 'geokit'
+
 class Thing < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
-  include Geokit::Geocoders
-  validates_uniqueness_of :city_id, allow_nil: true
-  validates_presence_of :lat, :lng
   belongs_to :user
   has_many :reminders
+  validates :city_id, uniqueness: true, allow_nil: true
+  validates :lat, presence: true
+  validates :lng, presence: true
 
-  def self.find_closest(lat, lng, limit=10)
+  def self.find_closest(lat, lng, limit = 10)
     query = <<-SQL
       SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(RADIANS(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance
       FROM things
@@ -17,7 +19,7 @@ class Thing < ActiveRecord::Base
   end
 
   def reverse_geocode
-    @reverse_geocode ||= MultiGeocoder.reverse_geocode([lat, lng])
+    @reverse_geocode ||= Geokit::Geocoders::MultiGeocoder.reverse_geocode([lat, lng])
   end
 
   def street_number
@@ -57,6 +59,6 @@ class Thing < ActiveRecord::Base
   end
 
   def adopted?
-    !user_id.nil?
+    !user.nil?
   end
 end

@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
-  before_filter :set_flash_from_params
-  before_filter :set_locale
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
+  before_action :set_flash_from_params
+  before_action :set_locale
 
 protected
 
@@ -14,9 +16,9 @@ protected
   end
 
   def set_locale
-    available_languages = Dir.glob(Rails.root + "config/locales/??.yml").map do |file|
-      File.basename(file, ".yml")
+    available_languages = Dir.glob(Rails.root + 'config/locales/??.yml').collect do |file|
+      File.basename(file, '.yml')
     end
-    I18n.locale = request.compatible_language_from(available_languages) || I18n.default_locale
+    I18n.locale = http_accept_language.compatible_language_from(available_languages) || I18n.default_locale
   end
 end

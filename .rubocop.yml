@@ -1,0 +1,101 @@
+AllCops:
+  Include:
+    - 'Gemfile'
+    - 'Rakefile'
+  Exclude:
+    - 'db/schema.rb'
+
+# Avoid long parameter lists
+ParameterLists:
+  Max: 4
+  CountKeywordArgs: true
+
+ClassLength:
+  Max: 100
+
+LineLength:
+  Enabled: false
+
+MethodLength:
+  CountComments: false
+  Max: 15
+
+# Avoid more than `Max` levels of nesting.
+BlockNesting:
+  Max: 2
+
+# Align with the style guide.
+CollectionMethods:
+  PreferredMethods:
+    map:      'collect'
+    reduce:   'inject'
+    find:     'detect'
+    find_all: 'select'
+
+# Disable documentation checking until a class needs to be documented once
+Documentation:
+  Enabled: false
+
+# Enforce Ruby 1.9-compatible hash syntax
+HashSyntax:
+  EnforcedStyle: ruby19
+
+# No spaces inside hash literals
+SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+# Allow dots at the end of lines
+DotPosition:
+  Enabled: false
+
+# Don't require magic comment at the top of every file
+Encoding:
+  Enabled: false
+
+# Enforce outdenting of access modifiers (i.e. public, private, protected)
+AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+EmptyLinesAroundAccessModifier:
+  Enabled: true
+
+# Align ends correctly
+EndAlignment:
+  AlignWith: variable
+
+# Indentation of when/else
+CaseIndentation:
+  IndentWhenRelativeTo: end
+  IndentOneStep: false
+
+Lambda:
+  Enabled: false
+
+RaiseArgs:
+  EnforcedStyle: compact
+
+TrailingComma:
+  Enabled: false
+
+DoubleNegation:
+  Enabled: false
+
+PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%':  ()
+    '%i': ()
+    '%q': ()
+    '%Q': ()
+    '%r': '{}'
+    '%s': ()
+    '%w': '[]'
+    '%W': '[]'
+    '%x': ()
+
+WordArray:
+  Exclude:
+    - 'app/helpers/application_helper.rb'
+
+NumericLiterals:
+  Exclude:
+    - 'db/seeds.rb'

@@ -3,7 +3,7 @@ require 'test_helper'
 class PasswordsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   setup do
-    request.env["devise.mapping"] = Devise.mappings[:user]
+    request.env['devise.mapping'] = Devise.mappings[:user]
     @user = users(:erik)
   end
 
@@ -28,8 +28,8 @@ class PasswordsControllerTest < ActionController::TestCase
   end
 
   test 'should reset user password with an valid reset password token' do
-    @user.send :generate_reset_password_token!
-    put :update, user: {reset_password_token: @user.reset_password_token, password: 'new_password', password_confirmation: 'new_password'}
+    token = @user.send_reset_password_instructions
+    put :update, user: {reset_password_token: token, password: 'new_password'}
     @user.reload
     assert @user.valid_password?('new_password')
     assert_response :redirect
@@ -37,8 +37,8 @@ class PasswordsControllerTest < ActionController::TestCase
   end
 
   test 'should not reset user password with an invalid reset password token' do
-    @user.send :generate_reset_password_token!
-    put :update, user: {reset_password_token: 'invalid_token', password: 'new_password', password_confirmation: 'new_password'}
+    @user.send_reset_password_instructions
+    put :update, user: {reset_password_token: 'invalid_token', password: 'new_password'}
     @user.reload
     assert !@user.valid_password?('new_password')
     assert_response :redirect

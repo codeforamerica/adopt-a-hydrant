@@ -3,10 +3,10 @@ class AddressesController < ApplicationController
 
   def show
     @address = Address.geocode("#{params[:address]}, #{params[:city_state]}")
-    unless @address.blank?
-      respond_with @address
+    if @address.blank?
+      render(json: {errors: {address: [t('errors.not_found', thing: t('defaults.address'))]}}, status: 404)
     else
-      render(json: {errors: {address: [t("errors.not_found", thing: t("defaults.address"))]}}, status: 404)
+      respond_with @address
     end
   end
 end
