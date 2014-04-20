@@ -13,6 +13,7 @@ gem 'pg'
 gem 'rails_12factor'
 gem 'rails_admin'
 gem 'validates_formatting_of'
+gem 'newrelic_rpm'
 
 platforms :ruby_18 do
   gem 'fastercsv'
@@ -32,7 +33,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'puma'
+  gem 'thin'
 end
 
 group :test do

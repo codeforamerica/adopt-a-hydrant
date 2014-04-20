@@ -15,15 +15,16 @@ Claim responsibility for shoveling out a fire hydrant after it snows.
 
 ## Demo
 You can see a running version of the application at
-[http://adopt-a-hydrant.herokuapp.com/][demo].
+[http://hydrants.codefordc.org/][demo].
 
-[demo]: http://adopt-a-hydrant.herokuapp.com/
+[demo]: http://hydrants.codefordc.org/
 
 ## Installation
-This application requires [Postgres](http://www.postgresql.org/) to be installed
+This application requires [Postgres](http://www.postgresql.org/) to be installed. The easiest way to install Postgres on a Mac is with Homebrew, as detailed in this [Postgres installation guide](http://www.moncefbelyamani.com/how-to-install-postgresql-on-a-mac-with-homebrew-and-lunchy/).
 
     git clone git://github.com/codeforamerica/adopt-a-hydrant.git
     cd adopt-a-hydrant
+    gem update bundler
     bundle install
 
     bundle exec rake db:create
@@ -66,7 +67,20 @@ A successful deployment to Heroku requires a few setup steps:
 
     `heroku run bundle exec rake db:seed`
 
-6. Keep in mind that the Heroku free Postgres plan only allows up to 10,000 rows, so if your city has more than 10,000 fire hydrants (or other thing to be adopted), you will need to upgrade to the $9/month plan.
+Keep in mind that the Heroku free Postgres plan only allows up to 10,000 rows,
+so if your city has more than 10,000 fire hydrants (or other thing to be
+adopted), you will need to upgrade to the $9/month plan.
+
+### Google Analytics
+If you have a Google Analytics account you want to use to track visits to your
+deployment of this app, just set your ID and your domain name as environment
+variables:
+
+    heroku config:set GOOGLE_ANALYTICS_ID=your_id
+    heroku config:set GOOGLE_ANALYTICS_DOMAIN=your_domain_name
+
+An example ID is `UA-12345678-9`, and an example domain is `adoptahydrant.org`.
+
 
 ## Contributing
 In the spirit of [free software][free-sw], **everyone** is encouraged to help

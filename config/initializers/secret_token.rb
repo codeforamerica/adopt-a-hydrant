@@ -5,6 +5,7 @@
 
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
+
 # You can use `rake secret` to generate a secure secret key.
 
 if Rails.env.production? && ENV['SECRET_TOKEN'].blank?

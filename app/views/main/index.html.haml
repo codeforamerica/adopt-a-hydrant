@@ -11,25 +11,18 @@
           = render :partial => "sidebar/search"
         - else
           = render :partial => "sidebar/combo_form"
+        
       #logos
-        #col1
+        %br
           %a{:href => "http://codeforamerica.org/"}
             = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
-          %br
-          %a{:href => "http://bostonbuilt.org/"}
-            = image_tag "logos/bostonbuilt.png", :alt => t("sponsors.built"), :title => t("sponsors.built")
-        #col2
-          %a{:href => "http://www.cityofboston.gov/"}
-            = image_tag "logos/boston.png", :alt => t("sponsors.city"), :title => t("sponsors.city")
-          %p#mayor
-            %a{:href => "http://www.cityofboston.gov/mayor/"}
-              = "#{t("sponsors.mayor.name")},"
-              %em
-                = t("sponsors.mayor.title")
+          
+        
       #feedback
         %p
-          %a{:href => URI.escape("mailto:adoptahydrant@cityofboston.gov?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} - #{t("links.feedback").titleize}")}
+          %a{:href => URI.escape("mailto:moncef@codeforamerica.org?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} - #{t("links.feedback").titleize}")}
             = t("links.feedback")
     .table-cell.map-container
       #map
         &nbsp;
+= render :partial => 'layouts/footer'
