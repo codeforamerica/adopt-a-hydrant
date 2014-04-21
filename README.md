@@ -66,7 +66,19 @@ A successful deployment to Heroku requires a few setup steps:
 
     `heroku run bundle exec rake db:seed`
 
-6. Keep in mind that the Heroku free Postgres plan only allows up to 10,000 rows, so if your city has more than 10,000 fire hydrants (or other thing to be adopted), you will need to upgrade to the $9/month plan.
+Keep in mind that the Heroku free Postgres plan only allows up to 10,000 rows,
+so if your city has more than 10,000 fire hydrants (or other thing to be
+adopted), you will need to upgrade to the $9/month plan.
+
+### Google Analytics
+If you have a Google Analytics account you want to use to track visits to your
+deployment of this app, just set your ID and your domain name as environment
+variables:
+
+    heroku config:set GOOGLE_ANALYTICS_ID=your_id
+    heroku config:set GOOGLE_ANALYTICS_DOMAIN=your_domain_name
+
+An example ID is `UA-12345678-9`, and an example domain is `adoptahydrant.org`.
 
 ## Contributing
 In the spirit of [free software][free-sw], **everyone** is encouraged to help
