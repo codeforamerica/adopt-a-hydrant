@@ -1,6 +1,6 @@
 development: &DEVELOPMENT
   adapter: postgresql
-  database: adopt_a_thing_development
+  database: adopt_a_tree_development
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -8,7 +8,7 @@ development: &DEVELOPMENT
 # Do not set this db to the same as development or production.
 test:
   <<: *DEVELOPMENT
-  database: adopt_a_thing_test
+  database: adopt_a_tree_test
 
 production:
   <<: *DEVELOPMENT
