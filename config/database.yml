@@ -1,14 +1,18 @@
-development: &DEVELOPMENT
+default: &default
   adapter: postgresql
-  database: adopt_a_tree_development
-  host: localhost
+  encoding: unicode
+  pool: 5
+  username: adopta
+  password:
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
+development:
+  <<: *default
+  database: adopta_development
+
 test:
-  <<: *DEVELOPMENT
-  database: adopt_a_tree_test
+  <<: *default
+  database: adopta_test
 
 production:
-  <<: *DEVELOPMENT
+  <<: *default
+  database: adopta_production
