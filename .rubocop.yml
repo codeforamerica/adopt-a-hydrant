@@ -3,6 +3,7 @@ AllCops:
     - 'Gemfile'
     - 'Rakefile'
   Exclude:
+    - 'bin/*'
     - 'db/schema.rb'
 
 # Avoid long parameter lists
