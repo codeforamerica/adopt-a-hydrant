@@ -1,5 +1,5 @@
 $(function() {
-  var center = new google.maps.LatLng(42.358431, -71.059773);
+  var center = new google.maps.LatLng(44.983333, -93.266667);
   var mapOptions = {
     center: center,
     disableDoubleClickZoom: true,
@@ -7,13 +7,13 @@ $(function() {
     mapTypeControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     maxZoom: 19,
-    minZoom: 15,
+    minZoom: 10,
     panControl: false,
     rotateControl: false,
     scaleControl: false,
     scrollwheel: false,
     streetViewControl: true,
-    zoom: 15,
+    zoom: 12,
     zoomControl: true
   };
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
