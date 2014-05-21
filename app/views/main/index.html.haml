@@ -12,23 +12,17 @@
         - else
           = render :partial => "sidebar/combo_form"
       #logos
-        #col1
-          %a{:href => "http://codeforamerica.org/"}
-            = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
-          %br
-          %a{:href => "http://bostonbuilt.org/"}
-            = image_tag "logos/bostonbuilt.png", :alt => t("sponsors.built"), :title => t("sponsors.built")
-        #col2
-          %a{:href => "http://www.cityofboston.gov/"}
-            = image_tag "logos/boston.png", :alt => t("sponsors.city"), :title => t("sponsors.city")
-          %p#mayor
-            %a{:href => "http://www.cityofboston.gov/mayor/"}
-              = "#{t("sponsors.mayor.name")},"
-              %em
-                = t("sponsors.mayor.title")
+        %a{:href => "http://www.minneapolisparks.org/"}
+          = image_tag "logos/minneapolis-parks.png", :alt => t("sponsors.board"), :title => t("sponsors.board")
+        %br
+        %a{:href => "http://codeforamerica.org/"}
+          = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
+        %br
+        %a{:href => "http://www.opentwincities.org/"}
+          = image_tag "logos/otc-o-brand-horiz.png", :alt => t("sponsors.otc"), :title => t("sponsors.otc")
       #feedback
         %p
-          %a{:href => URI.escape("mailto:adoptahydrant@cityofboston.gov?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} - #{t("links.feedback").titleize}")}
+          %a{:href => URI.escape("mailto:contact@opentwincities.org?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} - #{t("links.feedback").titleize}")}
             = t("links.feedback")
     .table-cell.map-container
       #map

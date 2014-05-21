@@ -10,7 +10,7 @@ en:
     edit_profile: "Edit profile"
     email_password: "Email me my password"
     find: "Find %{thing}"
-    send_reminder: "Send reminder to shovel"
+    send_reminder: "Send reminder to water"
     sign_in: "Sign in"
     sign_out: "Sign out"
     sign_up: "Sign up"
@@ -83,9 +83,6 @@ en:
     thank_you: "Thank you for adopting this %{thing}!"
     tos: "Terms of Service"
   sponsors:
-    built: "Built in Boston"
+    board: "Minneapolis Park & Recreation Board"
     cfa: "Code for America"
-    city: "City of Boston"
-    mayor:
-      name: "Thomas M. Menino"
-      title: "Mayor"
+    otc: "Open Twin Cities"
