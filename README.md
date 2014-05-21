@@ -1,4 +1,4 @@
-# Adopt-a-Hydrant
+# Adopt-a-Tree
 
 [![Build Status](http://img.shields.io/travis/codeforamerica/adopt-a-hydrant.svg)][travis]
 [![Dependency Status](http://img.shields.io/gemnasium/codeforamerica/adopt-a-hydrant.svg)][gemnasium]
@@ -8,7 +8,7 @@
 [gemnasium]: https://gemnasium.com/codeforamerica/adopt-a-hydrant
 [coveralls]: https://coveralls.io/r/codeforamerica/adopt-a-hydrant
 
-Claim responsibility for shoveling out a fire hydrant after it snows.
+Beautify your street by watering a tree.
 
 ## Screenshot
 ![Adopt-a-Hydrant](https://github.com/codeforamerica/adopt-a-hydrant/raw/master/screenshot.png "Adopt-a-Hydrant")
@@ -22,6 +22,8 @@ You can see a running version of the application at
 ## Installation
 This application requires [Postgres](http://www.postgresql.org/) to be installed
 
+Refer to the [Adopt-a-Tree Wiki](https://github.com/codeforamerica/adopt-a-hydrant/wiki/Adopta-Install-Notes) for detailed instructions on installation.
+
     git clone git://github.com/codeforamerica/adopt-a-hydrant.git
     cd adopt-a-hydrant
     bundle install
@@ -34,6 +36,19 @@ This application requires [Postgres](http://www.postgresql.org/) to be installed
 
 ## Seed Data
     bundle exec rake db:seed
+
+## Accessing Admin View
+
+*Based on [Raleigh's Adopt-A-Hydrant installation notes](http://localwiki.net/raleigh/Adopta_App/Development?&docuredirected_from=raleigh%20adopta%20app/development).*
+
+1. First, signup through the site. 
+2. Then open a terminal and start the rails console - `rails console`.
+3. List all users - `User.all`
+4. Find your user id in the list. For this example, assume it is '1'.
+5. Search for your user - `a=User.find(1)`
+6. Set the admin flag on your user - `a.admin = true`
+7. Save your user - `a.save`
+8. Go back to your browser, and visit localhost:3000/admin
 
 ## Deploying to Heroku
 A successful deployment to Heroku requires a few setup steps:
