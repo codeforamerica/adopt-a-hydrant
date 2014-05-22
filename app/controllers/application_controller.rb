@@ -8,10 +8,8 @@ class ApplicationController < ActionController::Base
 protected
 
   def set_flash_from_params
-    if params[:flash]
-      params[:flash].each do |key, message|
-        flash.now[key.to_sym] = message
-      end
+    params.fetch(:flash, []).each do |key, message|
+      flash.now[key.to_sym] = message
     end
   end
 

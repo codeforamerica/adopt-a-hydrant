@@ -145,7 +145,7 @@ GEM
     remotipart (1.2.1)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    rubocop (0.21.0)
+    rubocop (0.22.0)
       json (>= 1.7.7, < 2)
       parser (~> 2.1.9)
       powerpack (~> 0.0.6)
