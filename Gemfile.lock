@@ -82,7 +82,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.0)
-    minitest (5.3.4)
+    minitest (5.3.5)
     multi_json (1.10.1)
     nested_form (0.3.2)
     nokogiri (1.6.2.1)
