@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   scope '/sidebar', controller: :sidebar do
     get :search, as: 'search'
     get :combo_form, as: 'combo_form'
-    get :edit_profile , as: 'edit_profile'
+    get :edit_profile, as: 'edit_profile'
   end
 
   resource :reminders

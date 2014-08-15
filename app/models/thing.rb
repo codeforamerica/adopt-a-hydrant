@@ -1,8 +1,12 @@
 require 'geokit'
 
 class Thing < ActiveRecord::Base
+  extend Forwardable
   include ActiveModel::ForbiddenAttributesProtection
   belongs_to :user
+  def_delegators :reverse_geocode, :city, :country, :country_code,
+                 :full_address, :state, :street_address, :street_name,
+                 :street_number, :zip
   has_many :reminders
   validates :city_id, uniqueness: true, allow_nil: true
   validates :lat, presence: true
@@ -20,42 +24,6 @@ class Thing < ActiveRecord::Base
 
   def reverse_geocode
     @reverse_geocode ||= Geokit::Geocoders::MultiGeocoder.reverse_geocode([lat, lng])
-  end
-
-  def street_number
-    reverse_geocode.street_number
-  end
-
-  def street_name
-    reverse_geocode.street_name
-  end
-
-  def street_address
-    reverse_geocode.street_address
-  end
-
-  def city
-    reverse_geocode.city
-  end
-
-  def state
-    reverse_geocode.state
-  end
-
-  def zip
-    reverse_geocode.zip
-  end
-
-  def country_code
-    reverse_geocode.country_code
-  end
-
-  def country
-    reverse_geocode.country
-  end
-
-  def full_address
-    reverse_geocode.full_address
   end
 
   def adopted?
