@@ -6,6 +6,7 @@ AllCops:
     - 'bin/*'
     - 'db/schema.rb'
     - 'db/seeds.rb'
+    - 'vendor/bundle/**/*'
 
 # Avoid long parameter lists
 ParameterLists:
