@@ -5,6 +5,7 @@ AllCops:
   Exclude:
     - 'bin/*'
     - 'db/schema.rb'
+    - 'db/seeds.rb'
 
 # Avoid long parameter lists
 ParameterLists:
