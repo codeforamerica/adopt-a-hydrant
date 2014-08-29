@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 5) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "rails_admin_histories", force: true do |t|
     t.string   "message"
@@ -27,7 +28,7 @@ ActiveRecord::Schema.define(version: 5) do
     t.datetime "updated_at"
   end
 
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "reminders", force: true do |t|
     t.datetime "created_at"
@@ -38,22 +39,22 @@ ActiveRecord::Schema.define(version: 5) do
     t.boolean  "sent",         default: false
   end
 
-  add_index "reminders", ["from_user_id"], name: "index_reminders_on_from_user_id", using: :btree
-  add_index "reminders", ["sent"], name: "index_reminders_on_sent", using: :btree
-  add_index "reminders", ["thing_id"], name: "index_reminders_on_thing_id", using: :btree
-  add_index "reminders", ["to_user_id"], name: "index_reminders_on_to_user_id", using: :btree
+  add_index "reminders", ["from_user_id"], :name => "index_reminders_on_from_user_id"
+  add_index "reminders", ["sent"], :name => "index_reminders_on_sent"
+  add_index "reminders", ["thing_id"], :name => "index_reminders_on_thing_id"
+  add_index "reminders", ["to_user_id"], :name => "index_reminders_on_to_user_id"
 
   create_table "things", force: true do |t|
+    t.integer  "city_id"
+    t.string   "city_unique_id"
+    t.decimal  "lat",                                                                     precision: 32, scale: 29, null: false
+    t.decimal  "lon",                                                                     precision: 32, scale: 29, null: false
+    t.string   "species"
+    t.json     "properties"
+    t.spatial  "lonlat",         limit: {:srid=>4326, :type=>"point", :geographic=>true}
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.decimal  "lat",        precision: 16, scale: 14, null: false
-    t.decimal  "lng",        precision: 17, scale: 14, null: false
-    t.integer  "city_id"
-    t.integer  "user_id"
   end
-
-  add_index "things", ["city_id"], name: "index_things_on_city_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.datetime "created_at"
@@ -80,7 +81,7 @@ ActiveRecord::Schema.define(version: 5) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
