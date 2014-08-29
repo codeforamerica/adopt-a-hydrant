@@ -13,11 +13,8 @@ Beautify your street by watering a tree.
 ## Screenshot
 ![Adopt-a-Hydrant](https://github.com/codeforamerica/adopt-a-hydrant/raw/master/screenshot.png "Adopt-a-Hydrant")
 
-## Demo
-You can see a running version of the application at
-[http://adopt-a-hydrant.herokuapp.com/][demo].
-
-[demo]: http://adopt-a-hydrant.herokuapp.com/
+## See It Online
+A version is deployed online at <http://stormy-tundra-2903.herokuapp.com/>
 
 ## Installation
 This application requires [Postgres](http://www.postgresql.org/) to be installed
