@@ -70,7 +70,7 @@ Rails.application.configure do
     :address =>         'smtp.mandrillapp.com',
     :user_name =>       ENV['MANDRILL_USERNAME'],
     :password =>        ENV['MANDRILL_APIKEY'],
-    :domain =>          ENV['heroku.com'],
+    :domain =>          'heroku.com',
     :authentication =>  :plain
   }
   config.action_mailer.default_url_options = {host: 'minneapolisparks.org'}
