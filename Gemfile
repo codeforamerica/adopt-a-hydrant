@@ -3,8 +3,11 @@ ruby '2.1.2'
 
 gem 'rails', '~> 4.1.0'
 
+gem 'active_model_serializers'
+gem 'activerecord-postgis-adapter'
 gem 'arel'
 gem 'devise'
+gem 'geocoder'
 gem 'geokit'
 gem 'haml'
 gem 'http_accept_language'
@@ -28,7 +31,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :production do

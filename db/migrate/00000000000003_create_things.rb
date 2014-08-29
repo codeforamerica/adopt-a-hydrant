@@ -1,14 +1,19 @@
 class CreateThings < ActiveRecord::Migration
   def change
     create_table :things do |t|
-      t.timestamps
-      t.string :name
-      t.decimal :lat, null: false, precision: 16, scale: 14
-      t.decimal :lng, null: false, precision: 17, scale: 14
-      t.integer :city_id
-      t.integer :user_id
-    end
+      # from the city data
+      t.integer :city_id, index: true, unique: true
+      t.string  :city_unique_id, index: true, unique: true
+      t.decimal :lat, null: false, precision: 32, scale: 29
+      t.decimal :lng, null: false, precision: 32, scale: 29
+      t.string  :species
+      # heap of everything
+      t.json    :properties
 
-    add_index :things, :city_id, unique: true
+      # PostGIS magic
+      t.point   :latlon, geographic: true, spatial: true, index: true
+
+      t.timestamps
+    end
   end
 end

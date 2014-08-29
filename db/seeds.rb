@@ -1,21 +1,9 @@
-# make fake plastic trees
-  MANY = 1000
+trees_file_path = Rails.root.join('db', 'trees.json')
+trees_file = File.read(trees_file_path)
+trees_hash = JSON.parse(trees_file)
 
-# rough box of Minneapolis:
-  MINLAT = 44.906173
-  MAXLAT = 45.012823
-  MINLNG = -93.328630
-  MAXLNG = -93.219110
+# this is a weird nested hash
+trees_meta = trees_hash["meta"]
+# this is just a huge array
+trees_data = trees_hash["data"]
 
-  def fakelat
-    rand(MINLAT..MAXLAT).round(6)
-  end
-
-  def fakelng
-    rand(MINLNG..MAXLNG).round(6)
-  end
-
-MANY.times do |n|
-  city_id = n+1
-  Thing.create(city_id: city_id, lng: fakelng, lat: fakelat)
-end
