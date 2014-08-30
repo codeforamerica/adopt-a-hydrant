@@ -1,6 +1,7 @@
 class PasswordsController < Devise::PasswordsController
   def create
-    self.resource = resource_class.send_reset_password_instructions(resource_params)
+    self.resource = resource_class.send_reset_password_instructions(
+      resource_params)
     yield resource if block_given?
     if successfully_sent?(resource)
       render(json: {success: true})
@@ -28,6 +29,7 @@ class PasswordsController < Devise::PasswordsController
 private
 
   def resource_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :reset_password_token)
+    params.require(:user).permit(:email, :password,
+      :password_confirmation, :reset_password_token)
   end
 end
