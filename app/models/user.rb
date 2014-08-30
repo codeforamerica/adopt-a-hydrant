@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   def remove_non_digits_from_phone_numbers
     self.sms_number = sms_number.to_s.gsub(/\D/, '').to_i if sms_number.present?
-    self.voice_number = voice_number.to_s.gsub(/\D/, '').to_i if voice_number.present?
+    self.voice_number = voice_number.to_s.gsub(/\D/, ''
+      ).to_i if voice_number.present?
   end
 end

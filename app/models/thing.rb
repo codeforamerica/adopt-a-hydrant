@@ -14,7 +14,9 @@ class Thing < ActiveRecord::Base
 
   def self.find_closest(lat, lng, limit = 10)
     query = <<-SQL
-      SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(RADIANS(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance
+      SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) *
+        COS(RADIANS(lng) - RADIANS(?)) + SIN(RADIANS(?)) *
+        SIN(RADIANS(lat)))) AS distance
       FROM things
       ORDER BY distance
       LIMIT ?
@@ -23,7 +25,8 @@ class Thing < ActiveRecord::Base
   end
 
   def reverse_geocode
-    @reverse_geocode ||= Geokit::Geocoders::MultiGeocoder.reverse_geocode([lat, lng])
+    @reverse_geocode ||= Geokit::Geocoders::MultiGeocoder.reverse_geocode(
+      [lat, lng])
   end
 
   def adopted?
