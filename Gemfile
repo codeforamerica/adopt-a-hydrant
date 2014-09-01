@@ -1,38 +1,30 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
 
-gem 'rails', '~> 4.1.0'
+gem 'rails', '~> 4.1.5'
 
-gem 'active_model_serializers'
-gem 'activerecord-postgis-adapter'
-gem 'arel'
+gem 'autoprefixer-rails'
+gem 'bcrypt'
+gem 'bootstrap-sass'
 gem 'devise'
-# consider replacing geokit with geocoder
-#gem 'geocoder'
 gem 'geokit'
 gem 'haml'
-gem 'http_accept_language'
-gem 'nokogiri'
+gem 'jquery-rails'
 gem 'pg'
 gem 'rails_12factor'
 gem 'rails_admin'
+gem 'sass-rails'
 gem 'validates_formatting_of'
-
-platforms :ruby_18 do
-  gem 'fastercsv'
-end
-
-group :assets do
-  gem 'sass-rails', '>= 4.0.3'
-  gem 'uglifier'
-end
 
 group :development do
   gem 'spring'
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
+  gem 'factory_girl_rails'
   gem 'pry-rails'
+  gem 'rspec-rails'
 end
 
 group :production do
@@ -40,9 +32,7 @@ group :production do
 end
 
 group :test do
-  gem 'coveralls', require: false
-  gem 'rubocop'
-  gem 'simplecov', require: false
-  gem 'sqlite3'
+  gem 'database_cleaner'
+  gem 'faker'
   gem 'webmock'
 end
