@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20140901151213) do
   enable_extension "plpgsql"
 
   create_table "reminders", force: true do |t|
+    t.integer  "thing_id",                     null: false
     t.integer  "from_user_id",                 null: false
     t.integer  "to_user_id",                   null: false
-    t.integer  "thing_id",                     null: false
     t.boolean  "sent",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
