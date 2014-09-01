@@ -1,33 +1,31 @@
 require 'geokit'
 
 class Thing < ActiveRecord::Base
-  has_many  :users,     through: :adoptions
-  has_many  :reminders, through: :adoptions
-  validates :city_id, presence: true, uniqueness: true
-  validates :city_unique_id, presence: true, uniqueness: true
-  validates :lat, presence: true
-  validates :lon, presence: true
+  extend Forwardable
+  include ActiveModel::ForbiddenAttributesProtection
 
-  before_save :setLonLat
+  belongs_to  :user
+  has_many    :reminders
+  def_delegators :reverse_geocode, :city, :country, :country_code,
+                 :full_address, :state, :street_address, :street_name,
+                 :street_number, :zip
 
-  def self.find_closest(lat, lon, limit = 10)
+  validates :mpls_id,     uniqueness: true, allow_nil: true
+  validates :mpls_unique, uniqueness: true, allow_nil: true
+  validates :lat,         presence:   true
+  validates :lng,         presence:   true
+
+  def self.find_closest(lat, lng, limit = 10)
     query = <<-SQL
-      SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(RADIANS(lon) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance
+      SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(RADIANS(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance
       FROM things
       ORDER BY distance
       LIMIT ?
       SQL
-    find_by_sql([query, lat.to_f, lon.to_f, lat.to_f, limit.to_i])
+    find_by_sql([query, lat.to_f, lng.to_f, lat.to_f, limit.to_i])
   end
 
   def reverse_geocode
-    @reverse_geocode ||= Geokit::Geocoders::MultiGeocoder.reverse_geocode([lat, lon])
-  end
-
-  private
-
-  def setLonLat
-    # note that these go LONGITUDE, LATITUDE (y,x)
-    self.lonlat = "POINT(#{lon} #{lat})"
+    @reverse_geocode ||= Geokit::Geocoders::MultiGeocoder.reverse_geocode([lat, lng])
   end
 end
