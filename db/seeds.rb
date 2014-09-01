@@ -12,15 +12,15 @@ tree_fields = trees_meta['view']['columns'].map do |column|
 end
 
 trees_data.each do |tree|
-  Thing.find_or_create_by!(city_id: tree[8]) do |t|
+  Thing.find_or_create_by!(mpls_id: tree[8]) do |t|
     t.properties = {}
     tree_fields.map.with_index do |f, index|
       t.properties[tree_fields[index]] = tree[index]
     end
 
-    t.city_unique_id = tree[9]
-    t.lon = tree[64]
-    t.lat = tree[65]
-    t.species = tree[66]
+    t.mpls_unique = tree[9]
+    t.lng         = tree[64]
+    t.lat         = tree[65]
+    t.species     = tree[66]
   end
 end

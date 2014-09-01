@@ -11,57 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 5) do
+ActiveRecord::Schema.define(version: 20140901151213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
-
-  create_table "rails_admin_histories", force: true do |t|
-    t.string   "message"
-    t.string   "username"
-    t.integer  "item"
-    t.string   "table"
-    t.integer  "month",      limit: 2
-    t.integer  "year",       limit: 8
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "reminders", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "from_user_id",                 null: false
     t.integer  "to_user_id",                   null: false
     t.integer  "thing_id",                     null: false
     t.boolean  "sent",         default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "reminders", ["from_user_id"], :name => "index_reminders_on_from_user_id"
-  add_index "reminders", ["sent"], :name => "index_reminders_on_sent"
-  add_index "reminders", ["thing_id"], :name => "index_reminders_on_thing_id"
-  add_index "reminders", ["to_user_id"], :name => "index_reminders_on_to_user_id"
-
   create_table "things", force: true do |t|
-    t.integer  "city_id"
-    t.string   "city_unique_id"
-    t.decimal  "lat",                                                                     precision: 32, scale: 29, null: false
-    t.decimal  "lon",                                                                     precision: 32, scale: 29, null: false
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "mpls_id"
+    t.string   "mpls_unique"
+    t.decimal  "lat",         precision: 32, scale: 29, null: false
+    t.decimal  "lng",         precision: 32, scale: 29, null: false
     t.string   "species"
     t.json     "properties"
-    t.spatial  "lonlat",         limit: {:srid=>4326, :type=>"point", :geographic=>true}
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "name",                                   null: false
     t.string   "organization"
-    t.string   "email",                                  null: false
     t.string   "voice_number"
     t.string   "sms_number"
     t.string   "address_1"
@@ -70,6 +49,7 @@ ActiveRecord::Schema.define(version: 5) do
     t.string   "state"
     t.string   "zip"
     t.boolean  "admin",                  default: false
+    t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -77,11 +57,13 @@ ActiveRecord::Schema.define(version: 5) do
     t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
