@@ -1,8 +1,8 @@
 default: &default
-  adapter: postgis
+  adapter: postgresql
   encoding: unicode
-  pool: 5
   username: adopta
+  pool: 5
 
 development:
   <<: *default
@@ -17,3 +17,4 @@ production:
   database: adopta_production
   username: ENV['DATABASE_USERNAME']
   password: ENV['DATABASE_PASSWORD']
+  url:      ENV['DATABASE_URL']
