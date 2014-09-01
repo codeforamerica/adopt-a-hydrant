@@ -28,4 +28,8 @@ class Thing < ActiveRecord::Base
   def reverse_geocode
     @reverse_geocode ||= Geokit::Geocoders::MultiGeocoder.reverse_geocode([lat, lng])
   end
+
+  def adopted?
+    !user.nil?
+  end
 end
