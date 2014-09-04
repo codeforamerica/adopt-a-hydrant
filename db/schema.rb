@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901151213) do
+ActiveRecord::Schema.define(version: 20140904015656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "promo_codes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "promo_vendor_id"
+    t.string   "token"
+  end
+
+  add_index "promo_codes", ["promo_vendor_id"], name: "index_promo_codes_on_promo_vendor_id", using: :btree
+
+  create_table "promo_vendors", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "reminders", force: true do |t|
     t.integer  "thing_id",                     null: false
