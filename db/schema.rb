@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904015656) do
+ActiveRecord::Schema.define(version: 20140910021255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,11 @@ ActiveRecord::Schema.define(version: 20140904015656) do
     t.datetime "updated_at"
     t.integer  "promo_vendor_id"
     t.string   "token"
+    t.integer  "user_id"
   end
 
   add_index "promo_codes", ["promo_vendor_id"], name: "index_promo_codes_on_promo_vendor_id", using: :btree
+  add_index "promo_codes", ["user_id"], name: "index_promo_codes_on_user_id", using: :btree
 
   create_table "promo_vendors", force: true do |t|
     t.string   "name"

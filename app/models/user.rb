@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :reminders_from, class_name: 'Reminder', foreign_key: 'from_user_id'
   has_many :reminders_to,   class_name: 'Reminder', foreign_key: 'to_user_id'
   has_many :things
+  has_many :promo_codes
 
   before_validation :remove_non_digits_from_phone_numbers
 
