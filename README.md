@@ -21,8 +21,8 @@ This application requires [Postgres](http://www.postgresql.org/) to be installed
 
 Refer to the [Adopt-a-Tree Wiki](https://github.com/codeforamerica/adopt-a-hydrant/wiki/Adopta-Install-Notes) for detailed instructions on installation.
 
-    git clone git://github.com/codeforamerica/adopt-a-hydrant.git
-    cd adopt-a-hydrant
+    git clone git://github.com/ballPointPenguin/adopt-a-tree.git
+    cd adopt-a-tree
     bundle install
 
     bundle exec rake db:create
@@ -108,13 +108,14 @@ Here are some ways *you* can contribute:
 * by writing specifications
 * by writing code (**no patch is too small**: fix typos, add comments, clean up
   inconsistent whitespace)
+* by forking and sending pull requests
 * by refactoring code
 * by closing [issues][]
 * by reviewing patches
 * [financially][]
 
 [locales]: https://github.com/codeforamerica/adopt-a-hydrant/tree/master/config/locales
-[issues]: https://github.com/codeforamerica/adopt-a-hydrant/issues
+[issues]: https://github.com/ballPointPenguin/adopt-a-tree/issues
 [financially]: https://secure.codeforamerica.org/page/contribute
 
 ## Submitting an Issue
