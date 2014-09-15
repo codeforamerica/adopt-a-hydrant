@@ -11,7 +11,7 @@
 Beautify your street by watering a tree.
 
 ## Screenshot
-![Adopt-a-Hydrant](raw/master/screenshot.png "Adopt-a-Tree")
+![Adopt-a-Hydrant](screenshot.png "Adopt-a-Tree")
 
 ## See It Online
 A version is deployed online at <http://stormy-tundra-2903.herokuapp.com/>
