@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resource :reminders
   resource :things
+  resource :promo_codes, only: [:update]
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   root to: 'main#index'
 end
