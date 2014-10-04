@@ -50,10 +50,11 @@ GEM
       thor
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
-    devise (3.3.0)
+    devise (3.4.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
+      responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     docile (1.1.5)
@@ -144,6 +145,8 @@ GEM
     rainbow (2.0.0)
     rake (10.3.2)
     remotipart (1.2.1)
+    responders (1.1.1)
+      railties (>= 3.2, < 4.2)
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
