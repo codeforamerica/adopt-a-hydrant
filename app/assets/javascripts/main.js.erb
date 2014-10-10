@@ -178,6 +178,30 @@ $(function() {
       }
     });
   }
+
+  function congratulateAdopter(activeThingId, activeInfoWindow, activeMarker){
+    $.ajax({
+      type: 'GET',
+      url: '/info_window',
+      data: {
+        'thing_id': activeThingId,
+        'flash': {
+          'notice': "<%= I18n.t("notices.adopted", thing: I18n.t("defaults.thing")) %>"
+        }
+      },
+      success: function(data) {
+        activeInfoWindow.close();
+        activeInfoWindow.setContent(data);
+        activeInfoWindow.open(map, activeMarker);
+        activeMarker.setIcon(greenMarkerImage);
+        activeMarker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    });
+  }
+
+  function askForToken(callback){
+    callback();
+  }
   $('#combo-form input[type="radio"]').live('click', function() {
     var radioInput = $(this);
     if('new' === radioInput.val()) {
@@ -391,23 +415,7 @@ $(function() {
         $(submitButton).attr("disabled", false);
       },
       success: function(data) {
-        $.ajax({
-          type: 'GET',
-          url: '/info_window',
-          data: {
-            'thing_id': activeThingId,
-            'flash': {
-              'notice': "<%= I18n.t("notices.adopted", thing: I18n.t("defaults.thing")) %>"
-            }
-          },
-          success: function(data) {
-            activeInfoWindow.close();
-            activeInfoWindow.setContent(data);
-            activeInfoWindow.open(map, activeMarker);
-            activeMarker.setIcon(greenMarkerImage);
-            activeMarker.setAnimation(google.maps.Animation.BOUNCE);
-          }
-        });
+        congratulateAdopter(activeThingId, activeInfoWindow, activeMarker);
       }
     });
     return false;

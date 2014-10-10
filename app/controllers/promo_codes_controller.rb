@@ -13,6 +13,9 @@ class PromoCodesController < ApplicationController
     end
   end
 
+  def use
+  end
+
   private
     def promo_code_params
       params.require(:promo_code).permit(:token, :user_id)
