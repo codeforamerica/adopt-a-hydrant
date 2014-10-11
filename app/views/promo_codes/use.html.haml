@@ -2,12 +2,12 @@
   = t("titles.token") 
 = form_for :promo_code, :url => promo_codes_path, :method => :put, :html => {:id => "promo_code_form"} do |f|
   = f.hidden_field "user_id", :value => current_user.id
-  %fieldset.control-group, id: => 'token_possession_container'
+  %fieldset.control-group{:id => 'token_possession_container'}
     = f.label t("labels.token_possession"), :id => "token_possession_label"
-    %fieldset.control-group, id: => 'token_possession_buttons'
-      = f.submit t("buttons.no"), :class => "btn", :id => "token_code_no"
-      = f.submit t("buttons.yes"), :class => "btn primary", :id => "token_code_yes"
-  %fieldset.control-group
+    %fieldset.control-group{:id => 'token_possession_buttons'}
+      = f.submit t("buttons.neg"), :class => "btn", :id => "token_code_no"
+      = f.submit t("buttons.pos"), :class => "btn primary", :id => "token_code_yes"
+  %fieldset.control-group{:id => 'token_input_container'}
     = f.label t("labels.token_intake"), :id => "token_code_label"
     = f.text_field "token_code"
     = f.submit t("buttons.use_token"), :class => "btn primary"
