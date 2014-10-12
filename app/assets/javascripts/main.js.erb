@@ -204,8 +204,12 @@ $(function() {
       type: 'GET',
       url: '/promo_codes/use',
       success: function(data) {
+        ask_for_token_content = $(data).wrap("<div></div>")
+        token_input_container = ask_for_token_content.find("#token_input_container").wrap("<div></div>");
+        token_possession_container = ask_for_token_content.find("#token_possession_container").wrap("<div></div>");
+        ask_for_token_content.find("#token_container").html(token_possession_container.html())
         args.activeInfoWindow.close();
-        args.activeInfoWindow.setContent(data);
+        args.activeInfoWindow.setContent(ask_for_token_content.html());
         args.activeInfoWindow.open(map, args.activeMarker);
       }
     });
@@ -445,6 +449,49 @@ $(function() {
       activeMarker: activeMarker
     };
     congratulateAdopter(active_things);
+  });
+  $('#token_code_yes').live('click', function(e){
+    e.preventDefault();
+    ask_for_token_content.find("#token_container").html(token_input_container.html())
+    activeInfoWindow.close();
+    activeInfoWindow.setContent(ask_for_token_content.html());
+    activeInfoWindow.open(map, activeMarker);
+  });
+  $("#token_submit").live('click', function(e){
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '/promo_codes',
+      data: {
+        '_method': 'patch',
+        'utf8': '✓',
+        'authenticity_token': $('#promo_code_form input[name="authenticity_token"]').val(),
+        'promo_code': {
+          'user_id': $('#promo_code_user_id').val(),
+          'token': $('#promo_code_token_code').val()
+        }
+      },
+      error: function(jqXHR) {
+        activeInfoWindow.close();
+        if(jqXHR.status == '404'){
+	  err_msg = 'Promo Code Not Found';
+        } else {
+          err_msg = jqXHR.responseText;
+        }
+        err_msg_el = $('<div><div class="alert alert-error fade in"><p></p></div></div>');
+        err_msg_el.find(".alert p").html(err_msg);
+        activeInfoWindow.setContent(err_msg_el.html());
+        activeInfoWindow.open(map, activeMarker);
+      },
+      success: function(data){
+        active_things = {
+          activeThingId: activeThingId, 
+          activeInfoWindow: activeInfoWindow, 
+          activeMarker: activeMarker
+        };
+        congratulateAdopter(active_things);
+      }
+    });
   });
   $('#abandon_form').live('submit', function() {
     var answer = window.confirm("Are you sure you want to abandon this <%= I18n.t("defaults.thing") %>?")
