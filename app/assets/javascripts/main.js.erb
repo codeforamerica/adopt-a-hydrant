@@ -179,28 +179,37 @@ $(function() {
     });
   }
 
-  function congratulateAdopter(activeThingId, activeInfoWindow, activeMarker){
+  function congratulateAdopter(args){
     $.ajax({
       type: 'GET',
       url: '/info_window',
       data: {
-        'thing_id': activeThingId,
+        'thing_id': args.activeThingId,
         'flash': {
           'notice': "<%= I18n.t("notices.adopted", thing: I18n.t("defaults.thing")) %>"
         }
       },
       success: function(data) {
-        activeInfoWindow.close();
-        activeInfoWindow.setContent(data);
-        activeInfoWindow.open(map, activeMarker);
-        activeMarker.setIcon(greenMarkerImage);
-        activeMarker.setAnimation(google.maps.Animation.BOUNCE);
+        args.activeInfoWindow.close();
+        args.activeInfoWindow.setContent(data);
+        args.activeInfoWindow.open(map, args.activeMarker);
+        args.activeMarker.setIcon(greenMarkerImage);
+        args.activeMarker.setAnimation(google.maps.Animation.BOUNCE);
       }
     });
   }
 
-  function askForToken(callback){
-    callback();
+  function askForToken(args, callback){
+    $.ajax({
+      type: 'GET',
+      url: '/promo_codes/use',
+      success: function(data) {
+        args.activeInfoWindow.close();
+        args.activeInfoWindow.setContent(data);
+        args.activeInfoWindow.open(map, args.activeMarker);
+      }
+    });
+
   }
   $('#combo-form input[type="radio"]').live('click', function() {
     var radioInput = $(this);
@@ -415,10 +424,27 @@ $(function() {
         $(submitButton).attr("disabled", false);
       },
       success: function(data) {
-        congratulateAdopter(activeThingId, activeInfoWindow, activeMarker);
+        active_things = {
+          activeThingId: activeThingId, 
+          activeInfoWindow: activeInfoWindow, 
+          activeMarker: activeMarker
+        };
+	next = function(){
+          congratulateAdopter(active_things);
+        };
+        askForToken(active_things, next);
       }
     });
     return false;
+  });
+  $('#token_code_no').live('click', function(e){
+    e.preventDefault();
+    active_things = {
+      activeThingId: activeThingId, 
+      activeInfoWindow: activeInfoWindow, 
+      activeMarker: activeMarker
+    };
+    congratulateAdopter(active_things);
   });
   $('#abandon_form').live('submit', function() {
     var answer = window.confirm("Are you sure you want to abandon this <%= I18n.t("defaults.thing") %>?")
