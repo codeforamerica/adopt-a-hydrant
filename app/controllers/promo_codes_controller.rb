@@ -14,6 +14,7 @@ class PromoCodesController < ApplicationController
   end
 
   def use
+    render layout: false
   end
 
   private
