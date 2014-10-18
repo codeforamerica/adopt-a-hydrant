@@ -33,6 +33,7 @@ end
 
 group :production do
   gem 'puma'
+  gem 'skylight'
 end
 
 group :test do
