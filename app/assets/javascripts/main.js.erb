@@ -204,10 +204,10 @@ $(function() {
       type: 'GET',
       url: '/promo_codes/use',
       success: function(data) {
-        ask_for_token_content = $(data).wrap("<div></div>")
-        token_input_container = ask_for_token_content.find("#token_input_container").wrap("<div></div>");
-        token_possession_container = ask_for_token_content.find("#token_possession_container").wrap("<div></div>");
-        ask_for_token_content.find("#token_container").html(token_possession_container.html())
+        ask_for_token_content = $("<div>").html(data)
+        token_input_container = $("<div>").html(ask_for_token_content.find("#token_input_container"));
+        token_possession_container = $("<div>").html(ask_for_token_content.find("#token_possession_container"));
+        ask_for_token_content.find("#token_container").html(token_possession_container.html());
         args.activeInfoWindow.close();
         args.activeInfoWindow.setContent(ask_for_token_content.html());
         args.activeInfoWindow.open(map, args.activeMarker);
@@ -457,7 +457,7 @@ $(function() {
     activeInfoWindow.setContent(ask_for_token_content.html());
     activeInfoWindow.open(map, activeMarker);
   });
-  $("#token_submit").live('click', function(e){
+  $("#promo_code_form").live('submit', function(e){
     e.preventDefault();
     $.ajax({
       type: 'POST',
