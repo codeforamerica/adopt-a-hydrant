@@ -27,6 +27,9 @@ MethodLength:
 BlockNesting:
   Max: 2
 
+AbcSize:
+  Enabled: false
+
 # Align with the style guide.
 CollectionMethods:
   PreferredMethods:
