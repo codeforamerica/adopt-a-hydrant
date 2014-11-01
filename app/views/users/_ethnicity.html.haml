@@ -5,25 +5,25 @@
       = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
   .checkbox
     %label.checkbox
-      = f.check_box :ethnicity, {}, 'african-american', ''
+      = f.check_box :ethnicity, { :multiple => true }, 'african-american', ''
       = t("labels.african_american")
   .checkbox
     %label.checkbox
-      = f.check_box :ethnicity, {}, 'asian-american-pacific-islander', ''
+      = f.check_box :ethnicity, { :multiple => true }, 'asian-american-pacific-islander', ''
       = t("labels.asian_american_pacific_islander")
   .checkbox
     %label.checkbox
-      = f.check_box :ethnicity, {}, 'caucasian', ''
+      = f.check_box :ethnicity, { :multiple => true }, 'caucasian', ''
       = t("labels.caucasian")
   .checkbox
     %label.checkbox
-      = f.check_box :ethnicity, {}, 'hispanic-latino', ''
+      = f.check_box :ethnicity, { :multiple => true }, 'hispanic-latino', ''
       = t("labels.hispanic_latino")
   .checkbox
     %label.checkbox
-      = f.check_box :ethnicity, {}, 'native-american', ''
+      = f.check_box :ethnicity, { :multiple => true }, 'native-american', ''
       = t("labels.native_american")
   .checkbox
     %label.checkbox
-      = f.check_box :ethnicity, {}, 'other', ''
+      = f.check_box :ethnicity, { :multiple => true }, 'other', ''
       = t("labels.other")

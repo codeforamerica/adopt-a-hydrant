@@ -35,6 +35,6 @@ private
   end
 
   def account_update_params
-    params.require(:user).permit(:address_1, :address_2, :city, :current_password, :email, :name, :organization, :password, :password_confirmation, :remember_me, :sms_number, :state, :voice_number, :zip)
+    params.require(:user).permit(:address_1, :address_2, :city, :current_password, :email, :gender, :heardOfAdoptATreeVia, :name, :organization, :password, :password_confirmation, :previousEnvironmentalActivities, :previousTreeWateringExperience, :remember_me, :rentOrOwn, :sms_number, :state, :valueForestryWork, :voice_number, :yearsInMinneapolis, :yob, :zip, :ethnicity => [])
   end
 end

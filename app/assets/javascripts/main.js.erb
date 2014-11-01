@@ -610,6 +610,9 @@ $(function() {
             'city': $('#user_city').val(),
             'state': $('#user_state').val(),
             'zip': $('#user_zip').val(),
+            'yob': $('#user_yob').val(),
+            'gender': $('input[name="user[gender]"]:checked', '#edit_form').val(),
+            'ethnicity': $("input[name='user[ethnicity][]']:checked").map(function(){return this.value;}).get(),
             'password': $('#user_password').val(),
             'password_confirmation': $('#user_password').val(),
             'current_password': $('#user_current_password').val()
