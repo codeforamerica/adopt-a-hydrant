@@ -1,0 +1,6 @@
+%fieldset.control-group
+  %label{:for => "user_email", :id => "user_email_label"}
+    = t("labels.email")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.email_field "email"

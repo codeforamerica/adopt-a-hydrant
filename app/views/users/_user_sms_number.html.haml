@@ -1,0 +1,6 @@
+%fieldset.control-group
+  %label{:for => "user_sms_number", :id => "user_sms_number_label"}
+    = t("labels.sms_number")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.telephone_field "sms_number", :placeholder => t("defaults.sms_number"), :value => number_to_phone(f.object.sms_number)
