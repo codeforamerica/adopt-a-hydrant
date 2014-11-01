@@ -1,0 +1,45 @@
+%fieldset.control-group
+  %label{:for => :valueForestryWork, :id => "valueForestryWork_label"}
+    = t("labels.valueForestryWork")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  .radio
+    %label.radio
+      = f.radio_button :valueForestryWork, 10 
+      10 - Strongly Agree
+  .radio
+    %label.radio
+      = f.radio_button :valueForestryWork, 9 
+      9
+  .radio
+    %label.radio
+      = f.radio_button :valueForestryWork, 8 
+      8
+  .radio
+    %label.radio
+      = f.radio_button :valueForestryWork, 7 
+      7
+  .radio
+    %label.radio
+      = f.radio_button :valueForestryWork, 6 
+      6
+  .radio
+    %label.radio
+      = f.radio_button :valueForestryWork, 5 
+      5
+  .radio
+    %label.radio
+      = f.radio_button :valueForestryWork, 4 
+      4
+  .radio
+    %label.radio
+      = f.radio_button :valueForestryWork, 3 
+      3
+  .radio
+    %label.radio
+      = f.radio_button :valueForestryWork, 2 
+      2
+  .radio
+    %label.radio
+      = f.radio_button :valueForestryWork, 1 
+      1 - Strongly Disagree
