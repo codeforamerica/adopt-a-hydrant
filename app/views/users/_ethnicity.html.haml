@@ -1,0 +1,29 @@
+%fieldset.control-group
+  %label{:for => "ethnicity", :id => "ethnicity_label"}
+    = t("labels.ethnicity")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  .checkbox
+    %label.checkbox
+      = f.check_box :ethnicity, {}, 'african-american', ''
+      = t("labels.african_american")
+  .checkbox
+    %label.checkbox
+      = f.check_box :ethnicity, {}, 'asian-american-pacific-islander', ''
+      = t("labels.asian_american_pacific_islander")
+  .checkbox
+    %label.checkbox
+      = f.check_box :ethnicity, {}, 'caucasian', ''
+      = t("labels.caucasian")
+  .checkbox
+    %label.checkbox
+      = f.check_box :ethnicity, {}, 'hispanic-latino', ''
+      = t("labels.hispanic_latino")
+  .checkbox
+    %label.checkbox
+      = f.check_box :ethnicity, {}, 'native-american', ''
+      = t("labels.native_american")
+  .checkbox
+    %label.checkbox
+      = f.check_box :ethnicity, {}, 'other', ''
+      = t("labels.other")
