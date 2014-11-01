@@ -1,0 +1,15 @@
+%fieldset.control-group
+  %label{:for => "gender", :id => "gender_label"}
+    = t("labels.gender")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  .btn-group{"data-toggle" => "buttons"}
+    %label.btn.btn-default
+      = f.radio_button :gender, "male" 
+      = t("labels.male")
+    %label.btn.btn-default
+      = f.radio_button :gender, "female"
+      = t("labels.female")
+    %label.btn.btn-default
+      = f.radio_button :gender, "other"
+      = t("labels.other")
