@@ -1,0 +1,12 @@
+%fieldset.control-group
+  %label{:for => :rentOrOwn, :id => "rentOrOwn_label"}
+    = t("labels.rentOrOwn")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  .radio
+    %label.radio
+      = f.radio_button :rentOrOwn, "rent" 
+      = t("labels.rent")
+    %label.radio
+      = f.radio_button :rentOrOwn, "own"
+      = t("labels.own")
