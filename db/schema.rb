@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101172738) do
+ActiveRecord::Schema.define(version: 20141101212649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20141101172738) do
     t.boolean  "previousTreeWateringExperience"
     t.boolean  "previousEnvironmentalActivities"
     t.integer  "valueForestryWork"
-    t.string   "heardOfAdoptATreeVia"
+    t.string   "heardOfAdoptATreeVia",            limit: nil,                              array: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

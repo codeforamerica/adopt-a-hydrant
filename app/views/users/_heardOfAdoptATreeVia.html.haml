@@ -1,0 +1,33 @@
+%fieldset.control-group
+  %label{:for => :heardOfAdoptATreeVia, :id => "heardOfAdoptATreeVia_label"}
+    = t("labels.heardOfAdoptATreeVia")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  .checkbox
+    %label.checkbox
+      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'social-media', ''
+      = t("labels.social_media")
+  .checkbox
+    %label.checkbox
+      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'news-outlet', ''
+      = t("labels.news_outlet")
+  .checkbox
+    %label.checkbox
+      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'tree-tag', ''
+      = t("labels.tree_tag")
+  .checkbox
+    %label.checkbox
+      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'word-of-mouth', ''
+      = t("labels.word_of_mouth")
+  .checkbox
+    %label.checkbox
+      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'local-brewery', ''
+      = t("labels.local_brewery")
+  .checkbox
+    %label.checkbox
+      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'door-hanger', ''
+      = t("labels.door_hanger")
+  .checkbox
+    %label.checkbox
+      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'other', ''
+      = t("labels.other")
