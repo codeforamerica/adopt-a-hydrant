@@ -62,6 +62,7 @@ en:
     name_thing: "Give this %{thing} a name"
     native_american: "Native American"
     news_outlet: "News outlet"
+    no: "No"
     organization: "Organization"
     other: "Other"
     own: "Own"
@@ -69,6 +70,7 @@ en:
     password_choose: "Choose a password"
     password_current: "Current password"
     password_new: "New password"
+    previousTreeWateringExperience: "Have you ever watered a public tree before?"
     remember_me: "Stay signed in"
     rent: "Rent"
     rentOrOwn: "Do you rent or own?"
@@ -83,6 +85,7 @@ en:
     voice_number: "Home phone number"
     word_of_mouth: "Word of mouth"
     yearsInMinneapolis: "How many years have you lived in Minneapolis?"
+    yes: "Yes"
     yob: "Year of Birth"
     zip: "ZIP"
   links:

@@ -1,0 +1,12 @@
+%fieldset.control-group
+  %label{:for => :previousTreeWateringExperience, :id => "previousTreeWateringExperience_label"}
+    = t("labels.previousTreeWateringExperience")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  .radio
+    %label.radio
+      = f.radio_button :previousTreeWateringExperience, true 
+      = t("buttons.pos")
+    %label.radio
+      = f.radio_button :previousTreeWateringExperience, false
+      = t("buttons.neg")
