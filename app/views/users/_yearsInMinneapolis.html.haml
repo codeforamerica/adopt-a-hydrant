@@ -1,0 +1,6 @@
+%fieldset.control-group
+  %label{:for => "yearsInMinneapolis", :id => "yearsInMinneapolis_label"}
+    = t("labels.yearsInMinneapolis")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.text_field "yearsInMinneapolis"

@@ -614,6 +614,7 @@ $(function() {
             'gender': $('input[name="user[gender]"]:checked', '#edit_form').val(),
             'ethnicity': $("input[name='user[ethnicity][]']:checked").map(function(){return this.value;}).get(),
             'heardOfAdoptATreeVia': $("input[name='user[heardOfAdoptATreeVia][]']:checked").map(function(){return this.value;}).get(),
+            'yearsInMinneapolis': $('#user_yearsInMinneapolis').val(),
             'password': $('#user_password').val(),
             'password_confirmation': $('#user_password').val(),
             'current_password': $('#user_current_password').val()
