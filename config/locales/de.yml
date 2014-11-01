@@ -58,6 +58,7 @@ de:
     user_existing: "Ich habe mich bereits registriert"
     user_new: "Ich habe mich noch nicht registriert"
     voice_number: "Startseite Telefonnummer"
+    yob: "Geburtsjahr"
     zip: "Postleitzahl"
   links:
     feedback: "Feedback senden"

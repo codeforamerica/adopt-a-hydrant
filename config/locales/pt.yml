@@ -58,6 +58,7 @@ pt:
     user_existing: "Eu já se inscreveram"
     user_new: "Eu não se inscreveram ainda"
     voice_number: "Número de telefone residencial"
+    yob: "Ano de nascimento"
     zip: "Código postal"
   links:
     feedback: "Envie seu comentário"

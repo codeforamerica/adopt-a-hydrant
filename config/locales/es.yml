@@ -58,6 +58,7 @@ es:
     user_existing: "Ya he firmado"
     user_new: "No se ha inscrito"
     voice_number: "Número de teléfono"
+    yob: "Año de nacimiento"
     zip: "Código postal"
   links:
     feedback: "Envíenos sus comentarios"

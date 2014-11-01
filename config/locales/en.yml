@@ -63,6 +63,7 @@ en:
     user_existing: "I've already signed up"
     user_new: "I haven't signed up yet"
     voice_number: "Home phone number"
+    yob: "Year of Birth"
     zip: "ZIP"
   links:
     feedback: "Send feedback"

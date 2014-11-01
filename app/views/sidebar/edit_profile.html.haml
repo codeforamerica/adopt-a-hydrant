@@ -60,6 +60,7 @@
       %small
         = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
     = f.text_field "zip", :placeholder => t("defaults.zip")
+  = render :partial => "yob", locals: {f: f}
   %fieldset.control-group
     %label{:for => "user_password", :id => "user_password_label"}
       = t("labels.password_new")

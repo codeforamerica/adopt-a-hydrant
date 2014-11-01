@@ -58,6 +58,7 @@ fr:
     user_existing: "J'ai déjà signé"
     user_new: "Je n'ai pas encore inscrits"
     voice_number: "Le numéro de téléphone Accueil"
+    yob: "Année de naissance"
     zip: "Code postal"
   links:
     feedback: "Envoyer des commentaires"
