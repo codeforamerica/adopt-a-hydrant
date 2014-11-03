@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     registrations: 'users',
     sessions: 'sessions',
   }
+  devise_scope :user do
+    get '/users/mailing_address', to: 'users#mailing_address', as: 'mailing_address'
+    get '/users/survey', to: 'users#survey', as: 'survey'
+    put '/users/restricted', to: 'users#restricted_update', as: 'restricted_user_update'
+  end
 
   get '/address', to: 'addresses#show', as: 'address'
   get '/info_window', to: 'info_window#index', as: 'info_window'

@@ -1,0 +1,9 @@
+= render :partial => "layouts/flash", :locals => {:flash => flash}
+= form_for :user, :url => restricted_user_update_path(:user), :html => {:id => "mailing_address_form", :method => :put} do |f|
+  = f.hidden_field "id"
+  = render :partial => "user_name", locals: {f: f}
+  = render :partial => "user_address", locals: {f: f}
+  %fieldset.form-actions
+    = f.submit t("buttons.update"), :class => "btn btn-primary"
+    %a{:href => root_path, :id => "back_link", :class => "btn"}
+      = t("buttons.back")
