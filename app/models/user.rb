@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
   validates_formatting_of :voice_number,  using: :us_phone, allow_blank: true
   validates_formatting_of :zip,           using: :us_zip, allow_blank: true
 
+  def complete_shipping_address?
+    shipping_attrs = ["name", "address_1", "city", "state", "zip"]
+    shipping_attrs.none? {|attr_name| self.attributes[attr_name].blank?}
+  end
+
   def remove_non_digits_from_phone_numbers
     if sms_number.present?
       self.sms_number = sms_number.to_s.gsub(/\D/, '').to_i

@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'faker'
 
 RSpec.describe User, :type => :model do
   it "is valid with a name, email and password" do
@@ -41,7 +42,7 @@ RSpec.describe User, :type => :model do
     expect(user).to_not be_valid
     expect(user.errors[:password].count).to eq 1
   end
-
+    
   it "is invalid with a password length of 129" do
     user = build(:user, password: 'a' * 129)
 
@@ -75,6 +76,31 @@ RSpec.describe User, :type => :model do
 
     expect(user).to_not be_valid
     expect(user.errors[:voice_number].count).to eq 1
+  end
+
+  it "has a true complete_shipping_address? attribute if required fields are complete" do
+    user = build(:user, 
+        address_1: Faker::Address.street_address, 
+        city: Faker::Address.city, 
+        state: Faker::Address.state_abbr, 
+        zip: Faker::Address.zip)
+
+    expect(user.complete_shipping_address?).to be true
+  end
+
+  it "has a false complete_shipping_address? attribute if required fields are not complete" do
+    user_attrs = {
+        "address_1" => Faker::Address.street_address, 
+        "city" => Faker::Address.city, 
+        "state" => Faker::Address.state_abbr, 
+        "zip" => Faker::Address.zip
+    }
+    user = build(:user, user_attrs) 
+    user_attrs.each do |attr_name, attr_value|
+      user.send("#{attr_name}=", '')
+      expect(user.complete_shipping_address?).to be false
+      user.send("#{attr_name}=", attr_value)
+    end
   end
 
 end
