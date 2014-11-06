@@ -13,3 +13,7 @@
  *= require_self
  *= require_tree .
  */
+
+ .radio, .checkbox{
+  clear: both;
+ }

@@ -17,24 +17,6 @@
           = t("captions.public")
       = f.text_field "name"
     .control-group
-      %label{:for => "user_organization", :id => "user_organization_label"}
-        = t("labels.organization")
-        %small
-          = t("captions.public")
-      = f.text_field "organization"
-    .control-group
-      %label{:for => "user_voice_number", :id => "user_voice_number_label"}
-        = t("labels.voice_number")
-        %small
-          = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-      = f.telephone_field "voice_number", :placeholder => t("defaults.voice_number")
-    .control-group
-      %label{:for => "user_sms_number", :id => "user_sms_number_label"}
-        = t("labels.sms_number")
-        %small
-          = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-      = f.telephone_field "sms_number", :placeholder => t("defaults.sms_number")
-    .control-group
       %label{:for => "user_password_confirmation", :id => "user_password_confirmation_label"}
         = t("labels.password_choose")
         %small
