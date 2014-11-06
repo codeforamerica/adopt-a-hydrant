@@ -103,4 +103,18 @@ RSpec.describe User, :type => :model do
     end
   end
 
+  it "has a true used_code? attribute if the User has a Promo Code" do
+    user = build(:user)
+    promo_code = build(:promo_code)
+    user.promo_codes << promo_code
+
+    expect(user.used_code?).to be true
+  end
+
+  it "has a false used_code? attribute if the User does not have a Promo Code" do
+    user = build(:user)
+
+    expect(user.used_code?).to be false
+  end
+
 end

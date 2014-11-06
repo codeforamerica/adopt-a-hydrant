@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
     shipping_attrs.none? {|attr_name| self.attributes[attr_name].blank?}
   end
 
+  def used_code?
+    not self.promo_codes.empty?
+  end
+
   def remove_non_digits_from_phone_numbers
     if sms_number.present?
       self.sms_number = sms_number.to_s.gsub(/\D/, '').to_i
