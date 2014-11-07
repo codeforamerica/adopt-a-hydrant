@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.1.4'
 
-gem 'rails', '~> 4.1.5'
+gem 'rails', '~> 4.1.7'
 
 gem 'autoprefixer-rails'
 gem 'bcrypt'
@@ -18,6 +18,7 @@ gem 'validates_formatting_of'
 
 group :development do
   gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :development, :test do
