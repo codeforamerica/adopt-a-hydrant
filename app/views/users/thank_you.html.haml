@@ -1,3 +1,6 @@
 %h2
   = t("titles.thank_you", :thing => t("defaults.thing"))
+- if current_user.used_code? && !current_user.complete_shipping_address?
+  %div.shipping_address_reminder
+    %p Please <strong>Edit Your Profile</strong> and fill in your <strong>Shipping Information</strong> to receive your gift
 = render :partial => 'things/abandon'

@@ -190,11 +190,15 @@ $(function() {
         }
       },
       success: function(data) {
+        congrats_content = $("<div>").html(data)
         args.activeInfoWindow.close();
         args.activeInfoWindow.setContent(data);
         args.activeInfoWindow.open(map, args.activeMarker);
         args.activeMarker.setIcon(greenMarkerImage);
         args.activeMarker.setAnimation(google.maps.Animation.BOUNCE);
+        if (congrats_content.find(".shipping_address_reminder").length > 0){
+    	  $('#edit_profile_link').click();
+        }
       }
     });
   }
