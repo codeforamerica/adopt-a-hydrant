@@ -17,3 +17,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore test coverage data
+coverage
