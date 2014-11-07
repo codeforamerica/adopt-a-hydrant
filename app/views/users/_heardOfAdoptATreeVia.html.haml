@@ -5,28 +5,16 @@
       = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
   .checkbox
     %label.checkbox
-      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'social-media', ''
-      = t("labels.social_media")
+      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'brew-a-better-forest', ''
+      = t("labels.brew_a_better_forest")
   .checkbox
     %label.checkbox
-      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'news-outlet', ''
-      = t("labels.news_outlet")
+      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'minneapolis-park-board', ''
+      = t("sponsors.board")
   .checkbox
     %label.checkbox
-      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'tree-tag', ''
-      = t("labels.tree_tag")
-  .checkbox
-    %label.checkbox
-      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'word-of-mouth', ''
-      = t("labels.word_of_mouth")
-  .checkbox
-    %label.checkbox
-      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'local-brewery', ''
-      = t("labels.local_brewery")
-  .checkbox
-    %label.checkbox
-      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'door-hanger', ''
-      = t("labels.door_hanger")
+      = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'tee4tree', ''
+      = t("labels.tee4tree")
   .checkbox
     %label.checkbox
       = f.check_box :heardOfAdoptATreeVia, { :multiple => true }, 'other', ''
