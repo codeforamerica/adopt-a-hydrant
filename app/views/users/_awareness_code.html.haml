@@ -1,0 +1,6 @@
+%fieldset.control-group
+  %label{:for => "awareness_code", :id => "awareness_code_label"}
+    = awareness_label
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.text_field "awareness_code"

@@ -7,6 +7,7 @@
   = render :partial => "user_address", locals: {f: f}
   %h2
     = t("labels.survey_heading")
+  = render :partial => "awareness_code", locals: {f: f, awareness_label: t('labels.tree_tag')}
   = render :partial => "yob", locals: {f: f}
   = render :partial => "gender", locals: {f: f}
   = render :partial => "ethnicity", locals: {f: f}
