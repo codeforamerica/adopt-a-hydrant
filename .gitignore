@@ -20,3 +20,11 @@
 
 # Ignore test coverage data
 coverage
+
+# Ignore other things
+*swp
+*~
+.project
+.DS_Store
+.idea
+.secret
