@@ -18,7 +18,10 @@
 /log/*.log
 /tmp
 
-# Ignore test coverage data
+# Ignore dotenv
+.env
+
+# Ignore simplecov generated files.
 coverage
 
 # Ignore other things
