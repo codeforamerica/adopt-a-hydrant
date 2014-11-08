@@ -145,7 +145,7 @@ GEM
     rainbow (2.0.0)
     rake (10.3.2)
     remotipart (1.2.1)
-    responders (1.1.1)
+    responders (1.1.2)
       railties (>= 3.2, < 4.2)
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
