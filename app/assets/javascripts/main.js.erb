@@ -255,7 +255,7 @@ $(function() {
     $(submitButton).attr("disabled", true);
     var errors = []
     if(!/[\w\.%\+]+@[\w]+\.+[\w]{2,}/.test($('#user_email').val())) {
-      errors.push($('#user_email'));
+      <%#errors.push($('#user_email'));%>
       $('#user_email').parent().addClass('error');
     } else {
       $('#user_email').parent().removeClass('error');
@@ -433,11 +433,11 @@ $(function() {
       },
       success: function(data) {
         active_things = {
-          activeThingId: activeThingId, 
-          activeInfoWindow: activeInfoWindow, 
+          activeThingId: activeThingId,
+          activeInfoWindow: activeInfoWindow,
           activeMarker: activeMarker
         };
-	next = function(){
+	      next = function(){
           congratulateAdopter(active_things);
         };
         askForToken(active_things, next);
@@ -448,8 +448,8 @@ $(function() {
   $('#token_code_no').live('click', function(e){
     e.preventDefault();
     active_things = {
-      activeThingId: activeThingId, 
-      activeInfoWindow: activeInfoWindow, 
+      activeThingId: activeThingId,
+      activeInfoWindow: activeInfoWindow,
       activeMarker: activeMarker
     };
     congratulateAdopter(active_things);
@@ -489,8 +489,8 @@ $(function() {
       },
       success: function(data){
         active_things = {
-          activeThingId: activeThingId, 
-          activeInfoWindow: activeInfoWindow, 
+          activeThingId: activeThingId,
+          activeInfoWindow: activeInfoWindow,
           activeMarker: activeMarker
         };
         congratulateAdopter(active_things);
