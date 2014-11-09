@@ -21,7 +21,7 @@ feature 'Combo Form' do
   end
 
   context 'Invalid Sign Up' do
-    scenario 'invalid email address' do
+    scenario 'invalid email address', js: true do
       within '#combo-form' do
         fill_in 'user_email', with: 'invalid@aol'
         fill_in 'user_name', with: user.name
@@ -33,7 +33,7 @@ feature 'Combo Form' do
       end
     end
 
-    scenario 'invalid password' do
+    scenario 'invalid password', js: true do
       within '#combo-form' do
         fill_in 'user_email', with: user.email
         fill_in 'user_name', with: user.name
@@ -46,7 +46,7 @@ feature 'Combo Form' do
       end
     end
 
-    scenario 'no name' do
+    scenario 'no name', js: true do
       within '#combo-form' do
         fill_in 'user_email', with: user.email
         fill_in 'user_password_confirmation', with: user.password
@@ -58,9 +58,9 @@ feature 'Combo Form' do
     end
   end
 
-  context 'New User' do
+  context 'New User', js: true do
     scenario 'successful sign up' do
-      sign_in user
+      sign_up user
 
       within '.sidebar' do
         expect(page).to have_text 'Thanks for signing up!'

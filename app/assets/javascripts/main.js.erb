@@ -40,7 +40,8 @@ $(function() {
   var activeInfoWindow;
   var isWindowOpen = false;
   var thingIds = [];
-  function addMarker(thingId, point, color) {
+
+  function addMarker(thingId, thingTitle, point, color) {
     if(color === 'green') {
       var image = greenMarkerImage;
     } else if(color === 'red') {
@@ -51,9 +52,11 @@ $(function() {
       icon: image,
       map: map,
       position: point,
-      shadow: markerShadowImage
+      shadow: markerShadowImage,
+      title: thingTitle,
+      optimized: false
     });
-    google.maps.event.addListener(marker, 'click', function() {
+    google.maps.event.addListener(marker, 'click', function(a, b, c) {
       if(activeInfoWindow) {
         activeInfoWindow.close();
       }
@@ -84,6 +87,7 @@ $(function() {
     });
     thingIds.push(thingId);
   }
+
   function addMarkersAround(lat, lng) {
     var submitButton = $("#address_form input[type='submit']");
     $.ajax({
@@ -106,7 +110,11 @@ $(function() {
         } else {
           $('#address').parent().removeClass('error');
           var i = -1;
+          var thingTitles = [];
           $(data).each(function(index, thing) {
+            var thingType = thing.species || 'Thing';
+            var thingTitle = thingType + '_' + thing.id;
+            thingTitles.push(thingTitle);
             if($.inArray(thing.id, thingIds) === -1) {
               i += 1;
             } else {
@@ -120,17 +128,32 @@ $(function() {
               } else {
                 var color = 'red';
               }
-              addMarker(thing.id, point, color);
+              addMarker(thing.id, thingTitle, point, color);
+              if(index === i) {
+                // at this point the things should exist in the DOM
+                addClassesAndIdsToThings(thingTitles);
+              }
             }, i * 100);
           });
         }
       }
     });
-  }
+  };
+
+  // This helps with testing and other... manipulations
+  function addClassesAndIdsToThings(thingTitles) {
+    $(thingTitles).each(function(i, tt) {
+      var $thing = $('div[title="' + tt + '"]');
+      $thing.addClass('thing');
+      $thing.attr('id', tt);
+    });
+  };
+
   google.maps.event.addListener(map, 'idle', function() {
     var center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
   });
+
   $('#address_form').live('submit', function() {
     var submitButton = $("#address_form input[type='submit']");
     $(submitButton).attr("disabled", true);
@@ -169,6 +192,7 @@ $(function() {
     }
     return false;
   });
+
   // Focus on the first non-empty text input or password field
   function setComboFormFocus() {
     $('#combo-form input[type="email"], #combo-form input[type="text"]:visible, #combo-form input[type="password"]:visible, #combo-form input[type="submit"]:visible, #combo-form input[type="tel"]:visible, #combo-form button:visible').each(function(index) {
@@ -219,6 +243,7 @@ $(function() {
     });
 
   }
+
   $('#combo-form input[type="radio"]').live('click', function() {
     var radioInput = $(this);
     if('new' === radioInput.val()) {
@@ -250,6 +275,7 @@ $(function() {
       });
     }
   });
+
   $('#combo-form').live('submit', function() {
     var submitButton = $("#combo-form input[type='submit']");
     $(submitButton).attr("disabled", true);
@@ -412,6 +438,7 @@ $(function() {
     }
     return false;
   });
+
   $('#adoption_form').live('submit', function() {
     var submitButton = $("#adoption_form input[type='submit']");
     $(submitButton).attr("disabled", true);
@@ -445,6 +472,7 @@ $(function() {
     });
     return false;
   });
+
   $('#token_code_no').live('click', function(e){
     e.preventDefault();
     active_things = {
@@ -454,6 +482,7 @@ $(function() {
     };
     congratulateAdopter(active_things);
   });
+
   $('#token_code_yes').live('click', function(e){
     e.preventDefault();
     ask_for_token_content.find("#token_container").html(token_input_container.html())
@@ -461,6 +490,7 @@ $(function() {
     activeInfoWindow.setContent(ask_for_token_content.html());
     activeInfoWindow.open(map, activeMarker);
   });
+
   $("#promo_code_form").live('submit', function(e){
     e.preventDefault();
     $.ajax({
@@ -497,6 +527,7 @@ $(function() {
       }
     });
   });
+
   $('#abandon_form').live('submit', function() {
     var answer = window.confirm("Are you sure you want to abandon this <%= I18n.t("defaults.thing") %>?")
     if(answer) {
@@ -541,6 +572,7 @@ $(function() {
     }
     return false;
   });
+
   $('#edit_profile_link').live('click', function() {
     var link = $(this);
     $(link).addClass('disabled');
@@ -556,6 +588,7 @@ $(function() {
     });
     return false;
   });
+
   $('#edit_form').live('submit', function() {
     var submitButton = $("#edit_form input[type='submit']");
     $(submitButton).attr("disabled", true);
@@ -688,6 +721,7 @@ $(function() {
     }
     return false;
   });
+
   $('#sign_out_link').live('click', function() {
     var link = $(this);
     $(link).addClass('disabled');
@@ -714,6 +748,7 @@ $(function() {
     });
     return false;
   });
+
   $('#sign_in_form').live('submit', function() {
     var submitButton = $("#sign_in_form input[type='submit']");
     $(submitButton).attr("disabled", true);
@@ -731,6 +766,7 @@ $(function() {
     });
     return false;
   });
+
   $('#back_link').live('click', function() {
     var link = $(this);
     $(link).addClass('disabled');
@@ -746,6 +782,7 @@ $(function() {
     });
     return false;
   });
+
   $('#reminder_form').live('submit', function() {
     var submitButton = $("#reminder_form input[type='submit']");
     $(submitButton).attr("disabled", true);
@@ -783,5 +820,6 @@ $(function() {
     });
     return false;
   });
+
   $('.alert-message').alert();
 });
