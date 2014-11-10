@@ -16,4 +16,10 @@ module LoginMacros
     fill_in 'user_password_confirmation', with: user.password
     click_button 'Sign up'
   end
+
+  def sign_out
+    if page.has_selector? '#sign_out_link'
+      click_button 'Sign out'
+    end
+  end
 end

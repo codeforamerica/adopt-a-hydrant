@@ -17,6 +17,7 @@ gem 'sass-rails'
 gem 'validates_formatting_of'
 
 group :development do
+  gem 'annotate'
   gem 'guard-rspec'
   gem 'libnotify'
   gem 'spring'
