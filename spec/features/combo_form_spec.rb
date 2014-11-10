@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-feature 'Combo Form' do
+describe 'Combo Form' do
   before do
     visit root_path
   end
 
   let(:user) { build(:user) }
 
-  context 'Home Page Combo Form' do
+  context 'Home page combo form' do
     it 'shows email, name, and password fields' do
       within '#combo-form' do
         sign_up_button = page.find_button 'Sign up'
@@ -20,8 +20,8 @@ feature 'Combo Form' do
     end
   end
 
-  context 'Invalid Sign Up' do
-    scenario 'invalid email address', js: true do
+  context 'Invalid sign up' do
+    it 'does not sign up with invalid email address', js: true do
       within '#combo-form' do
         fill_in 'user_email', with: 'invalid@aol'
         fill_in 'user_name', with: user.name
@@ -33,7 +33,7 @@ feature 'Combo Form' do
       end
     end
 
-    scenario 'invalid password', js: true do
+    it 'does not sign up with invalid password', js: true do
       within '#combo-form' do
         fill_in 'user_email', with: user.email
         fill_in 'user_name', with: user.name
@@ -46,7 +46,7 @@ feature 'Combo Form' do
       end
     end
 
-    scenario 'no name', js: true do
+    it 'does not sign up with no name', js: true do
       within '#combo-form' do
         fill_in 'user_email', with: user.email
         fill_in 'user_password_confirmation', with: user.password
@@ -58,8 +58,8 @@ feature 'Combo Form' do
     end
   end
 
-  context 'New User', js: true do
-    scenario 'successful sign up' do
+  context 'Successful sign up', js: true do
+    it 'displays a "Thanks" message' do
       sign_up user
 
       within '.sidebar' do

@@ -19,7 +19,7 @@ class ThingsController < ApplicationController
     end
   end
 
-private
+  private
 
   def thing_params
     params.require(:thing).permit(:name, :user_id)

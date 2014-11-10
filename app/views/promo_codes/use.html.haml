@@ -1,5 +1,5 @@
 %h2
-  = t("titles.token") 
+  = t("titles.token")
 = form_for :promo_code, :url => promo_codes_path, :method => :put, :html => {:id => "promo_code_form"} do |f|
   = f.hidden_field "user_id", :value => current_user.id
   %div{:id => 'token_container'}

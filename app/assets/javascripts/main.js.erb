@@ -220,9 +220,7 @@ $(function() {
         args.activeInfoWindow.open(map, args.activeMarker);
         args.activeMarker.setIcon(greenMarkerImage);
         args.activeMarker.setAnimation(google.maps.Animation.BOUNCE);
-        if (congrats_content.find(".shipping_address_reminder").length > 0){
     	  $('#edit_profile_link').click();
-        }
       }
     });
   }
@@ -464,10 +462,7 @@ $(function() {
           activeInfoWindow: activeInfoWindow,
           activeMarker: activeMarker
         };
-	      next = function(){
-          congratulateAdopter(active_things);
-        };
-        askForToken(active_things, next);
+        congratulateAdopter(active_things);
       }
     });
     return false;

@@ -3,10 +3,10 @@ module LoginMacros
     visit root_path
     fill_in 'user_email', with: user.email
     find('#user_existing').click
-    find('#user_password')
+    # wait for animation
+    sleep 0.5
     fill_in 'user_password', with: user.password
     find_button('Sign in').click
-    click_button 'Sign in'
   end
 
   def sign_up(user)
@@ -18,7 +18,7 @@ module LoginMacros
   end
 
   def sign_out
-    if page.has_selector? '#sign_out_link'
+    if page.has_button? '#sign_out_link'
       click_button 'Sign out'
     end
   end
