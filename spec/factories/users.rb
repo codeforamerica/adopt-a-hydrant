@@ -44,5 +44,23 @@ FactoryGirl.define do
     name      { Faker::Name.name }
     email     { Faker::Internet.email }
     password  { Faker::Internet.password(8) }
+
+    factory :modified_profile_user do
+      address_1 { Faker::Address.street_address }
+      address_2 { Faker::Address.secondary_address }
+      city { Faker::Address.city }
+      state { Faker::Address.state_abbr }
+      zip { Faker::Address.zip_code }
+      yob { 1900 + rand(100) }
+      gender { rand(2) == 0 ? 'male' : 'female' }
+      ethnicity { [rand(2) == 0 ? 'caucasian' : 'other'] }
+      yearsInMinneapolis { rand(50) }
+      rentOrOwn { rand(2) == 0 ? 'rent' : 'own' }
+      previousTreeWateringExperience { rand(2) == 0 ? false : true }
+      previousEnvironmentalActivities { rand(2) == 0 ? false : true }
+      valueForestryWork { rand(9) + 1 }
+      heardOfAdoptATreeVia { ['other'] }
+    end
   end
+
 end
