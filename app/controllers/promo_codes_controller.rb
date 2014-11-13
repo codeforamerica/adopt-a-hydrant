@@ -2,14 +2,28 @@ class PromoCodesController < ApplicationController
   respond_to :json
 
   def update
-    return render json: {:errors => ['A user_id must be provided']}, :status => :unauthorized if !params[:promo_code][:user_id]
-    @pc = PromoCode.find_by_token(params[:promo_code][:token])
-    return render :nothing => true, :status => :not_found if @pc.nil?
-    return render json: {:errors => ['That promo code has already been used']}, :status => :unprocessable_entity if @pc.used?
-    if @pc.update_attributes(promo_code_params)
-      return render json: @pc
+    promo_code = find_promo_code
+
+    unless promo_code
+      return render json: {errors: ['Promo Code not found']},
+        status: :not_found
+    end
+
+    unless promo_code_params[:user_id]
+      return render json: {errors: ['A user_id must be provided']},
+        status: :unauthorized
+    end
+
+    if promo_code.used?
+      return render json: {errors: ['That promo code has already been used']},
+        status: :forbidden
+    end
+
+    if promo_code.update(promo_code_params)
+      render json: promo_code
     else
-      render json: {:errors => @pc.errors}, :status => 500
+      render json: {errors: promo_code.errors},
+        status: :unprocessable_entity
     end
   end
 
@@ -18,7 +32,12 @@ class PromoCodesController < ApplicationController
   end
 
   private
-    def promo_code_params
-      params.require(:promo_code).permit(:token, :user_id)
-    end
+
+  def promo_code_params
+    params.require(:promo_code).permit(:token, :user_id)
+  end
+
+  def find_promo_code
+    PromoCode.find_by(token: promo_code_params[:token])
+  end
 end

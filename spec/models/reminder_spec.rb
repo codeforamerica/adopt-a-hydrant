@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: reminders
+#
+#  id           :integer          not null, primary key
+#  thing_id     :integer          not null
+#  from_user_id :integer          not null
+#  to_user_id   :integer          not null
+#  sent         :boolean          default(FALSE)
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
 require 'rails_helper'
 
 RSpec.describe Reminder, :type => :model do

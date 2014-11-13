@@ -11,12 +11,15 @@ gem 'geokit'
 gem 'haml'
 gem 'jquery-rails'
 gem 'pg'
-gem 'rails_12factor'
+gem 'puma'
 gem 'rails_admin'
 gem 'sass-rails'
 gem 'validates_formatting_of'
 
 group :development do
+  gem 'annotate'
+  gem 'guard-rspec'
+  gem 'libnotify'
   gem 'spring'
   gem 'spring-commands-rspec'
 end
@@ -29,11 +32,15 @@ group :development, :test do
 end
 
 group :production do
-  gem 'puma'
+  gem 'rails_12factor'
 end
 
 group :test do
+  gem 'capybara'
   gem 'database_cleaner'
   gem 'faker'
-  gem 'webmock'
+  gem 'launchy'
+  gem 'poltergeist'
+  gem 'selenium-webdriver'
+  gem 'simplecov', require: false
 end

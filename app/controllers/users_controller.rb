@@ -38,7 +38,6 @@ class UsersController < Devise::RegistrationsController
     end
   end
 
-
   def create
     build_resource(sign_up_params)
     if resource.save

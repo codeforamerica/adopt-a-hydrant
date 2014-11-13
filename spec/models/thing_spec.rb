@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: things
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  user_id     :integer
+#  mpls_id     :integer
+#  mpls_unique :string(255)
+#  lat         :decimal(32, 29)  not null
+#  lng         :decimal(32, 29)  not null
+#  species     :string(255)
+#  properties  :json
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 require 'rails_helper'
 
 RSpec.describe Thing, :type => :model do
