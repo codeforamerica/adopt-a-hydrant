@@ -1,11 +1,18 @@
----
 before_script: bundle exec rake db:create db:schema:load
-bundler_args: --without assets:development:production
+bundler_args: "--without assets:development:production"
 cache: bundler
 language: ruby
 rvm:
-  - 2.2.0
+- 2.2.0
 script:
-  - bundle exec rake
-  - bundle exec rubocop --rails --fail-level=refactor
+- bundle exec rake
+- bundle exec rubocop --rails --fail-level=refactor
 sudo: false
+deploy:
+  api_key:
+    secure: Ck6BzHMtPmYsBY/PbVnfIE6wnSe9s6fYDkvzYZtT/2qud4j4ElhV9el0ZbDhiTmix0PMwcCnN/Tpw5GbLVaHncDaJkvb6ucEBNyC7xECjNAFsxE6lu3yKATsY2hta7OQ8NwLlvAZpzCLMZQf9lzoSNbh2h/p+CwSNR7vOkw0FNc=
+  app: adopt-a-hydrant
+  on:
+    repo: codeforamerica/adopt-a-hydrant
+  provider: heroku
+  strategy: git
