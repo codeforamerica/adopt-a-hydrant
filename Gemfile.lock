@@ -88,7 +88,7 @@ GEM
     multi_json (1.10.1)
     nested_form (0.3.2)
     netrc (0.8.0)
-    nokogiri (1.6.4.1)
+    nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     parser (2.2.0.pre.8)
