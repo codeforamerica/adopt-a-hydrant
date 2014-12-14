@@ -207,3 +207,10 @@ img.lock {
   opacity: 0.8;
   filter: alpha(opacity=80); /* For IE8 and earlier */
 }
+
+#city {
+    color: #EF3C3C; 
+    font-weight: bolder; 
+    margin-top: 0; 
+    font-family: Arial; 
+}
