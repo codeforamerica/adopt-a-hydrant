@@ -79,7 +79,7 @@ GEM
     haml (4.0.6)
       tilt
     hike (1.2.3)
-    http_accept_language (2.0.2)
+    http_accept_language (2.0.5)
     i18n (0.7.0)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
