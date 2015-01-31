@@ -15,7 +15,6 @@ gem 'rails_admin'
 gem 'validates_formatting_of'
 gem 'forecast_io'
 
-
 platforms :ruby_18 do
   gem 'fastercsv'
 end

@@ -1,5 +1,5 @@
 require 'dotenv'
-Dotenv.load '.env','my.env'
+Dotenv.load '.env', 'my.env'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
