@@ -24,7 +24,8 @@ This application requires [Postgres](http://www.postgresql.org/) to be installed
 
     git clone git://github.com/codeforamerica/adopt-a-hydrant.git
 
-    _note: if Git appears to hang or outright fails, try:_
+_Note: if Git appears to hang or outright fails, try:_
+    
     git clone git@github.com:codeforamerica/adopt-a-hydrant.git
 
     cd adopt-a-hydrant
