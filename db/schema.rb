@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20141107052217) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name",                                                        null: false
+    t.string   "name",                                            null: false
     t.string   "organization"
     t.string   "voice_number"
     t.string   "sms_number"
@@ -65,13 +65,13 @@ ActiveRecord::Schema.define(version: 20141107052217) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.boolean  "admin",                                       default: false
-    t.string   "email",                                       default: "",    null: false
-    t.string   "encrypted_password",                          default: "",    null: false
+    t.boolean  "admin",                           default: false
+    t.string   "email",                           default: "",    null: false
+    t.string   "encrypted_password",              default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                               default: 0,     null: false
+    t.integer  "sign_in_count",                   default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -80,13 +80,13 @@ ActiveRecord::Schema.define(version: 20141107052217) do
     t.datetime "updated_at"
     t.integer  "yob"
     t.string   "gender"
-    t.string   "ethnicity",                       limit: nil,                              array: true
+    t.string   "ethnicity",                                                    array: true
     t.integer  "yearsInMinneapolis"
     t.string   "rentOrOwn"
     t.boolean  "previousTreeWateringExperience"
     t.boolean  "previousEnvironmentalActivities"
     t.integer  "valueForestryWork"
-    t.string   "heardOfAdoptATreeVia",            limit: nil,                              array: true
+    t.string   "heardOfAdoptATreeVia",                                         array: true
     t.string   "awareness_code"
   end
 
