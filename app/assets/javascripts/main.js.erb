@@ -41,6 +41,24 @@ $(function() {
   var isWindowOpen = false;
   var thingIds = [];
 
+  function insertFormErrors(form_name, form_prefix, data, errors){
+    for (var attribute in data.errors){
+      errors.push($('#'+form_prefix+'_'+attribute));
+      $('#'+form_prefix+'_'+attribute).parent().addClass('error');
+      var error_msg = $('<span>');
+      error_msg.attr('id', form_prefix+'_'+attribute+'_errormsg');
+      error_msg.addClass('errormsg');
+      error_msg.text('-- '+ data.errors[attribute].join() +' --');
+      $('#'+form_prefix+'_'+attribute).after(error_msg);
+
+    };
+
+    $('html, body').animate({
+      scrollTop: ($('#'+form_name+' .error').first().offset().top)
+    }, 500);
+    //errors[0].focus();
+  }
+
   function addMarker(thingId, thingTitle, point, color) {
     if(color === 'green') {
       var image = greenMarkerImage;
@@ -277,7 +295,8 @@ $(function() {
   $('#combo-form').live('submit', function() {
     var submitButton = $("#combo-form input[type='submit']");
     $(submitButton).attr("disabled", true);
-    var errors = []
+    $('#combo-form .errormsg').remove();
+    var errors = [];
     if(!/[\w\.%\+]+@[\w]+\.+[\w]{2,}/.test($('#user_email').val())) {
       <%#errors.push($('#user_email'));%>
       $('#user_email').parent().addClass('error');
@@ -320,31 +339,8 @@ $(function() {
           error: function(jqXHR) {
             var data = $.parseJSON(jqXHR.responseText);
             $(submitButton).attr("disabled", false);
-            if(data.errors.email) {
-              errors.push($('#user_email'));
-              $('#user_email').parent().addClass('error');
-            }
-            if(data.errors.name) {
-              errors.push($('#user_username'));
-              $('#user_username').parent().addClass('error');
-            }
-            if(data.errors.organization) {
-              errors.push($('#user_organization'));
-              $('#user_organization').parent().addClass('error');
-            }
-            if(data.errors.voice_number) {
-              errors.push($('#user_voice_number'));
-              $('#user_voice_number').parent().addClass('error');
-            }
-            if(data.errors.sms_number) {
-              errors.push($('#user_sms_number'));
-              $('#user_sms_number').parent().addClass('error');
-            }
-            if(data.errors.password) {
-              errors.push($('#user_password_confirmation'));
-              $('#user_password_confirmation').parent().addClass('error');
-            }
-            errors[0].focus();
+
+            insertFormErrors('combo-form', 'user', data, errors);
           },
           success: function(data) {
             $.ajax({
@@ -663,21 +659,7 @@ $(function() {
           var data = $.parseJSON(jqXHR.responseText);
           $(submitButton).attr("disabled", false);
 
-          for (var attribute in data.errors){
-            errors.push($('#user_username'));
-            $('#user_'+attribute).parent().addClass('error');
-            var error_msg = $('<span>');
-            error_msg.attr('id', 'user_'+attribute+'_errormsg');
-            error_msg.addClass('errormsg');
-            error_msg.text('-- '+ data.errors[attribute].join() +' --');
-            $('#user_'+attribute).after(error_msg);
-
-          };
-
-          $('html, body').animate({
-            scrollTop: ($('#edit_form .error').first().offset().top)
-          }, 500);
-          //errors[0].focus();
+          insertFormErrors('edit_form', 'user', data, errors);
         },
         success: function(data) {
           $('#content').html(data);
