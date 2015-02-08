@@ -6,7 +6,7 @@ shared_examples "user profile form" do
       within '.sidebar #edit_form.edit_user' do
         user = subject
         expect(page).to have_field 'Email address', with: user.email
-        expect(page).to have_field 'Name (visible to others)', with: user.name
+        expect(page).to have_field 'Username (visible to others)', with: user.username
         expect(page).to have_field 'Address Line 1', with: user.address_1
         expect(page).to have_field 'Address Line 2', with: user.address_2
         expect(page).to have_field 'City', with: user.city

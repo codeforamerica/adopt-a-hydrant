@@ -8,12 +8,12 @@ describe 'Combo Form' do
   let(:user) { build(:user) }
 
   context 'Home page combo form' do
-    it 'shows email, name, and password fields' do
+    it 'shows email, username, and password fields' do
       within '#combo-form' do
         sign_up_button = page.find_button 'Sign up'
 
         expect(page).to have_field 'user_email'
-        expect(page).to have_field 'user_name'
+        expect(page).to have_field 'user_username'
         expect(page).to have_field 'user_password_confirmation'
         expect(sign_up_button).to_not be_disabled
       end
@@ -24,7 +24,7 @@ describe 'Combo Form' do
     it 'does not sign up with invalid email address', js: true do
       within '#combo-form' do
         fill_in 'user_email', with: 'invalid@aol'
-        fill_in 'user_name', with: user.name
+        fill_in 'user_username', with: user.username
         fill_in 'user_password_confirmation', with: user.password
         click_button 'Sign up'
 
@@ -36,7 +36,7 @@ describe 'Combo Form' do
     it 'does not sign up with invalid password', js: true do
       within '#combo-form' do
         fill_in 'user_email', with: user.email
-        fill_in 'user_name', with: user.name
+        fill_in 'user_username', with: user.username
         fill_in 'user_password_confirmation', with: 'derp'
         click_button 'Sign up'
 
@@ -46,14 +46,14 @@ describe 'Combo Form' do
       end
     end
 
-    it 'does not sign up with no name', js: true do
+    it 'does not sign up with no username', js: true do
       within '#combo-form' do
         fill_in 'user_email', with: user.email
         fill_in 'user_password_confirmation', with: user.password
         click_button 'Sign up'
 
         expect(page).to have_button 'Sign up'
-        expect(page).to have_selector '.control-group.error #user_name'
+        expect(page).to have_selector '.control-group.error #user_username'
       end
     end
   end

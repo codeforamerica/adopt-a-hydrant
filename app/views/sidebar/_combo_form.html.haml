@@ -11,11 +11,11 @@
       = f.label "existing", radio_button_tag("user", "existing").html_safe + t("labels.user_existing")
   %fieldset#user_sign_up_fields
     .control-group
-      %label{:for => "user_name", :id => "user_name_label"}
-        = t("labels.name")
+      %label{:for => "user_username", :id => "user_username_label"}
+        = t("labels.username")
         %small
           = t("captions.public")
-      = f.text_field "name"
+      = f.text_field "username"
     .control-group
       %label{:for => "user_password_confirmation", :id => "user_password_confirmation_label"}
         = t("labels.password_choose")

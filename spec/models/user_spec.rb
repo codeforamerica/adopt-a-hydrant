@@ -3,7 +3,9 @@
 # Table name: users
 #
 #  id                              :integer          not null, primary key
-#  name                            :string(255)      not null
+#  username                        :string(255)      not null
+#  first_name                      :string(255)      
+#  last_name                       :string(255)      
 #  organization                    :string(255)
 #  voice_number                    :string(255)
 #  sms_number                      :string(255)
@@ -48,10 +50,10 @@ RSpec.describe User, :type => :model do
   end
 
   it "is invalid without a name" do
-    user = build(:user, name: nil)
+    user = build(:user, username: nil)
 
     expect(user).to_not be_valid
-    expect(user.errors[:name].count).to eq 1
+    expect(user.errors[:username].count).to eq 1
   end
 
   it "is invalide with an invalid email" do
@@ -117,43 +119,59 @@ RSpec.describe User, :type => :model do
     expect(user.errors[:voice_number].count).to eq 1
   end
 
-  it "has a true complete_shipping_address? attribute if required fields are complete" do
-    user = build(:user, 
-        address_1: Faker::Address.street_address, 
-        city: Faker::Address.city, 
-        state: Faker::Address.state_abbr, 
-        zip: Faker::Address.zip)
+  context "first and last names are set" do
+    before(:each) { @user =  build(:modified_profile_user) }
 
-    expect(user.complete_shipping_address?).to be true
+    it "has accessible first and last names" do
+      expect(@user.first_name).to_not be_blank
+      expect(@user.last_name).to_not be_blank
+    end
+
+    it "has a full name" do
+      expect(@user.full_name).to_not be_blank
+      expect(@user.full_name).to eq("#{@user.first_name} #{@user.last_name}")
+    end
+
   end
 
-  it "has a false complete_shipping_address? attribute if required fields are not complete" do
-    user_attrs = {
-        "address_1" => Faker::Address.street_address, 
-        "city" => Faker::Address.city, 
-        "state" => Faker::Address.state_abbr, 
-        "zip" => Faker::Address.zip
-    }
-    user = build(:user, user_attrs) 
-    user_attrs.each do |attr_name, attr_value|
-      user.send("#{attr_name}=", '')
-      expect(user.complete_shipping_address?).to be false
-      user.send("#{attr_name}=", attr_value)
+  context "complete_shipping_address?" do
+    before(:each) do
+      @user_attrs = {
+          "first_name" => Faker::Name.first_name,
+          "last_name" => Faker::Name.last_name,
+          "address_1" => Faker::Address.street_address, 
+          "city" => Faker::Address.city, 
+          "state" => Faker::Address.state_abbr, 
+          "zip" => Faker::Address.zip
+      }
+      @user = build(:user, @user_attrs) 
+    end
+
+    it "is true if required fields are complete" do
+      expect(@user.complete_shipping_address?).to be true
+    end
+
+    it "is false if required fields are not complete" do
+      @user_attrs.each do |attr_name, attr_value|
+        @user.send("#{attr_name}=", '')
+        expect(@user.complete_shipping_address?).to be false
+        @user.send("#{attr_name}=", attr_value)
+      end
     end
   end
 
-  it "has a true used_code? attribute if the User has a Promo Code" do
-    user = build(:user)
-    promo_code = build(:promo_code)
-    user.promo_codes << promo_code
+  context "used_code?" do
+    before(:each){ @user = build(:user) }
 
-    expect(user.used_code?).to be true
+    it "is true if the User has a Promo Code" do
+      promo_code = build(:promo_code)
+      @user.promo_codes << promo_code
+
+      expect(@user.used_code?).to be true
+    end
+
+    it "is false if the User does not have a Promo Code" do
+      expect(@user.used_code?).to be false
+    end
   end
-
-  it "has a false used_code? attribute if the User does not have a Promo Code" do
-    user = build(:user)
-
-    expect(user.used_code?).to be false
-  end
-
 end

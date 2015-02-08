@@ -3,7 +3,9 @@
 # Table name: users
 #
 #  id                              :integer          not null, primary key
-#  name                            :string(255)      not null
+#  username                        :string(255)      not null
+#  first_name                      :string(255)      
+#  last_name                       :string(255)      
 #  organization                    :string(255)
 #  voice_number                    :string(255)
 #  sms_number                      :string(255)
@@ -50,14 +52,18 @@ class User < ActiveRecord::Base
 
   before_validation :remove_non_digits_from_phone_numbers
 
-  validates :name, presence: true
+  validates :username, presence: true
   validates_formatting_of :email,         using: :email
   validates_formatting_of :sms_number,    using: :us_phone, allow_blank: true
   validates_formatting_of :voice_number,  using: :us_phone, allow_blank: true
   validates_formatting_of :zip,           using: :us_zip, allow_blank: true
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   def complete_shipping_address?
-    shipping_attrs = ["name", "address_1", "city", "state", "zip"]
+    shipping_attrs = ["first_name", "last_name", "address_1", "city", "state", "zip"]
     shipping_attrs.none? {|attr_name| self.attributes[attr_name].blank?}
   end
 

@@ -53,14 +53,14 @@ class UsersController < Devise::RegistrationsController
 private
 
   def sign_up_params
-    params.require(:user).permit(:email, :name, :organization, :password, :password_confirmation, :sms_number, :voice_number)
+    params.require(:user).permit(:email, :username, :first_name, :last_name, :organization, :password, :password_confirmation, :sms_number, :voice_number)
   end
 
   def account_update_params
-    params.require(:user).permit(:address_1, :address_2, :city, :current_password, :email, :gender, :name, :organization, :password, :password_confirmation, :previousEnvironmentalActivities, :previousTreeWateringExperience, :remember_me, :rentOrOwn, :sms_number, :state, :valueForestryWork, :voice_number, :yearsInMinneapolis, :yob, :zip, :ethnicity => [], :heardOfAdoptATreeVia => [])
+    params.require(:user).permit(:address_1, :address_2, :city, :current_password, :email, :gender, :username, :first_name, :last_name, :organization, :password, :password_confirmation, :previousEnvironmentalActivities, :previousTreeWateringExperience, :remember_me, :rentOrOwn, :sms_number, :state, :valueForestryWork, :voice_number, :yearsInMinneapolis, :yob, :zip, :ethnicity => [], :heardOfAdoptATreeVia => [])
   end
 
   def restricted_account_update_params
-    params.require(:user).permit(:address_1, :address_2, :city, :gender, :name, :organization, :previousEnvironmentalActivities, :previousTreeWateringExperience, :rentOrOwn, :sms_number, :state, :valueForestryWork, :voice_number, :yearsInMinneapolis, :yob, :zip, :ethnicity => [], :heardOfAdoptATreeVia => [])
+    params.require(:user).permit(:address_1, :address_2, :city, :gender, :username, :first_name, :last_name, :organization, :previousEnvironmentalActivities, :previousTreeWateringExperience, :rentOrOwn, :sms_number, :state, :valueForestryWork, :voice_number, :yearsInMinneapolis, :yob, :zip, :ethnicity => [], :heardOfAdoptATreeVia => [])
   end
 end

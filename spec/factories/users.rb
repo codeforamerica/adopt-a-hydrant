@@ -3,7 +3,9 @@
 # Table name: users
 #
 #  id                              :integer          not null, primary key
-#  name                            :string(255)      not null
+#  username                        :string(255)      not null
+#  first_name                      :string(255)      
+#  last_name                       :string(255)      
 #  organization                    :string(255)
 #  voice_number                    :string(255)
 #  sms_number                      :string(255)
@@ -41,11 +43,13 @@ require 'faker'
 
 FactoryGirl.define do
   factory :user, aliases: [:from_user, :to_user] do
-    name      { Faker::Name.name }
+    username  { Faker::Internet.user_name }
     email     { Faker::Internet.email }
     password  { Faker::Internet.password(8) }
 
     factory :modified_profile_user do
+      first_name { Faker::Name.first_name }
+      last_name { Faker::Name.last_name }
       address_1 { Faker::Address.street_address }
       address_2 { Faker::Address.secondary_address }
       city { Faker::Address.city }

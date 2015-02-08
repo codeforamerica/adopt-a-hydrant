@@ -1,7 +1,7 @@
 %h2
   = t("titles.adopted", :thing_name => @thing.name ? @thing.name.titleize : t("defaults.this_thing", :thing => t("defaults.thing")))
   %br
-  = t("titles.byline", :name => @thing.user.name)
+  = t("titles.byline", :username => @thing.user.username)
   %br
   = t("titles.ofline", :organization => @thing.user.organization) unless @thing.user.organization.blank?
 - if user_signed_in?

@@ -1,0 +1,6 @@
+%fieldset.control-group
+  %label{:for => "user_username", :id => "user_username_label"}
+    = t("labels.username")
+    %small
+      = t("captions.public")
+  = f.text_field "username"
