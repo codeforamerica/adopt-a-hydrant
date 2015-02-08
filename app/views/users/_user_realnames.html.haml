@@ -1,0 +1,12 @@
+%fieldset.control-group
+  %label{:for => "user_first_name", :id => "user_first_name_label"}
+    = t("labels.first_name")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.text_field "first_name"
+%fieldset.control-group
+  %label{:for => "user_last_name", :id => "user_last_name_label"}
+    = t("labels.last_name")
+    %small
+      = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+  = f.text_field "last_name"

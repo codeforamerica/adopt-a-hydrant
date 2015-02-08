@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
 
   before_validation :remove_non_digits_from_phone_numbers
 
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
   validates_formatting_of :email,         using: :email
   validates_formatting_of :sms_number,    using: :us_phone, allow_blank: true
   validates_formatting_of :voice_number,  using: :us_phone, allow_blank: true
