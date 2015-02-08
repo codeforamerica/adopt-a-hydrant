@@ -1,9 +1,9 @@
 = form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => {:id => "edit_form", :method => :put} do |f|
   = f.hidden_field "id"
   = render :partial => "user_email", locals: {f: f}
+  = render :partial => "user_username", locals: {f: f}
   %h2
     = t("labels.shipping_info_heading")
-  = render :partial => "user_username", locals: {f: f}
   = render :partial => "user_realnames", locals: {f: f}
   = render :partial => "user_address", locals: {f: f}
   %h2

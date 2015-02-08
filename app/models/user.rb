@@ -53,10 +53,16 @@ class User < ActiveRecord::Base
   before_validation :remove_non_digits_from_phone_numbers
 
   validates :username, presence: true, uniqueness: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :address_1, presence: true
+  validates :city, presence: true
+  validates :state, presence: true
+  validates :zip, presence: true
   validates_formatting_of :email,         using: :email
   validates_formatting_of :sms_number,    using: :us_phone, allow_blank: true
   validates_formatting_of :voice_number,  using: :us_phone, allow_blank: true
-  validates_formatting_of :zip,           using: :us_zip, allow_blank: true
+  validates_formatting_of :zip,           using: :us_zip
 
   def full_name
     "#{self.first_name} #{self.last_name}"

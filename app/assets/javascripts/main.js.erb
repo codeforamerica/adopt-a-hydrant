@@ -296,6 +296,7 @@ $(function() {
     var submitButton = $("#combo-form input[type='submit']");
     $(submitButton).attr("disabled", true);
     $('#combo-form .errormsg').remove();
+    $('#combo-form .error').removeClass('error');
     var errors = [];
     if(!/[\w\.%\+]+@[\w]+\.+[\w]{2,}/.test($('#user_email').val())) {
       <%#errors.push($('#user_email'));%>
@@ -329,7 +330,14 @@ $(function() {
             'user': {
               'email': $('#user_email').val(),
               'username': $('#user_username').val(),
+              'first_name': $('#user_first_name').val(),
+              'last_name': $('#user_last_name').val(),
               'organization': $('#user_organization').val(),
+              'address_1': $('#user_address_1').val(),
+              'address_2': $('#user_address_2').val(),
+              'city': $('#user_city').val(),
+              'state': $('#user_state').val(),
+              'zip': $('#user_zip').val(),
               'voice_number': $('#user_voice_number').val(),
               'sms_number': $('#user_sms_number').val(),
               'password': $('#user_password_confirmation').val(),
@@ -584,6 +592,7 @@ $(function() {
     var submitButton = $("#edit_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     $('#edit_form .errormsg').remove();
+    $('#edit_form .error').removeClass('error');
     var errors = []
     if(!/[\w\.%\+\]+@[\w\]+\.+[\w]{2,}/.test($('#user_email').val())) {
       errors.push($('#user_email'));

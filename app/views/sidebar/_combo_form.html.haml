@@ -10,12 +10,11 @@
       = f.label "new" , radio_button_tag("user", "new", true).html_safe + t("labels.user_new")
       = f.label "existing", radio_button_tag("user", "existing").html_safe + t("labels.user_existing")
   %fieldset#user_sign_up_fields
-    .control-group
-      %label{:for => "user_username", :id => "user_username_label"}
-        = t("labels.username")
-        %small
-          = t("captions.public")
-      = f.text_field "username"
+    = render :partial => "users/user_username", locals: {f: f}
+    %h2
+      =t("labels.shipping_info_heading")
+    = render :partial => "users/user_realnames", locals: {f: f}
+    = render :partial => "users/user_address", locals: {f: f}
     .control-group
       %label{:for => "user_password_confirmation", :id => "user_password_confirmation_label"}
         = t("labels.password_choose")
