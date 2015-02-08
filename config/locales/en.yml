@@ -112,7 +112,7 @@ en:
   titles:
     adopt: "Adopt this %{thing}"
     adopted: "%{thing_name} has been adopted"
-    byline: "by %{name}"
+    byline: "by %{username}"
     edit_profile: "Edit your Profile"
     main: "Adopt-a-%{thing}"
     ofline: "of %{organization}"

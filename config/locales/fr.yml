@@ -87,7 +87,7 @@ fr:
   titles:
     adopt: "Adoptez cette %{thing}"
     adopted: "%{thing_name} a été adoptée"
-    byline: "par %{name}"
+    byline: "par %{username}"
     edit_profile: "Modifiez votre profil"
     main: "Adopt-a-%{thing}"
     ofline: "de %{organization}"
