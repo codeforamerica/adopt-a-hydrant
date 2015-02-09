@@ -11,16 +11,17 @@
       = f.label "existing", radio_button_tag("user", "existing").html_safe + t("labels.user_existing")
   %fieldset#user_sign_up_fields
     = render :partial => "users/user_username", locals: {f: f}
-    %h2
-      =t("labels.shipping_info_heading")
-    = render :partial => "users/user_realnames", locals: {f: f}
-    = render :partial => "users/user_address", locals: {f: f}
     .control-group
       %label{:for => "user_password_confirmation", :id => "user_password_confirmation_label"}
         = t("labels.password_choose")
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
       = f.password_field "password_confirmation"
+    %h2
+      =t("labels.shipping_info_heading")
+    = render :partial => "users/user_realnames", locals: {f: f}
+    = render :partial => "users/user_address", locals: {f: f}
+
     .form-actions
       = f.submit t("buttons.sign_up"), :class => "btn btn-primary"
     %p
