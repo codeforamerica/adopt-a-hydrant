@@ -13,6 +13,12 @@ module LoginMacros
     visit root_path
     fill_in 'user_email', with: user.email
     fill_in 'user_username', with: user.username
+    fill_in 'user_first_name', with: user.first_name
+    fill_in 'user_last_name', with: user.last_name
+    fill_in 'user_address_1', with: user.address_1
+    fill_in 'user_city', with: user.city
+    find(:select, 'user_state').find(:xpath, "option[@value='#{user.state}']").select_option
+    fill_in 'user_zip', with: user.zip
     fill_in 'user_password_confirmation', with: user.password
     click_button 'Sign up'
   end

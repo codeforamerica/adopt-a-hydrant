@@ -46,15 +46,16 @@ FactoryGirl.define do
     username  { Faker::Internet.user_name }
     email     { Faker::Internet.email }
     password  { Faker::Internet.password(8) }
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    address_1 { Faker::Address.street_address }
+    city { Faker::Address.city }
+    state { Faker::Address.state_abbr }
+    zip { Faker::Address.zip_code }
+
 
     factory :modified_profile_user do
-      first_name { Faker::Name.first_name }
-      last_name { Faker::Name.last_name }
-      address_1 { Faker::Address.street_address }
       address_2 { Faker::Address.secondary_address }
-      city { Faker::Address.city }
-      state { Faker::Address.state_abbr }
-      zip { Faker::Address.zip_code }
       yob { 1900 + rand(100) }
       gender { rand(2) == 0 ? 'male' : 'female' }
       ethnicity { [rand(2) == 0 ? 'caucasian' : 'other'] }
