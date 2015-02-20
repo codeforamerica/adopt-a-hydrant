@@ -1,5 +1,5 @@
 class ThingMailer < ActionMailer::Base
-  default from: 'adoptatree@minneapolisparks.org'
+  default from: 'contact@opentwincities.org'
 
   def reminder(thing)
     @thing = thing
