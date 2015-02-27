@@ -15,16 +15,16 @@
     = t("labels.city")
     %small
       = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-  = f.text_field "city", :placeholder => t("defaults.city")
+  = f.select "city", current_cities
 %fieldset.control-group
   %label{:for => "user_state", :id => "user_state_label"}
     = t("labels.state")
     %small
       = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-  = f.select "state", us_states, :include_blank => true
+  = f.select "state", current_states
 %fieldset.control-group
   %label{:for => "user_zip", :id => "user_zip_label"}
     = t("labels.zip")
     %small
       = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-  = f.text_field "zip", :placeholder => t("defaults.zip")
+  = f.select "zip", current_zip_codes
