@@ -9,9 +9,9 @@ shared_examples "user profile form" do
         expect(page).to have_field 'Username (visible to others)', with: user.username
         expect(page).to have_field 'Address Line 1', with: user.address_1
         expect(page).to have_field 'Address Line 2', with: user.address_2
-        expect(page).to have_field 'City', with: user.city
-        expect(page).to have_field 'State', with: user.state
-        expect(page).to have_field 'ZIP', with: user.zip
+        expect(page).to have_select 'City', selected: user.city
+        expect(page).to have_select 'State', selected: user.state
+        expect(page).to have_select 'ZIP', selected: user.zip
         expect(page).to have_content 'Survey'
         expect(page).to have_field 'user_yob', with: user.yob
 

@@ -49,9 +49,9 @@ FactoryGirl.define do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
     address_1 { Faker::Address.street_address }
-    city { Faker::Address.city }
-    state { Faker::Address.state_abbr }
-    zip { Faker::Address.zip_code }
+    city { 'Minneapolis' }
+    state { 'Minnesota' }
+    zip { '55401' }
 
 
     factory :modified_profile_user do

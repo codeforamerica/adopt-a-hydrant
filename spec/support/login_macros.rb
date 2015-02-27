@@ -16,9 +16,9 @@ module LoginMacros
     fill_in 'user_first_name', with: user.first_name
     fill_in 'user_last_name', with: user.last_name
     fill_in 'user_address_1', with: user.address_1
-    fill_in 'user_city', with: user.city
-    find(:select, 'user_state').find(:xpath, "option[@value='#{user.state}']").select_option
-    fill_in 'user_zip', with: user.zip
+    find(:select, 'user_city').find(:xpath, "option[@value='#{user.city}']").select_option
+    find(:select, 'user_state').find(:xpath, "option[contains(text(), '#{user.state}')]").select_option
+    find(:select, 'user_zip').find(:xpath, "option[@value='#{user.zip}']").select_option
     fill_in 'user_password_confirmation', with: user.password
     click_button 'Sign up'
   end
