@@ -211,7 +211,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    tins (1.3.4)
+    tins (1.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
