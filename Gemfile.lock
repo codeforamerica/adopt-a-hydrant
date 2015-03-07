@@ -68,7 +68,7 @@ GEM
       warden (~> 1.2.3)
     docile (1.1.5)
     erubis (2.7.0)
-    execjs (2.3.0)
+    execjs (2.4.0)
     fastercsv (1.5.5)
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
