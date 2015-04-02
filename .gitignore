@@ -7,9 +7,6 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore SimpleCov directory.
-/coverage
-
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -20,9 +17,6 @@
 
 # Ignore dotenv
 .env
-
-# Ignore simplecov generated files.
-coverage
 
 # Ignore other things
 *swp

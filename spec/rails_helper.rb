@@ -1,6 +1,5 @@
-# simplecov must be started before anything else
-require 'simplecov'
-SimpleCov.start
+require "codecliemate-test-reporter"
+CodeClimate::TestReporter.start
 
 ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'

@@ -37,10 +37,10 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'codeclimate-test-reporter', require: nil
   gem 'database_cleaner'
   gem 'faker'
   gem 'launchy'
   gem 'poltergeist'
   gem 'selenium-webdriver'
-  gem 'simplecov', require: false
 end
