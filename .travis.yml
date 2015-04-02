@@ -1,8 +1,14 @@
 ---
 before_install: gem update bundler
-before_script: bundle exec rake db:create db:schema:load
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -U postgres -c "create extension postgis"
+  - bundle exec rake db:schema:load
 after_script: bundle exec rubocop -R
 bundler_args: --without assets:development:production
 language: ruby
 rvm:
   - 2.2.0
+addons:
+  postgresql: "9.3"
