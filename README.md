@@ -1,12 +1,10 @@
 # Adopt-a-Tree
 
-[![Build Status](http://img.shields.io/travis/codeforamerica/adopt-a-hydrant.svg)][travis]
-[![Dependency Status](http://img.shields.io/gemnasium/codeforamerica/adopt-a-hydrant.svg)][gemnasium]
-[![Coverage Status](http://img.shields.io/coveralls/codeforamerica/adopt-a-hydrant.svg)][coveralls]
+[![Build Status](https://travis-ci.org/ballPointPenguin/adopt-a-tree.svg?branch=master)](https://travis-ci.org/ballPointPenguin/adopt-a-tree)
+[![Coverage Status](https://codeclimate.com/github/ballPointPenguin/adopt-a-tree.svg)][code-climate]
 
-[travis]: http://travis-ci.org/codeforamerica/adopt-a-hydrant
-[gemnasium]: https://gemnasium.com/codeforamerica/adopt-a-hydrant
-[coveralls]: https://coveralls.io/r/codeforamerica/adopt-a-hydrant
+[travis]: https://travis-ci.org/ballPointPenguin/adopt-a-tree
+[code-climate]: https://codeclimate.com/github/ballPointPenguin/adopt-a-tree
 
 Beautify your street by watering a tree.
 
