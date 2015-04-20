@@ -224,7 +224,7 @@ GEM
       json (>= 1.8.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.6)
+    unf_ext (0.0.7.1)
     validates_formatting_of (0.8.1)
       activemodel (~> 4.0)
     warden (1.2.3)
