@@ -1,0 +1,17 @@
+# docker-compose.yml
+
+web:
+  build: .
+  ports:
+    - "80:80"
+  env_file:
+    - .env
+  links:
+    - db
+  volumes:
+    - "/webapp:/home/app/webapp"
+#db:
+#  image: tray/dynamodb-local
+#  command: "-inMemory"
+#  ports:
+#    - "8000:8000"
