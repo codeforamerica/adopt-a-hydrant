@@ -101,7 +101,7 @@ GEM
     method_source (0.8.2)
     mime-types (2.6.1)
     mini_portile (0.6.2)
-    minitest (5.6.1)
+    minitest (5.7.0)
     multi_json (1.11.0)
     nested_form (0.3.2)
     netrc (0.10.3)
@@ -256,3 +256,6 @@ DEPENDENCIES
   uglifier
   validates_formatting_of
   webmock
+
+BUNDLED WITH
+   1.10.2
