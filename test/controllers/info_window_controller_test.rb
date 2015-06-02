@@ -7,7 +7,7 @@ class InfoWindowControllerTest < ActionController::TestCase
     @user = users(:erik)
   end
 
-  test 'should thank the user if the user the hydrant is adopted by the user' do
+  test 'should thank the user if the hydrant is adopted by the user' do
     sign_in @user
     @thing.user_id = @user.id
     @thing.save!
