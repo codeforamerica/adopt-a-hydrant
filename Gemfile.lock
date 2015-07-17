@@ -116,7 +116,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    puma (2.12.1)
+    puma (2.12.2)
     rack (1.6.4)
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
