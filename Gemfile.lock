@@ -70,7 +70,7 @@ GEM
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
-    execjs (2.5.2)
+    execjs (2.6.0)
     fastercsv (1.5.5)
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
