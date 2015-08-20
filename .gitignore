@@ -6,6 +6,8 @@
 
 # Ignore bundler config.
 /.bundle
+
+# Ignore bundle
 /vendor/bundle
 
 # Ignore SimpleCov directory.
