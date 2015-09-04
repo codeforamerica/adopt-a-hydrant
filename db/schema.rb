@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 5) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "rails_admin_histories", force: true do |t|
+  create_table "rails_admin_histories", force: :cascade do |t|
     t.string   "message"
     t.string   "username"
     t.integer  "item"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 5) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
 
-  create_table "reminders", force: true do |t|
+  create_table "reminders", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "from_user_id",                 null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 5) do
   add_index "reminders", ["thing_id"], name: "index_reminders_on_thing_id", using: :btree
   add_index "reminders", ["to_user_id"], name: "index_reminders_on_to_user_id", using: :btree
 
-  create_table "things", force: true do |t|
+  create_table "things", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 5) do
 
   add_index "things", ["city_id"], name: "index_things_on_city_id", unique: true, using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name",                                   null: false
