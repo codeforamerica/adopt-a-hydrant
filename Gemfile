@@ -27,10 +27,6 @@ group :development do
   gem 'spring'
 end
 
-group :development, :test do
-  gem 'pry'
-end
-
 group :production do
   gem 'puma'
   gem 'skylight'
