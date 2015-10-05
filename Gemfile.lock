@@ -187,7 +187,7 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    skylight (0.8.0)
+    skylight (0.8.1)
       activesupport (>= 3.0.0)
     spring (1.4.0)
     sprockets (3.3.5)
