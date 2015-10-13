@@ -78,6 +78,7 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.7)
       tilt
+    hashdiff (0.2.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     http_accept_language (2.0.5)
@@ -215,9 +216,10 @@ GEM
       activemodel
     warden (1.2.3)
       rack (>= 1.0)
-    webmock (1.21.0)
+    webmock (1.22.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
+      hashdiff
 
 PLATFORMS
   ruby
