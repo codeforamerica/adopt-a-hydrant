@@ -1,29 +1,29 @@
-# Adopt-a-Hydrant
+# Adopt-a-Drain
 
-[![Build Status](http://img.shields.io/travis/codeforamerica/adopt-a-hydrant.svg)][travis]
-[![Dependency Status](http://img.shields.io/gemnasium/codeforamerica/adopt-a-hydrant.svg)][gemnasium]
-[![Coverage Status](http://img.shields.io/coveralls/codeforamerica/adopt-a-hydrant.svg)][coveralls]
+[![Build Status](http://img.shields.io/travis/codeforamerica/adopt-a-drain.svg)][travis]
+[![Dependency Status](http://img.shields.io/gemnasium/codeforamerica/adopt-a-drain.svg)][gemnasium]
+[![Coverage Status](http://img.shields.io/coveralls/codeforamerica/adopt-a-drain.svg)][coveralls]
 
-[travis]: http://travis-ci.org/codeforamerica/adopt-a-hydrant
-[gemnasium]: https://gemnasium.com/codeforamerica/adopt-a-hydrant
-[coveralls]: https://coveralls.io/r/codeforamerica/adopt-a-hydrant
+[travis]: http://travis-ci.org/codeforamerica/adopt-a-drain
+[gemnasium]: https://gemnasium.com/codeforamerica/adopt-a-drain
+[coveralls]: https://coveralls.io/r/codeforamerica/adopt-a-drain
 
-Claim responsibility for shoveling out a fire hydrant after it snows.
+Claim responsibility for shoveling out a fire drain after it snows.
 
 ## Screenshot
-![Adopt-a-Hydrant](https://github.com/codeforamerica/adopt-a-hydrant/raw/master/screenshot.png "Adopt-a-Hydrant")
+![Adopt-a-Drain](https://github.com/codeforamerica/adopt-a-drain/raw/master/screenshot.png "Adopt-a-Drain")
 
 ## Demo
 You can see a running version of the application at
-[http://adopt-a-hydrant.herokuapp.com/][demo].
+[http://adopt-a-drain.herokuapp.com/][demo].
 
-[demo]: http://adopt-a-hydrant.herokuapp.com/
+[demo]: http://adopt-a-drain.herokuapp.com/
 
 ## Installation
 This application requires [Postgres](http://www.postgresql.org/) to be installed
 
-    git clone git://github.com/codeforamerica/adopt-a-hydrant.git
-    cd adopt-a-hydrant
+    git clone git://github.com/codeforamerica/adopt-a-drain.git
+    cd adopt-a-drain
     bundle install
 
     bundle exec rake db:create
@@ -67,7 +67,7 @@ A successful deployment to Heroku requires a few setup steps:
     `heroku run bundle exec rake db:seed`
 
 Keep in mind that the Heroku free Postgres plan only allows up to 10,000 rows,
-so if your city has more than 10,000 fire hydrants (or other thing to be
+so if your city has more than 10,000 fire drains (or other thing to be
 adopted), you will need to upgrade to the $9/month plan.
 
 ### Google Analytics
@@ -78,7 +78,7 @@ variables:
     heroku config:set GOOGLE_ANALYTICS_ID=your_id
     heroku config:set GOOGLE_ANALYTICS_DOMAIN=your_domain_name
 
-An example ID is `UA-12345678-9`, and an example domain is `adoptahydrant.org`.
+An example ID is `UA-12345678-9`, and an example domain is `adoptadrain.org`.
 
 ## Contributing
 In the spirit of [free software][free-sw], **everyone** is encouraged to help
@@ -101,8 +101,8 @@ Here are some ways *you* can contribute:
 * by reviewing patches
 * [financially][]
 
-[locales]: https://github.com/codeforamerica/adopt-a-hydrant/tree/master/config/locales
-[issues]: https://github.com/codeforamerica/adopt-a-hydrant/issues
+[locales]: https://github.com/codeforamerica/adopt-a-drain/tree/master/config/locales
+[issues]: https://github.com/codeforamerica/adopt-a-drain/issues
 [financially]: https://secure.codeforamerica.org/page/contribute
 
 ## Submitting an Issue
@@ -149,8 +149,8 @@ time of a major release, support for that Ruby version may be dropped.
 ## Copyright
 Copyright (c) 2014 Code for America. See [LICENSE][] for details.
 
-[license]: https://github.com/codeforamerica/adopt-a-hydrant/blob/master/LICENSE.md
+[license]: https://github.com/codeforamerica/adopt-a-drain/blob/master/LICENSE.md
 
-[![Code for America Tracker](http://stats.codeforamerica.org/codeforamerica/adopt-a-hydrant.png)][tracker]
+[![Code for America Tracker](http://stats.codeforamerica.org/codeforamerica/adopt-a-drain.png)][tracker]
 
-[tracker]: http://stats.codeforamerica.org/projects/adopt-a-hydrant
+[tracker]: http://stats.codeforamerica.org/projects/adopt-a-drain
