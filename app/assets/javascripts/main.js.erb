@@ -25,7 +25,7 @@ $(function() {
     navigator.geolocation.getCurrentPosition(function(position) {
       initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
       map.setCenter(initialLocation);
-      map.setZoom(17);
+      map.setZoom(18);
     }, function() {
       handleNoGeolocation(browserSupportFlag);
     });
