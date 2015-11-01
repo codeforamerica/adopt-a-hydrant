@@ -153,7 +153,7 @@ $(function() {
     var center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
   });
-  $('#address_form').live('submit', function() {
+  $('#address_form').on('submit', function() {
     var submitButton = $("#address_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     if($('#address').val() === '') {
@@ -206,7 +206,7 @@ $(function() {
       }
     });
   }
-  $('#combo-form input[type="radio"]').live('click', function() {
+  $('#combo-form input[type="radio"]').on('click', function() {
     var radioInput = $(this);
     if('new' === radioInput.val()) {
       $('#combo-form').data('state', 'user_sign_up');
@@ -237,7 +237,7 @@ $(function() {
       });
     }
   });
-  $('#combo-form').live('submit', function() {
+  $('#combo-form').on('submit', function() {
     var submitButton = $("#combo-form input[type='submit']");
     $(submitButton).attr("disabled", true);
     var errors = []
@@ -399,7 +399,7 @@ $(function() {
     }
     return false;
   });
-  $('#adoption_form').live('submit', function() {
+  $('#adoption_form').on('submit', function() {
     var submitButton = $("#adoption_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     $.ajax({
@@ -440,7 +440,7 @@ $(function() {
     });
     return false;
   });
-  $('#abandon_form').live('submit', function() {
+  $('#abandon_form').on('submit', function() {
     var answer = window.confirm("Are you sure you want to abandon this <%= I18n.t("defaults.thing") %>?")
     if(answer) {
       var submitButton = $("#abandon_form input[type='submit']");
@@ -484,7 +484,7 @@ $(function() {
     }
     return false;
   });
-  $('#edit_profile_link').live('click', function() {
+  $('#edit_profile_link').on('click', function() {
     var link = $(this);
     $(link).addClass('disabled');
     $.ajax({
@@ -499,7 +499,7 @@ $(function() {
     });
     return false;
   });
-  $('#edit_form').live('submit', function() {
+  $('#edit_form').on('submit', function() {
     var submitButton = $("#edit_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     var errors = []
@@ -622,7 +622,7 @@ $(function() {
     }
     return false;
   });
-  $('#sign_out_link').live('click', function() {
+  $('#sign_out_link').on('click', function() {
     var link = $(this);
     $(link).addClass('disabled');
     $.ajax({
@@ -648,7 +648,7 @@ $(function() {
     });
     return false;
   });
-  $('#sign_in_form').live('submit', function() {
+  $('#sign_in_form').on('submit', function() {
     var submitButton = $("#sign_in_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     $.ajax({
@@ -665,7 +665,7 @@ $(function() {
     });
     return false;
   });
-  $('#back_link').live('click', function() {
+  $('#back_link').on('click', function() {
     var link = $(this);
     $(link).addClass('disabled');
     $.ajax({
@@ -680,7 +680,7 @@ $(function() {
     });
     return false;
   });
-  $('#reminder_form').live('submit', function() {
+  $('#reminder_form').on('submit', function() {
     var submitButton = $("#reminder_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     $.ajax({
