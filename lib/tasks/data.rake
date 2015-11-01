@@ -17,7 +17,7 @@ namespace data
 
       p Thing.create!({
         name: drain["Drain_Type"],
-        city_id: drain["DPW_Node_ID"],
+        city_id: drain["PUC_Maximo_Asset_ID"],
         lat: lat,
         lng: lng
       })
