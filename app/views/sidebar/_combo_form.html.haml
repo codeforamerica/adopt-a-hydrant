@@ -6,8 +6,9 @@
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
       = f.email_field "email", :value => params[:user] ? params[:user][:email] : nil, :class => "form-control"
-    .form-group.radio
+    .radio
       = f.label "new" , radio_button_tag("user", "new", true).html_safe + t("labels.user_new")
+    .radio
       = f.label "existing", radio_button_tag("user", "existing").html_safe + t("labels.user_existing")
   %fieldset#user_sign_up_fields
     .form-group
