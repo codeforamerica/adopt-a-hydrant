@@ -59,16 +59,11 @@ form input.search-query {
   margin-bottom: 0;
   padding-left: 14px;
   padding-right: 14px;
-  width: 180px;
 }
 
 .sidebar p {
   padding: 0 20px;
   margin: 0;
-}
-
-a.btn {
-  width: 188px;
 }
 
 .table {
