@@ -1,6 +1,6 @@
-.container-fluid
-  .row
-    .col-md-3
+.table
+  .table-row
+    .table-cell.sidebar
       %h1
         = image_tag "logos/adopt-a-drain.png", :alt => t("titles.main", :thing => t("defaults.thing").titleize), :title => t("titles.main", :thing => t("defaults.thing").titleize)
       %p.alert-message.block-message#tagline
@@ -30,6 +30,6 @@
         %p
           %a{:href => URI.escape("mailto:adoptadrain@codeforsanfrancisco.org?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} - #{t("links.feedback").titleize}")}
             = t("links.feedback")
-    .col-md-9.map-container
+    .table-cell.map-container
       #map
         &nbsp;

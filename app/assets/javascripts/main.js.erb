@@ -1,5 +1,7 @@
 $(function() {
+  var initialLocation;
   var center = new google.maps.LatLng(37.774929, -122.419416);
+  var browserSupportFlag =  new Boolean();
   var mapOptions = {
     center: center,
     disableDoubleClickZoom: false,
@@ -17,6 +19,26 @@ $(function() {
     zoomControl: true
   };
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  // Try W3C Geolocation (Preferred)
+  if(navigator.geolocation) {
+    browserSupportFlag = true;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      map.setCenter(initialLocation);
+      map.setZoom(17);
+    }, function() {
+      handleNoGeolocation(browserSupportFlag);
+    });
+  }
+  // Browser doesn't support Geolocation
+  else {
+    browserSupportFlag = false;
+    handleNoGeolocation(browserSupportFlag);
+  }
+
+  function handleNoGeolocation(errorFlag) {
+    map.setCenter(defaultCenter);
+  }
   var size = new google.maps.Size(27.0, 37.0);
   var origin = new google.maps.Point(0, 0);
   var anchor = new google.maps.Point(13.0, 18.0);

@@ -172,7 +172,8 @@ a.btn {
 }
 
 .map-container {
-  width: auto;
+  min-height: 500px;
+  padding-right: 0;
 }
 
 #map {
