@@ -50,7 +50,6 @@ input#user_existing {
 }
 
 form select, button.btn, input[type="submit"].btn {
-  width: 210px;
 }
 
 form input.search-query {
@@ -102,9 +101,6 @@ a.btn {
 }
 
 .sidebar {
-  width: 250px;
-  border-right: 1px solid #ccc;
-  text-align: center;
 }
 
 .sidebar .control-group {
@@ -112,7 +108,6 @@ a.btn {
 }
 
 .sidebar .form-actions {
-  padding: 17px 20px 10px;
 }
 
 .sidebar p#tagline {
@@ -173,7 +168,7 @@ a.btn {
 
 .map-container {
   min-height: 500px;
-  padding-right: 0;
+  padding: 0;
 }
 
 #map {

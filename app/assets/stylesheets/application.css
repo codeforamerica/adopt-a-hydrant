@@ -22,3 +22,23 @@ body, html {
 img[title="Code for San Francisco"]{
   width:100%;
 }
+
+.sidebar {
+	height: 90px;
+	overflow: scroll;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    z-index: 2;
+  }
+
+  .map-container {
+  	margin-left: 25%;
+  }
+}
