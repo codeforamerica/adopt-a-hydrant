@@ -2,7 +2,7 @@ $(function() {
   var center = new google.maps.LatLng(37.774929, -122.419416);
   var mapOptions = {
     center: center,
-    disableDoubleClickZoom: true,
+    disableDoubleClickZoom: false,
     keyboardShortcuts: false,
     mapTypeControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -169,6 +169,12 @@ $(function() {
     }
     return false;
   });
+  $(window).resize(function () {
+    var h = $(window).height(),
+        offsetTop = 0; // Calculate the top offset
+
+    $('#map').css('height', (h - offsetTop));
+  }).resize();
   // Focus on the first non-empty text input or password field
   function setComboFormFocus() {
     $('#combo-form input[type="email"], #combo-form input[type="text"]:visible, #combo-form input[type="password"]:visible, #combo-form input[type="submit"]:visible, #combo-form input[type="tel"]:visible, #combo-form button:visible').each(function(index) {
