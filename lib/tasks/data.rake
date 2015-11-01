@@ -1,4 +1,4 @@
-namespace data
+namespace :data do
   require 'open-uri'
   require 'csv'
 
