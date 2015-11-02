@@ -37,7 +37,7 @@ $(function() {
   }
 
   function handleNoGeolocation(errorFlag) {
-    map.setCenter(defaultCenter);
+    map.setCenter(center);
   }
   var size = new google.maps.Size(27.0, 37.0);
   var origin = new google.maps.Point(0, 0);
@@ -192,11 +192,15 @@ $(function() {
     return false;
   });
   $(window).resize(function () {
-    var h = $(window).height(),
-        offsetTop = 0; // Calculate the top offset
-
+    var h = $(window).height(), screenWidth = $( window ).width(), offsetTop;
+    if (screenWidth < 768) {
+      offsetTop = 160;
+    } else {
+      offsetTop = 0; // Calculate the top offset
+    }
     $('#map').css('height', (h - offsetTop));
   }).resize();
+
   // Focus on the first non-empty text input or password field
   function setComboFormFocus() {
     $('#combo-form input[type="email"], #combo-form input[type="text"]:visible, #combo-form input[type="password"]:visible, #combo-form input[type="submit"]:visible, #combo-form input[type="tel"]:visible, #combo-form button:visible').each(function(index) {
