@@ -66,5 +66,11 @@
 = render :partial => "sidebar/tos"
 :javascript
   $(function() {
-    $('#user_email').focus();
+    var screenWidth = $(window).width();
+    if (screenWidth >= 768) {
+      $('#user_email').focus();
+    }
+    $('.click-to-learn').on('click', function(){
+      $('div.sidebar').toggleClass('sidebar-full');
+    });
   });

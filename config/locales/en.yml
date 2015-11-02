@@ -63,6 +63,7 @@ en:
     feedback: "Send feedback"
     forgot_password: "Forgot your password?"
     remembered_password: "Never mind. I remembered my password."
+    click_for_more: "Click to learn more"
   notices:
     abandoned: "%{thing} abandoned!"
     adopted: "You just adopted a %{thing}!"

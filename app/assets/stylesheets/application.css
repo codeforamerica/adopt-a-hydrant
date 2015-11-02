@@ -24,8 +24,16 @@ img[title="Code for San Francisco"]{
 }
 
 .sidebar {
-	height: 90px;
+	height: 185px;
 	overflow: scroll;
+}
+
+.sidebar-full {
+	height: auto;
+}
+
+.click-to-learn {
+	text-align: center;
 }
 
 @media (min-width: 768px) {
