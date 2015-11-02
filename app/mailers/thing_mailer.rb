@@ -10,6 +10,6 @@ class ThingMailer < ActionMailer::Base
   def reminder(thing)
     @thing = thing
     @user = thing.user
-    mail(to: @user.email, subject: ['Remember to shovel', @thing.name].compact.join(' '))
+    mail(to: @user.email, subject: ['Remember to clear Drain', @thing.name].compact.join(' '))
   end
 end
