@@ -81,6 +81,7 @@ en:
     ofline: "of %{organization}"
     sign_in: "Sign in to adopt this %{thing}"
     thank_you: "Thank you for adopting this %{thing}!"
+    share_text: "I just adopted a %{thing}!"
     tos: "Terms of Service"
   sponsors:
     built: "Code for San Francisco"
