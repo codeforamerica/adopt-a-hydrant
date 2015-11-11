@@ -24,7 +24,7 @@ img[title="Code for San Francisco"]{
 }
 
 .sidebar {
-	height: 185px;
+	height: 90px;
 	overflow: scroll;
 }
 
@@ -34,6 +34,13 @@ img[title="Code for San Francisco"]{
 
 .click-to-learn {
 	text-align: center;
+}
+
+.map-container {
+  position: absolute;
+  top:100px;
+  bottom:0;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -48,5 +55,6 @@ img[title="Code for San Francisco"]{
 
   .map-container {
   	margin-left: 25%;
+    top: 0;
   }
 }
