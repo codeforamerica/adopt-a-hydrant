@@ -15,10 +15,11 @@ $(function() {
     scaleControl: false,
     scrollwheel: false,
     streetViewControl: true,
-    zoom: 15,
+    zoom: 17,
     zoomControl: true
   };
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  /*
   // Try W3C Geolocation (Preferred)
   if(navigator.geolocation) {
     browserSupportFlag = true;
@@ -39,6 +40,7 @@ $(function() {
   function handleNoGeolocation(errorFlag) {
     map.setCenter(center);
   }
+  */
   var size = new google.maps.Size(27.0, 37.0);
   var origin = new google.maps.Point(0, 0);
   var anchor = new google.maps.Point(13.0, 18.0);
@@ -191,15 +193,6 @@ $(function() {
     }
     return false;
   });
-  $(window).resize(function () {
-    var h = $(window).height(), screenWidth = $( window ).width(), offsetTop;
-    if (screenWidth < 768) {
-      offsetTop = 160;
-    } else {
-      offsetTop = 0; // Calculate the top offset
-    }
-    $('#map').css('height', (h - offsetTop));
-  }).resize();
 
   // Focus on the first non-empty text input or password field
   function setComboFormFocus() {
