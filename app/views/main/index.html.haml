@@ -1,37 +1,37 @@
 .container-fluid
   .row
     .col-md-3.sidebar
-      %h1
+      .navbar.navbar-default
         = image_tag "logos/adopt-a-drain.png", :alt => t("titles.main", :thing => t("defaults.thing").titleize), :title => t("titles.main", :thing => t("defaults.thing").titleize)
-      %p.alert-message.block-message#tagline
-        = t("defaults.tagline")
-      %a.visible-xs-block.click-to-learn{:href => "#"}
-        = t("links.click_for_more")
-      #content
-        = render :partial => "layouts/flash", :locals => {:flash => flash}
-        - if signed_in?
-          = render :partial => "sidebar/search"
-        - else
-          = render :partial => "sidebar/combo_form"
-      #logos
-        #col1
-          %a{:href => "http://codeforamerica.org/"}
-            = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
-          %br
-          %a{:href => "http://codeforsanfrancisco.org/"}
-            = image_tag "logos/codeforsanfrancisco.png", :alt => t("sponsors.built"), :title => t("sponsors.built")
-        #col2
-          %a{:href => "http://sfgov.org/"}
-            = image_tag "logos/sfgov.png", :alt => t("sponsors.city"), :title => t("sponsors.city")
-          %p#mayor
-            %a{:href => "http://sfmayor.org/"}
-              = "#{t("sponsors.mayor.name")},"
-              %em
-                = t("sponsors.mayor.title")
-      #feedback
-        %p
-          %a{:href => URI.escape("mailto:adoptadrain@codeforsanfrancisco.org?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} - #{t("links.feedback").titleize}")}
-            = t("links.feedback")
+        %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+      .sidebar-content
+        %p.alert-message.block-message#tagline
+          = t("defaults.tagline")
+        #content
+          = render :partial => "layouts/flash", :locals => {:flash => flash}
+          - if signed_in?
+            = render :partial => "sidebar/search"
+          - else
+            = render :partial => "sidebar/combo_form"
+        #logos
+          .row
+            .col-xs-6
+              %a{:href => "http://codeforamerica.org/"}
+                = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
+            .col-xs-6
+              %a{:href => "http://codeforsanfrancisco.org/"}
+                = image_tag "logos/codeforsanfrancisco.png", :alt => t("sponsors.built"), :title => t("sponsors.built")
+        #feedback
+          .row
+            .col-md-12
+              %p
+                %a{:href => URI.escape("mailto:adoptadrain@codeforsanfrancisco.org?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} - #{t("links.feedback").titleize}")}
+                  = t("links.feedback")
     .col-md-9.map-container
       #map
         &nbsp;
+  = render :partial => "sidebar/tos"
