@@ -310,12 +310,15 @@ $(function() {
             $.ajax({
               type: 'GET',
               url: '/sidebar/search',
+              /*
               data: {
                 'flash': {
                   'notice': "<%= I18n.t("notices.signed_up") %>"
                 }
-              },
+              },*/
               success: function(data) {
+                $('.sidebar').addClass('signed-in');
+                $('.sidebar').removeClass('sidebar-full');
                 $('#content').html(data);
               }
             });
