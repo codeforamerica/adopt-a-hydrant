@@ -155,7 +155,7 @@ $(function() {
     var center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
   });
-  $('#address_form').on('submit', function() {
+  $('body').on('submit', '#address_form', function() {
     var submitButton = $("#address_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     if($('#address').val() === '') {
@@ -186,7 +186,7 @@ $(function() {
             addMarkersAround(data[0], data[1]);
             var center = new google.maps.LatLng(data[0], data[1]);
             map.setCenter(center);
-            map.setZoom(19);
+            map.setZoom(18);
           }
         }
       });
@@ -203,7 +203,7 @@ $(function() {
       }
     });
   }
-  $('#combo-form input[type="radio"]').on('click', function() {
+  $('.sidebar').on('click', '#combo-form input[type="radio"]', function() {
     var radioInput = $(this);
     if('new' === radioInput.val()) {
       $('#combo-form').data('state', 'user_sign_up');
@@ -234,7 +234,7 @@ $(function() {
       });
     }
   });
-  $('#combo-form').on('submit', function() {
+  $('.sidebar').on('submit','#combo-form', function() {
     var submitButton = $("#combo-form input[type='submit']");
     $(submitButton).attr("disabled", true);
     var errors = []
@@ -351,14 +351,16 @@ $(function() {
             $('#user_password').focus();
           },
           success: function(data) {
+            $('.sidebar').addClass('signed-in');
+            $('.sidebar').removeClass('sidebar-full');
             $.ajax({
               type: 'GET',
               url: '/sidebar/search',
-              data: {
+              /*data: {
                 'flash': {
                   'notice': "<%= I18n.t("notices.signed_in") %>"
                 }
-              },
+              },*/
               success: function(data) {
                 $('#content').html(data);
               }
@@ -481,7 +483,7 @@ $(function() {
     }
     return false;
   });
-  $('#edit_profile_link').on('click', function() {
+  $('.sidebar').on('click','#edit_profile_link', function() {
     var link = $(this);
     $(link).addClass('disabled');
     $.ajax({
@@ -619,7 +621,7 @@ $(function() {
     }
     return false;
   });
-  $('#sign_out_link').on('click', function() {
+  $('.sidebar').on('click','#sign_out_link', function() {
     var link = $(this);
     $(link).addClass('disabled');
     $.ajax({
@@ -632,12 +634,14 @@ $(function() {
         $.ajax({
           type: 'GET',
           url: '/sidebar/combo_form',
-          data: {
+          /*data: {
             'flash': {
               'warning': "<%= I18n.t("notices.signed_out") %>"
             }
-          },
+          },*/
           success: function(data) {
+            $('.sidebar').removeClass('sidebar-full');
+            $('.sidebar').removeClass('signed-in');
             $('#content').html(data);
           }
         });
@@ -645,8 +649,8 @@ $(function() {
     });
     return false;
   });
-  $('#sign_in_form').on('submit', function() {
-    var submitButton = $("#sign_in_form input[type='submit']");
+  $('.sidebar').on('submit','#sign_out_form', function() {
+    var submitButton = $("#sign_out_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     $.ajax({
       type: 'GET',

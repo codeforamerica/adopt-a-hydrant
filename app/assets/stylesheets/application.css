@@ -24,10 +24,15 @@ img[title="Code for San Francisco"]{
   width:100%;
 }
 
+.navbar {
+  margin-bottom: 0;
+}
+
 .sidebar {
 	height: 90px;
-	overflow: scroll;
+	overflow: hidden;
   background-color: #fff;
+  z-index: 2;
 }
 
 .sidebar p.tos {
@@ -35,9 +40,21 @@ img[title="Code for San Francisco"]{
   margin-bottom: 15px;
 }
 
-.sidebar-full {
-	height: auto;
+.sidebar.signed-in #tagline {
+  display: none;
+}
+
+.sidebar.signed-in {
+  height: 205px;
+}
+
+.signed-in.sidebar-full, .sidebar-full {
+  height: auto;
   z-index: 2;
+}
+
+.search-form .form-group {
+  margin-bottom: 0;
 }
 
 .click-to-learn {
@@ -66,22 +83,24 @@ img[title="Code for San Francisco"]{
 }
 
 @media (min-width: 768px) {
-  .sidebar {
+  .sidebar, .sidebar.signed-in {
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     width: 25%;
     z-index: 2;
+    overflow: scroll;
   }
 
   .map-container {
-  	margin-left: 25%;
+    width: 100%;
     top: 0;
   }
 
   .navbar {
     text-align: center;
+    margin-bottom: 15px;
   }
 
   .sidebar button.navbar-toggle {
