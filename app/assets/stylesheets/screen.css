@@ -50,7 +50,6 @@ input#user_existing {
 }
 
 form select, button.btn, input[type="submit"].btn {
-  width: 210px;
 }
 
 form input.search-query {
@@ -60,16 +59,11 @@ form input.search-query {
   margin-bottom: 0;
   padding-left: 14px;
   padding-right: 14px;
-  width: 180px;
 }
 
 .sidebar p {
   padding: 0 20px;
   margin: 0;
-}
-
-a.btn {
-  width: 188px;
 }
 
 .table {
@@ -102,9 +96,6 @@ a.btn {
 }
 
 .sidebar {
-  width: 250px;
-  border-right: 1px solid #ccc;
-  text-align: center;
 }
 
 .sidebar .control-group {
@@ -112,7 +103,6 @@ a.btn {
 }
 
 .sidebar .form-actions {
-  padding: 17px 20px 10px;
 }
 
 .sidebar p#tagline {
@@ -172,7 +162,7 @@ a.btn {
 }
 
 .map-container {
-  width: auto;
+  padding: 0;
 }
 
 #map {

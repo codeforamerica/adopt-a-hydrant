@@ -22,11 +22,11 @@ en:
     required: "(required)"
   defaults:
     address: "address"
-    address_1: "1 City Hall Plaza"
+    address_1: "1 Dr Carlton B Goodlett Pl."
     address_2: "Suite 500"
     city: "San Francisco"
     city_state: "San Francisco, California"
-    neighborhood: "Downtown"
+    neighborhood: "Civic Center"
     sms_number: "415-555-1212"
     state: "CA"
     thing: "drain"
@@ -63,6 +63,7 @@ en:
     feedback: "Send feedback"
     forgot_password: "Forgot your password?"
     remembered_password: "Never mind. I remembered my password."
+    click_for_more: "Click to learn more"
   notices:
     abandoned: "%{thing} abandoned!"
     adopted: "You just adopted a %{thing}!"

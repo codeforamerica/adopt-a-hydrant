@@ -1,8 +1,10 @@
 $(function() {
+  var initialLocation;
   var center = new google.maps.LatLng(37.774929, -122.419416);
+  var browserSupportFlag =  new Boolean();
   var mapOptions = {
     center: center,
-    disableDoubleClickZoom: true,
+    disableDoubleClickZoom: false,
     keyboardShortcuts: false,
     mapTypeControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -13,10 +15,32 @@ $(function() {
     scaleControl: false,
     scrollwheel: false,
     streetViewControl: true,
-    zoom: 15,
+    zoom: 17,
     zoomControl: true
   };
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  /*
+  // Try W3C Geolocation (Preferred)
+  if(navigator.geolocation) {
+    browserSupportFlag = true;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      map.setCenter(initialLocation);
+      map.setZoom(18);
+    }, function() {
+      handleNoGeolocation(browserSupportFlag);
+    });
+  }
+  // Browser doesn't support Geolocation
+  else {
+    browserSupportFlag = false;
+    handleNoGeolocation(browserSupportFlag);
+  }
+
+  function handleNoGeolocation(errorFlag) {
+    map.setCenter(center);
+  }
+  */
   var size = new google.maps.Size(27.0, 37.0);
   var origin = new google.maps.Point(0, 0);
   var anchor = new google.maps.Point(13.0, 18.0);
@@ -131,7 +155,7 @@ $(function() {
     var center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
   });
-  $('#address_form').live('submit', function() {
+  $('body').on('submit', '#address_form', function() {
     var submitButton = $("#address_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     if($('#address').val() === '') {
@@ -162,13 +186,14 @@ $(function() {
             addMarkersAround(data[0], data[1]);
             var center = new google.maps.LatLng(data[0], data[1]);
             map.setCenter(center);
-            map.setZoom(19);
+            map.setZoom(18);
           }
         }
       });
     }
     return false;
   });
+
   // Focus on the first non-empty text input or password field
   function setComboFormFocus() {
     $('#combo-form input[type="email"], #combo-form input[type="text"]:visible, #combo-form input[type="password"]:visible, #combo-form input[type="submit"]:visible, #combo-form input[type="tel"]:visible, #combo-form button:visible').each(function(index) {
@@ -178,7 +203,7 @@ $(function() {
       }
     });
   }
-  $('#combo-form input[type="radio"]').live('click', function() {
+  $('.sidebar').on('click', '#combo-form input[type="radio"]', function() {
     var radioInput = $(this);
     if('new' === radioInput.val()) {
       $('#combo-form').data('state', 'user_sign_up');
@@ -209,7 +234,7 @@ $(function() {
       });
     }
   });
-  $('#combo-form').live('submit', function() {
+  $('.sidebar').on('submit','#combo-form', function() {
     var submitButton = $("#combo-form input[type='submit']");
     $(submitButton).attr("disabled", true);
     var errors = []
@@ -285,12 +310,15 @@ $(function() {
             $.ajax({
               type: 'GET',
               url: '/sidebar/search',
+              /*
               data: {
                 'flash': {
                   'notice': "<%= I18n.t("notices.signed_up") %>"
                 }
-              },
+              },*/
               success: function(data) {
+                $('.sidebar').addClass('signed-in');
+                $('.sidebar').removeClass('sidebar-full');
                 $('#content').html(data);
               }
             });
@@ -326,14 +354,16 @@ $(function() {
             $('#user_password').focus();
           },
           success: function(data) {
+            $('.sidebar').addClass('signed-in');
+            $('.sidebar').removeClass('sidebar-full');
             $.ajax({
               type: 'GET',
               url: '/sidebar/search',
-              data: {
+              /*data: {
                 'flash': {
                   'notice': "<%= I18n.t("notices.signed_in") %>"
                 }
-              },
+              },*/
               success: function(data) {
                 $('#content').html(data);
               }
@@ -371,7 +401,7 @@ $(function() {
     }
     return false;
   });
-  $('#adoption_form').live('submit', function() {
+  $('#map').on('submit', '#adoption_form', function() {
     var submitButton = $("#adoption_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     $.ajax({
@@ -412,7 +442,7 @@ $(function() {
     });
     return false;
   });
-  $('#abandon_form').live('submit', function() {
+  $('#map').on('submit', '#abandon_form', function() {
     var answer = window.confirm("Are you sure you want to abandon this <%= I18n.t("defaults.thing") %>?")
     if(answer) {
       var submitButton = $("#abandon_form input[type='submit']");
@@ -456,7 +486,7 @@ $(function() {
     }
     return false;
   });
-  $('#edit_profile_link').live('click', function() {
+  $('.sidebar').on('click','#edit_profile_link', function() {
     var link = $(this);
     $(link).addClass('disabled');
     $.ajax({
@@ -471,7 +501,7 @@ $(function() {
     });
     return false;
   });
-  $('#edit_form').live('submit', function() {
+  $('#edit_form').on('submit', function() {
     var submitButton = $("#edit_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     var errors = []
@@ -594,7 +624,7 @@ $(function() {
     }
     return false;
   });
-  $('#sign_out_link').live('click', function() {
+  $('.sidebar').on('click','#sign_out_link', function() {
     var link = $(this);
     $(link).addClass('disabled');
     $.ajax({
@@ -607,12 +637,14 @@ $(function() {
         $.ajax({
           type: 'GET',
           url: '/sidebar/combo_form',
-          data: {
+          /*data: {
             'flash': {
               'warning': "<%= I18n.t("notices.signed_out") %>"
             }
-          },
+          },*/
           success: function(data) {
+            $('.sidebar').removeClass('sidebar-full');
+            $('.sidebar').removeClass('signed-in');
             $('#content').html(data);
           }
         });
@@ -620,8 +652,8 @@ $(function() {
     });
     return false;
   });
-  $('#sign_in_form').live('submit', function() {
-    var submitButton = $("#sign_in_form input[type='submit']");
+  $('.sidebar').on('submit','#sign_out_form', function() {
+    var submitButton = $("#sign_out_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     $.ajax({
       type: 'GET',
@@ -637,7 +669,7 @@ $(function() {
     });
     return false;
   });
-  $('#back_link').live('click', function() {
+  $('#back_link').on('click', function() {
     var link = $(this);
     $(link).addClass('disabled');
     $.ajax({
@@ -652,7 +684,7 @@ $(function() {
     });
     return false;
   });
-  $('#reminder_form').live('submit', function() {
+  $('#reminder_form').on('submit', function() {
     var submitButton = $("#reminder_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     $.ajax({
