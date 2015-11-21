@@ -24,6 +24,11 @@ img[title="Code for San Francisco"]{
   width:100%;
 }
 
+input[type="text"], input[type="email"], input[type="password"], input[type="search"]
+{
+    font-size:16px;
+}
+
 .navbar {
   margin-bottom: 0;
 }
