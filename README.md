@@ -1,17 +1,17 @@
 # Adopt-a-Drain
 
-[![Build Status](http://img.shields.io/travis/codeforamerica/adopt-a-drain.svg)][travis]
-[![Dependency Status](http://img.shields.io/gemnasium/codeforamerica/adopt-a-drain.svg)][gemnasium]
-[![Coverage Status](http://img.shields.io/coveralls/codeforamerica/adopt-a-drain.svg)][coveralls]
+[![Build Status](http://img.shields.io/travis/sfbrigade/adopt-a-drain.svg)][travis]
+[![Dependency Status](http://img.shields.io/gemnasium/sfbrigade/adopt-a-drain.svg)][gemnasium]
+[![Coverage Status](http://img.shields.io/coveralls/sfbrigade/adopt-a-drain.svg)][coveralls]
 
-[travis]: http://travis-ci.org/codeforamerica/adopt-a-drain
-[gemnasium]: https://gemnasium.com/codeforamerica/adopt-a-drain
-[coveralls]: https://coveralls.io/r/codeforamerica/adopt-a-drain
+[travis]: http://travis-ci.org/sfbrigade/adopt-a-drain
+[gemnasium]: https://gemnasium.com/sfbrigade/adopt-a-drain
+[coveralls]: https://coveralls.io/r/sfbrigade/adopt-a-drain
 
-Claim responsibility for shoveling out a fire drain after it snows.
+Claim responsibility for cleaning out a storm drain after it rains.
 
 ## Screenshot
-![Adopt-a-Drain](https://github.com/codeforamerica/adopt-a-drain/raw/master/screenshot.png "Adopt-a-Drain")
+![Adopt-a-Drain](https://github.com/sfbrigade/adopt-a-drain/raw/master/screenshot.png "Adopt-a-Drain")
 
 ## Demo
 You can see a running version of the application at
@@ -22,7 +22,7 @@ You can see a running version of the application at
 ## Installation
 This application requires [Postgres](http://www.postgresql.org/) to be installed
 
-    git clone git://github.com/codeforamerica/adopt-a-drain.git
+    git clone git://github.com/sfbrigade/adopt-a-drain.git
     cd adopt-a-drain
     bundle install
 
@@ -101,9 +101,9 @@ Here are some ways *you* can contribute:
 * by reviewing patches
 * [financially][]
 
-[locales]: https://github.com/codeforamerica/adopt-a-drain/tree/master/config/locales
-[issues]: https://github.com/codeforamerica/adopt-a-drain/issues
-[financially]: https://secure.codeforamerica.org/page/contribute
+[locales]: https://github.com/sfbrigade/adopt-a-drain/tree/master/config/locales
+[issues]: https://github.com/sfbrigade/adopt-a-drain/issues
+[financially]: https://secure.sfbrigade.org/page/contribute
 
 ## Submitting an Issue
 We use the [GitHub issue tracker][issues] to track bugs and features. Before
@@ -132,7 +132,7 @@ Ideally, a bug report should include a pull request with failing specs.
 [pr]: http://help.github.com/send-pull-requests/
 
 ## Supported Ruby Version
-This library aims to support and is [tested against][travis] Ruby version 2.1.2.
+This library aims to support and is [tested against][travis] Ruby version 2.2.2.
 
 If something doesn't work on this version, it should be considered a bug.
 
@@ -147,10 +147,6 @@ timely fashion. If critical issues for a particular implementation exist at the
 time of a major release, support for that Ruby version may be dropped.
 
 ## Copyright
-Copyright (c) 2014 Code for America. See [LICENSE][] for details.
+Copyright (c) 2015 Code for San Francisco. See [LICENSE.md](https://github.com/sfbrigade/adopt-a-drain/blob/master/LICENSE.md) for details.
 
-[license]: https://github.com/codeforamerica/adopt-a-drain/blob/master/LICENSE.md
-
-[![Code for America Tracker](http://stats.codeforamerica.org/codeforamerica/adopt-a-drain.png)][tracker]
-
-[tracker]: http://stats.codeforamerica.org/projects/adopt-a-drain
+[license]: https://github.com/sfbrigade/adopt-a-drain/blob/master/LICENSE.md
