@@ -72,7 +72,7 @@ GEM
     erubis (2.7.0)
     execjs (2.6.0)
     fastercsv (1.5.5)
-    font-awesome-rails (4.4.0.0)
+    font-awesome-rails (4.5.0.0)
       railties (>= 3.2, < 5.0)
     geokit (1.10.0)
     globalid (0.3.6)
