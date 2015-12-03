@@ -12,7 +12,7 @@ class MainControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_select 'title', 'Adopt-a-Drain'
-    assert_select 'p#tagline', 'Claim responsibility for shoveling out a fire drain after it snows.'
+    assert_select 'p#tagline', 'Claim responsibility for maintaining a local storm drain.'
   end
 
   test 'should show search form when signed in' do
@@ -25,7 +25,7 @@ class MainControllerTest < ActionController::TestCase
     end
     assert_select 'label#city_state_label', 'City'
     assert_select 'select#city_state' do
-      assert_select 'option', 'Boston, Massachusetts'
+      assert_select 'option', 'San Francisco, California'
     end
     assert_select 'label#address_label', 'Address, Neighborhood'
     assert_select 'input#address', true
