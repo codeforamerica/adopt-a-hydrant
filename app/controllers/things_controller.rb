@@ -13,10 +13,7 @@ class ThingsController < ApplicationController
   def update
     @thing = Thing.find(params[:id])
     if @thing.update_attributes(thing_params)
-
-      if @thing.adopted?
-        ThingMailer.adopted_confirmation(@thing).deliver
-      end
+      ThingMailer.adopted_confirmation(@thing).deliver if @thing.adopted?
 
       respond_with @thing
     else

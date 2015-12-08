@@ -29,7 +29,7 @@ class ThingsControllerTest < ActionController::TestCase
 
     sign_in @user
     num_deliveries = ActionMailer::Base.deliveries.size
-    put :update, format: 'json', id: @thing.id, thing: { name: 'Drain', user_id: @user.id }
+    put :update, format: 'json', id: @thing.id, thing: {name: 'Drain', user_id: @user.id}
     assert @thing.reload.adopted?
     assert_equal num_deliveries + 1, ActionMailer::Base.deliveries.size
     assert_response :success
@@ -42,7 +42,7 @@ class ThingsControllerTest < ActionController::TestCase
   test 'should update drain but not send an adopted confirmation email upon abandonment' do
     sign_in @user
     num_deliveries = ActionMailer::Base.deliveries.size
-    put :update, format: 'json', id: @thing.id, thing: { name: 'Another Drain', user_id: nil } # a nil user_id is an abandonment
+    put :update, format: 'json', id: @thing.id, thing: {name: 'Another Drain', user_id: nil} # a nil user_id is an abandonment
     assert_not @thing.reload.adopted?
     assert_equal num_deliveries, ActionMailer::Base.deliveries.size
     assert_response :success
