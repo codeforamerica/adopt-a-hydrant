@@ -8,19 +8,21 @@ namespace :data do
     drains = CSV.parse(csv_string, headers: true)
 
     drains.each do |drain|
-      location = drain["Location"]
-      location = location.gsub!("(", "")
-      location = location.gsub!(")", "")
-      latlng = location.split(",")
-      lat = latlng[0].strip
-      lng = latlng[1].strip
+      if ["Storm Water Inlet Drain", "Catch Basin Drain"].include? drain["Drain_Type"]
+        location = drain["Location"]
+        location = location.gsub!("(", "")
+        location = location.gsub!(")", "")
+        latlng = location.split(",")
+        lat = latlng[0].strip
+        lng = latlng[1].strip
 
-      p Thing.create!({
-        name: drain["Drain_Type"],
-        city_id: drain["PUC_Maximo_Asset_ID"],
-        lat: lat,
-        lng: lng
-      })
+        p Thing.create!({
+          name: drain["Drain_Type"],
+          city_id: drain["PUC_Maximo_Asset_ID"],
+          lat: lat,
+          lng: lng
+        })
+      end
     end
   end
 end
