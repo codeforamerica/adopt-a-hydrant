@@ -1,69 +1,65 @@
 = form_for :user, :html => {:id => "combo-form", :class => "form-vertical"} do |f|
   %fieldset#common_fields
-    .control-group
+    .form-group
       %label{:for => "user_email", :id => "user_email_label"}
         = t("labels.email")
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-      = f.email_field "email", :value => params[:user] ? params[:user][:email] : nil
-    .control-group.radio
+      = f.email_field "email", :value => params[:user] ? params[:user][:email] : nil, :class => "form-control"
+    .radio
       = f.label "new" , radio_button_tag("user", "new", true).html_safe + t("labels.user_new")
+    .radio
       = f.label "existing", radio_button_tag("user", "existing").html_safe + t("labels.user_existing")
   %fieldset#user_sign_up_fields
-    .control-group
+    .form-group
       %label{:for => "user_name", :id => "user_name_label"}
         = t("labels.name")
         %small
           = t("captions.public")
-      = f.text_field "name"
-    .control-group
+      = f.text_field "name", :class => "form-control"
+    .form-group
       %label{:for => "user_organization", :id => "user_organization_label"}
         = t("labels.organization")
         %small
           = t("captions.public")
-      = f.text_field "organization"
-    .control-group
+      = f.text_field "organization", :class => "form-control"
+    .form-group
       %label{:for => "user_voice_number", :id => "user_voice_number_label"}
         = t("labels.voice_number")
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-      = f.telephone_field "voice_number", :placeholder => t("defaults.voice_number")
-    .control-group
+      = f.telephone_field "voice_number", :placeholder => t("defaults.voice_number"), :class => "form-control"
+    .form-group
       %label{:for => "user_sms_number", :id => "user_sms_number_label"}
         = t("labels.sms_number")
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-      = f.telephone_field "sms_number", :placeholder => t("defaults.sms_number")
-    .control-group
+      = f.telephone_field "sms_number", :placeholder => t("defaults.sms_number"), :class => "form-control"
+    .form-group
       %label{:for => "user_password_confirmation", :id => "user_password_confirmation_label"}
         = t("labels.password_choose")
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-      = f.password_field "password_confirmation"
+      = f.password_field "password_confirmation", :class => "form-control"
+    %p.tos
+      = t("defaults.tos", :tos => link_to(t("titles.tos"), "#tos", :id => "tos_link", :"data-toggle" => "modal", :"data-target" => "#tos")).html_safe
     .form-actions
-      = f.submit t("buttons.sign_up"), :class => "btn btn-primary"
-    %p
-      = t("defaults.tos", :tos => link_to(t("titles.tos"), "#tos", :id => "tos_link", :"data-toggle" => "modal")).html_safe
+      = f.submit t("buttons.sign_up"), :class => "btn btn-primary btn-block"
   %fieldset#user_sign_in_fields{:style => "display: none;"}
-    .control-group
+    .form-group
       %label{:for => "user_password", :id => "user_password_label"}
         = t("labels.password")
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
-      = f.password_field "password"
-    .control-group
+      = f.password_field "password", :class => "form-control"
+    .form-group
       = f.label "remember_me" , f.check_box("remember_me", :checked => true).html_safe + t("labels.remember_me")
     .form-actions
-      = f.submit t("buttons.sign_in"), :class => "btn btn-primary"
+      = f.submit t("buttons.sign_in"), :class => "btn btn-primary btn-block"
     %p
       = link_to t("links.forgot_password"), "#", :id => "user_forgot_password_link"
   %fieldset#user_forgot_password_fields{:style => "display: none;"}
     .form-actions
-      = f.submit t("buttons.email_password"), :class => "btn btn-primary"
+      = f.submit t("buttons.email_password"), :class => "btn btn-primary btn-block"
     %p
       = link_to t("links.remembered_password"), "#", :id => "user_remembered_password_link"
-= render :partial => "sidebar/tos"
-:javascript
-  $(function() {
-    $('#user_email').focus();
-  });

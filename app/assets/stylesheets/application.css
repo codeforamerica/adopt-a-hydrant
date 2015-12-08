@@ -10,10 +10,105 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require bootstrap
  *= require_self
+ *= require screen
  */
+
+body, html {
+	height: 100%;
+	width: 100%;
+}
 
 img[title="Code for San Francisco"]{
   width:100%;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="search"]
+{
+    font-size:16px;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.sidebar {
+	height: 90px;
+	overflow: hidden;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.sidebar p.tos {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.sidebar.signed-in #tagline {
+  display: none;
+}
+
+.sidebar.signed-in {
+  height: 205px;
+}
+
+.signed-in.sidebar-full, .sidebar-full {
+  height: auto;
+  z-index: 2;
+}
+
+.search-form .form-group {
+  margin-bottom: 0;
+}
+
+.click-to-learn {
+	text-align: center;
+}
+
+.map-container {
+  position: absolute;
+  top:100px;
+  bottom:0;
+  width: 100%;
+}
+
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.navbar {
+  margin-top: 20px;
+}
+
+.navbar-toggle {
+  margin-top: 30px;
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
+  .sidebar, .sidebar.signed-in {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    z-index: 2;
+    overflow: scroll;
+  }
+
+  .map-container {
+    width: 100%;
+    top: 0;
+  }
+
+  .navbar {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .sidebar button.navbar-toggle {
+    display: none;
+  }
 }
