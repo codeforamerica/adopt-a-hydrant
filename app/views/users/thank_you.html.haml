@@ -1,3 +1,9 @@
 %h2
-  = t("titles.thank_you", :thing => t("defaults.thing"))
+  = t("titles.thank_you", thing: t("defaults.thing"))
+  %a{ href: "mailto:?subject=#{URI.encode(t("titles.main", thing: t("defaults.thing")))}&body=#{URI.encode(t("titles.email_text", root_url: root_url, thing: t("defaults.thing")))}" }
+    %i.fa.fa-envelope-square.fa-2x
+  %a{ href: "https://www.facebook.com/sharer/sharer.php?u=#{root_url}" }
+    %i.fa.fa-facebook-square.fa-2x
+  %a{ href: "https://twitter.com/intent/tweet?text=#{URI.encode(t("titles.tweet_text", root_url: root_url, thing: t("defaults.thing")))}"}
+    %i.fa.fa-twitter-square.fa-2x
 = render :partial => 'things/abandon'

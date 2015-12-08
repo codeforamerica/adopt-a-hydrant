@@ -82,6 +82,8 @@ en:
     ofline: "of %{organization}"
     sign_in: "Sign in to adopt this %{thing}"
     thank_you: "Thank you for adopting this %{thing}!"
+    email_text: "Flooded streets aren’t fun. I adopted my own storm drain at %{root_url}. Claim and name yours!"
+    tweet_text: "Flooded streets aren’t fun. I adopted my own storm drain at %{root_url}. Claim and name yours #ElNino #sfsewer"
     tos: "Terms of Service"
   sponsors:
     built: "Code for San Francisco"
