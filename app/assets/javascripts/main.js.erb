@@ -2,6 +2,7 @@ $(function() {
   var initialLocation;
   var center = new google.maps.LatLng(37.774929, -122.419416);
   var browserSupportFlag =  new Boolean();
+  var errorClass = 'has-error';
   var mapOptions = {
     center: center,
     disableDoubleClickZoom: false,
@@ -125,10 +126,10 @@ $(function() {
       success: function(data) {
         $(submitButton).attr("disabled", false);
         if(data.errors) {
-          $('#address').parent().addClass('error');
+          $('#address').parent().addClass(errorClass);
           $('#address').focus();
         } else {
-          $('#address').parent().removeClass('error');
+          $('#address').parent().removeClass(errorClass);
           var i = -1;
           $(data).each(function(index, thing) {
             if($.inArray(thing.id, thingIds) === -1) {
@@ -160,7 +161,7 @@ $(function() {
     $(submitButton).attr("disabled", true);
     if($('#address').val() === '') {
       $(submitButton).attr("disabled", false);
-      $('#address').parent().addClass('error');
+      $('#address').parent().addClass(errorClass);
       $('#address').focus();
     } else {
       $.ajax({
@@ -173,16 +174,16 @@ $(function() {
         },
         error: function(jqXHR) {
           $(submitButton).attr("disabled", false);
-          $('#address').parent().addClass('error');
+          $('#address').parent().addClass(errorClass);
           $('#address').focus();
         },
         success: function(data) {
           $(submitButton).attr("disabled", false);
           if(data.errors) {
-            $('#address').parent().addClass('error');
+            $('#address').parent().addClass(errorClass);
             $('#address').focus();
           } else {
-            $('#address').parent().removeClass('error');
+            $('#address').parent().removeClass(errorClass);
             addMarkersAround(data[0], data[1]);
             var center = new google.maps.LatLng(data[0], data[1]);
             map.setCenter(center);
@@ -240,22 +241,22 @@ $(function() {
     var errors = []
     if(!/[\w\.%\+]+@[\w]+\.+[\w]{2,}/.test($('#user_email').val())) {
       errors.push($('#user_email'));
-      $('#user_email').parent().addClass('error');
+      $('#user_email').parent().addClass(errorClass);
     } else {
-      $('#user_email').parent().removeClass('error');
+      $('#user_email').parent().removeClass(errorClass);
     }
     if(!$(this).data('state') || $(this).data('state') === 'user_sign_up') {
       if($('#user_name').val() === '') {
         errors.push($('#user_name'));
-        $('#user_name').parent().addClass('error');
+        $('#user_name').parent().addClass(errorClass);
       } else {
-        $('#user_name').parent().removeClass('error');
+        $('#user_name').parent().removeClass(errorClass);
       }
       if($('#user_password_confirmation').val().length < 6 || $('#user_password_confirmation').val().length > 20) {
         errors.push($('#user_password_confirmation'));
-        $('#user_password_confirmation').parent().addClass('error');
+        $('#user_password_confirmation').parent().addClass(errorClass);
       } else {
-        $('#user_password_confirmation').parent().removeClass('error');
+        $('#user_password_confirmation').parent().removeClass(errorClass);
       }
       if(errors.length > 0) {
         $(submitButton).attr("disabled", false);
@@ -282,27 +283,27 @@ $(function() {
             $(submitButton).attr("disabled", false);
             if(data.errors.email) {
               errors.push($('#user_email'));
-              $('#user_email').parent().addClass('error');
+              $('#user_email').parent().addClass(errorClass);
             }
             if(data.errors.name) {
               errors.push($('#user_name'));
-              $('#user_name').parent().addClass('error');
+              $('#user_name').parent().addClass(errorClass);
             }
             if(data.errors.organization) {
               errors.push($('#user_organization'));
-              $('#user_organization').parent().addClass('error');
+              $('#user_organization').parent().addClass(errorClass);
             }
             if(data.errors.voice_number) {
               errors.push($('#user_voice_number'));
-              $('#user_voice_number').parent().addClass('error');
+              $('#user_voice_number').parent().addClass(errorClass);
             }
             if(data.errors.sms_number) {
               errors.push($('#user_sms_number'));
-              $('#user_sms_number').parent().addClass('error');
+              $('#user_sms_number').parent().addClass(errorClass);
             }
             if(data.errors.password) {
               errors.push($('#user_password_confirmation'));
-              $('#user_password_confirmation').parent().addClass('error');
+              $('#user_password_confirmation').parent().addClass(errorClass);
             }
             errors[0].focus();
           },
@@ -328,9 +329,9 @@ $(function() {
     } else if($(this).data('state') === 'user_sign_in') {
       if($('#user_password').val().length < 6 || $('#user_password').val().length > 20) {
         errors.push($('#user_password'));
-        $('#user_password').parent().addClass('error');
+        $('#user_password').parent().addClass(errorClass);
       } else {
-        $('#user_password').parent().removeClass('error');
+        $('#user_password').parent().removeClass(errorClass);
       }
       if(errors.length > 0) {
         $(submitButton).attr("disabled", false);
@@ -350,7 +351,7 @@ $(function() {
           },
           error: function(jqXHR) {
             $(submitButton).attr("disabled", false);
-            $('#user_password').parent().addClass('error');
+            $('#user_password').parent().addClass(errorClass);
             $('#user_password').focus();
           },
           success: function(data) {
@@ -388,7 +389,7 @@ $(function() {
           },
           error: function(jqXHR) {
             $(submitButton).attr("disabled", false);
-            $('#user_email').parent().addClass('error');
+            $('#user_email').parent().addClass(errorClass);
             $('#user_email').focus();
           },
           success: function() {
@@ -507,33 +508,33 @@ $(function() {
     var errors = []
     if(!/[\w\.%\+\]+@[\w\]+\.+[\w]{2,}/.test($('#user_email').val())) {
       errors.push($('#user_email'));
-      $('#user_email').parent().addClass('error');
+      $('#user_email').parent().addClass(errorClass);
     } else {
-      $('#user_email').parent().removeClass('error');
+      $('#user_email').parent().removeClass(errorClass);
     }
     if($('#user_name').val() === '') {
       errors.push($('#user_name'));
-      $('#user_name').parent().addClass('error');
+      $('#user_name').parent().addClass(errorClass);
     } else {
-      $('#user_name').parent().removeClass('error');
+      $('#user_name').parent().removeClass(errorClass);
     }
     if($('#user_zip').val() != '' && !/^\d{5}(-\d{4})?$/.test($('#user_zip').val())) {
       errors.push($('#user_zip'));
-      $('#user_zip').parent().addClass('error');
+      $('#user_zip').parent().addClass(errorClass);
     } else {
-      $('#user_zip').parent().removeClass('error');
+      $('#user_zip').parent().removeClass(errorClass);
     }
     if($('#user_password').val() && ($('#user_password').val().length < 6 || $('#user_password').val().length > 20)) {
       errors.push($('#user_password'));
-      $('#user_password').parent().addClass('error');
+      $('#user_password').parent().addClass(errorClass);
     } else {
-      $('#user_password').parent().removeClass('error');
+      $('#user_password').parent().removeClass(errorClass);
     }
     if($('#user_current_password').val().length < 6 || $('#user_current_password').val().length > 20) {
       errors.push($('#user_current_password'));
-      $('#user_current_password').parent().addClass('error');
+      $('#user_current_password').parent().addClass(errorClass);
     } else {
-      $('#user_current_password').parent().removeClass('error');
+      $('#user_current_password').parent().removeClass(errorClass);
     }
     if(errors.length > 0) {
       $(submitButton).attr("disabled", false);
@@ -569,51 +570,51 @@ $(function() {
           $(submitButton).attr("disabled", false);
           if(data.errors.email) {
             errors.push($('#user_email'));
-            $('#user_email').parent().addClass('error');
+            $('#user_email').parent().addClass(errorClass);
           }
           if(data.errors.name) {
             errors.push($('#user_name'));
-            $('#user_name').parent().addClass('error');
+            $('#user_name').parent().addClass(errorClass);
           }
           if(data.errors.organization) {
             errors.push($('#user_organization'));
-            $('#user_organization').parent().addClass('error');
+            $('#user_organization').parent().addClass(errorClass);
           }
           if(data.errors.voice_number) {
             errors.push($('#user_voice_number'));
-            $('#user_voice_number').parent().addClass('error');
+            $('#user_voice_number').parent().addClass(errorClass);
           }
           if(data.errors.sms_number) {
             errors.push($('#user_sms_number'));
-            $('#user_sms_number').parent().addClass('error');
+            $('#user_sms_number').parent().addClass(errorClass);
           }
           if(data.errors.address_1) {
             errors.push($('#user_address_1'));
-            $('#user_address_1').parent().addClass('error');
+            $('#user_address_1').parent().addClass(errorClass);
           }
           if(data.errors.address_2) {
             errors.push($('#user_address_2'));
-            $('#user_address_2').parent().addClass('error');
+            $('#user_address_2').parent().addClass(errorClass);
           }
           if(data.errors.city) {
             errors.push($('#user_city'));
-            $('#user_city').parent().addClass('error');
+            $('#user_city').parent().addClass(errorClass);
           }
           if(data.errors.state) {
             errors.push($('#user_state'));
-            $('#user_state').parent().addClass('error');
+            $('#user_state').parent().addClass(errorClass);
           }
           if(data.errors.zip) {
             errors.push($('#user_zip'));
-            $('#user_zip').parent().addClass('error');
+            $('#user_zip').parent().addClass(errorClass);
           }
           if(data.errors.password) {
             errors.push($('#user_password'));
-            $('#user_password').parent().addClass('error');
+            $('#user_password').parent().addClass(errorClass);
           }
           if(data.errors.current_password) {
             errors.push($('#user_current_password'));
-            $('#user_current_password').parent().addClass('error');
+            $('#user_current_password').parent().addClass(errorClass);
           }
           errors[0].focus();
         },

@@ -4,7 +4,7 @@
   = f.hidden_field "id"
   = f.hidden_field "user_id", :value => current_user.id
   %fieldset.form-group
-    = f.label "name", t("labels.name_thing", :thing => t("defaults.thing")), :id => "thing_name_label"
+    = f.label "name", t("labels.name_thing", :thing => t("defaults.thing")), :id => "thing_name_label", :class => "control-label"
     = f.text_field "name", :class => "form-control"
   %fieldset.form-group
     = f.submit t("buttons.adopt"), :class => "btn btn-primary btn-block"

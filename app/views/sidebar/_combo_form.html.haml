@@ -1,7 +1,7 @@
 = form_for :user, :html => {:id => "combo-form", :class => "form-vertical"} do |f|
   %fieldset#common_fields
     .form-group
-      %label{:for => "user_email", :id => "user_email_label"}
+      %label{:for => "user_email", :id => "user_email_label", :class => 'control-label'}
         = t("labels.email")
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
@@ -12,31 +12,31 @@
       = f.label "existing", radio_button_tag("user", "existing").html_safe + t("labels.user_existing")
   %fieldset#user_sign_up_fields
     .form-group
-      %label{:for => "user_name", :id => "user_name_label"}
+      %label{:for => "user_name", :id => "user_name_label", :class => 'control-label'}
         = t("labels.name")
         %small
           = t("captions.public")
       = f.text_field "name", :class => "form-control"
     .form-group
-      %label{:for => "user_organization", :id => "user_organization_label"}
+      %label{:for => "user_organization", :id => "user_organization_label", :class => 'control-label'}
         = t("labels.organization")
         %small
           = t("captions.public")
       = f.text_field "organization", :class => "form-control"
     .form-group
-      %label{:for => "user_voice_number", :id => "user_voice_number_label"}
+      %label{:for => "user_voice_number", :id => "user_voice_number_label", :class => 'control-label'}
         = t("labels.voice_number")
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
       = f.telephone_field "voice_number", :placeholder => t("defaults.voice_number"), :class => "form-control"
     .form-group
-      %label{:for => "user_sms_number", :id => "user_sms_number_label"}
+      %label{:for => "user_sms_number", :id => "user_sms_number_label", :class => 'control-label'}
         = t("labels.sms_number")
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
       = f.telephone_field "sms_number", :placeholder => t("defaults.sms_number"), :class => "form-control"
     .form-group
-      %label{:for => "user_password_confirmation", :id => "user_password_confirmation_label"}
+      %label{:for => "user_password_confirmation", :id => "user_password_confirmation_label", :class => 'control-label'}
         = t("labels.password_choose")
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
@@ -47,7 +47,7 @@
       = f.submit t("buttons.sign_up"), :class => "btn btn-primary btn-block"
   %fieldset#user_sign_in_fields{:style => "display: none;"}
     .form-group
-      %label{:for => "user_password", :id => "user_password_label"}
+      %label{:for => "user_password", :id => "user_password_label", :class => 'control-label'}
         = t("labels.password")
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
