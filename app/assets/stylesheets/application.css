@@ -20,7 +20,7 @@ body, html {
   width: 100%;
 }
 
-img[title="Code for San Francisco"]{
+div#logos img {
   width:100%;
 }
 
