@@ -13,7 +13,7 @@ class ThingsController < ApplicationController
   def update
     @thing = Thing.find(params[:id])
     if @thing.update_attributes(thing_params)
-      ThingMailer.adopted_confirmation(@thing).deliver if @thing.adopted?
+      send_adoption_email(@thing.user, @thing) if @thing.adopted?
 
       respond_with @thing
     else
@@ -22,6 +22,17 @@ class ThingsController < ApplicationController
   end
 
 private
+
+  def send_adoption_email(user, thing)
+    case user.things.count
+    when 1
+      ThingMailer.first_adoption_confirmation(thing).deliver
+    when 2
+      ThingMailer.second_adoption_confirmation(thing).deliver
+    when 3
+      ThingMailer.third_adoption_confirmation(thing).deliver
+    end
+  end
 
   def thing_params
     params.require(:thing).permit(:name, :user_id)
