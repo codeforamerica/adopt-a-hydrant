@@ -1,4 +1,5 @@
 require 'geokit'
+require 'obscenity/active_model'
 
 class Thing < ActiveRecord::Base
   extend Forwardable
@@ -11,6 +12,7 @@ class Thing < ActiveRecord::Base
   validates :city_id, uniqueness: true, allow_nil: true
   validates :lat, presence: true
   validates :lng, presence: true
+  validates :name, obscenity: true
 
   def self.find_closest(lat, lng, limit = 10)
     query = <<-SQL
