@@ -71,6 +71,36 @@ $(function() {
     origin,
     anchor
   );
+
+  var legend = document.getElementById('legend');
+  var iconBase = '/assets/markers/';
+  console.log(iconBase);
+  var icons = {
+    available: {
+      name: 'Available',
+      icon: iconBase + 'tosewer.png'
+    },
+    adopted: {
+      name: 'Adopted',
+      icon: iconBase + 'adopted.png'
+    },
+    adopted_by_you: {
+      name: 'Adopted by you',
+      icon: iconBase + 'adoptedbyyou.png'
+    }
+  };
+  
+  for (var key in icons) {
+    var type = icons[key];
+    var name = type.name;
+    var icon = type.icon;
+    var div = document.createElement('div');
+    div.innerHTML = '<img src="' + icon + '"> ' + name;
+    legend.appendChild(div);
+  }
+  
+  map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(legend);
+
   var activeThingId;
   var activeMarker;
   var activeInfoWindow;

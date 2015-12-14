@@ -88,7 +88,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
 
 .map-container {
   position: absolute;
-  top:100px;
+  top:90px;
   bottom:0;
   width: 100%;
   z-index: 0;
@@ -143,8 +143,29 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
 }
 
 .break {
-  border-top: thin dotted #696;
+  border-top: thin dotted #696969;
   margin: 20px 0;
+}
+
+#legend {
+  background: white;
+  padding: 15px 0 15px 15px;
+  margin-bottom: 20px;
+  border: thin solid #bdbdbd;
+  right: 50px;
+}
+
+#legend div {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+#legend .title {
+  display: block;
+  font-size: 1.2em;
+  font-weight: 700;
+  border-bottom: thin dotted #bdbdbd;
+  margin-bottom: 5px;
 }
 
 @media (min-width: 768px) {
@@ -159,8 +180,9 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
   }
 
   .signed-in .map-container, .map-container {
-    width: 100%;
+    width: 75%;
     top: 0;
+    right: 0;
   }
 
   .navbar img {
@@ -170,5 +192,9 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
 
   .sidebar button.navbar-toggle {
     display: none;
+  }
+
+  #legend {
+    right: auto;
   }
 }
