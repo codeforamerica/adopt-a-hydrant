@@ -54,12 +54,12 @@
       = f.password_field "password", :class => "form-control"
     .form-group
       = f.label "remember_me" , f.check_box("remember_me", :checked => true).html_safe + t("labels.remember_me")
-    .form-actions
-      = f.submit t("buttons.sign_in"), :class => "btn btn-primary btn-block"
     %p
       = link_to t("links.forgot_password"), "#", :id => "user_forgot_password_link"
-  %fieldset#user_forgot_password_fields{:style => "display: none;"}
     .form-actions
-      = f.submit t("buttons.email_password"), :class => "btn btn-primary btn-block"
+      = f.submit t("buttons.sign_in"), :class => "btn btn-primary btn-block"
+  %fieldset#user_forgot_password_fields{:style => "display: none;"}
     %p
       = link_to t("links.remembered_password"), "#", :id => "user_remembered_password_link"
+    .form-actions
+      = f.submit t("buttons.email_password"), :class => "btn btn-primary btn-block"

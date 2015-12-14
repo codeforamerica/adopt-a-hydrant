@@ -8,6 +8,7 @@
     = search_field_tag "address", params[:address], :placeholder => [t("defaults.address_1"), t("defaults.neighborhood")].join(", "), :class => "search-query form-control"
   %fieldset.form-actions
     = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :class => "btn btn-primary btn-block"
+    .break
     %a{:href => edit_user_registration_path, :id => "edit_profile_link", :class => "btn btn-default btn-block"}
       = t("buttons.edit_profile")
     %a{:href => destroy_user_session_path, :id => "sign_out_link", :class => "btn btn-danger btn-block"}
