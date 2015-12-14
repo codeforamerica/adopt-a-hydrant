@@ -17,8 +17,9 @@ class ThingsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'should return drains adopted by user when signed in' do
+  test 'should return true if a drain is owned by logged in user' do
     sign_in @user
+    @thing.user_id = @user.id
     get :show, format: 'json', lat: 42.358431, lng: -71.059773
     assert_not_nil assigns :things
     assert_response :success
