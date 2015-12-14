@@ -31,7 +31,7 @@ en:
     state: "CA"
     thing: "drain"
     this_thing: "This %{thing}"
-    tagline: "Help the city avoid flooding by clearing drains of debris"
+    tagline: "Help the city avoid flooding by clearing drains of debris."
     tos: "By signing up, you agree to the %{tos}."
     voice_number: "415-555-1212"
     zip: "94015-2013"
