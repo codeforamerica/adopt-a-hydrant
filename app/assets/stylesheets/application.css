@@ -15,22 +15,32 @@
  *= require screen
  */
 
-body, html {
-	height: 100%;
-	width: 100%;
-}
+ body, html {
+   height: 100%;
+   width: 100%;
+ }
 
-img[title="Code for San Francisco"]{
+ img[title="Code for San Francisco"]{
   width:100%;
 }
 
 input[type="text"], input[type="email"], input[type="password"], input[type="search"]
 {
-    font-size:16px;
+  font-size:16px;
 }
 
 .navbar {
   margin-bottom: 0;
+  text-align: center;
+}
+
+.navbar img {
+  max-width: 40%;
+  margin: 5px;
+}
+
+.sidebar .navbar {
+  background-color: #8DC63F;
 }
 
 .sidebar {
@@ -45,21 +55,31 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
   margin-bottom: 15px;
 }
 
-.sidebar.signed-in #tagline {
+.sidebar p {
+  padding: 0;
+}
+
+.signed-in .sidebar #tagline {
   display: none;
 }
 
-.sidebar.signed-in {
-  height: 205px;
+.signed-in .sidebar {
+  height: 210px;
+  position: relative;
 }
 
-.signed-in.sidebar-full, .sidebar-full {
+.signed-in .sidebar-full, .sidebar-full {
   height: auto;
   z-index: 2;
+  position: relative;
 }
 
 .search-form .form-group {
   margin-bottom: 0;
+}
+
+#adoption_form {
+  text-align: center;
 }
 
 .click-to-learn {
@@ -71,6 +91,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
   top:100px;
   bottom:0;
   width: 100%;
+  z-index: 0;
 }
 
 .navbar-default {
@@ -78,17 +99,56 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
   border-color: transparent;
 }
 
-.navbar {
-  margin-top: 20px;
-}
-
 .navbar-toggle {
   margin-top: 30px;
-  margin-right: 0;
+  margin-right: 15px;
+}
+
+.sidebar-content {
+  margin: 15px;
+}
+
+.signed-in  .map-container {
+  top: 210px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #396B80;
+  border-color: #2e6da4;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #005596;
+    border-color: #204d74;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #BF2620;
+  border-color: #d43f3a;
+}
+
+.btn-danger:hover {
+  color: #fff;
+  background-color: #EE2A24;
+  border-color: #d43f3a;
+}
+
+.btn-default {
+    color: #333;
+    background-color: #FAF0DC;
+    border-color: #ccc;
+}
+
+.break {
+  border-top: thin dotted #696;
+  margin: 20px 0;
 }
 
 @media (min-width: 768px) {
-  .sidebar, .sidebar.signed-in {
+  .sidebar, .signed-in .sidebar {
     height: 100%;
     position: absolute;
     top: 0;
@@ -98,14 +158,14 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
     overflow: scroll;
   }
 
-  .map-container {
+  .signed-in .map-container, .map-container {
     width: 100%;
     top: 0;
   }
 
-  .navbar {
-    text-align: center;
-    margin-bottom: 15px;
+  .navbar img {
+    max-width: 60%;
+    margin: 5px;
   }
 
   .sidebar button.navbar-toggle {
