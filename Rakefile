@@ -12,6 +12,4 @@ end
 
 Rails.application.load_tasks
 
-RuboCop::RakeTask.new
-
 task default: [:rubocop, :test]
