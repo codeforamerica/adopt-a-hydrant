@@ -17,6 +17,13 @@ class ThingsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should return drains adopted by user when signed in' do
+    sign_in @user
+    get :show, format: 'json', lat: 42.358431, lng: -71.059773
+    assert_not_nil assigns :things
+    assert_response :success
+  end
+
   test 'should update drain' do
     assert_not_equal 'Birdsill', @thing.name
     put :update, format: 'json', id: @thing.id, thing: {name: 'Birdsill'}
