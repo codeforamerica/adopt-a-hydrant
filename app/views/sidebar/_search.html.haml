@@ -1,11 +1,12 @@
 = form_tag "/address", :method => "get", :id => "address_form", :class => "search-form" do
   = hidden_field_tag "limit", params[:limit] || 10
   %fieldset.form-group.hidden
-    = label_tag "city_state", t("labels.city_state"), :id => "city_state_label", :class => "control-label"
+    = label_tag "city_state", t("labels.city_state"), :id => "city_state_label", :class => 'control-label'
     = select_tag "city_state", "<option value=\"#{t("defaults.city_state")}\" selected=\"selected\">#{t("defaults.city_state")}</option>".html_safe, :class => "form-control"
   %fieldset.form-group
-    = label_tag "address", t("labels.address"), :id => "address_label", :class => "control-label"
+    = label_tag "address", t("labels.address"), :id => "address_label", :class => 'control-label'
     = search_field_tag "address", params[:address], :placeholder => [t("defaults.address_1"), t("defaults.neighborhood")].join(", "), :class => "search-query form-control"
+    .help-block
   %fieldset.form-actions
     = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :class => "btn btn-primary btn-block"
     .break

@@ -177,6 +177,7 @@ $(function() {
     if($('#address').val() === '') {
       $(submitButton).attr("disabled", false);
       $('#address').parent().addClass(errorClass);
+      $('#address').next(".help-block").html('You must enter a value');
       $('#address').focus();
     } else {
       $.ajax({
@@ -188,17 +189,22 @@ $(function() {
           'address': $('#address').val()
         },
         error: function(jqXHR) {
+          var response = $.parseJSON(jqXHR.responseText);
           $(submitButton).attr("disabled", false);
           $('#address').parent().addClass(errorClass);
+          $('#address').next(".help-block").html(response.error);
           $('#address').focus();
         },
         success: function(data) {
           $(submitButton).attr("disabled", false);
+          console.log(data);
           if(data.errors) {
             $('#address').parent().addClass(errorClass);
+            $('#address').next(".help-block").html('');
             $('#address').focus();
           } else {
             $('#address').parent().removeClass(errorClass);
+            $('#address').next(".help-block").html('');
             addMarkersAround(data[0], data[1]);
             var center = new google.maps.LatLng(data[0], data[1]);
             map.setCenter(center);
@@ -365,21 +371,24 @@ $(function() {
             }
           },
           error: function(jqXHR) {
+            var response = $.parseJSON(jqXHR.responseText)
             $(submitButton).attr("disabled", false);
             $('#user_password').parent().addClass(errorClass);
+            $('#user_password').next(".help-block").html(response.error);
             $('#user_password').focus();
           },
           success: function(data) {
-            $('.sidebar').addClass('signed-in');
+            $('.container-fluid').addClass('signed-in');
             $('.sidebar').removeClass('sidebar-full');
             $.ajax({
               type: 'GET',
               url: '/sidebar/search',
+              /*
               data: {
                 'flash': {
                   'notice': "<%= I18n.t("notices.signed_in") %>"
                 }
-              },
+              },*/
               success: function(data) {
                 $('#content').html(data);
               }
@@ -655,14 +664,14 @@ $(function() {
         $.ajax({
           type: 'GET',
           url: '/sidebar/combo_form',
-          data: {
+          /*data: {
             'flash': {
               'warning': "<%= I18n.t("notices.signed_out") %>"
             }
-          },
+          },*/
           success: function(data) {
             $('.sidebar').removeClass('sidebar-full');
-            $('.sidebar').removeClass('signed-in');
+            $('.container-fluid').removeClass('signed-in');
             $('#content').html(data);
           }
         });
