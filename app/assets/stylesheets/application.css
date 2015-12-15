@@ -15,12 +15,12 @@
  *= require screen
  */
 
- body, html {
-   height: 100%;
-   width: 100%;
- }
+body, html {
+  height: 100%;
+  width: 100%;
+}
 
- img[title="Code for San Francisco"]{
+img[title="Code for San Francisco"]{
   width:100%;
 }
 
@@ -119,9 +119,9 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
 }
 
 .btn-primary:hover {
-    color: #fff;
-    background-color: #005596;
-    border-color: #204d74;
+  color: #fff;
+  background-color: #005596;
+  border-color: #204d74;
 }
 
 .btn-danger {
@@ -137,9 +137,9 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
 }
 
 .btn-default {
-    color: #333;
-    background-color: #FAF0DC;
-    border-color: #ccc;
+  color: #333;
+  background-color: #FAF0DC;
+  border-color: #ccc;
 }
 
 .break {
