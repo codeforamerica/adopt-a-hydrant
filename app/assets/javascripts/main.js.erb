@@ -3,6 +3,7 @@ $(function() {
   var center = new google.maps.LatLng(37.774929, -122.419416);
   var browserSupportFlag =  new Boolean();
   var errorClass = 'has-error';
+  var current_user_id = $('#current_user_id').val() ? $('#current_user_id').val() : '';
   var mapOptions = {
     center: center,
     disableDoubleClickZoom: false,
@@ -74,7 +75,6 @@ $(function() {
 
   var legend = document.getElementById('legend');
   var iconBase = '/assets/markers/';
-  console.log(iconBase);
   var icons = {
     available: {
       name: 'Available',
@@ -106,7 +106,8 @@ $(function() {
   var activeInfoWindow;
   var isWindowOpen = false;
   var thingIds = [];
-  function addMarker(thingId, point, type) {
+  var adoptedThings = [];
+  function addMarker(thingId, point, type, user_id) {
     if(type === 'adopted') {
       var image = adoptedMarker;
     } else if(type === 'adoptedbyyou') {
@@ -151,8 +152,12 @@ $(function() {
       });
     });
     thingIds.push(thingId);
+    if (type === 'adopted' || type === 'adoptedbyyou') {
+      adoptedThings.push([user_id, marker]);
+    }
   }
   function addMarkersAround(lat, lng) {
+    var current_user_id = $('#current_user_id').val() ? $('#current_user_id').val() : '';
     var submitButton = $("#address_form input[type='submit']");
     $.ajax({
       type: 'GET',
@@ -187,15 +192,24 @@ $(function() {
               if(thing.user_id) {
                 type  = 'adopted';
               }
-              if(thing.owned_by_you){
+              if(thing.user_id == current_user_id){
                 type = 'adoptedbyyou'
               }
-              addMarker(thing.id, point, type);
+              addMarker(thing.id, point, type, thing.user_id);
             }, i * 100);
           });
         }
       }
     });
+  }
+  function flipMarkers() {
+    for (var key in adoptedThings) {
+      if(adoptedThings[key][0] == current_user_id) {
+        adoptedThings[key][1].setIcon(adoptedByYouMarker);
+      } else {
+        adoptedThings[key][1].setIcon(adoptedMarker);
+      }
+    }
   }
   google.maps.event.addListener(map, 'idle', function() {
     var center = map.getCenter();
@@ -227,7 +241,6 @@ $(function() {
         },
         success: function(data) {
           $(submitButton).attr("disabled", false);
-          console.log(data);
           if(data.errors) {
             $('#address').parent().addClass(errorClass);
             $('#address').next(".help-block").html('');
@@ -413,14 +426,10 @@ $(function() {
             $.ajax({
               type: 'GET',
               url: '/sidebar/search',
-              /*
-              data: {
-                'flash': {
-                  'notice': "<%= I18n.t("notices.signed_in") %>"
-                }
-              },*/
               success: function(data) {
                 $('#content').html(data);
+                current_user_id = $('#current_user_id').val();
+                flipMarkers();
               }
             });
           }
@@ -479,13 +488,6 @@ $(function() {
         $.ajax({
           type: 'GET',
           url: '/info_window',
-          data: {
-            'thing_id': activeThingId,
-            /*
-            'flash': {
-              'notice': "<%= I18n.t("notices.adopted", thing: I18n.t("defaults.thing")) %>"
-            }*/
-          },
           success: function(data) {
             activeInfoWindow.close();
             activeInfoWindow.setContent(data);
@@ -691,14 +693,11 @@ $(function() {
         $(link).removeClass('disabled');
       },
       success: function(data) {
+        current_user_id = '';
+        flipMarkers();
         $.ajax({
           type: 'GET',
           url: '/sidebar/combo_form',
-          /*data: {
-            'flash': {
-              'warning': "<%= I18n.t("notices.signed_out") %>"
-            }
-          },*/
           success: function(data) {
             $('.sidebar').removeClass('sidebar-full');
             $('.container-fluid').removeClass('signed-in');

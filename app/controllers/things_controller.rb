@@ -7,7 +7,7 @@ class ThingsController < ApplicationController
       @things.each do |t|
         t.owned_by_you = check_owner(t)
       end
-      render(json: @things.to_json(methods: :owned_by_you))
+      render(json: @things)
     else
       render(json: {'errors' => {'address' => [t('errors.not_found', thing: t('defaults.thing'))]}}, status: 404)
     end
