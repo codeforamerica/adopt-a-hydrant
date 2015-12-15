@@ -213,7 +213,7 @@ GEM
       thin (~> 1.5.0)
     skylight (0.10.0)
       activesupport (>= 3.0.0)
-    spring (1.5.0)
+    spring (1.6.0)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
