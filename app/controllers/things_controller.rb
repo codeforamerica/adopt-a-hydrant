@@ -3,21 +3,10 @@ class ThingsController < ApplicationController
 
   def show
     @things = Thing.find_closest(params[:lat], params[:lng], params[:limit] || 10)
-    if @things
-      @things.each do |t|
-        t.owned_by_you = check_owner(t)
-      end
-      render(json: @things)
+    if @things.blank?
+      render(json: {errors: {address: [t('errors.not_found', thing: t('defaults.thing'))]}}, status: 404)
     else
-      render(json: {'errors' => {'address' => [t('errors.not_found', thing: t('defaults.thing'))]}}, status: 404)
-    end
-  end
-
-  def check_owner(thing)
-    if user_signed_in? && current_user == thing.user
-      return true
-    else
-      return false
+      respond_with @things
     end
   end
 
