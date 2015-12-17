@@ -2,6 +2,7 @@ ENV['RAILS_ENV'] ||= 'test'
 
 require 'simplecov'
 require 'coveralls'
+require 'minitest/mock'
 
 SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter, Coveralls::SimpleCov::Formatter]
 SimpleCov.start('rails') do
