@@ -104,7 +104,7 @@ GEM
     minitest (5.8.3)
     nested_form (0.3.2)
     netrc (0.11.0)
-    nokogiri (1.6.7)
+    nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
     parser (2.2.3.0)
@@ -253,4 +253,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.11.0
+   1.11.2
