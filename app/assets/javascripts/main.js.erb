@@ -3,6 +3,7 @@ $(function() {
   var center = new google.maps.LatLng(37.774929, -122.419416);
   var browserSupportFlag =  new Boolean();
   var errorClass = 'has-error';
+  var current_user_id = $('#current_user_id').val() ? $('#current_user_id').val() : '';
   var mapOptions = {
     center: center,
     disableDoubleClickZoom: false,
@@ -17,7 +18,8 @@ $(function() {
     scrollwheel: false,
     streetViewControl: true,
     zoom: 17,
-    zoomControl: true
+    zoomControl: true,
+    styles: [{"featureType":"landscape","stylers":[{"hue":"#FFBB00"},{"saturation":43.400000000000006},{"lightness":37.599999999999994},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#FFC200"},{"saturation":-61.8},{"lightness":45.599999999999994},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":51.19999999999999},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":52},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#0078FF"},{"saturation":-13.200000000000003},{"lightness":2.4000000000000057},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#00FF6A"},{"saturation":-1.0989010989011234},{"lightness":11.200000000000017},{"gamma":1}]}]
   };
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
   /*
@@ -42,15 +44,25 @@ $(function() {
     map.setCenter(center);
   }
   */
-  var size = new google.maps.Size(27.0, 37.0);
+  var size = new google.maps.Size(27.0, 38.0);
   var origin = new google.maps.Point(0, 0);
   var anchor = new google.maps.Point(13.0, 18.0);
-  var greenMarkerImage = new google.maps.MarkerImage('<%= image_path 'markers/green.png' %>',
+  var adoptedMarker = new google.maps.MarkerImage('<%= image_path 'markers/adopted.png' %>',
     size,
     origin,
     anchor
   );
-  var redMarkerImage = new google.maps.MarkerImage('<%= image_path 'markers/red.png' %>',
+  var adoptedByYouMarker = new google.maps.MarkerImage('<%= image_path 'markers/adoptedbyyou.png' %>',
+    size,
+    origin,
+    anchor
+  );
+  var toSewerMarker = new google.maps.MarkerImage('<%= image_path 'markers/tosewer.png' %>',
+    size,
+    origin,
+    anchor
+  );
+  var toBayOceanMarker = new google.maps.MarkerImage('<%= image_path 'markers/tobay.png' %>',
     size,
     origin,
     anchor
@@ -60,16 +72,48 @@ $(function() {
     origin,
     anchor
   );
+
+  var legend = document.getElementById('legend');
+  var iconBase = '/assets/markers/';
+  var icons = {
+    available: {
+      name: 'Available',
+      icon: iconBase + 'tosewer.png'
+    },
+    adopted: {
+      name: 'Adopted',
+      icon: iconBase + 'adopted.png'
+    },
+    adopted_by_you: {
+      name: 'Adopted by you',
+      icon: iconBase + 'adoptedbyyou.png'
+    }
+  };
+  
+  for (var key in icons) {
+    var type = icons[key];
+    var name = type.name;
+    var icon = type.icon;
+    var div = document.createElement('div');
+    div.innerHTML = '<img src="' + icon + '"> ' + name;
+    legend.appendChild(div);
+  }
+  
+  map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(legend);
+
   var activeThingId;
   var activeMarker;
   var activeInfoWindow;
   var isWindowOpen = false;
   var thingIds = [];
-  function addMarker(thingId, point, color) {
-    if(color === 'green') {
-      var image = greenMarkerImage;
-    } else if(color === 'red') {
-      var image = redMarkerImage;
+  var adoptedThings = [];
+  function addMarker(thingId, point, type, user_id) {
+    if(type === 'adopted') {
+      var image = adoptedMarker;
+    } else if(type === 'adoptedbyyou') {
+      var image = adoptedByYouMarker;
+    } else if(type === 'tosewer') {
+      var image = toSewerMarker;
     }
     var marker = new google.maps.Marker({
       animation: google.maps.Animation.DROP,
@@ -108,8 +152,12 @@ $(function() {
       });
     });
     thingIds.push(thingId);
+    if (type === 'adopted' || type === 'adoptedbyyou') {
+      adoptedThings.push([user_id, marker]);
+    }
   }
   function addMarkersAround(lat, lng) {
+    var current_user_id = $('#current_user_id').val() ? $('#current_user_id').val() : '';
     var submitButton = $("#address_form input[type='submit']");
     $.ajax({
       type: 'GET',
@@ -140,17 +188,28 @@ $(function() {
             }
             setTimeout(function() {
               var point = new google.maps.LatLng(thing.lat, thing.lng);
+              var type = 'tosewer'
               if(thing.user_id) {
-                var color = 'green';
-              } else {
-                var color = 'red';
+                type  = 'adopted';
               }
-              addMarker(thing.id, point, color);
+              if(thing.user_id == current_user_id){
+                type = 'adoptedbyyou'
+              }
+              addMarker(thing.id, point, type, thing.user_id);
             }, i * 100);
           });
         }
       }
     });
+  }
+  function flipMarkers() {
+    for (var key in adoptedThings) {
+      if(adoptedThings[key][0] == current_user_id) {
+        adoptedThings[key][1].setIcon(adoptedByYouMarker);
+      } else {
+        adoptedThings[key][1].setIcon(adoptedMarker);
+      }
+    }
   }
   google.maps.event.addListener(map, 'idle', function() {
     var center = map.getCenter();
@@ -162,6 +221,7 @@ $(function() {
     if($('#address').val() === '') {
       $(submitButton).attr("disabled", false);
       $('#address').parent().addClass(errorClass);
+      $('#address').next(".help-block").html('You must enter a value');
       $('#address').focus();
     } else {
       $.ajax({
@@ -173,17 +233,21 @@ $(function() {
           'address': $('#address').val()
         },
         error: function(jqXHR) {
+          var response = $.parseJSON(jqXHR.responseText);
           $(submitButton).attr("disabled", false);
           $('#address').parent().addClass(errorClass);
+          $('#address').next(".help-block").html(response.error);
           $('#address').focus();
         },
         success: function(data) {
           $(submitButton).attr("disabled", false);
           if(data.errors) {
             $('#address').parent().addClass(errorClass);
+            $('#address').next(".help-block").html('');
             $('#address').focus();
           } else {
             $('#address').parent().removeClass(errorClass);
+            $('#address').next(".help-block").html('');
             addMarkersAround(data[0], data[1]);
             var center = new google.maps.LatLng(data[0], data[1]);
             map.setCenter(center);
@@ -350,23 +414,22 @@ $(function() {
             }
           },
           error: function(jqXHR) {
+            var response = $.parseJSON(jqXHR.responseText)
             $(submitButton).attr("disabled", false);
             $('#user_password').parent().addClass(errorClass);
+            $('#user_password').next(".help-block").html(response.error);
             $('#user_password').focus();
           },
           success: function(data) {
-            $('.sidebar').addClass('signed-in');
+            $('.container-fluid').addClass('signed-in');
             $('.sidebar').removeClass('sidebar-full');
             $.ajax({
               type: 'GET',
               url: '/sidebar/search',
-              /*data: {
-                'flash': {
-                  'notice': "<%= I18n.t("notices.signed_in") %>"
-                }
-              },*/
               success: function(data) {
                 $('#content').html(data);
+                current_user_id = $('#current_user_id').val();
+                flipMarkers();
               }
             });
           }
@@ -425,17 +488,11 @@ $(function() {
         $.ajax({
           type: 'GET',
           url: '/info_window',
-          data: {
-            'thing_id': activeThingId,
-            'flash': {
-              'notice': "<%= I18n.t("notices.adopted", thing: I18n.t("defaults.thing")) %>"
-            }
-          },
           success: function(data) {
             activeInfoWindow.close();
             activeInfoWindow.setContent(data);
             activeInfoWindow.open(map, activeMarker);
-            activeMarker.setIcon(greenMarkerImage);
+            activeMarker.setIcon(adoptedByYouMarker);
             activeMarker.setAnimation(google.maps.Animation.BOUNCE);
           }
         });
@@ -469,16 +526,17 @@ $(function() {
             type: 'GET',
             url: '/info_window',
             data: {
-              'thing_id': activeThingId,
+              'thing_id': activeThingId
+              /*
               'flash': {
                 'warning': "<%= I18n.t("notices.abandoned", thing: I18n.t("defaults.thing").capitalize) %>"
-              }
+              }*/
             },
             success: function(data) {
               activeInfoWindow.close();
               activeInfoWindow.setContent(data);
               activeInfoWindow.open(map, activeMarker);
-              activeMarker.setIcon(redMarkerImage);
+              activeMarker.setIcon(toSewerMarker);
               activeMarker.setAnimation(null);
             }
           });
@@ -635,17 +693,14 @@ $(function() {
         $(link).removeClass('disabled');
       },
       success: function(data) {
+        current_user_id = '';
+        flipMarkers();
         $.ajax({
           type: 'GET',
           url: '/sidebar/combo_form',
-          /*data: {
-            'flash': {
-              'warning': "<%= I18n.t("notices.signed_out") %>"
-            }
-          },*/
           success: function(data) {
             $('.sidebar').removeClass('sidebar-full');
-            $('.sidebar').removeClass('signed-in');
+            $('.container-fluid').removeClass('signed-in');
             $('#content').html(data);
           }
         });
@@ -707,10 +762,11 @@ $(function() {
           type: 'GET',
           url: '/info_window',
           data: {
-            'thing_id': activeThingId,
+            'thing_id': activeThingId
+            /*
             'flash': {
               'notice': "<%= I18n.t("notices.reminder_sent") %>"
-            }
+            }*/
           },
           success: function(data) {
             activeInfoWindow.close();

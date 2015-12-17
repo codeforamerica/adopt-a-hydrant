@@ -5,7 +5,7 @@
     %p
       = flash[:notice]
 - if flash[:warning]
-  .alert.fade.in{:"data-alert" => true}
+  .alert.alert-warning.fade.in{:"data-alert" => true}
     %a{:class => "close", :"data-dismiss" => "alert", :href => "#"}
       &times;
     %p

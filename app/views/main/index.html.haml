@@ -1,6 +1,6 @@
-.container-fluid
+.container-fluid{:class => (signed_in? ? "signed-in" : nil)}
   .row
-    .col-md-3.sidebar{:class => (signed_in? ? "signed-in" : nil)}
+    .sidebar
       .navbar.navbar-default
         = image_tag "logos/adopt-a-drain.png", :alt => t("titles.main", :thing => t("defaults.thing").titleize), :title => t("titles.main", :thing => t("defaults.thing").titleize)
         %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
@@ -34,6 +34,9 @@
     .col-md-9.map-container
       #map
         &nbsp;
+      #legend
+        .title
+          Legend
   = render :partial => "sidebar/tos"
 :javascript
   $(function() {
