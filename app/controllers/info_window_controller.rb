@@ -1,6 +1,5 @@
 class InfoWindowController < ApplicationController
   def index
-    puts params[:thing_id]
     @thing = Thing.find_by_id(params[:thing_id])
     view = begin
       if @thing.adopted?
