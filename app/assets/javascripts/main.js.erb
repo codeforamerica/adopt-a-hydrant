@@ -44,6 +44,7 @@ $(function() {
     map.setCenter(center);
   }
   */
+  var iconBase = '<%= image_path 'markers/' %>';
   var size = new google.maps.Size(27.0, 38.0);
   var origin = new google.maps.Point(0, 0);
   var anchor = new google.maps.Point(13.0, 18.0);
@@ -74,19 +75,19 @@ $(function() {
   );
 
   var legend = document.getElementById('legend');
-  var iconBase = '/assets/markers/';
+
   var icons = {
     available: {
       name: 'Available',
-      icon: iconBase + 'tosewer.png'
+      icon: '<%= image_path 'markers/tosewer.png' %>'
     },
     adopted: {
       name: 'Adopted',
-      icon: iconBase + 'adopted.png'
+      icon: '<%= image_path 'markers/adopted.png' %>'
     },
     adopted_by_you: {
       name: 'Adopted by you',
-      icon: iconBase + 'adoptedbyyou.png'
+      icon: '<%= image_path 'markers/adoptedbyyou.png' %>'
     }
   };
   
@@ -488,6 +489,9 @@ $(function() {
         $.ajax({
           type: 'GET',
           url: '/info_window',
+          data: {
+            'thing_id': activeThingId
+          },
           success: function(data) {
             activeInfoWindow.close();
             activeInfoWindow.setContent(data);
@@ -527,10 +531,6 @@ $(function() {
             url: '/info_window',
             data: {
               'thing_id': activeThingId
-              /*
-              'flash': {
-                'warning': "<%= I18n.t("notices.abandoned", thing: I18n.t("defaults.thing").capitalize) %>"
-              }*/
             },
             success: function(data) {
               activeInfoWindow.close();
