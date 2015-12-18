@@ -35,7 +35,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
 }
 
 .navbar img {
-  max-width: 40%;
+  max-width: 130px;
   margin: 5px;
 }
 
