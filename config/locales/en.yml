@@ -85,6 +85,8 @@ en:
     email_text: "Flooded streets aren’t fun. I adopted my own storm drain at %{root_url}. Claim and name yours!"
     tweet_text: "Flooded streets aren’t fun. I adopted my own storm drain at %{root_url}. Claim and name yours #ElNino #sfsewer"
     tos: "Terms of Service"
+  site:
+    description: "You can adopt a drain in San Francisco to help keep them clear of debris. Lend a hand to helping the City avoid flooding during the rainy season."
   sponsors:
     built: "Code for San Francisco"
     cfa: "Code for America"
