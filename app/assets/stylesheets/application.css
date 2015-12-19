@@ -20,9 +20,23 @@ body, html {
   width: 100%;
 }
 
+div#logos {
+  margin-top: 15px;
+  padding-top: 25px;
+  border-top: thin dotted #b4b4b4;
+}
+
 div#logos img {
-  width:100%;
-  height: 125px;
+  width: 100%;
+}
+
+div#logos img.dpw {
+  width: auto;
+  height: 112px;
+}
+
+div#logos .row div{
+  text-align: center;
 }
 
 input[type="text"], input[type="email"], input[type="password"], input[type="search"]
@@ -144,7 +158,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
 }
 
 .break {
-  border-top: thin dotted #696969;
+  border-top: thin dotted #b4b4b4;
   margin: 20px 0;
 }
 
