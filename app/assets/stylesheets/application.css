@@ -22,6 +22,7 @@ body, html {
 
 div#logos img {
   width:100%;
+  height: 125px;
 }
 
 input[type="text"], input[type="email"], input[type="password"], input[type="search"]
