@@ -5,6 +5,18 @@
       = t("titles.main", :thing => t("defaults.thing").titleize)
     = csrf_meta_tag
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
+    %meta{:name => "description", :content => t("site.description")}
+    %meta{:name => "twitter:card", :content => "summary"}
+    %meta{:name => "twitter:site", :content => "@SFWater"}
+    %meta{:name => "twitter:title", :content => "Adopt-a-Drain San Francisco"}
+    %meta{:name => "twitter:description", :content => t("site.description")}
+    %meta{:name => "twitter:image", :content => image_path('logos/adopt-a-drain-horizontal.png')}
+    %meta{:name => "og:type", :content => "article"}
+    %meta{:name => "og:url", :content => "http://adoptadrain.sfwater.org"}
+    %meta{:name => "og:title", :content => "Adopt-a-Drain San Francisco"}
+    %meta{:name => "og:site_title", :content => "Adopt-a-Drain San Francisco"}
+    %meta{:name => "og:image", :content => image_path('logos/adopt-a-drain-horizontal.png')}
+    %meta{:name => "og:locale", :content => "en_US"}
     / HTML5 shim, for IE6-8 support of HTML5 elements
     /[if lt IE 9]
       = javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js"
