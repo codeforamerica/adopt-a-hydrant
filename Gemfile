@@ -25,6 +25,7 @@ group :assets do
 end
 
 group :development do
+  gem 'byebug'
   gem 'mailcatcher'
   gem 'spring'
 end

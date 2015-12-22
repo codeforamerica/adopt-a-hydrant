@@ -1,6 +1,8 @@
 class RemindersController < ApplicationController
   respond_to :json
 
+  before_action :require_admin
+
   def create
     @reminder = Reminder.new(reminder_params)
     @reminder.from_user = current_user
