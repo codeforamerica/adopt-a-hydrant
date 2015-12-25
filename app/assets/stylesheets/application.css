@@ -44,6 +44,10 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
   font-size:16px;
 }
 
+h3, .h3 {
+  font-size: 18px;
+}
+
 .navbar {
   margin-bottom: 0;
   text-align: center;
@@ -181,6 +185,14 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
   font-weight: 700;
   border-bottom: thin dotted #bdbdbd;
   margin-bottom: 5px;
+}
+
+a.guidelines {
+  text-decoration: none;
+}
+
+.sidebar p#tagline:hover {
+  background-color: #9682bc;
 }
 
 @media (min-width: 768px) {
