@@ -33,7 +33,8 @@
           %li
             Wear gloves and use a rake, shovel, or broom and dustpan.
           %li
-            Woah! Medical waste? Needles? Other toxic material? If it's an immediate problem, call 9-1-1. If not, visit http://www.sf311.org/index.aspx?page=298 to report it to 311.
+            Woah! Medical waste? Needles? Other toxic material? If it's an immediate problem, call 9-1-1. If not, 
+            =link_to("go to the 311 Environmental Problems page to look up how to address it.","http://www.sf311.org/index.aspx?page=298")
         %h3
           What if…
         %ul
@@ -41,17 +42,20 @@
             My drain is too dirty or hard to clear!
             %ul
               %li
-                Contact 311 on the web (or dial 3-1-1) to have it cleared by the City
+                = link_to("Contact 311 on the web","http://www.sf311.org") 
+                (or dial 3-1-1) to have it cleared by the City
           %li
             My drain is already flooded!
             %ul  
               %li
-                Contact 311 on the web (or dial 3-1-1) to have it cleared by the City
+                = link_to("Contact 311 on the web","http://www.sf311.org")  
+                (or dial 3-1-1) to have it cleared by the City
           %li
             There's some other problem with my drain.
             %ul
               %li
-                Contact 311 on the web (or dial 3-1-1) to have it cleared by the City
+                = link_to("Contact 311 on the web","http://www.sf311.org") 
+                (or dial 3-1-1) to have it cleared by the City
       .modal-footer
         %button.btn.btn-default{:type => "button", :"data-dismiss" => "modal"}
           Close
