@@ -4,5 +4,5 @@
   = t("titles.byline", :name => @thing.user.name)
   %br
   = t("titles.ofline", :organization => @thing.user.organization) unless @thing.user.organization.blank?
-- if user_signed_in?
+- if admin_signed_in?
   = render :partial => 'users/reminder'

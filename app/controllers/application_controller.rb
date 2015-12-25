@@ -7,6 +7,13 @@ class ApplicationController < ActionController::Base
 
 protected
 
+  def require_admin
+    return if user_signed_in? && current_user.admin?
+
+    flash[:error] = 'You must be an admin'
+    redirect_to root_path
+  end
+
   def set_flash_from_params
     params.fetch(:flash, []).each do |key, message|
       flash.now[key.to_sym] = message
