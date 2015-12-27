@@ -1,0 +1,63 @@
+.modal.fade#guidelines
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %button{:class => "close", :"data-dismiss" => "modal", :href => "#", :type => "button", :"aria-label" => "Close"}
+          %span{:"aria-hidden" =>"true"}
+            &times;
+        %h2
+          What does it mean to adopt a drain?
+      .modal-body
+        %p.lead
+          Thank you for your interest in adopting one or more of the 20,000+ drains in San Franscisco. Caring for a drain can be as simple as just keeping an eye on it. 
+        %p
+          If it's easy, you can clear it, but if it's not, you can report drain problems to 311 by dialing 3-1-1 on your phone. Remember, put your safety and health first! We just appreciate knowing someone else is helping keep an eye on these important gateways to our sewer system.
+        %h3
+          How to keep your drain healthy:
+        %ul
+          %li
+            If possible, clear the drain BEFORE it starts raining.
+          %li
+            Put leaves and other natural material in your green compost bin.
+          %li
+            Put trash and debris in your black garbage bin.
+          %li
+            Clear about 10 feet on both sides of the drain.
+        %h3
+          Safety tips:
+        %ul
+          %li
+            Never try to lift the drain grate… it's really heavy and you might hurt yourself!
+          %li
+            Clear from the sidewalk and wear reflective clothing so cars can see you.
+          %li
+            Wear gloves and use a rake, shovel, or broom and dustpan.
+          %li
+            Woah! Medical waste? Needles? Other toxic material? If it's an immediate problem, call 9-1-1. If not, 
+            =link_to("go to the 311 Environmental Problems page to look up how to address it.","http://www.sf311.org/index.aspx?page=298")
+        %h3
+          What if…
+        %ul
+          %li
+            My drain is too dirty or hard to clear!
+            %ul
+              %li
+                = link_to("Contact 311 on the web","http://www.sf311.org") 
+                (or dial 3-1-1) to have it cleared by the City
+          %li
+            My drain is already flooded!
+            %ul  
+              %li
+                = link_to("Contact 311 on the web","http://www.sf311.org")  
+                (or dial 3-1-1) to have it cleared by the City
+          %li
+            There's some other problem with my drain.
+            %ul
+              %li
+                = link_to("Contact 311 on the web","http://www.sf311.org") 
+                (or dial 3-1-1) to have it cleared by the City
+      .modal-footer
+        %button.btn.btn-default{:type => "button", :"data-dismiss" => "modal"}
+          Close
+
+

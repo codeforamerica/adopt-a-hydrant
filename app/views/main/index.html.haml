@@ -9,8 +9,9 @@
           %span.icon-bar
           %span.icon-bar
       .sidebar-content
-        %p.alert-message.block-message#tagline
-          = t("defaults.tagline")
+        %a.guidelines{:href => "#guidelines", :"data-toggle" => "modal", :"data-target" => "#guidelines"}
+          %p.alert-message.block-message#tagline
+            = t("defaults.tagline")
         #content
           = render :partial => "layouts/flash", :locals => {:flash => flash}
           - if signed_in?
@@ -44,6 +45,7 @@
         .title
           Legend
   = render :partial => "sidebar/tos"
+  = render :partial => "sidebar/guidelines"
 :javascript
   $(function() {
     $('.navbar-toggle').on('click', function(){
