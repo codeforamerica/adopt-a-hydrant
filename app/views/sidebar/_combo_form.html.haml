@@ -4,7 +4,7 @@
       %label.control-label{:for => "user_email", :id => "user_email_label"}
         = t("labels.email")
         %small
-          = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+          = t("captions.private")
       = f.email_field "email", :value => params[:user] ? params[:user][:email] : nil, :class => "form-control"
     .radio
       = f.label "new" , radio_button_tag("user", "new", true).html_safe + t("labels.user_new")
@@ -21,7 +21,7 @@
       %label.control-label{:for => "user_organization", :id => "user_organization_label"}
         = t("labels.organization")
         %small
-          = t("captions.public")
+          = t("captions.public_optional")
       = f.text_field "organization", :class => "form-control"
     .form-group.hidden
       %label.control-label{:for => "user_voice_number", :id => "user_voice_number_label"}
@@ -29,17 +29,15 @@
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
       = f.telephone_field "voice_number", :placeholder => t("defaults.voice_number"), :class => "form-control"
-    .form-group.hidden
+    .form-group
       %label.control-label{:for => "user_sms_number", :id => "user_sms_number_label"}
         = t("labels.sms_number")
         %small
-          = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+          = t("captions.private_optional")
       = f.telephone_field "sms_number", :placeholder => t("defaults.sms_number"), :class => "form-control"
     .form-group
       %label.control-label{:for => "user_password_confirmation", :id => "user_password_confirmation_label"}
         = t("labels.password_choose")
-        %small
-          = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
       = f.password_field "password_confirmation", :class => "form-control"
       .help-block
     %p.tos

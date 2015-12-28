@@ -18,7 +18,9 @@ en:
   captions:
     optional: "(optional)"
     private: "(private)"
+    private_optional: "(private, optional)"
     public: "(visible to others)"
+    public_optional: "(visible to others, optional)"
     required: "(required)"
   defaults:
     address: "address"
