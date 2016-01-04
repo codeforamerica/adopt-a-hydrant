@@ -37,7 +37,8 @@ class InfoWindowControllerTest < ActionController::TestCase
     assert_not_nil assigns :thing
     assert_response :success
     assert_template 'users/profile'
-    assert_select 'h2', /This drain has been adopted\s+by #{@user.name}\s+of #{@user.organization}/
+    assert_select 'h4', /This drain has been adopted/
+    assert_select 'div', /by #{@user.name}\s+of #{@user.organization}/
   end
 
   test 'should show adoption form if drain is not adopted' do
