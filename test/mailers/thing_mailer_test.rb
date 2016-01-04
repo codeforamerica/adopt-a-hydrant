@@ -9,7 +9,7 @@ class ThingMailerTest < ActionMailer::TestCase
     email = ThingMailer.first_adoption_confirmation(@thing).deliver_now
 
     assert_not ActionMailer::Base.deliveries.empty?
-    assert_equal ['adoptadrain@codeforsanfrancisco.org'], email.from
+    assert_equal ['info@sfwater.org'], email.from
     assert_equal ['erik@example.com'], email.to
     assert_equal 'Thanks for adopting a drain, Erik! Here’s important info', email.subject
   end
@@ -22,7 +22,7 @@ class ThingMailerTest < ActionMailer::TestCase
     email = ThingMailer.second_adoption_confirmation(@thing).deliver_now
 
     assert_not ActionMailer::Base.deliveries.empty?
-    assert_equal ['adoptadrain@codeforsanfrancisco.org'], email.from
+    assert_equal ['info@sfwater.org'], email.from
     assert_equal ['erik@example.com'], email.to
     assert_equal "You're a drain-tastic person, Erik!", email.subject
   end
@@ -35,7 +35,7 @@ class ThingMailerTest < ActionMailer::TestCase
     email = ThingMailer.third_adoption_confirmation(@thing).deliver_now
 
     assert_not ActionMailer::Base.deliveries.empty?
-    assert_equal ['adoptadrain@codeforsanfrancisco.org'], email.from
+    assert_equal ['info@sfwater.org'], email.from
     assert_equal ['erik@example.com'], email.to
     assert_equal 'We really do love you, Erik!', email.subject
   end
