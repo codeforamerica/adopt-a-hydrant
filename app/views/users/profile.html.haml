@@ -1,8 +1,7 @@
-%h2
-  = t("titles.adopted", :thing_name => @thing.name ? @thing.name.titleize : t("defaults.this_thing", :thing => t("defaults.thing")))
-  %br
+%h4
+  = t("titles.adopted", :thing_name => @thing.name != "" ? @thing.name.titleize : t("defaults.this_thing", :thing => t("defaults.thing")))
+%div
   = t("titles.byline", :name => @thing.user.name)
-  %br
   = t("titles.ofline", :organization => @thing.user.organization) unless @thing.user.organization.blank?
 - if admin_signed_in?
   = render :partial => 'users/reminder'

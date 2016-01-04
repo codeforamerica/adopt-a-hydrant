@@ -21,6 +21,6 @@ class ThingMailer < ApplicationMailer
   def reminder(thing)
     @thing = thing
     @user = thing.user
-    mail(to: @user.email, subject: ['Remember to clear Drain', @thing.name].compact.join(' '))
+    mail(to: @user.email, subject: ['Remember to clear your adopted drain'])
   end
 end

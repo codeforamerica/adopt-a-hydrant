@@ -23,7 +23,7 @@ class RemindersControllerTest < ActionController::TestCase
     assert_response :success
     email = ActionMailer::Base.deliveries.last
     assert_equal [@dan.email], email.to
-    assert_equal 'Remember to clear Drain', email.subject
+    assert_equal 'Remember to clear your adopted drain', email.subject
   end
 
   test 'should not send a reminder email if not admin' do

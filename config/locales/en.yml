@@ -84,8 +84,8 @@ en:
     ofline: "of %{organization}"
     sign_in: "Sign in to adopt this %{thing}"
     thank_you: "Thank you for adopting this %{thing}!"
-    email_text: "The rains of El Nino are coming! So I just adopted one of San Francisco's 25,000+ storm drains and pledged to help keep it clear of leaves and debris this rainy season. You too can lend a hand and help the City avoid flooding at %{root_url}. Adopting a drain only takes about 30 seconds -- and you even get to name your drain!"
-    tweet_text: "Flooded streets aren't fun. I adopted my own storm drain at %{root_url}. Claim and name yours #ElNino #sfsewer @sfwater"
+    email_text: "Flooded streets aren't fun. I adopted my own storm drain at %{root_url}. Claim and name yours!"
+    tweet_text: "Flooded streets aren't fun. I adopted my own storm drain at %{root_url}. Claim and name yours #ElNino #sfsewer"
     tos: "Terms of Service"
   site:
     description: "You can adopt a drain in San Francisco to help keep them clear of debris. Lend a hand to helping the City avoid flooding during the rainy season."
