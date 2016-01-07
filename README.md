@@ -33,7 +33,7 @@ This application requires [Postgres](http://www.postgresql.org/) to be installed
     rails server
 
 ## Seed Data
-    bundle exec rake db:seed
+    bundle exec rake data:load_drains
 
 ## Deploying to Heroku
 A successful deployment to Heroku requires a few setup steps:
