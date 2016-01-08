@@ -75,18 +75,6 @@ class ThingsControllerTest < ActionController::TestCase
     assert_equal "You're a drain-tastic person, Dan!", email.subject
   end
 
-  test 'should send third confirmation email' do
-    sign_in @user
-    @user.things = [things(:thing_2), things(:thing_3)]
-    put :update, format: 'json', id: @thing.id, thing: {name: 'Drain', user_id: @user.id}
-    assert @thing.reload.adopted?
-    assert_response :success
-
-    email = ActionMailer::Base.deliveries.last
-    assert_equal [@user.email], email.to
-    assert_equal 'We really do love you, Dan!', email.subject
-  end
-
   test 'should update drain but not send an adopted confirmation email upon abandonment' do
     sign_in @user
     num_deliveries = ActionMailer::Base.deliveries.size
