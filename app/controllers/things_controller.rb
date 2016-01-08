@@ -29,8 +29,6 @@ private
       ThingMailer.first_adoption_confirmation(thing).deliver
     when 2
       ThingMailer.second_adoption_confirmation(thing).deliver
-    when 3
-      ThingMailer.third_adoption_confirmation(thing).deliver
     end
   end
 
