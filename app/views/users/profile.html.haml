@@ -3,5 +3,3 @@
 %div
   = t("titles.byline", :name => @thing.user.name)
   = t("titles.ofline", :organization => @thing.user.organization) unless @thing.user.organization.blank?
-- if admin_signed_in?
-  = render :partial => 'users/reminder'
