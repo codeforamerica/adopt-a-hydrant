@@ -66,6 +66,7 @@ en:
     forgot_password: "Forgot your password?"
     remembered_password: "Never mind. I remembered my password."
     click_for_more: "Click to learn more"
+    learn_more: "Learn more about adopting a %{thing}"
   notices:
     abandoned: "%{thing} abandoned!"
     adopted: "You just adopted a %{thing}!"

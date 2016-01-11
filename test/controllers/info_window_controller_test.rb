@@ -67,6 +67,7 @@ class InfoWindowControllerTest < ActionController::TestCase
     assert_not_nil assigns :thing
     assert_response :success
     assert_template 'users/sign_in'
-    assert_select 'h2', 'Sign in to adopt this Drain'
+    assert_select 'h3', 'Sign in to adopt this drain'
+    assert_select 'a.guidelines p', 'Learn more about adopting a drain'
   end
 end
