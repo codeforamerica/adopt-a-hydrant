@@ -1,3 +1,5 @@
+require 'rake'
+
 namespace :data do
   require 'open-uri'
   require 'csv'
@@ -12,26 +14,23 @@ namespace :data do
     drains.each do |drain|
       next unless ['Storm Water Inlet Drain', 'Catch Basin Drain'].include?(drain['Drain_Type'])
 
-      name = drain['Drain_Type']
-      city_id = drain['PUC_Maximo_Asset_ID']
-      city_id.gsub!('N-', '') # Strip `N-` from the Asset ID
-      location = drain['Location']
-      location.delete!('(') # Cleanup brackets
-      location.delete!(')')
-
-      latlng = location.split(',')
-      lat = latlng[0].strip
-      lng = latlng[1].strip
+      (lat, lng) = drain['Location'].delete('()').split(',').map(&:strip)
 
       thing_hash = {
-        name: name,
-        city_id: city_id,
+        name: drain['Drain_Type'],
+        system_use_code: drain['System_Use_Code'],
         lat: lat,
         lng: lng,
       }
 
-      thing = Thing.create!(thing_hash)
-      puts "Created Thing #{thing.id} - #{thing.name}"
+      thing = Thing.where(city_id: drain['PUC_Maximo_Asset_ID'].gsub!('N-', '')).first_or_initialize
+      if thing.new_record?
+        puts "Updating thing #{thing_hash[:city_id]}"
+      else
+        puts "Creating thing #{thing_hash[:city_id]}"
+      end
+
+      thing.update_attributes!(thing_hash)
     end
   end
 end
