@@ -1,2 +1,4 @@
-%h2
-  = t("titles.sign_in", :thing => t("defaults.thing").titleize)
+%h3
+  = t("titles.sign_in", :thing => t("defaults.thing"))
+%a.guidelines{:href => "#guidelines", :"data-toggle" => "modal", :"data-target" => "#guidelines"}
+  %p= t("links.learn_more", :thing => t("defaults.thing"))
