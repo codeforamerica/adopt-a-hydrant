@@ -1,5 +1,4 @@
 require 'geokit'
-require 'obscenity/active_model'
 
 class Thing < ActiveRecord::Base
   extend Forwardable
