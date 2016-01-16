@@ -1,10 +1,12 @@
 AllCops:
-  RunRailsCops: true
   Exclude:
     - 'bin/*'
     - 'db/schema.rb'
     - 'db/seeds.rb'
     - 'vendor/bundle/**/*'
+
+Rails:
+  Enabled: true
 
 Metrics/AbcSize:
   Exclude:
@@ -51,7 +53,7 @@ Style/DoubleNegation:
 Style/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
-Style/TrailingComma:
+Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: 'comma'
 
 Style/WordArray:
