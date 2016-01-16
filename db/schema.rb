@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20160111062953) do
     t.string   "name"
     t.decimal  "lat",             precision: 16, scale: 14, null: false
     t.decimal  "lng",             precision: 17, scale: 14, null: false
-    t.string   "city_id"
+    t.integer  "city_id"
     t.integer  "user_id"
     t.string   "system_use_code"
   end

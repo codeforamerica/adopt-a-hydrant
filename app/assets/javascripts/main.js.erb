@@ -78,8 +78,12 @@ $(function() {
 
   var icons = {
     available: {
-      name: 'Available',
+      name: 'Available - Drains to Sewer',
       icon: '<%= image_path 'markers/tosewer.png' %>'
+    },
+    availableBay: {
+      name: 'Available - Drains to Ocean/Bay',
+      icon: '<%= image_path 'markers/tobay.png' %>'
     },
     adopted: {
       name: 'Adopted',
@@ -115,6 +119,8 @@ $(function() {
       var image = adoptedByYouMarker;
     } else if(type === 'tosewer') {
       var image = toSewerMarker;
+    } else if(type === 'tobayocean') {
+      var image = toBayOceanMarker;
     }
     var marker = new google.maps.Marker({
       animation: google.maps.Animation.DROP,
@@ -190,12 +196,17 @@ $(function() {
             setTimeout(function() {
               var point = new google.maps.LatLng(thing.lat, thing.lng);
               var type = 'tosewer'
+              if(thing.system_use_code == 'MS4') {
+                console.log("MS4");
+                type = 'tobayocean';
+              }
               if(thing.user_id) {
                 type  = 'adopted';
               }
               if(thing.user_id == current_user_id){
                 type = 'adoptedbyyou'
               }
+              console.log(type);
               addMarker(thing.id, point, type, thing.user_id);
             }, i * 100);
           });
