@@ -76,6 +76,9 @@ $(function() {
 
   var legend = document.getElementById('legend');
 
+  var legendItems = document.createElement('div');
+  legendItems.className = "legend-items";
+
   var icons = {
     available: {
       name: 'Available - Drains to Sewer',
@@ -101,10 +104,19 @@ $(function() {
     var icon = type.icon;
     var div = document.createElement('div');
     div.innerHTML = '<img src="' + icon + '"> ' + name;
-    legend.appendChild(div);
+    legendItems.appendChild(div);
   }
   
+  legend.appendChild(legendItems);
+
   map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(legend);
+
+  $('#toggleLegend').click(function(){
+    $('#legend .legend-items').slideToggle(function(){
+      var text = $('#legend .show-hide a').html().trim();
+      $('#legend .show-hide a').html( text == 'Hide' ? 'Show' : 'Hide'); 
+    });
+  });
 
   var activeThingId;
   var activeMarker;
@@ -197,7 +209,6 @@ $(function() {
               var point = new google.maps.LatLng(thing.lat, thing.lng);
               var type = 'tosewer'
               if(thing.system_use_code == 'MS4') {
-                console.log("MS4");
                 type = 'tobayocean';
               }
               if(thing.user_id) {
@@ -206,7 +217,6 @@ $(function() {
               if(thing.user_id == current_user_id){
                 type = 'adoptedbyyou'
               }
-              console.log(type);
               addMarker(thing.id, point, type, thing.user_id);
             }, i * 100);
           });
