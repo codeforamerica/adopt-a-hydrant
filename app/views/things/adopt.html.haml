@@ -8,3 +8,8 @@
     = f.text_field "name", :class => "form-control"
   %fieldset.form-group
     = f.submit t("buttons.adopt"), :class => "btn btn-primary btn-block"
+
+  - unless @thing.detail_link.blank?
+    %p
+      %a{href: "#{@thing.detail_link}", target: '_blank'}
+        = t("links.thing_details", :thing => t("defaults.thing"))
