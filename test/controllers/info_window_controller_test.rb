@@ -62,6 +62,19 @@ class InfoWindowControllerTest < ActionController::TestCase
     end
   end
 
+  test 'should show special link on adoption form if it has one' do
+    sign_in @user
+    Thing.stub :find_by_id, @thing do
+      @thing.stub :detail_link, 'http://example.com' do
+        get :index, thing_id: @thing.id
+      end
+    end
+    assert_response :success
+    assert_select 'a', /This .* is special! Learn why./ do
+      assert_select '[href=?]', 'http://example.com'
+    end
+  end
+
   test 'should show sign-in form if signed out' do
     get :index, thing_id: @thing.id
     assert_not_nil assigns :thing

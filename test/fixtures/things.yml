@@ -4,11 +4,13 @@ thing_1:
   lat: 42.383339
   lng: -71.049226
   name: ""
+  system_use_code: 'ABC'
 
 thing_2:
   city_id: 2,
   lat: 42.381021
   lng: -71.075964
+
 
 thing_3:
   city_id: 3
