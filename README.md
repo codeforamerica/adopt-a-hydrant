@@ -11,7 +11,7 @@
 Claim responsibility for cleaning out a storm drain after it rains.
 
 ## Screenshot
-![Adopt-a-Drain](https://github.com/sfbrigade/adopt-a-drain/raw/master/screenshot.png "Adopt-a-Drain")
+![Adopt-a-Drain](https://github.com/sfbrigade/adopt-a-drain/raw/master/adopt.png "Adopt-a-Drain")
 
 ## Demo
 You can see a running version of the application at
