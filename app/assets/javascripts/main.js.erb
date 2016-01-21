@@ -82,31 +82,36 @@ $(function() {
   var icons = {
     available: {
       name: 'Drains to Sewer',
+      alt:  'Sewer icon',
       icon: '<%= image_path 'markers/tosewer.png' %>'
     },
     availableBay: {
       name: 'Drains to Ocean/Bay',
+      alt:  'Sewer to ocean/bay icon',
       icon: '<%= image_path 'markers/tobay.png' %>'
     },
     adopted: {
       name: 'Adopted',
+      alt:  'Adopted by other icon',
       icon: '<%= image_path 'markers/adopted.png' %>'
     },
     adopted_by_you: {
       name: 'Adopted by you',
+      alt:  'Adopted by you icon',
       icon: '<%= image_path 'markers/adoptedbyyou.png' %>'
     }
   };
-  
+
   for (var key in icons) {
     var type = icons[key];
     var name = type.name;
     var icon = type.icon;
+    var alt  = type.alt;
     var div = document.createElement('div');
-    div.innerHTML = '<img src="' + icon + '"> ' + name;
+    div.innerHTML = '<img src="' + icon + '" alt="' + alt + '"> ' + name;
     legendItems.appendChild(div);
   }
-  
+
   legend.appendChild(legendItems);
 
   map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(legend);
