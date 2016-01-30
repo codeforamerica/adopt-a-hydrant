@@ -74,7 +74,7 @@
     = f.password_field "current_password", :class => "form-control"
   %fieldset.form-actions
     = f.submit t("buttons.update"), :class => "btn btn-primary btn-block"
-    %a{:href => root_path, :id => "back_link", :class => "btn btn-default"}
+    %a{:href => search_path, :id => "back_link", :class => "btn btn-default"}
       = t("buttons.back")
 :javascript
   $(function() {

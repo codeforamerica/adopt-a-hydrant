@@ -14,7 +14,7 @@ class PasswordsControllerTest < ActionController::TestCase
     assert_response :success
     email = ActionMailer::Base.deliveries.last
     assert_equal [@user.email], email.to
-    assert_equal 'Reset password instructions', email.subject
+    assert_equal 'Adopt-a-drain San Francisco reset password instructions', email.subject
   end
 
   test 'should not send password reset instructions if email address is not found' do
@@ -25,6 +25,8 @@ class PasswordsControllerTest < ActionController::TestCase
   test 'should render edit view' do
     get :edit, reset_password_token: 'token'
     assert_response :success
+    assert_template 'main/index'
+    assert_not_nil assigns(:reset_password_token)
   end
 
   test 'should reset user password with an valid reset password token' do
@@ -32,8 +34,7 @@ class PasswordsControllerTest < ActionController::TestCase
     put :update, user: {reset_password_token: token, password: 'new_password'}
     @user.reload
     assert @user.valid_password?('new_password')
-    assert_response :redirect
-    assert_redirected_to controller: 'main', action: 'index'
+    assert_response :success
   end
 
   test 'should not reset user password with an invalid reset password token' do
@@ -41,7 +42,7 @@ class PasswordsControllerTest < ActionController::TestCase
     put :update, user: {reset_password_token: 'invalid_token', password: 'new_password'}
     @user.reload
     assert !@user.valid_password?('new_password')
-    assert_response :redirect
-    assert_redirected_to controller: 'main', action: 'index'
+    assert_response :error
+    assert_equal ['is invalid'], JSON.parse(response.body)['errors']['reset_password_token']
   end
 end

@@ -16,6 +16,8 @@
           = render :partial => "layouts/flash", :locals => {:flash => flash}
           - if signed_in?
             = render :partial => "sidebar/search"
+          - elsif @reset_password_token.present?
+            = render :partial => 'passwords/edit'
           - else
             = render :partial => "sidebar/combo_form"
         #logos
