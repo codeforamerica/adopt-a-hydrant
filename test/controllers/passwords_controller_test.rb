@@ -22,6 +22,13 @@ class PasswordsControllerTest < ActionController::TestCase
     assert_response :error
   end
 
+  test 'should redirect if signed in' do
+    sign_in(@user)
+    get :edit, reset_password_token: 'token'
+    assert_redirected_to root_path
+    assert_equal 'You are already signed in.', flash[:alert]
+  end
+
   test 'should render edit view' do
     get :edit, reset_password_token: 'token'
     assert_response :success

@@ -10,11 +10,6 @@ class PasswordsController < Devise::PasswordsController
   end
 
   def edit
-    if signed_in?
-      flash[:error] = 'Please sign out before resetting password'
-      return render('main/index')
-    end
-
     self.resource = resource_class.new
     resource.reset_password_token = params[:reset_password_token]
     @reset_password_token = params[:reset_password_token]
