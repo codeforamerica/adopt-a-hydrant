@@ -12,17 +12,23 @@ class PasswordsController < Devise::PasswordsController
   def edit
     self.resource = resource_class.new
     resource.reset_password_token = params[:reset_password_token]
-    render('edit', layout: 'info_window')
+    @reset_password_token = params[:reset_password_token]
+
+    render('main/index')
   end
 
   def update
     self.resource = resource_class.reset_password_by_token(resource_params)
+
     yield resource if block_given?
-    if resource.errors.empty?
-      resource.unlock_access! if unlockable?(resource)
-      sign_in(resource_name, resource)
-    end
-    redirect_to(controller: 'main', action: 'index')
+
+    return render(json: {errors: resource.errors}, status: 500) unless resource.errors.empty?
+
+    resource.unlock_access! if unlockable?(resource)
+    sign_in(resource_name, resource)
+
+    flash[:notice] = 'Password updated!'
+    render json: {}
   end
 
 private

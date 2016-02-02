@@ -238,10 +238,70 @@ $(function() {
       }
     }
   }
+  function showFlash(type, message) {
+    $('#content').prepend(
+        $('<div></div>').addClass('alert fade in alert-' + type).data('alert', '').append(
+          $('<a></a>').addClass('close').data('dismiss', 'alert').text('×')).append(
+          $('<p></p>').text(message)
+          ));
+  }
   google.maps.event.addListener(map, 'idle', function() {
     var center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
   });
+
+  $('body').on('submit', '#password_edit_form', function() {
+    var submitButton = $("#password_edit_form input[type='submit']");
+    $(submitButton).attr("disabled", true);
+    if($('#user_password').val() === '') {
+      $(submitButton).attr("disabled", false);
+      $('#user_password').parent().addClass(errorClass);
+      $('#user_password').next(".help-block").html('You must enter a value');
+      $('#user_password').focus();
+    } else {
+      $.ajax({
+        type: 'PUT',
+        url: '/users/password.json',
+        data: {
+          'utf8': '✓',
+          'authenticity_token': $('#password_edit_form input[name="authenticity_token"]').val(),
+          'user': {
+            'reset_password_token': $('#user_reset_password_token').val(),
+            'password': $('#user_reset_password_token').val()
+          }
+        },
+        error: function(jqXHR) {
+          var response = $.parseJSON(jqXHR.responseText);
+          $(submitButton).attr("disabled", false);
+          if(response.errors.user_password) {
+            $('#user_password').parent().addClass(errorClass);
+            $('#user_password').next(".help-block").html(response.errors.user_password);
+            $('#user_password').focus();
+          }
+          if(response.errors.reset_password_token) {
+            $('#user_reset_password_token').parent().addClass(errorClass);
+            $('#user_reset_password_token').next(".help-block").html('Password reset token is ' + response.errors.reset_password_token);
+            $('#user_reset_password_token').focus();
+          }
+        },
+        success: function(data) {
+          $('.container-fluid').addClass('signed-in');
+          $('.sidebar').removeClass('sidebar-full');
+          $.ajax({
+            type: 'GET',
+            url: '/sidebar/search',
+            success: function(data) {
+              $('#content').html(data);
+              current_user_id = $('#current_user_id').val();
+              flipMarkers();
+            }
+          });
+        }
+      });
+    }
+    return false;
+  });
+
   $('body').on('submit', '#address_form', function() {
     var submitButton = $("#address_form input[type='submit']");
     $(submitButton).attr("disabled", true);
@@ -483,9 +543,8 @@ $(function() {
             $('#user_email').focus();
           },
           success: function() {
+            showFlash('info', 'Password reset sent');
             $(submitButton).attr("disabled", false);
-            $('#user_remembered_password_link').click();
-            $('#user_password').focus();
           }
         });
       }
@@ -751,16 +810,17 @@ $(function() {
     });
     return false;
   });
-  $('#back_link').on('click', function() {
+  $('.sidebar').on('click','#back_link', function() {
     var link = $(this);
     $(link).addClass('disabled');
     $.ajax({
       type: 'GET',
-      url: '/sidebar/search',
+      url: link.attr('href'),
       error: function(jqXHR) {
         $(link).removeClass('disabled');
       },
       success: function(data) {
+        console.log(data);
         $('#content').html(data);
       }
     });

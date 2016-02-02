@@ -1,0 +1,14 @@
+= form_for resource, :as => resource_name, :url => password_path(resource_name), :html => {:id => "password_edit_form", :method => :put} do |f|
+  %fieldset.form-group
+    %label{:for => "user_password", :id => "user_password_label", :class => 'control-label'}
+      = t("labels.password_reset")
+      %small
+        = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
+    = f.password_field "password", :class => "form-control"
+    .help-block
+  = f.hidden_field "reset_password_token"
+  .help-block
+  %fieldset.form-actions
+    = f.submit t("buttons.update"), :class => "btn btn-primary btn-block"
+    %a{:href => combo_form_path, :id => "back_link", :class => "btn btn-default"}
+      = t("buttons.back")

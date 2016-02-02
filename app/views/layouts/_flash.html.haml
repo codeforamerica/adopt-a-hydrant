@@ -11,8 +11,14 @@
     %p
       = flash[:warning]
 - if flash[:error]
-  .alert.alert-error.fade.in{:"data-alert" => true}
+  .alert.alert-danger.fade.in{:"data-alert" => true}
     %a{:class => "close", :"data-dismiss" => "alert", :href => "#"}
       &times;
     %p
       = flash[:error]
+- if flash[:alert]
+  .alert.alert-danger.fade.in{:"data-alert" => true}
+    %a{:class => "close", :"data-dismiss" => "alert", :href => "#"}
+      &times;
+    %p
+      = flash[:alert]
