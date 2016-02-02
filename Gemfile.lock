@@ -214,7 +214,7 @@ GEM
     unf_ext (0.0.7.1)
     validates_formatting_of (0.9.0)
       activemodel
-    warden (1.2.5)
+    warden (1.2.6)
       rack (>= 1.0)
     webmock (1.22.6)
       addressable (>= 2.3.6)
