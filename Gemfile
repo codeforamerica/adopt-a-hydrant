@@ -15,6 +15,8 @@ gem 'rails_12factor'
 gem 'rails_admin'
 gem 'validates_formatting_of'
 
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+
 platforms :ruby_18 do
   gem 'fastercsv'
 end
