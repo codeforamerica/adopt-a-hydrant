@@ -9,15 +9,22 @@
           %span.icon-bar
           %span.icon-bar
       .sidebar-content
-        %a.guidelines{:href => "#guidelines", :"data-toggle" => "modal", :"data-target" => "#guidelines"}
-          %p.alert-message.block-message#tagline
-            = t("defaults.tagline")
+        -# Corresponds to guideline div below
+        %div.hidden-xs
+          %a.guidelines{:href => "#guidelines", :"data-toggle" => "modal", :"data-target" => "#guidelines"}
+            %p.alert-message.block-message#tagline
+              = t("defaults.tagline")
         #content
           = render :partial => "layouts/flash", :locals => {:flash => flash}
           - if signed_in?
             = render :partial => "sidebar/search"
           - else
             = render :partial => "sidebar/combo_form"
+        -# Corresponds to guideline div above
+        %div.hidden.visible-xs-block
+          %a.guidelines{:href => "#guidelines", :"data-toggle" => "modal", :"data-target" => "#guidelines"}
+            %p.alert-message.block-message#tagline
+              = t("defaults.tagline")
         #logos
           .row
             .col-xs-6
