@@ -147,6 +147,7 @@ $(function() {
       shadow: markerShadowImage
     });
     google.maps.event.addListener(marker, 'click', function() {
+      console.log(marker);
       if(activeInfoWindow) {
         activeInfoWindow.close();
       }
@@ -245,6 +246,12 @@ $(function() {
           $('<p></p>').text(message)
           ));
   }
+  function zoomTo(lat, lng, zoomLevel) {
+    if (typeof zoomLevel === 'undefined') { zoomLevel = 18; }
+    addMarkersAround(lat, lng);
+    map.setCenter(new google.maps.LatLng(lat, lng));
+    map.setZoom(zoomLevel);
+  }
   google.maps.event.addListener(map, 'idle', function() {
     var center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
@@ -335,15 +342,16 @@ $(function() {
           } else {
             $('#address').parent().removeClass(errorClass);
             $('#address').next(".help-block").html('');
-            addMarkersAround(data[0], data[1]);
-            var center = new google.maps.LatLng(data[0], data[1]);
-            map.setCenter(center);
-            map.setZoom(18);
+            zoomTo(data[0], data[1]);
           }
         }
       });
     }
     return false;
+  });
+
+  $('body').on('click', '.thing-link', function() {
+    zoomTo($(this).data('lat'), $(this).data('lng'), 20);
   });
 
   // Focus on the first non-empty text input or password field

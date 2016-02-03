@@ -197,7 +197,9 @@ a.guidelines {
   background-color: #9682bc;
 }
 
-
+.user-things dd {
+  margin-left: 20px;
+}
 
 @media (min-width: 768px) {
   .sidebar, .signed-in .sidebar {
