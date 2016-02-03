@@ -1,5 +1,5 @@
 = form_tag "/address", :method => "get", :id => "address_form", :class => "search-form" do
-  = hidden_field_tag "limit", params[:limit] || 10
+  = hidden_field_tag "limit", params[:limit] || 25
   = hidden_field_tag "current_user_id", current_user.id
   %fieldset.form-group.hidden
     = label_tag "city_state", t("labels.city_state"), :id => "city_state_label", :class => 'control-label'
