@@ -212,7 +212,7 @@ GEM
       json (>= 1.8.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.1)
+    unf_ext (0.0.7.2)
     unicode-display_width (0.3.1)
     validates_formatting_of (0.9.0)
       activemodel
