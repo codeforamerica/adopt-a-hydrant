@@ -29,6 +29,8 @@ This application requires [Postgres](http://www.postgresql.org/) to be installed
     bundle exec rake db:create
     bundle exec rake db:schema:load
 
+See the [wiki](https://github.com/sfbrigade/adopt-a-drain/wiki/Windows-Development-Environment) for a guide on how to install this application on Windows.
+
 ## Usage
     rails server
 
