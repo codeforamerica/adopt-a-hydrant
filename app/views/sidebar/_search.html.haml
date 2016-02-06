@@ -12,7 +12,7 @@
     = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :class => "btn btn-primary btn-block"
     .break
   %div.user-things
-    %h2= t('labels.my_things', :things => t('defaults.things'))
+    %h5.my-things= t('labels.my_things', :things => t('defaults.things'))
     %dl
       - current_user.things.each do |thing|
         %dt
