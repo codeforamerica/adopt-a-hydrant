@@ -48,6 +48,10 @@ h3, .h3 {
   font-size: 18px;
 }
 
+h5.my-things {
+  font-weight: bold;
+}
+
 .navbar {
   margin-bottom: 0;
   text-align: center;
