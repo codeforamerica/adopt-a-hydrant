@@ -652,7 +652,7 @@ $(function() {
     });
     return false;
   });
-  $('#edit_form').on('submit', function() {
+  $('.sidebar').on('submit','#edit_form', function() {
     var submitButton = $("#edit_form input[type='submit']");
     $(submitButton).attr("disabled", true);
     var errors = []
