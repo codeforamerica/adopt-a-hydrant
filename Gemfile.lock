@@ -218,7 +218,7 @@ GEM
       activemodel
     warden (1.2.6)
       rack (>= 1.0)
-    webmock (1.22.6)
+    webmock (1.23.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
