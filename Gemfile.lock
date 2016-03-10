@@ -39,7 +39,7 @@ GEM
     addressable (2.4.0)
     arel (6.0.3)
     ast (2.2.0)
-    bcrypt (3.1.10)
+    bcrypt (3.1.11)
     builder (3.2.2)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
