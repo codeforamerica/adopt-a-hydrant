@@ -156,7 +156,7 @@ GEM
     rainbow (2.1.0)
     rake (11.1.1)
     remotipart (1.2.1)
-    responders (2.1.1)
+    responders (2.1.2)
       railties (>= 4.2.0, < 5.1)
     rubocop (0.38.0)
       parser (>= 2.3.0.6, < 3.0)
