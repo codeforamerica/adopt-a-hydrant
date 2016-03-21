@@ -34,6 +34,8 @@
         ga('create', '#{ENV['GOOGLE_ANALYTICS_ID']}', '#{ENV['GOOGLE_ANALYTICS_DOMAIN']}');
         ga('send', 'pageview');
     = stylesheet_link_tag "//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    %script{:type => "text/javascript"}
+      if (!window.console) window.console = {log: function() {}};
     = stylesheet_link_tag "application"
   %body
     = yield
