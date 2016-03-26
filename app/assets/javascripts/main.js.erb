@@ -286,7 +286,7 @@ $(function() {
           }
           if(response.errors.reset_password_token) {
             $('#user_reset_password_token').parent().addClass(errorClass);
-            $('#user_reset_password_token').next(".help-block").html('Password reset token is ' + response.errors.reset_password_token);
+            $('#user_reset_password_token').next(".help-block").html('Password reset link ' + response.errors.reset_password_token);
             $('#user_reset_password_token').focus();
           }
         },
