@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :set_flash_from_params
   before_action :set_locale
 
+  force_ssl if: :ssl_configured?
+
 protected
 
   def require_admin
@@ -25,5 +27,9 @@ protected
       File.basename(file, '.yml')
     end
     I18n.locale = http_accept_language.compatible_language_from(available_languages) || I18n.default_locale
+  end
+
+  def ssl_configured?
+    Rails.env.production?
   end
 end
