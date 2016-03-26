@@ -241,7 +241,7 @@ $(function() {
   function showFlash(type, message) {
     $('#content').prepend(
         $('<div></div>').addClass('alert fade in alert-' + type).data('alert', '').append(
-          $('<a></a>').addClass('close').data('dismiss', 'alert').text('×')).append(
+          $('<a></a>').addClass('close').attr('data-dismiss', 'alert').text('×')).append(
           $('<p></p>').text(message)
           ));
   }
