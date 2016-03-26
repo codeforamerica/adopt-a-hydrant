@@ -74,6 +74,10 @@ en:
   notices:
     abandoned: "%{thing} abandoned!"
     adopted: "You just adopted a %{thing}!"
+    alpha: >
+      We're just getting started! We'd love to get your <a
+      href='%{feedback_url}'>feedback</a> or your help with the <a
+      href='%{code_url}'>code</a>.
     password_reset: "Password reset instructions sent! Check your email."
     reminder_sent: "Reminder sent!"
     signed_in: "Signed in!"
