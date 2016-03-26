@@ -273,7 +273,7 @@ $(function() {
           'authenticity_token': $('#password_edit_form input[name="authenticity_token"]').val(),
           'user': {
             'reset_password_token': $('#user_reset_password_token').val(),
-            'password': $('#user_reset_password_token').val()
+            'password': $('#user_password').val()
           }
         },
         error: function(jqXHR) {
