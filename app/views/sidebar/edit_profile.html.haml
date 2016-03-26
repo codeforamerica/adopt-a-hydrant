@@ -7,11 +7,17 @@
         = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
     = f.email_field "email", :class => "form-control"
   %fieldset.form-group
-    %label{:for => "user_name", :id => "user_name_label", :class => 'control-label'}
-      = t("labels.name")
+    %label{:for => "user_first_name", :id => "user_first_name_label", :class => 'control-label'}
+      = t("labels.first_name")
       %small
         = t("captions.public")
-    = f.text_field "name", :class => "form-control"
+    = f.text_field "first_name", :class => "form-control"
+  %fieldset.form-group
+    %label{:for => "user_last_name", :id => "user_last_name_label", :class => 'control-label'}
+      = t("labels.last_name")
+      %small
+        = t("captions.public")
+    = f.text_field "last_name", :class => "form-control"
   %fieldset.form-group
     %label{:for => "user_organization", :id => "user_organization_label", :class => 'control-label'}
       = t("labels.organization")

@@ -12,11 +12,17 @@
       = f.label "existing", radio_button_tag("user", "existing").html_safe + t("labels.user_existing")
   %fieldset#user_sign_up_fields
     .form-group
-      %label.control-label{:for => "user_name", :id => "user_name_label"}
-        = t("labels.name")
+      %label.control-label{:for => "user_first_name", :id => "user_first_name_label"}
+        = t("labels.first_name")
         %small
           = t("captions.public")
-      = f.text_field "name", :class => "form-control"
+      = f.text_field "first_name", :class => "form-control"
+    .form-group
+      %label.control-label{:for => "user_last_name", :id => "user_last_name_label"}
+        = t("labels.last_name")
+        %small
+          = t("captions.public_optional")
+      = f.text_field "last_name", :class => "form-control"
     .form-group
       %label.control-label{:for => "user_organization", :id => "user_organization_label"}
         = t("labels.organization")

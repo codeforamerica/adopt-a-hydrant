@@ -15,8 +15,8 @@ class UsersControllerTest < ActionController::TestCase
       assert_select '[action=?]', '/users'
       assert_select '[method=?]', 'post'
     end
-    assert_select 'input', count: 15
-    assert_select 'label', count: 12
+    assert_select 'input', count: 16
+    assert_select 'label', count: 13
     assert_select 'input[name="commit"]' do
       assert_select '[type=?]', 'submit'
       assert_select '[value=?]', 'Update'
@@ -27,7 +27,7 @@ class UsersControllerTest < ActionController::TestCase
   test 'should update user if password is correct' do
     sign_in @user
     assert_not_equal 'New Name', @user.name
-    put :update, user: {name: 'New Name', current_password: 'correct'}
+    put :update, user: {first_name: 'New', last_name: 'Name', current_password: 'correct'}
     @user.reload
     assert_equal 'New Name', @user.name
     assert_response :redirect
@@ -41,12 +41,12 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test 'should create user if information is valid' do
-    post :create, user: {email: 'user@example.com', name: 'User', password: 'correct', password_confirmation: 'correct'}
+    post :create, user: {email: 'user@example.com', first_name: 'User', password: 'correct', password_confirmation: 'correct'}
     assert_response :success
   end
 
   test 'should return error if information is invalid' do
-    post :create, user: {email: 'user@example.com', name: 'User', password: 'correct', password_confirmation: 'incorrect'}
+    post :create, user: {email: 'user@example.com', first_name: 'User', password: 'correct', password_confirmation: 'incorrect'}
     assert_response :error
   end
 end
