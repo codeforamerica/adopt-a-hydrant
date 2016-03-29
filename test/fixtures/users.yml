@@ -1,6 +1,7 @@
 ---
 erik:
-  name: Erik Michaels-Ober
+  first_name: Erik
+  last_name: Michaels-Ober
   organization: Code for America
   email: erik@example.com
   voice_number: 1234567890
@@ -8,7 +9,8 @@ erik:
   encrypted_password: "$2a$10$KF/JMZ494ZLhWLgHZeBTf.cSL4l0Wjij4gIZP7BzkueAC1p4nW0ma"
 
 dan:
-  name: Dan Melton
+  first_name: Dan
+  last_name: Melton
   organization: Code for America
   email: dan@example.com
   voice_number: 1234567890
@@ -16,7 +18,8 @@ dan:
   encrypted_password: "$2a$10$KF/JMZ494ZLhWLgHZeBTf.cSL4l0Wjij4gIZP7BzkueAC1p4nW0ma"
 
 admin:
-  name: Admin User
+  first_name: Admin
+  last_name: User
   organization: Code for America
   email: admin@example.com
   voice_number: 1234567890

@@ -404,11 +404,11 @@ $(function() {
       $('#user_email').parent().removeClass(errorClass);
     }
     if(!$(this).data('state') || $(this).data('state') === 'user_sign_up') {
-      if($('#user_name').val() === '') {
-        errors.push($('#user_name'));
-        $('#user_name').parent().addClass(errorClass);
+      if($('#user_first_name').val() === '') {
+        errors.push($('#user_first_name'));
+        $('#user_first_name').parent().addClass(errorClass);
       } else {
-        $('#user_name').parent().removeClass(errorClass);
+        $('#user_first_name').parent().removeClass(errorClass);
       }
       if($('#user_password_confirmation').val().length < 6 || $('#user_password_confirmation').val().length > 20) {
         errors.push($('#user_password_confirmation'));
@@ -428,7 +428,8 @@ $(function() {
             'authenticity_token': $('#combo-form input[name="authenticity_token"]').val(),
             'user': {
               'email': $('#user_email').val(),
-              'name': $('#user_name').val(),
+              'first_name': $('#user_first_name').val(),
+              'last_name': $('#user_last_name').val(),
               'organization': $('#user_organization').val(),
               'voice_number': $('#user_voice_number').val(),
               'sms_number': $('#user_sms_number').val(),
@@ -443,9 +444,13 @@ $(function() {
               errors.push($('#user_email'));
               $('#user_email').parent().addClass(errorClass);
             }
-            if(data.errors.name) {
-              errors.push($('#user_name'));
-              $('#user_name').parent().addClass(errorClass);
+            if(data.errors.first_name) {
+              errors.push($('#user_first_name'));
+              $('#user_first_name').parent().addClass(errorClass);
+            }
+            if(data.errors.last_name) {
+              errors.push($('#user_last_name'));
+              $('#user_last_name').parent().addClass(errorClass);
             }
             if(data.errors.organization) {
               errors.push($('#user_organization'));
@@ -662,11 +667,11 @@ $(function() {
     } else {
       $('#user_email').parent().removeClass(errorClass);
     }
-    if($('#user_name').val() === '') {
-      errors.push($('#user_name'));
-      $('#user_name').parent().addClass(errorClass);
+    if($('#user_first_name').val() === '') {
+      errors.push($('#user_first_name'));
+      $('#user_first_name').parent().addClass(errorClass);
     } else {
-      $('#user_name').parent().removeClass(errorClass);
+      $('#user_first_name').parent().removeClass(errorClass);
     }
     if($('#user_zip').val() != '' && !/^\d{5}(-\d{4})?$/.test($('#user_zip').val())) {
       errors.push($('#user_zip'));
@@ -701,7 +706,8 @@ $(function() {
           'authenticity_token': $('#edit_form input[name="authenticity_token"]').val(),
           'user': {
             'email': $('#user_email').val(),
-            'name': $('#user_name').val(),
+            'first_name': $('#user_first_name').val(),
+            'last_name': $('#user_last_name').val(),
             'organization': $('#user_organization').val(),
             'voice_number': $('#user_voice_number').val(),
             'sms_number': $('#user_sms_number').val(),
@@ -722,9 +728,13 @@ $(function() {
             errors.push($('#user_email'));
             $('#user_email').parent().addClass(errorClass);
           }
-          if(data.errors.name) {
-            errors.push($('#user_name'));
-            $('#user_name').parent().addClass(errorClass);
+          if(data.errors.first_name) {
+            errors.push($('#user_first_name'));
+            $('#user_first_name').parent().addClass(errorClass);
+          }
+          if(data.errors.last_name) {
+            errors.push($('#user_last_name'));
+            $('#user_last_name').parent().addClass(errorClass);
           }
           if(data.errors.organization) {
             errors.push($('#user_organization'));

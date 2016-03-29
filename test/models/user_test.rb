@@ -9,4 +9,11 @@ class UserTest < ActiveSupport::TestCase
     assert_equal '1234567890', user.sms_number
     assert_equal '1098764321', user.voice_number
   end
+
+  test 'name' do
+    user = users(:erik)
+    assert_equal 'Erik Michaels-Ober', user.name
+    user.last_name = ''
+    assert_equal 'Erik', user.name
+  end
 end
