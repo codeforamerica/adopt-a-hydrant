@@ -9,7 +9,7 @@ class ThingMailer < ApplicationMailer
   def second_adoption_confirmation(thing)
     @thing = thing
     @user = thing.user
-    mail(to: @user.email, subject: ["You're a drain-tastic person, #{@user.name.split.first}!"])
+    mail(to: @user.email, subject: ["Thanks for adopting another drain, #{@user.name.split.first}!"])
   end
 
   def third_adoption_confirmation(thing)
