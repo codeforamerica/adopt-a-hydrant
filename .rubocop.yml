@@ -1,5 +1,7 @@
+Rails: 
+  Enabled: true
+
 AllCops:
-  RunRailsCops: true
   Exclude:
     - 'bin/*'
     - 'db/schema.rb'
@@ -51,7 +53,10 @@ Style/DoubleNegation:
 Style/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
-Style/TrailingComma:
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: 'comma'
+
+Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: 'comma'
 
 Style/WordArray:
