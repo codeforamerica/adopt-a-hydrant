@@ -5,7 +5,7 @@ class RemindersController < ApplicationController
     @reminder = Reminder.new(reminder_params)
     @reminder.from_user = current_user
     if @reminder.save
-      ThingMailer.reminder(@reminder.thing).deliver
+      ThingMailer.reminder(@reminder.thing).deliver_now
       @reminder.update_attribute(:sent, true)
       render(json: @reminder)
     else
