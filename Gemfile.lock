@@ -157,7 +157,7 @@ GEM
     rainbow (2.1.0)
     rake (11.1.2)
     remotipart (1.2.1)
-    responders (2.1.2)
+    responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rubocop (0.39.0)
       parser (>= 2.3.0.7, < 3.0)
@@ -237,5 +237,8 @@ DEPENDENCIES
   validates_formatting_of
   webmock
 
+RUBY VERSION
+   ruby 2.3.0p0
+
 BUNDLED WITH
-   1.11.2
+   1.12.0
