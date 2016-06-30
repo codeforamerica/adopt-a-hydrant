@@ -50,6 +50,9 @@ Style/DotPosition:
 Style/DoubleNegation:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Style/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
