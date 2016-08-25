@@ -1,5 +1,3 @@
-require 'geokit'
-
 class Thing < ActiveRecord::Base
   extend Forwardable
   include ActiveModel::ForbiddenAttributesProtection
