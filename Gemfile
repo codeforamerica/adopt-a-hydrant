@@ -9,7 +9,6 @@ gem 'haml'
 gem 'http_accept_language'
 gem 'obscenity', '~> 1.0', '>= 1.0.2'
 gem 'pg'
-gem 'rails_12factor'
 gem 'rails_admin'
 gem 'validates_formatting_of'
 
@@ -30,6 +29,7 @@ group :development do
 end
 
 group :production do
+  gem 'rails_12factor'
   gem 'puma'
   gem 'skylight'
 end
