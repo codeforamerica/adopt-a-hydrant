@@ -3,12 +3,10 @@ ruby '2.2.3'
 
 gem 'rails', '~> 4.2.4'
 gem 'airbrake', '~> 5.2'
-gem 'arel'
 gem 'devise'
 gem 'geokit'
 gem 'haml'
 gem 'http_accept_language'
-gem 'nokogiri'
 gem 'obscenity', '~> 1.0', '>= 1.0.2'
 gem 'pg'
 gem 'rails_12factor'
@@ -28,7 +26,6 @@ end
 
 group :development do
   gem 'byebug'
-  gem 'mailcatcher'
   gem 'spring'
 end
 
@@ -39,8 +36,7 @@ end
 
 group :test do
   gem 'coveralls', require: false
-  gem 'rubocop'
   gem 'simplecov', require: false
-  gem 'sqlite3'
+  gem 'rubocop'
   gem 'webmock'
 end
