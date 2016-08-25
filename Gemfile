@@ -14,10 +14,6 @@ gem 'validates_formatting_of'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
-platforms :ruby_18 do
-  gem 'fastercsv'
-end
-
 group :assets do
   gem 'sass-rails', '>= 4.0.3'
   gem 'uglifier'
