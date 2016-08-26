@@ -26,9 +26,9 @@ private
   def send_adoption_email(user, thing)
     case user.things.count
     when 1
-      ThingMailer.first_adoption_confirmation(thing).deliver
+      ThingMailer.first_adoption_confirmation(thing).deliver_later
     when 2
-      ThingMailer.second_adoption_confirmation(thing).deliver
+      ThingMailer.second_adoption_confirmation(thing).deliver_later
     end
   end
 
