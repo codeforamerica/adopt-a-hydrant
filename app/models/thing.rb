@@ -21,6 +21,10 @@ class Thing < ActiveRecord::Base
       SQL
     find_by_sql([query, lat.to_f, lng.to_f, lat.to_f, limit.to_i])
   end
+  
+  def self.find_by_user(user)
+    Thing.where(:user_id => user.id).to_a
+  end
 
   def reverse_geocode
     @reverse_geocode ||= Geokit::Geocoders::MultiGeocoder.reverse_geocode([lat, lng])
