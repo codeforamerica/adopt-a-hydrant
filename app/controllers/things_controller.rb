@@ -2,6 +2,7 @@ class ThingsController < ApplicationController
   respond_to :json
 
   def show
+   # byebug
     if params[:user_id] != nil
       @user = User.find(params[:user_id])
       @things = Thing.find_by_user(current_user)

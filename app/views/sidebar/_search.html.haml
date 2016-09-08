@@ -8,6 +8,8 @@
     = search_field_tag "address", params[:address], :placeholder => [t("defaults.address_1"), t("defaults.neighborhood")].join(", "), :class => "search-query"
   %fieldset.form-actions
     = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :class => "btn btn-primary"
+    %a{:href=> "javascript:getThingsByUser()", :title => "Find " + t("defaults.thing").pluralize, :class=> "btn" }
+      ="My "+t("defaults.thing").pluralize
     %a{:href => edit_user_registration_path, :id => "edit_profile_link", :class => "btn"}
       = t("buttons.edit_profile")
     %a{:href => destroy_user_session_path, :id => "sign_out_link", :class => "btn btn-danger"}
