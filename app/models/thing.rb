@@ -21,7 +21,7 @@ class Thing < ActiveRecord::Base
       SQL
     find_by_sql([query, lat.to_f, lng.to_f, lat.to_f, limit.to_i])
   end
-  
+  #Find by user method to return things by the user_id
   def self.find_by_user(user)
     Thing.where(:user_id => user.id).to_a
   end
