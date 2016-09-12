@@ -40,7 +40,10 @@ $(function() {
   var activeInfoWindow;
   var isWindowOpen = false;
   var thingIds = [];
-  var markers = [];
+  //markers will be a global array to hold google map marker objects so they
+  //can be removed later
+  var markers = []; 
+  
   function addMarker(thingId, point, color) {
     if(color === 'green') {
       var image = greenMarkerImage;
@@ -54,7 +57,7 @@ $(function() {
       position: point,
       shadow: markerShadowImage
     });
-    markers.push(marker);
+    markers.push(marker); //added to track the global markers array
     google.maps.event.addListener(marker, 'click', function() {
       if(activeInfoWindow) {
         activeInfoWindow.close();
@@ -130,7 +133,7 @@ $(function() {
     });
   }
   
-  
+  //This function removes all markers on the map
   function clearOverlays() {
   
     for(var i = 0; i < markers.length; i++) {
