@@ -147,7 +147,7 @@ $(function() {
   }
  
   
-  
+  //Creates a global function to be accessed by the find hydrants button
   window.getThingsByUser = function() {
    $.ajax({
       type: 'GET',
@@ -156,7 +156,7 @@ $(function() {
         'user_id': 1
       },
       success: function(data){
-        clearOverlays();
+        clearOverlays(); //removes all map markers
         var i = -1;
         $(data).each(function(index,thing){
           
@@ -168,7 +168,7 @@ $(function() {
         
         setTimeout(function(){
           var point = new google.maps.LatLng(thing.lat, thing.lng);
-          addMarker(thing.id, point, 'red');
+          addMarker(thing.id, point, 'green');
         
           },i*100);
         
