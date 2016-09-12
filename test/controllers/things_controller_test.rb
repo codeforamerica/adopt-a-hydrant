@@ -1,12 +1,12 @@
 require 'test_helper'
 
 class ThingsControllerTest < ActionController::TestCase
-  
+
   include Devise::Test::ControllerHelpers
-  
+
   setup do
     @thing = things(:thing_1)
-    @request.env["devise.mapping"] = Devise.mappings[:admin]
+    @request.env['devise.mapping'] = Devise.mappings[:admin]
   end
 
   test 'should list hydrants' do
@@ -23,7 +23,7 @@ class ThingsControllerTest < ActionController::TestCase
     assert_not_nil assigns :thing
     assert_response :success
   end
-  
+
   test 'should return hydrants belonging to user' do
     @thing2 = things(:thing_2)
     @user = users(:erik)
@@ -37,6 +37,6 @@ class ThingsControllerTest < ActionController::TestCase
     assert_equal JSON.parse(@response.body).to_a.length, 2
     assert_includes(@response.body, @thing.to_json)
     assert_includes(@response.body, @thing2.to_json)
-    
+
   end
 end
