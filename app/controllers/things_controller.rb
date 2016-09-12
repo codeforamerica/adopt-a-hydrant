@@ -1,15 +1,8 @@
 class ThingsController < ApplicationController
   respond_to :json
+  before_action :find_things, only: [:show]
 
   def show
-    # check if user_id parameter is specified with show action, if it is
-    # return things by user, otherwise, geographic search
-    @things = if !params[:user_id].nil?
-      Thing.find_by_user(current_user)
-    else
-      Thing.find_closest(params[:lat], params[:lng], params[:limit] || 10)
-    end
-    
     if @things.blank?
       render(json: {errors: {address: [t('errors.not_found', thing: t('defaults.thing'))]}}, status: 404)
     else
@@ -30,5 +23,15 @@ private
 
   def thing_params
     params.require(:thing).permit(:name, :user_id)
+  end
+
+  def find_things
+    # check if user_id parameter is specified with show action, if it is
+    # return things by user, otherwise, geographic search
+    @things = if !params[:user_id].nil?
+                Thing.find_by_user(current_user)
+              else
+                Thing.find_closest(params[:lat], params[:lng], params[:limit] || 10)
+              end
   end
 end
