@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class ThingsControllerTest < ActionController::TestCase
-
   include Devise::Test::ControllerHelpers
 
   setup do
@@ -37,6 +36,5 @@ class ThingsControllerTest < ActionController::TestCase
     assert_equal JSON.parse(@response.body).to_a.length, 2
     assert_includes(@response.body, @thing.to_json)
     assert_includes(@response.body, @thing2.to_json)
-
   end
 end
