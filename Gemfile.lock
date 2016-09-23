@@ -157,7 +157,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.1.0)
     rake (11.3.0)
-    remotipart (1.2.1)
+    remotipart (1.3.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rubocop (0.41.2)
