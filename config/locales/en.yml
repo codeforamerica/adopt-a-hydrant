@@ -72,13 +72,17 @@ en:
     click_for_more: "Click to learn more"
     learn_more: "Learn more about adopting a %{thing}"
     thing_details: "This %{thing} is special! Learn why."
+    learn_more_background: "Learn more"
   notices:
     abandoned: "%{thing} abandoned!"
     adopted: "You just adopted a %{thing}!"
     alpha: >
-      We're just getting started! We'd love to get your <a
-      href='%{feedback_url}'>feedback</a> or your help with the <a
-      href='%{code_url}'>code</a>.
+        We're just getting started! We'd love to get your <a
+        href='%{feedback_url}'>feedback</a> or your help with the <a
+        href='%{code_url}'>code</a>.
+
+        <a href='%{background_target}' data-toggle='modal'
+        data-target='%{background_target}'>Learn more about the project.</a>
     password_reset: "Password reset instructions sent! Check your email."
     reminder_sent: "Reminder sent!"
     signed_in: "Signed in!"

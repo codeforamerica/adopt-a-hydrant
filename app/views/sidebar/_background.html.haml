@@ -1,0 +1,67 @@
+.modal.fade#background
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %button{:class => "close", :"data-dismiss" => "modal", :href => "#", :type => "button", :"aria-label" => "Close"}
+          %span{:"aria-hidden" =>"true"}
+            &times;
+        %h2
+          Adopt a Drain SF Background
+      .modal-body
+        %h3
+          Introduction
+        %p
+          The San Francisco Adopt a Drain program enables San Franciscans to
+          "adopt" one of the city's 25,000 storm drains or catch basins and
+          pledge to keep it free of leaves and debris. The program helps reduce
+          localized flooding and fosters community engagement by encouraging
+          the public to take an active role in improving their neighborhood.
+
+        %h3
+          Partners
+        %p
+          In late 2015 several San Francisco City agencies partnered with
+          volunteers from Code for San Francisco to develop the Adopt a Drain
+          SF web application.
+
+        %p
+          The San Francisco Public Utilities Commission (SFPUC), the agency
+          that manages the sewer system, including 25,000+ catch basins and
+          storm drains, and San Francisco Public Works, the agency that
+          maintains the database of sewer infrastructure assets, worked with
+          the City's Open Data Program in the Mayor's Office to get the catch
+          basin location data uploaded to the <a
+          href="https://data.sfgov.org">City's Open Data Portal</a> (SF Open
+          Data).
+
+        %p
+          Code for San Francisco and other volunteers then used a web-based
+          platform called <a
+          href="https://github.com/sfbrigade/adopt-a-drain">Github</a> to
+          develop the open source web application on <a
+          href="http://rubyonrails.org/">Ruby on Rails</a>. Github enabled
+          contributors to work on the project from anywhere in the world.  They
+          modeled Adopt a Drain SF on Boston's <a
+          href="http://www.adoptahydrant.org/">Adopt a Hydrant</a>, for which
+          Code for America had provided initial support to develop in 2012.
+
+        %p
+          SFPUC staff got internal buy-in and support for the program, created
+          the graphics for the icons and logo, wrote the copy for the website
+          and emails, reviewed the website for disability access, secured
+          funding to host the site, coordinated with other SF city agencies and
+          the City of Oakland, and promoted the program on social media,
+          traditional media, TV advertising and various other channels. SF Open
+          Data staff initially paid for the site to be hosted and provided
+          ongoing strategic and technical support. Approximately 25 people
+          contributed to coding and developing the app.
+
+        %h3
+          Next Steps
+        %p
+          The SFPUC planning to expand the program to offer free training,
+          tools, and supplies to drain adopters.
+
+      .modal-footer
+        %button.btn.btn-default{:type => "button", :"data-dismiss" => "modal"}
+          Close
