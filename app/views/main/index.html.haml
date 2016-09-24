@@ -11,7 +11,7 @@
       .sidebar-content
         -# Corresponds to guideline div below
         .well
-          = t("notices.alpha", feedback_url: "mailto:info@sfwater.org?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)}", code_url: "https://github.com/sfbrigade/adopt-a-drain").html_safe
+          = t("notices.alpha", feedback_url: "mailto:info@sfwater.org?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)}", code_url: "https://github.com/sfbrigade/adopt-a-drain", background_target: '#background').html_safe
         %div.hidden-xs
           %a.guidelines{:href => "#guidelines", :"data-toggle" => "modal", :"data-target" => "#guidelines"}
             %p.alert-message.block-message#tagline
@@ -48,8 +48,12 @@
                 = image_tag "logos/cfa.jpg", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa"), :class => "cfa"
         #feedback
           .row
-            .col-md-12
+            .col-md-6
               %p
+                %a{:href => "#background", :"data-toggle" => "modal", :"data-target" => "#background"}
+                  = t("links.learn_more_background")
+            .col-md-6
+              %p.pull-right
                 %a{:href => URI.escape("mailto:info@sfwater.org?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} - #{t("links.feedback").titleize}")}
                   = t("links.feedback")
     .col-md-9.map-container
@@ -63,6 +67,7 @@
             Hide
   = render :partial => "sidebar/tos"
   = render :partial => "sidebar/guidelines"
+  = render :partial => "sidebar/background"
 :javascript
   $(function() {
     $('.navbar-toggle').on('click', function(){
