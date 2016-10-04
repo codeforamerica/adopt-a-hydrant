@@ -10,8 +10,6 @@
           %span.icon-bar
       .sidebar-content
         -# Corresponds to guideline div below
-        .well
-          = t("notices.alpha", feedback_url: "mailto:info@sfwater.org?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)}", code_url: "https://github.com/sfbrigade/adopt-a-drain", background_target: '#background').html_safe
         %div.hidden-xs
           %a.guidelines{:href => "#guidelines", :"data-toggle" => "modal", :"data-target" => "#guidelines"}
             %p.alert-message.block-message#tagline
