@@ -40,6 +40,10 @@ $(function() {
   var activeInfoWindow;
   var isWindowOpen = false;
   var thingIds = [];
+  //markers will be a global array to hold google map marker objects so they
+  //can be removed later
+  var markers = []; 
+  
   function addMarker(thingId, point, color) {
     if(color === 'green') {
       var image = greenMarkerImage;
@@ -53,6 +57,7 @@ $(function() {
       position: point,
       shadow: markerShadowImage
     });
+    markers.push(marker); //added to track the global markers array
     google.maps.event.addListener(marker, 'click', function() {
       if(activeInfoWindow) {
         activeInfoWindow.close();
@@ -127,6 +132,53 @@ $(function() {
       }
     });
   }
+  
+  //This function removes all markers on the map
+  function clearOverlays() {
+  
+    for(var i = 0; i < markers.length; i++) {
+    
+      markers[i].setMap(null);
+    }
+    
+   markers = new Array();
+   thingIds = new Array();
+  
+  }
+ 
+  
+  //Creates a global function to be accessed by the find hydrants button
+  window.getThingsByUser = function() {
+   $.ajax({
+      type: 'GET',
+      url: '/things.json',
+      data: {
+        'user_id': 1
+      },
+      success: function(data){
+        clearOverlays(); //removes all map markers
+        var i = -1;
+        $(data).each(function(index,thing){
+          
+          if($.inArray(thing.id,thingIds) === -1 ) {
+            i += 1;
+          } else {
+            return true;
+          }
+        
+        setTimeout(function(){
+          var point = new google.maps.LatLng(thing.lat, thing.lng);
+          addMarker(thing.id, point, 'green');
+        
+          },i*100);
+        
+        });
+        
+    }});
+  }
+  
+  
+  
   google.maps.event.addListener(map, 'idle', function() {
     var center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
