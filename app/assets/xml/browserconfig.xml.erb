@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<% environment.context_class.instance_eval { include ApplicationHelper } %>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="<%= namespaced_png_favicon_path('mstile',70) %>"/>
+      <square150x150logo src="<%= namespaced_png_favicon_path('mstile',150) %>"/>
+      <square310x310logo src="<%= namespaced_png_favicon_path('mstile',310) %>"/>
+      <wide310x150logo src="<%= favicon_path('mstile-310x150.png') %>"/>
+      <TileColor>#da532c</TileColor>
+    </tile>
+  </msapplication>
+</browserconfig>

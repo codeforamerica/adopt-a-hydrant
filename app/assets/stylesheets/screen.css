@@ -207,3 +207,7 @@ img.lock {
   opacity: 0.8;
   filter: alpha(opacity=80); /* For IE8 and earlier */
 }
+
+#adopt-a-hydrant-logo {
+  width: 220px;
+}

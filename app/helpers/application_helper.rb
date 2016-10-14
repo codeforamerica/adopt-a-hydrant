@@ -56,4 +56,28 @@ module ApplicationHelper
       ['Wyoming', 'WY'],
     ]
   end
+
+  def dimensions(dimension)
+    "#{dimension}x#{dimension}"
+  end
+
+  def favicon_path(file)
+    image_path "logos/favicons/#{file}?v=#{Rails.application.config.assets.version}"
+  end
+
+  def favicon_attrs(rel, type = 'image/png')
+    {rel: rel, type: type}
+  end
+
+  def namespaced_png_favicon_path(namespace, dimension)
+    favicon_path("#{namespace}-#{dimensions(dimension)}.png")
+  end
+
+  def namespaced_png_favicon_link_tag(namespace, dimension, rel)
+    favicon_link_tag namespaced_png_favicon_path(namespace, dimension), favicon_attrs(rel).merge(sizes: dimensions(dimension))
+  end
+
+  def namespaced_png_favicon_link_tags(namespace, dimensions, rel = 'icon')
+    safe_join dimensions.map { |dimension| namespaced_png_favicon_link_tag(namespace, dimension, rel).html_safe }
+  end
 end
