@@ -8,7 +8,7 @@
     / HTML5 shim, for IE6-8 support of HTML5 elements
     /[if lt IE 9]
       = javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js"
-    = javascript_include_tag "//maps.google.com/maps/api/js?sensor=false&language=#{I18n.locale}"
+    = javascript_include_tag "//maps.google.com/maps/api/js?sensor=false&language=#{I18n.locale}&key=#{ENV['GOOGLE_MAP_KEY']}"
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
     = javascript_include_tag "application"

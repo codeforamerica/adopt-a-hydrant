@@ -50,7 +50,15 @@ A successful deployment to Heroku requires a few setup steps:
     heroku config:set SECRET_TOKEN=the_token_you_generated
     ```
 
-3. [Precompile your assets](https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar)
+3. [Obtain a Google API Key](https://developers.google.com/maps/documentation/javascript/get-api-key).
+
+4. Set the Google API key:
+
+    ```
+    heroku config:set GOOGLE_MAP_KEY=the_token_you_obtained
+    ```
+
+5. [Precompile your assets](https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar)
 
     ```
     RAILS_ENV=production bundle exec rake assets:precompile
@@ -60,9 +68,9 @@ A successful deployment to Heroku requires a few setup steps:
     git commit -m "vendor compiled assets"
     ```
 
-4. Add a production database to config/database.yml
+6. Add a production database to config/database.yml
 
-5. Seed the production db:
+7. Seed the production db:
 
     `heroku run bundle exec rake db:seed`
 
