@@ -1,5 +1,7 @@
 # Adopt-a-Drain
 
+[![Join the chat at https://gitter.im/sfbrigade/adopt-a-drain](https://badges.gitter.im/sfbrigade/adopt-a-drain.svg)](https://gitter.im/sfbrigade/adopt-a-drain?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](http://img.shields.io/travis/sfbrigade/adopt-a-drain.svg)][travis]
 [![Dependency Status](http://img.shields.io/gemnasium/sfbrigade/adopt-a-drain.svg)][gemnasium]
 [![Coverage Status](http://img.shields.io/coveralls/sfbrigade/adopt-a-drain.svg)][coveralls]
