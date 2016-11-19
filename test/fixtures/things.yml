@@ -51,3 +51,10 @@ thing_10:
   city_id: 10
   lat: 42.371378
   lng: -71.038005
+
+thing_11:
+  city_id: 11
+  lat: 42.383339
+  lng: -71.049226
+  name: "Catch Basin Drain"
+  system_use_code: 'ABC'

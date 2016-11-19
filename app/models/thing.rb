@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'csv'
+
 class Thing < ActiveRecord::Base
   extend Forwardable
   include ActiveModel::ForbiddenAttributesProtection
@@ -39,5 +42,39 @@ class Thing < ActiveRecord::Base
     return 'http://sfwater.org/index.aspx?page=399' if system_use_code == 'MS4'
 
     nil
+  end
+
+  def self.load_drains(source_url)
+    puts 'Downloading Drains... ... ...'
+    csv_string = open(source_url).read
+    drains = CSV.parse(csv_string, headers: true)
+    puts "Downloaded #{drains.size} Drains."
+
+    city_ids = drains.map { |drain|
+      drain["PUC_Maximo_Asset_ID"].gsub("N-", "")
+    }
+
+    Thing.where.not(city_id: city_ids).delete_all
+
+    drains.each do |drain|
+      next unless ['Storm Water Inlet Drain', 'Catch Basin Drain'].include?(drain['Drain_Type'])
+
+      (lat, lng) = drain['Location'].delete('()').split(',').map(&:strip)
+
+      thing_hash = {
+        name: drain['Drain_Type'],
+        system_use_code: drain['System_Use_Code'],
+        lat: lat,
+        lng: lng,
+      }
+
+      thing = Thing.where(city_id: drain['PUC_Maximo_Asset_ID'].gsub('N-', '')).first_or_initialize
+      if thing.new_record?
+        puts "Creating thing #{thing_hash[:city_id]}"
+      else
+        puts "Updating thing #{thing_hash[:city_id]}"
+      end
+      thing.update_attributes!(thing_hash)
+    end
   end
 end
