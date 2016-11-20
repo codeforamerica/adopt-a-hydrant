@@ -4,6 +4,9 @@ require 'csv'
 class Thing < ActiveRecord::Base
   extend Forwardable
   include ActiveModel::ForbiddenAttributesProtection
+
+  VALID_DRAIN_TYPES = ['Storm Water Inlet Drain', 'Catch Basin Drain'].freeze
+
   belongs_to :user
   def_delegators :reverse_geocode, :city, :country, :country_code,
                  :full_address, :state, :street_address, :street_name,
@@ -44,37 +47,50 @@ class Thing < ActiveRecord::Base
     nil
   end
 
-  def self.load_drains(source_url)
-    puts 'Downloading Drains... ... ...'
+  def self._get_parsed_drains_csv(source_url)
     csv_string = open(source_url).read
-    drains = CSV.parse(csv_string, headers: true)
-    puts "Downloaded #{drains.size} Drains."
+    CSV.parse(csv_string, headers: true)
+  end
 
-    city_ids = drains.map { |drain|
-      drain["PUC_Maximo_Asset_ID"].gsub("N-", "")
-    }
+  def self._delete_non_existing_drains(drains_from_source)
+    city_ids = drains_from_source.map do |drain|
+      drain['PUC_Maximo_Asset_ID'].gsub('N-', '')
+    end
 
     Thing.where.not(city_id: city_ids).delete_all
+  end
+
+  def self._drain_params(drain)
+    (lat, lng) = drain['Location'].delete('()').split(',').map(&:strip)
+    {
+      name: drain['Drain_Type'],
+      system_use_code: drain['System_Use_Code'],
+      lat: lat,
+      lng: lng,
+    }
+  end
+
+  def self._create_or_update_drain(drain)
+    city_id = drain['PUC_Maximo_Asset_ID'].gsub('N-', '')
+    thing = Thing.where(city_id: city_id).first_or_initialize
+    if thing.new_record?
+      Rails.logger.info("Creating thing #{city_id}")
+    else
+      Rails.logger.info("Updating thing #{city_id}")
+    end
+    thing.update_attributes!(_drain_params(drain))
+  end
+
+  def self.load_drains(source_url)
+    Rails.logger.info('Downloading Drains... ... ...')
+    drains = _get_parsed_drains_csv(source_url)
+    Rails.logger.info("Downloaded #{drains.size} Drains.")
+
+    _delete_non_existing_drains(drains)
 
     drains.each do |drain|
-      next unless ['Storm Water Inlet Drain', 'Catch Basin Drain'].include?(drain['Drain_Type'])
-
-      (lat, lng) = drain['Location'].delete('()').split(',').map(&:strip)
-
-      thing_hash = {
-        name: drain['Drain_Type'],
-        system_use_code: drain['System_Use_Code'],
-        lat: lat,
-        lng: lng,
-      }
-
-      thing = Thing.where(city_id: drain['PUC_Maximo_Asset_ID'].gsub('N-', '')).first_or_initialize
-      if thing.new_record?
-        puts "Creating thing #{thing_hash[:city_id]}"
-      else
-        puts "Updating thing #{thing_hash[:city_id]}"
-      end
-      thing.update_attributes!(thing_hash)
+      next unless VALID_DRAIN_TYPES.include?(drain['Drain_Type'])
+      _create_or_update_drain(drain)
     end
   end
 end

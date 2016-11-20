@@ -30,8 +30,8 @@ class ThingTest < ActiveSupport::TestCase
 
     fake_url = 'http://sf-drain-data.org'
     fake_response = [
-      "PUC_Maximo_Asset_ID,Drain_Type,System_Use_Code,Location",
-      "N-11,Catch Basin Drain,ABC,\"(37.75, -122.40)\"",
+      'PUC_Maximo_Asset_ID,Drain_Type,System_Use_Code,Location',
+      'N-11,Catch Basin Drain,ABC,"(37.75, -122.40)"',
     ].join("\n")
     stub_request(:get, fake_url).to_return(body: fake_response)
 
