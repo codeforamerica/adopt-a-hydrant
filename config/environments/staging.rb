@@ -5,7 +5,7 @@ Rails.application.configure do
   config.cache_classes = true
 
   # asset host
-  config.action_controller.asset_host = 'https://adoptadrain.sfwater.org'
+  config.action_controller.asset_host = 'https://adoptadrainsf-staging.herokuapp.com/'
   config.action_mailer.asset_host = config.action_controller.asset_host
 
   # Eager load code on boot. This eager loads most of Rails and
@@ -58,7 +58,7 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
-  # Use a different cache store in production.
+  # Use a different cache store in staging.
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.

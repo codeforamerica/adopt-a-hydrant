@@ -10,5 +10,8 @@ test:
   <<: *DEVELOPMENT
   database: adopt_a_thing_test
 
-production:
-  <<: *DEVELOPMENT
+staging: # read from DATABASE_URL
+  adapter: postgresql
+
+production: # read from DATABASE_URL
+  adapter: postgresql

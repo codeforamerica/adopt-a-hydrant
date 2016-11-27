@@ -43,7 +43,6 @@ GEM
     arel (6.0.3)
     ast (2.2.0)
     bcrypt (3.1.11)
-    bcrypt (3.1.11-x64-mingw32)
     builder (3.2.2)
     byebug (8.2.4)
     coffee-rails (4.1.1)
@@ -105,15 +104,11 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
-    nokogiri (1.6.8-x64-mingw32)
-      mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
     obscenity (1.0.2)
     orm_adapter (0.5.0)
     parser (2.3.0.7)
       ast (~> 2.2)
     pg (0.18.4)
-    pg (0.18.4-x64-mingw32)
     pkg-config (1.1.7)
     powerpack (0.1.1)
     puma (3.4.0)
@@ -209,8 +204,6 @@ GEM
     tins (1.6.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2016.3)
-      tzinfo (>= 1.0.0)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.0.3)
@@ -225,7 +218,6 @@ GEM
 
 PLATFORMS
   ruby
-  x64-mingw32
 
 DEPENDENCIES
   airbrake (~> 5.2)
@@ -255,4 +247,4 @@ RUBY VERSION
    ruby 2.2.3p173
 
 BUNDLED WITH
-   1.13.1
+   1.13.6
