@@ -1,4 +1,3 @@
-%iframe{ :width => "100%", :src => "https://www.youtube.com/embed/Z1Vjrx3IAH0", :frameborder => "0", :allowfullscreen => "allowfullscreen" }
 = form_for :user, :html => {:id => "combo-form", :class => "form-vertical"} do |f|
   %fieldset#common_fields
     .form-group
@@ -70,3 +69,5 @@
       = link_to t("links.remembered_password"), "#", :id => "user_remembered_password_link"
     .form-actions
       = f.submit t("buttons.email_password"), :class => "btn btn-primary btn-block"
+%a{:href => search_path, :class => "link btn btn-default"}
+  = t("buttons.back")

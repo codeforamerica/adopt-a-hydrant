@@ -362,6 +362,7 @@ $(function() {
       }
     });
   }
+
   $('.sidebar').on('click', '#combo-form input[type="radio"]', function() {
     var radioInput = $(this);
     if('new' === radioInput.val()) {
@@ -827,7 +828,7 @@ $(function() {
     });
     return false;
   });
-  $('.sidebar').on('click','#back_link', function() {
+  $('.sidebar').on('click','.link', function() {
     var link = $(this);
     $(link).addClass('disabled');
     $.ajax({

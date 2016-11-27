@@ -43,6 +43,24 @@ input#user_existing {
 form select, button.btn, input[type="submit"].btn {
 }
 
+.btn-primary {
+  color: #ffffff;
+  background-color: #8871B3;
+  border-color: #8871B3;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #396B80;
+  border-color: #2e6da4;
+}
+
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #005596;
+}
+
+
 form input.search-query {
   -moz-border-radius: 14px;
   -webkit-border-radius: 14px;

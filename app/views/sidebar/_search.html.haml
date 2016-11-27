@@ -1,25 +1,20 @@
 = form_tag "/address", :method => "get", :id => "address_form", :class => "search-form" do
   = hidden_field_tag "limit", params[:limit] || 25
-  = hidden_field_tag "current_user_id", current_user.id
   %fieldset.form-group.hidden
     = label_tag "city_state", t("labels.city_state"), :id => "city_state_label", :class => 'control-label'
     = select_tag "city_state", "<option value=\"#{t("defaults.city_state")}\" selected=\"selected\">#{t("defaults.city_state")}</option>".html_safe, :class => "form-control"
   %fieldset.form-group
-    = label_tag "address", t("labels.address"), :id => "address_label", :class => 'control-label'
-    = search_field_tag "address", params[:address], :placeholder => [t("defaults.address_1"), t("defaults.neighborhood")].join(", "), :class => "search-query form-control"
+    = search_field_tag "address", params[:address], :placeholder => t("labels.address"), :class => "search-query form-control"
     .help-block
   %fieldset.form-actions
     = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :class => "btn btn-primary btn-block"
-    .break
-  %div.user-things
-    %h5.my-things= t('labels.my_things', :things => t('defaults.things'))
-    %dl
-      - current_user.things.each do |thing|
-        %dt
-          %a.thing-link{ :data => { :lng => thing.lng, :lat => thing.lat } }=thing.name
-        %dd=thing.street_address
-    .break
-    %a{:href => edit_user_registration_path, :id => "edit_profile_link", :class => "btn btn-default btn-block"}
-      = t("buttons.edit_profile")
-    %a{:href => destroy_user_session_path, :id => "sign_out_link", :class => "btn btn-danger btn-block"}
-      = t("buttons.sign_out")
+.break
+- if signed_in?
+  = render :partial => "sidebar/user_things"
+  %a{:href => edit_user_registration_path, :id => "edit_profile_link", :class => "btn btn-warning btn-block"}
+    = t("buttons.edit_profile")
+  %a{:href => destroy_user_session_path, :id => "sign_out_link", :class => "btn btn-danger btn-block"}
+    = t("buttons.sign_out")
+- else
+  %a{:href => combo_form_path, :class => "link btn btn-secondary"}
+    = t("buttons.sign_up_or_in")

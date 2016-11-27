@@ -22,7 +22,8 @@
           - elsif @reset_password_token.present?
             = render :partial => 'passwords/edit'
           - else
-            = render :partial => "sidebar/combo_form"
+            %iframe{ :width => "100%", :src => "https://www.youtube.com/embed/Z1Vjrx3IAH0", :frameborder => "0", :allowfullscreen => "allowfullscreen" }
+            = render :partial => "sidebar/search"
         -# Corresponds to guideline div above
         %div.hidden.visible-xs-block
           %a.guidelines{:href => "#guidelines", :"data-toggle" => "modal", :"data-target" => "#guidelines"}
