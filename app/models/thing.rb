@@ -2,6 +2,7 @@ require 'open-uri'
 require 'csv'
 
 class Thing < ActiveRecord::Base
+  acts_as_paranoid
   extend Forwardable
   include ActiveModel::ForbiddenAttributesProtection
 
@@ -23,6 +24,7 @@ class Thing < ActiveRecord::Base
     query = <<-SQL
       SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(RADIANS(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance
       FROM things
+      WHERE deleted_at is NULL
       ORDER BY distance
       LIMIT ?
       SQL
@@ -57,7 +59,10 @@ class Thing < ActiveRecord::Base
       drain['PUC_Maximo_Asset_ID'].gsub('N-', '')
     end
 
-    Thing.where.not(city_id: city_ids).delete_all
+    Thing.where.not(city_id: city_ids).find_each do |thing|
+      thing.destroy!
+      ThingMailer.drain_deleted_notification(thing).deliver_now
+    end
   end
 
   def self._drain_params(drain)

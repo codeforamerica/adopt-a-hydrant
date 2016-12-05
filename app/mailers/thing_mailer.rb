@@ -23,4 +23,9 @@ class ThingMailer < ApplicationMailer
     @user = thing.user
     mail(to: @user.email, subject: ['Remember to clear your adopted drain'])
   end
+
+  def drain_deleted_notification(thing)
+    @thing = thing
+    mail(to: User.where(admin: true).pluck(:email), subject: 'A drain has been removed.')
+  end
 end

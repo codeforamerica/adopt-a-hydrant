@@ -112,6 +112,8 @@ GEM
       pkg-config (~> 1.1.7)
     obscenity (1.0.2)
     orm_adapter (0.5.0)
+    paranoia (2.2.0)
+      activerecord (>= 4.0, < 5.1)
     parser (2.3.0.7)
       ast (~> 2.2)
     pg (0.18.4)
@@ -236,6 +238,7 @@ DEPENDENCIES
   http_accept_language
   local_time
   obscenity (~> 1.0, >= 1.0.2)
+  paranoia (~> 2.2)
   pg
   puma
   rails (~> 4.2.4)

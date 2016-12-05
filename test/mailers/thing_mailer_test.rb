@@ -39,4 +39,21 @@ class ThingMailerTest < ActionMailer::TestCase
     assert_equal ['erik@example.com'], email.to
     assert_equal 'We really do love you, Erik!', email.subject
   end
+
+  test 'drain_deleted_notification' do
+    admin_1 = users(:admin)
+    admin_2 = users(:admin)
+    admin_2.update(email: 'admin2@example.com')
+    thing = things(:thing_1)
+
+    email = nil
+    assert_emails(1) do
+      email = ThingMailer.drain_deleted_notification(thing).deliver_now
+    end
+
+    assert_includes email.to, admin_1.email
+    assert_includes email.to, admin_2.email
+
+    assert_equal email.subject, 'A drain has been removed.'
+  end
 end

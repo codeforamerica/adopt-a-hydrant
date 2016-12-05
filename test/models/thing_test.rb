@@ -25,6 +25,7 @@ class ThingTest < ActiveSupport::TestCase
   end
 
   test 'loading drains, deletes existing drains not in data set, updates properties on rest' do
+    admin = users(:admin)
     thing_1 = things(:thing_1)
     thing_11 = things(:thing_11)
 
@@ -37,6 +38,10 @@ class ThingTest < ActiveSupport::TestCase
     stub_request(:get, fake_url).to_return(body: fake_response)
 
     Thing.load_drains(fake_url)
+
+    email = ActionMailer::Base.deliveries.last
+    assert_equal email.to, [admin.email]
+    assert_equal email.subject, 'A drain has been removed.'
     thing_11.reload
 
     # Asserts thing_1 is deleted

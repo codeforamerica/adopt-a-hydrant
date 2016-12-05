@@ -15,6 +15,7 @@ gem 'rails_admin'
 gem 'validates_formatting_of'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'paranoia', '~> 2.2'
 
 group :assets do
   gem 'sass-rails', '>= 4.0.3'
