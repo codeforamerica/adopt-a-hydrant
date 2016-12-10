@@ -74,7 +74,7 @@ de:
     stolen: "%{thing} gestohlen!"
   titles:
     adopt: "Adoptieren diesen %{thing}"
-    adopted: "{thing_name} wurde adoptiert"
+    adopted: "%{thing_name} wurde adoptiert"
     byline: "von %{name}"
     edit_profile: "Ihr Profil bearbeiten"
     main: "%{thing} adoptieren"
