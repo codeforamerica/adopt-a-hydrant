@@ -35,7 +35,7 @@ en:
     thing: "drain"
     things: "drains"
     this_thing: "This %{thing}"
-    tagline: "Help the city avoid flooding by clearing drains of debris. Click to learn what this means."
+    tagline: "What does it mean to adopt a drain? Click here to find out."
     tos: "By signing up, you agree to the %{tos}."
     voice_number: "415-555-1212"
     zip: "94015-2013"

@@ -12,7 +12,7 @@ class MainControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_select 'title', 'Adopt-a-Drain San Francisco'
-    assert_select 'p#tagline', 'Help the city avoid flooding by clearing drains of debris. Click to learn what this means.'
+    assert_select 'p#tagline', 'What does it mean to adopt a drain? Click here to find out.'
   end
 
   test 'should show search form when signed in' do
