@@ -48,10 +48,6 @@
             .col-xs-6.col-xs-offset-3
               %a{:href => "http://codeforamerica.org/"}
                 = image_tag "logos/cfa.jpg", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa"), :class => "cfa"
-        #feedback
-          %p.pull-right
-            %a{:href => URI.escape("mailto:info@sfwater.org?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} - #{t("links.feedback").titleize}")}
-              = t("links.feedback")
     .col-md-9.map-container
       #map
         &nbsp;
