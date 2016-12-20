@@ -29,9 +29,13 @@ class ThingTest < ActiveSupport::TestCase
     thing_1 = things(:thing_1)
     thing_11 = things(:thing_11)
 
+    deleted_drain = things(:thing_3)
+    deleted_drain.destroy!
+
     fake_url = 'http://sf-drain-data.org'
     fake_response = [
       'PUC_Maximo_Asset_ID,Drain_Type,System_Use_Code,Location',
+      'N-3,Catch Basin Drain,ABC,"(42.38, -71.07)"',
       'N-11,Catch Basin Drain,ABC,"(37.75, -122.40)"',
       'N-12,Catch Basin Drain,DEF,"(39.75, -121.40)"',
     ].join("\n")
@@ -46,6 +50,9 @@ class ThingTest < ActiveSupport::TestCase
 
     # Asserts thing_1 is deleted
     assert_nil Thing.find_by(id: thing_1.id)
+
+    # Asserts thing_3 is reified
+    assert_equal Thing.find_by(city_id: 3).id, deleted_drain.id
 
     # Asserts creates new drain
     new_drain = Thing.find_by(city_id: 12)

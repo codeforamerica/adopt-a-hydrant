@@ -77,13 +77,21 @@ class Thing < ActiveRecord::Base
 
   def self._create_or_update_drain(drain)
     city_id = drain['PUC_Maximo_Asset_ID'].gsub('N-', '')
-    thing = Thing.where(city_id: city_id).first_or_initialize
-    if thing.new_record?
-      Rails.logger.info("Creating thing #{city_id}")
-    else
-      Rails.logger.info("Updating thing #{city_id}")
-    end
+    thing = Thing.unscoped.where(city_id: city_id).first_or_initialize
+
+    thing.restore! if thing.deleted_at?
+
+    _log_update_info(thing)
+
     thing.update_attributes!(_drain_params(drain))
+  end
+
+  def self._log_update_info(thing)
+    if thing.new_record?
+      Rails.logger.info("Creating thing #{thing.city_id}")
+    else
+      Rails.logger.info("Updating thing #{thing.city_id}")
+    end
   end
 
   def self.load_drains(source_url)
