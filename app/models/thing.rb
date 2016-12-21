@@ -56,54 +56,76 @@ class Thing < ActiveRecord::Base
 
   def self._delete_non_existing_drains(drains_from_source)
     city_ids = drains_from_source.map do |drain|
-      drain['PUC_Maximo_Asset_ID'].gsub('N-', '')
+      drain['PUC_Maximo_Asset_ID'].gsub('N-', '').to_i
     end
 
-    Thing.where.not(city_id: city_ids).find_each do |thing|
-      thing.destroy!
-      ThingMailer.drain_deleted_notification(thing).deliver_now
-    end
+    things_to_delete = Thing.where.not(city_id: city_ids)
+    things_to_delete.each(&:destroy!)
+
+    things_to_delete.partition { |drain| drain.user_id.present? }
   end
 
-  def self._drain_params(drain)
-    (lat, lng) = drain['Location'].delete('()').split(',').map(&:strip)
+  def self._drain_params(drain_blob)
+    (lat, lng) = drain_blob['Location'].delete('()').split(',').map(&:strip)
     {
-      name: drain['Drain_Type'],
-      system_use_code: drain['System_Use_Code'],
+      name: drain_blob['Drain_Type'],
+      system_use_code: drain_blob['System_Use_Code'],
       lat: lat,
       lng: lng,
     }
   end
 
-  def self._create_or_update_drain(drain)
-    city_id = drain['PUC_Maximo_Asset_ID'].gsub('N-', '')
-    thing = Thing.unscoped.where(city_id: city_id).first_or_initialize
-
-    thing.restore! if thing.deleted_at?
-
-    _log_update_info(thing)
-
-    thing.update_attributes!(_drain_params(drain))
+  def self.city_id_for_drain_blob(drain_blob)
+    drain_blob['PUC_Maximo_Asset_ID'].gsub('N-', '').to_i
   end
 
-  def self._log_update_info(thing)
-    if thing.new_record?
-      Rails.logger.info("Creating thing #{thing.city_id}")
-    else
+  def self.stored_city_ids
+    Thing.unscoped.pluck(:city_id)
+  end
+
+  def self._drain_blobs_to_update(drain_blobs)
+    drain_blobs.select do |drain_blob|
+      stored_city_ids.include?(city_id_for_drain_blob(drain_blob))
+    end
+  end
+
+  def self._update_drains(drain_blobs)
+    _drain_blobs_to_update(drain_blobs).each do |drain_blob|
+      thing = Thing.unscoped.find_by(city_id: city_id_for_drain_blob(drain_blob))
       Rails.logger.info("Updating thing #{thing.city_id}")
+      thing.restore! if thing.deleted_at?
+      thing.update!(_drain_params(drain_blob))
+    end
+  end
+
+  def self._drain_blobs_to_create(drain_blobs)
+    drain_blobs.reject do |drain_blob|
+      (stored_city_ids.include?(city_id_for_drain_blob(drain_blob)) ||
+       !VALID_DRAIN_TYPES.include?(drain_blob['Drain_Type']))
+    end
+  end
+
+  def self._create_drains(drain_blobs)
+    _drain_blobs_to_create(drain_blobs).map do |drain_blob|
+      city_id = city_id_for_drain_blob(drain_blob)
+      thing = Thing.unscoped.find_or_initialize_by(city_id: city_id)
+      Rails.logger.info("Creating thing #{thing.city_id}")
+
+      thing.update!(_drain_params(drain_blob))
+      thing
     end
   end
 
   def self.load_drains(source_url)
     Rails.logger.info('Downloading Drains... ... ...')
-    drains = _get_parsed_drains_csv(source_url)
-    Rails.logger.info("Downloaded #{drains.size} Drains.")
+    drain_blobs = _get_parsed_drains_csv(source_url)
+    Rails.logger.info("Downloaded #{drain_blobs.size} Drains.")
 
-    _delete_non_existing_drains(drains)
+    deleted_drains_with_adoptee, deleted_drains_no_adoptee = _delete_non_existing_drains(drain_blobs)
 
-    drains.each do |drain|
-      next unless VALID_DRAIN_TYPES.include?(drain['Drain_Type'])
-      _create_or_update_drain(drain)
-    end
+    _update_drains(drain_blobs)
+    created_drains = _create_drains(drain_blobs)
+
+    ThingMailer.drain_update_report(deleted_drains_with_adoptee, deleted_drains_no_adoptee, created_drains).deliver_now
   end
 end

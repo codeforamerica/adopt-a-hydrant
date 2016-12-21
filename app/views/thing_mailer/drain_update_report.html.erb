@@ -1,0 +1,52 @@
+<h3>Drain Import Report</h3>
+
+<% if @deleted_drain_ids_with_adoptee.present? %>
+  <table border="1">
+    <thead>
+      <tr>
+        <td><b>Drains With Adoptee Removed</b></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @deleted_drain_ids_with_adoptee.each do |drain_id| %>
+        <tr>
+          <td><%= drain_id %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% if @deleted_drain_ids_with_no_adoptee.present? %>
+  <table border="1">
+    <thead>
+      <tr>
+        <td><b>Drains With No Adoptee Removed</b></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @deleted_drain_ids_with_no_adoptee.each do |drain_id| %>
+        <tr>
+          <td><%= drain_id %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% if @created_drain_ids.present? %>
+  <table border="1">
+    <thead>
+      <tr>
+        <td><b>Drains Added</b></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @created_drain_ids.each do |drain_id| %>
+        <tr>
+          <td><%= drain_id %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

@@ -24,8 +24,11 @@ class ThingMailer < ApplicationMailer
     mail(to: @user.email, subject: ['Remember to clear your adopted drain'])
   end
 
-  def drain_deleted_notification(thing)
-    @thing = thing
-    mail(to: User.where(admin: true).pluck(:email), subject: 'A drain has been removed.')
+  def drain_update_report(deleted_drains_with_adoptee, deleted_drains_no_adoptee, created_drains)
+    @deleted_drain_ids_with_adoptee = deleted_drains_with_adoptee.map(&:city_id)
+    @deleted_drain_ids_with_no_adoptee = deleted_drains_no_adoptee.map(&:city_id)
+    @created_drain_ids = created_drains.map(&:city_id)
+    subject = "Adopt-a-Drain import (#{deleted_drains_with_adoptee.count} adopted drains removed, #{created_drains.count} drains added, #{deleted_drains_no_adoptee.count} removed)"
+    mail(to: User.where(admin: true).pluck(:email), subject: subject)
   end
 end

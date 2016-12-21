@@ -45,7 +45,7 @@ class ThingTest < ActiveSupport::TestCase
 
     email = ActionMailer::Base.deliveries.last
     assert_equal email.to, [admin.email]
-    assert_equal email.subject, 'A drain has been removed.'
+    assert_equal email.subject, 'Adopt-a-Drain import (0 adopted drains removed, 1 drains added, 9 removed)'
     thing_11.reload
 
     # Asserts thing_1 is deleted
