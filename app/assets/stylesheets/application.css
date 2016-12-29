@@ -44,6 +44,21 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
   font-size:16px;
 }
 
+html h1,
+html h2,
+html h3,
+html h4,
+html h5,
+html h6,
+html .h1,
+html .h2,
+html .h3,
+html .h4,
+html .h5,
+html .h6 {
+  font-weight: 600;
+}
+
 h2, .h2 {
   font-size: 1.20em;
 }
