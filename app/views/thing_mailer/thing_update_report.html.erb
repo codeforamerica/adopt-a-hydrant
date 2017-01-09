@@ -1,50 +1,50 @@
-<h3>Drain Import Report</h3>
+<h3>Import Report</h3>
 
-<% if @deleted_drain_ids_with_adoptee.present? %>
+<% if @deleted_thing_ids_with_adoptee.present? %>
   <table border="1">
     <thead>
       <tr>
-        <td><b>Drains With Adoptee Removed</b></td>
+        <td><b><%= t('defaults.things').titleize %> With Adoptee Removed</b></td>
       </tr>
     </thead>
     <tbody>
-      <% @deleted_drain_ids_with_adoptee.each do |drain_id| %>
+      <% @deleted_thing_ids_with_adoptee.each do |thing_id| %>
         <tr>
-          <td><%= drain_id %></td>
+          <td><%= thing_id %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% end %>
 
-<% if @deleted_drain_ids_with_no_adoptee.present? %>
+<% if @deleted_thing_ids_with_no_adoptee.present? %>
   <table border="1">
     <thead>
       <tr>
-        <td><b>Drains With No Adoptee Removed</b></td>
+        <td><b><%= t('defaults.things').titleize %> With No Adoptee Removed</b></td>
       </tr>
     </thead>
     <tbody>
-      <% @deleted_drain_ids_with_no_adoptee.each do |drain_id| %>
+      <% @deleted_thing_ids_with_no_adoptee.each do |thing_id| %>
         <tr>
-          <td><%= drain_id %></td>
+          <td><%= thing_id %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% end %>
 
-<% if @created_drain_ids.present? %>
+<% if @created_thing_ids.present? %>
   <table border="1">
     <thead>
       <tr>
-        <td><b>Drains Added</b></td>
+        <td><b><%= t('defaults.things').titleize %> Added</b></td>
       </tr>
     </thead>
     <tbody>
-      <% @created_drain_ids.each do |drain_id| %>
+      <% @created_thing_ids.each do |thing_id| %>
         <tr>
-          <td><%= drain_id %></td>
+          <td><%= thing_id %></td>
         </tr>
       <% end %>
     </tbody>
