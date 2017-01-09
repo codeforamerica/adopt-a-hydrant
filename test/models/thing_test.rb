@@ -24,6 +24,17 @@ class ThingTest < ActiveSupport::TestCase
     assert_equal 1, Thing.adopted.count
   end
 
+  test 'import does not modify data if endpoint fails' do
+    thing_1 = things(:thing_1)
+
+    fake_url = 'http://sf-drain-data.org'
+    stub_request(:get, fake_url).to_return(status: [500, 'Internal Server Error'], body: nil)
+    assert_raises OpenURI::HTTPError do
+      Thing.load_things(fake_url)
+    end
+    assert_not_nil Thing.find(thing_1.id)
+  end
+
   test 'loading things, deletes existing things not in data set, updates properties on rest' do
     admin = users(:admin)
     thing_1 = things(:thing_1)
