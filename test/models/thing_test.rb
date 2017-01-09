@@ -31,6 +31,9 @@ class ThingTest < ActiveSupport::TestCase
     thing_10 = things(:thing_10).tap do |thing|
       thing.update!(name: 'Erik drain', user_id: users(:erik).id)
     end
+    things(:thing_9).tap do |thing|
+      thing.update!(user_id: users(:erik).id)
+    end
 
     deleted_thing = things(:thing_3)
     deleted_thing.destroy!
@@ -49,7 +52,7 @@ class ThingTest < ActiveSupport::TestCase
 
     email = ActionMailer::Base.deliveries.last
     assert_equal email.to, [admin.email]
-    assert_equal email.subject, 'Adopt-a-Drain San Francisco import (0 adopted drains removed, 1 drains added, 8 unadopted drains removed)'
+    assert_equal email.subject, 'Adopt-a-Drain San Francisco import (1 adopted drains removed, 1 drains added, 7 unadopted drains removed)'
     thing_11.reload
     thing_10.reload
 
