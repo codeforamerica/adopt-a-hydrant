@@ -49,83 +49,85 @@ class Thing < ActiveRecord::Base
     nil
   end
 
-  def self._get_parsed_drains_csv(source_url)
+  # TODO(jszwedko) Move the below into a separate model
+
+  def self._get_parsed_things_csv(source_url)
     csv_string = open(source_url).read
     CSV.parse(csv_string, headers: true)
   end
 
-  def self._delete_non_existing_drains(drains_from_source)
-    city_ids = drains_from_source.map do |drain|
-      drain['PUC_Maximo_Asset_ID'].gsub('N-', '').to_i
+  def self._delete_non_existing_things(things_from_source)
+    city_ids = things_from_source.map do |thing|
+      thing['PUC_Maximo_Asset_ID'].gsub('N-', '').to_i
     end
 
     things_to_delete = Thing.where.not(city_id: city_ids)
     things_to_delete.each(&:destroy!)
 
-    things_to_delete.partition { |drain| drain.user_id.present? }
+    things_to_delete.partition { |thing| thing.user_id.present? }
   end
 
-  def self._drain_params(drain_blob)
-    (lat, lng) = drain_blob['Location'].delete('()').split(',').map(&:strip)
+  def self._thing_params(thing_blob)
+    (lat, lng) = thing_blob['Location'].delete('()').split(',').map(&:strip)
     {
-      name: drain_blob['Drain_Type'],
-      system_use_code: drain_blob['System_Use_Code'],
+      name: thing_blob['Drain_Type'],
+      system_use_code: thing_blob['System_Use_Code'],
       lat: lat,
       lng: lng,
     }
   end
 
-  def self.city_id_for_drain_blob(drain_blob)
-    drain_blob['PUC_Maximo_Asset_ID'].gsub('N-', '').to_i
+  def self.city_id_for_thing_blob(thing_blob)
+    thing_blob['PUC_Maximo_Asset_ID'].gsub('N-', '').to_i
   end
 
   def self.stored_city_ids
     Thing.unscoped.pluck(:city_id)
   end
 
-  def self._drain_blobs_to_update(drain_blobs)
-    drain_blobs.select do |drain_blob|
-      stored_city_ids.include?(city_id_for_drain_blob(drain_blob))
+  def self._thing_blobs_to_update(thing_blobs)
+    thing_blobs.select do |thing_blob|
+      stored_city_ids.include?(city_id_for_thing_blob(thing_blob))
     end
   end
 
-  def self._update_drains(drain_blobs)
-    _drain_blobs_to_update(drain_blobs).each do |drain_blob|
-      thing = Thing.unscoped.find_by(city_id: city_id_for_drain_blob(drain_blob))
+  def self._update_things(thing_blobs)
+    _thing_blobs_to_update(thing_blobs).each do |thing_blob|
+      thing = Thing.unscoped.find_by(city_id: city_id_for_thing_blob(thing_blob))
       Rails.logger.info("Updating thing #{thing.city_id}")
       thing.restore! if thing.deleted_at?
-      thing.update!(_drain_params(drain_blob))
+      thing.update!(_thing_params(thing_blob))
     end
   end
 
-  def self._drain_blobs_to_create(drain_blobs)
-    drain_blobs.reject do |drain_blob|
-      (stored_city_ids.include?(city_id_for_drain_blob(drain_blob)) ||
-       !VALID_DRAIN_TYPES.include?(drain_blob['Drain_Type']))
+  def self._thing_blobs_to_create(thing_blobs)
+    thing_blobs.reject do |thing_blob|
+      (stored_city_ids.include?(city_id_for_thing_blob(thing_blob)) ||
+       !VALID_DRAIN_TYPES.include?(thing_blob['Drain_Type']))
     end
   end
 
-  def self._create_drains(drain_blobs)
-    _drain_blobs_to_create(drain_blobs).map do |drain_blob|
-      city_id = city_id_for_drain_blob(drain_blob)
+  def self._create_things(thing_blobs)
+    _thing_blobs_to_create(thing_blobs).map do |thing_blob|
+      city_id = city_id_for_thing_blob(thing_blob)
       thing = Thing.unscoped.find_or_initialize_by(city_id: city_id)
       Rails.logger.info("Creating thing #{thing.city_id}")
 
-      thing.update!(_drain_params(drain_blob))
+      thing.update!(_thing_params(thing_blob))
       thing
     end
   end
 
-  def self.load_drains(source_url)
-    Rails.logger.info('Downloading Drains... ... ...')
-    drain_blobs = _get_parsed_drains_csv(source_url)
-    Rails.logger.info("Downloaded #{drain_blobs.size} Drains.")
+  def self.load_things(source_url)
+    Rails.logger.info('Downloading Things... ... ...')
+    thing_blobs = _get_parsed_things_csv(source_url)
+    Rails.logger.info("Downloaded #{thing_blobs.size} Things.")
 
-    deleted_drains_with_adoptee, deleted_drains_no_adoptee = _delete_non_existing_drains(drain_blobs)
+    deleted_things_with_adoptee, deleted_things_no_adoptee = _delete_non_existing_things(thing_blobs)
 
-    _update_drains(drain_blobs)
-    created_drains = _create_drains(drain_blobs)
+    _update_things(thing_blobs)
+    created_things = _create_things(thing_blobs)
 
-    ThingMailer.drain_update_report(deleted_drains_with_adoptee, deleted_drains_no_adoptee, created_drains).deliver_now
+    ThingMailer.thing_update_report(deleted_things_with_adoptee, deleted_things_no_adoptee, created_things).deliver_now
   end
 end

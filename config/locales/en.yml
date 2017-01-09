@@ -16,6 +16,8 @@ en:
     sign_up: "Sign up"
     sign_up_or_in: "Register / Sign in"
     update: "Update"
+  subjects:
+    update_report: "%{title} import (%{deleted_adopted_count} adopted %{things} removed, %{created_count} %{things} added, %{deleted_unadopted_count} unadopted %{things} removed)"
   captions:
     optional: "(optional)"
     private: "(private)"
