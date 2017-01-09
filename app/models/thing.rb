@@ -67,10 +67,10 @@ class Thing < ActiveRecord::Base
     things_to_delete.partition { |thing| thing.user_id.present? }
   end
 
-  def self._thing_params(thing_blob)
+  def self._thing_params(thing, thing_blob)
     (lat, lng) = thing_blob['Location'].delete('()').split(',').map(&:strip)
     {
-      name: thing_blob['Drain_Type'],
+      name: thing.adopted? ? thing.name : thing_blob['Drain_Type'], # don't overwrite adopted name
       system_use_code: thing_blob['System_Use_Code'],
       lat: lat,
       lng: lng,
@@ -96,7 +96,7 @@ class Thing < ActiveRecord::Base
       thing = Thing.unscoped.find_by(city_id: city_id_for_thing_blob(thing_blob))
       Rails.logger.info("Updating thing #{thing.city_id}")
       thing.restore! if thing.deleted_at?
-      thing.update!(_thing_params(thing_blob))
+      thing.update!(_thing_params(thing, thing_blob))
     end
   end
 
@@ -113,7 +113,7 @@ class Thing < ActiveRecord::Base
       thing = Thing.unscoped.find_or_initialize_by(city_id: city_id)
       Rails.logger.info("Creating thing #{thing.city_id}")
 
-      thing.update!(_thing_params(thing_blob))
+      thing.update!(_thing_params(thing, thing_blob))
       thing
     end
   end

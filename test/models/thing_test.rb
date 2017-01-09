@@ -28,6 +28,9 @@ class ThingTest < ActiveSupport::TestCase
     admin = users(:admin)
     thing_1 = things(:thing_1)
     thing_11 = things(:thing_11)
+    thing_10 = things(:thing_10).tap do |thing|
+      thing.update!(name: 'Erik drain', user_id: users(:erik).id)
+    end
 
     deleted_thing = things(:thing_3)
     deleted_thing.destroy!
@@ -36,6 +39,7 @@ class ThingTest < ActiveSupport::TestCase
     fake_response = [
       'PUC_Maximo_Asset_ID,Drain_Type,System_Use_Code,Location',
       'N-3,Catch Basin Drain,ABC,"(42.38, -71.07)"',
+      'N-10,Catch Basin Drain,DEF,"(36.75, -121.40)"',
       'N-11,Catch Basin Drain,ABC,"(37.75, -122.40)"',
       'N-12,Catch Basin Drain,DEF,"(39.75, -121.40)"',
     ].join("\n")
@@ -45,8 +49,9 @@ class ThingTest < ActiveSupport::TestCase
 
     email = ActionMailer::Base.deliveries.last
     assert_equal email.to, [admin.email]
-    assert_equal email.subject, 'Adopt-a-Drain San Francisco import (0 adopted drains removed, 1 drains added, 9 unadopted drains removed)'
+    assert_equal email.subject, 'Adopt-a-Drain San Francisco import (0 adopted drains removed, 1 drains added, 8 unadopted drains removed)'
     thing_11.reload
+    thing_10.reload
 
     # Asserts thing_1 is deleted
     assert_nil Thing.find_by(id: thing_1.id)
@@ -63,5 +68,10 @@ class ThingTest < ActiveSupport::TestCase
     # Asserts properties on thing_11 have been updated
     assert_equal thing_11.lat, BigDecimal.new(37.75, 16)
     assert_equal thing_11.lng, BigDecimal.new(-122.40, 16)
+
+    # Asserts properties on thing_10 have been updated, but not the name
+    assert_equal 'Erik drain', thing_10.name
+    assert_equal BigDecimal.new(36.75, 16), thing_10.lat
+    assert_equal BigDecimal.new(-121.40, 16), thing_10.lng
   end
 end
