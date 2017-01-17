@@ -1,7 +1,8 @@
 development: &DEVELOPMENT
   adapter: postgresql
+  user: <%= ENV['DB_USER'] || ENV['USER'] %>
   database: adopt_a_thing_development
-  host: localhost
+  host: <%= ENV['DB_HOST'] || 'localhost' %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
