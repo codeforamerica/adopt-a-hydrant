@@ -7,7 +7,7 @@
     = search_field_tag "address", params[:address], :placeholder => t("labels.address"), :class => "search-query form-control"
     .help-block
   %fieldset.form-actions
-    = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :class => "btn btn-primary btn-block"
+    = submit_tag t("buttons.find", :thing => t("defaults.things")), :class => "btn btn-primary btn-block"
 .break
 - if signed_in?
   = render :partial => "sidebar/user_things"

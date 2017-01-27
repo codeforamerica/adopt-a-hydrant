@@ -93,6 +93,7 @@ en:
   titles:
     adopt: "Adopt this %{thing}"
     adopted: "%{thing_name} has been adopted"
+    adopted_tagline: "%{count} %{things} adopted in SF"
     byline: "by %{name}"
     edit_profile: "Edit your Profile"
     main: "Adopt-a-%{thing} San Francisco"

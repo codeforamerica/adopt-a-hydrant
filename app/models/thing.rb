@@ -11,6 +11,8 @@ class Thing < ActiveRecord::Base
   validates :lng, presence: true
   validates :name, obscenity: true
 
+  scope :adopted, -> { where.not(user_id: nil) }
+
   def self.find_closest(lat, lng, limit = 10)
     query = <<-SQL
       SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(RADIANS(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance

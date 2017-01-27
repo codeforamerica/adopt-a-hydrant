@@ -13,8 +13,12 @@
         -# Corresponds to guideline div below
         %div.hidden-xs
           %a.guidelines{:href => "#guidelines", :"data-toggle" => "modal", :"data-target" => "#guidelines"}
-            %p.alert-message.block-message#tagline
-              = t("defaults.tagline")
+          %h3.text-center
+            = t("titles.adopted_tagline", :count => Thing.adopted.count, :things => t("defaults.things"))
+            .small
+              = "Last updated #{Time.now.to_formatted_s(:long_ordinal)}"
+          %p.alert-message.block-message#tagline
+            = t("defaults.tagline")
         #content
           = render :partial => "layouts/flash", :locals => {:flash => flash}
           - if signed_in?
