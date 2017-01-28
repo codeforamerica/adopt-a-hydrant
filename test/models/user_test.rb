@@ -16,4 +16,18 @@ class UserTest < ActiveSupport::TestCase
     user.last_name = ''
     assert_equal 'Erik', user.name
   end
+
+  test 'last name is required for new users' do
+    user = User.new(first_name: 'Erik')
+    user.save
+    assert_equal ["can't be blank"], user.errors[:last_name]
+  end
+
+  # requirement was added later
+  test 'last name not required for existing users' do
+    user = users(:erik)
+    user.last_name = ''
+    user.save!
+    assert_equal [], user.errors[:last_name]
+  end
 end

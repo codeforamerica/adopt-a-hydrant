@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :reminders_to, class_name: 'Reminder', foreign_key: 'to_user_id'
   has_many :things
   validates :first_name, presence: true
+  validates :last_name, presence: true, on: :create # requirement was added later, grandfather in users
   validates_formatting_of :email, using: :email
   validates_formatting_of :sms_number, using: :us_phone, allow_blank: true
   validates_formatting_of :voice_number, using: :us_phone, allow_blank: true

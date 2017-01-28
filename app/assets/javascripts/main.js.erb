@@ -411,6 +411,12 @@ $(function() {
       } else {
         $('#user_first_name').parent().removeClass(errorClass);
       }
+      if($('#user_last_name').val() === '') {
+        errors.push($('#user_last_name'));
+        $('#user_last_name').parent().addClass(errorClass);
+      } else {
+        $('#user_last_name').parent().removeClass(errorClass);
+      }
       if($('#user_password_confirmation').val().length < 6 || $('#user_password_confirmation').val().length > 20) {
         errors.push($('#user_password_confirmation'));
         $('#user_password_confirmation').parent().addClass(errorClass);

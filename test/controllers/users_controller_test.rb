@@ -41,7 +41,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test 'should create user if information is valid' do
-    post :create, user: {email: 'user@example.com', first_name: 'User', password: 'correct', password_confirmation: 'correct'}
+    post :create, user: {email: 'user@example.com', first_name: 'User', last_name: '123', password: 'correct', password_confirmation: 'correct'}
     assert_response :success
   end
 
