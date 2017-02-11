@@ -15,7 +15,8 @@
           %h3.text-center
             = t("titles.adopted_tagline", :count => Thing.adopted.count, :things => t("defaults.things"))
             .small
-              = "Last updated #{Date.today.to_formatted_s(:long)}"
+              Last updated
+              = local_date(Time.now, '%B %e, %Y')
           %a.guidelines{:href => "#guidelines", :"data-toggle" => "modal", :"data-target" => "#guidelines"}
             %p.alert-message.block-message#tagline
               = t("defaults.tagline")

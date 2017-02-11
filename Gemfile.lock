@@ -95,6 +95,8 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    local_time (1.0.3)
+      coffee-rails
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -232,6 +234,7 @@ DEPENDENCIES
   geokit
   haml
   http_accept_language
+  local_time
   obscenity (~> 1.0, >= 1.0.2)
   pg
   puma
@@ -248,5 +251,8 @@ DEPENDENCIES
   validates_formatting_of
   webmock
 
+RUBY VERSION
+   ruby 2.2.3p173
+
 BUNDLED WITH
-   1.13.6
+   1.13.7
