@@ -51,83 +51,91 @@ class Thing < ActiveRecord::Base
 
   # TODO(jszwedko) Move the below into a separate model
 
-  def self._get_parsed_things_csv(source_url)
+  def self._is_integer?(string)
+    true if Integer(string) rescue false
+  end
+
+  def self._import_temp_things(source_url)
+    insert_statement_id = SecureRandom.uuid
+
+    conn = ActiveRecord::Base.connection
+    conn.execute(<<-SQL)
+    CREATE TEMPORARY TABLE "temp_thing_import" (
+    id serial,
+    name varchar,
+    lat numeric(16,14),
+    lng numeric(17,14),
+    city_id integer,
+    system_use_code varchar)
+SQL
+    conn.raw_connection.prepare(insert_statement_id, 'INSERT INTO temp_thing_import (name, lat, lng, city_id, system_use_code) VALUES($1, $2, $3, $4, $5)')
+
     csv_string = open(source_url).read
-    CSV.parse(csv_string, headers: true)
-  end
+    CSV.parse(csv_string, headers: true).each do |thing|
+      city_id = thing['PUC_Maximo_Asset_ID'].gsub!('N-', '')
 
-  def self._delete_non_existing_things(things_from_source)
-    city_ids = things_from_source.map do |thing|
-      thing['PUC_Maximo_Asset_ID'].gsub('N-', '').to_i
+      next unless ['Storm Water Inlet Drain', 'Catch Basin Drain'].include?(thing['Drain_Type'])
+      next unless self._is_integer?(city_id)
+
+      (lat, lng) = thing['Location'].delete('()').split(',').map(&:strip)
+
+      conn.raw_connection.exec_prepared(insert_statement_id, [
+        thing['Drain_Type'],
+        lat,
+        lng,
+        city_id,
+        thing['System_Use_Code'],
+      ])
     end
 
-    things_to_delete = Thing.where.not(city_id: city_ids)
-    things_to_delete.each(&:destroy!)
-
-    things_to_delete.partition { |thing| thing.user_id.present? }
+    conn.execute('CREATE INDEX "temp_thing_import_city_id" ON temp_thing_import(city_id)')
   end
 
-  def self._thing_params(thing, thing_blob)
-    (lat, lng) = thing_blob['Location'].delete('()').split(',').map(&:strip)
-    {
-      name: thing.adopted? ? thing.name : thing_blob['Drain_Type'], # don't overwrite adopted name
-      system_use_code: thing_blob['System_Use_Code'],
-      lat: lat,
-      lng: lng,
-    }
+  def self._delete_non_existing_things()
+    deleted_things = ActiveRecord::Base.connection.execute(<<-SQL)
+UPDATE things
+SET deleted_at = NOW()
+WHERE things.city_id NOT IN (SELECT city_id from temp_thing_import)
+RETURNING things.city_id, things.user_id
+SQL
+    deleted_things.partition { |thing| thing["user_id"].present? }
   end
 
-  def self.city_id_for_thing_blob(thing_blob)
-    thing_blob['PUC_Maximo_Asset_ID'].gsub('N-', '').to_i
-  end
+  def self._upsert_things()
+    created_things = ActiveRecord::Base.connection.execute(<<-SQL)
+SELECT temp_thing_import.city_id
+FROM things
+RIGHT JOIN temp_thing_import ON temp_thing_import.city_id = things.city_id
+WHERE things.id IS NULL
+SQL
 
-  def self.stored_city_ids
-    Thing.unscoped.pluck(:city_id)
-  end
+    ActiveRecord::Base.connection.execute(<<-SQL)
+INSERT INTO things(name, lat, lng, city_id, system_use_code)
+SELECT name, lat, lng, city_id, system_use_code FROM temp_thing_import
+ON CONFLICT(city_id) DO UPDATE SET
+  lat = EXCLUDED.lat,
+  lng = EXCLUDED.lng,
+  name = CASE
+           WHEN things.user_id IS NOT NULL THEN things.name
+           ELSE EXCLUDED.name
+         END,
+  deleted_at = NULL
+SQL
 
-  def self._thing_blobs_to_update(thing_blobs)
-    thing_blobs.select do |thing_blob|
-      stored_city_ids.include?(city_id_for_thing_blob(thing_blob))
-    end
-  end
+  created_things
 
-  def self._update_things(thing_blobs)
-    _thing_blobs_to_update(thing_blobs).each do |thing_blob|
-      thing = Thing.unscoped.find_by(city_id: city_id_for_thing_blob(thing_blob))
-      Rails.logger.info("Updating thing #{thing.city_id}")
-      thing.restore! if thing.deleted_at?
-      thing.update!(_thing_params(thing, thing_blob))
-    end
-  end
-
-  def self._thing_blobs_to_create(thing_blobs)
-    thing_blobs.reject do |thing_blob|
-      (stored_city_ids.include?(city_id_for_thing_blob(thing_blob)) ||
-       !VALID_DRAIN_TYPES.include?(thing_blob['Drain_Type']))
-    end
-  end
-
-  def self._create_things(thing_blobs)
-    _thing_blobs_to_create(thing_blobs).map do |thing_blob|
-      city_id = city_id_for_thing_blob(thing_blob)
-      thing = Thing.unscoped.find_or_initialize_by(city_id: city_id)
-      Rails.logger.info("Creating thing #{thing.city_id}")
-
-      thing.update!(_thing_params(thing, thing_blob))
-      thing
-    end
   end
 
   def self.load_things(source_url)
     Rails.logger.info('Downloading Things... ... ...')
-    thing_blobs = _get_parsed_things_csv(source_url)
-    Rails.logger.info("Downloaded #{thing_blobs.size} Things.")
 
-    deleted_things_with_adoptee, deleted_things_no_adoptee = _delete_non_existing_things(thing_blobs)
+    ActiveRecord::Base.transaction do
+      _import_temp_things(source_url)
 
-    _update_things(thing_blobs)
-    created_things = _create_things(thing_blobs)
+      deleted_things_with_adoptee, deleted_things_no_adoptee = _delete_non_existing_things()
+      created_things = _upsert_things()
 
-    ThingMailer.thing_update_report(deleted_things_with_adoptee, deleted_things_no_adoptee, created_things).deliver_now
+      ThingMailer.thing_update_report(deleted_things_with_adoptee, deleted_things_no_adoptee, created_things).deliver_now
+    end
   end
 end
