@@ -34,6 +34,7 @@ group :production do
 end
 
 group :test do
+  gem 'byebug'
   gem 'coveralls', require: false
   gem 'simplecov', require: false
   gem 'rubocop'

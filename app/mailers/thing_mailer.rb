@@ -24,6 +24,7 @@ class ThingMailer < ApplicationMailer
     mail(to: @user.email, subject: ['Remember to clear your adopted drain'])
   end
 
+  # rubocop:disable Metrics/AbcSize
   def thing_update_report(deleted_things_with_adoptee, deleted_things_no_adoptee, created_things)
     @deleted_thing_ids_with_adoptee = deleted_things_with_adoptee.map { |t| t['city_id'] }
     @deleted_thing_ids_with_no_adoptee = deleted_things_no_adoptee.map { |t| t['city_id'] }
@@ -36,4 +37,5 @@ class ThingMailer < ApplicationMailer
                 things: t('defaults.things'))
     mail(to: User.where(admin: true).pluck(:email), subject: subject)
   end
+  # rubocop:enable Metrics/AbcSize
 end

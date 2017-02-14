@@ -13,6 +13,7 @@ Metrics/AbcSize:
     - 'app/controllers/passwords_controller.rb'
     - 'app/controllers/sessions_controller.rb'
     - 'app/controllers/users_controller.rb'
+    - 'lib/thing_importer.rb'
 
 Metrics/BlockNesting:
   Max: 2
@@ -26,6 +27,7 @@ Metrics/MethodLength:
   Max: 10
   Exclude:
     - 'db/migrate/*.rb'
+    - 'lib/thing_importer.rb' # removing heredocs would decrease readibility
 
 Metrics/ParameterLists:
   Max: 4
