@@ -1,13 +1,15 @@
-before_script: bundle exec rake db:create db:schema:load
-bundler_args: "--without assets:development:production"
-cache: bundler
+sudo: false
 language: ruby
 rvm:
 - 2.2.3
+bundler_args: "--without assets:development:production"
+addons:
+  postgresql: "9.6"
+cache: bundler
+before_script: bundle exec rake db:create db:schema:load
 script:
 - bundle exec rake
 - bundle exec rubocop
-sudo: false
 deploy:
   provider: heroku
   api_key:
