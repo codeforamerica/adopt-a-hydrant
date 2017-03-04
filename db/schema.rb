@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326200455) do
+ActiveRecord::Schema.define(version: 20170303233627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,11 +44,11 @@ ActiveRecord::Schema.define(version: 20160326200455) do
   add_index "reminders", ["to_user_id"], name: "index_reminders_on_to_user_id", using: :btree
 
   create_table "things", force: :cascade do |t|
-    t.datetime "created_at"
+    t.datetime "drain_import_date"
     t.datetime "updated_at"
     t.string   "name"
-    t.decimal  "lat",             precision: 16, scale: 14, null: false
-    t.decimal  "lng",             precision: 17, scale: 14, null: false
+    t.decimal  "lat",               precision: 16, scale: 14, null: false
+    t.decimal  "lng",               precision: 17, scale: 14, null: false
     t.integer  "city_id"
     t.integer  "user_id"
     t.string   "system_use_code"
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 20160326200455) do
   add_index "things", ["city_id"], name: "index_things_on_city_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "account_creation_date"
+    t.datetime "last_login"
     t.string   "organization"
     t.string   "email",                                  null: false
     t.string   "voice_number"
