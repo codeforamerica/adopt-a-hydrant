@@ -6,9 +6,9 @@ RailsAdmin.config do |config|
   config.model 'Thing' do
     label I18n.t('defaults.thing')
 
-     configure :created_at do
-       label 'Drain Import Date'
-     end
+    configure :created_at do
+      label 'Drain Import Date'
+    end
   end
 
   config.model 'User' do
@@ -20,5 +20,4 @@ RailsAdmin.config do |config|
       label 'Last Login'
     end
   end
-
 end
