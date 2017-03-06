@@ -5,5 +5,20 @@ RailsAdmin.config do |config|
 
   config.model 'Thing' do
     label I18n.t('defaults.thing')
+
+     configure :created_at do
+       label 'Drain Import Date'
+     end
   end
+
+  config.model 'User' do
+    configure :created_at do
+      label 'Account Creation Date'
+    end
+
+    configure :updated_at do
+      label 'Last Login'
+    end
+  end
+
 end
