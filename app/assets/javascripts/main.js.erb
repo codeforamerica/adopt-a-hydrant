@@ -1,3 +1,7 @@
+// require constants
+
+var constants = window.constants
+
 $(function() {
   var initialLocation;
   var center = new google.maps.LatLng(37.774929, -122.419416);
@@ -43,31 +47,31 @@ $(function() {
     map.setCenter(center);
   }
   */
-  var iconBase = '<%= image_path 'markers/' %>';
+  var iconBase = constants.iconBase;
   var size = new google.maps.Size(27.0, 38.0);
   var origin = new google.maps.Point(0, 0);
   var anchor = new google.maps.Point(13.0, 18.0);
-  var adoptedMarker = new google.maps.MarkerImage('<%= image_path 'markers/adopted.png' %>',
+  var adoptedMarker = new google.maps.MarkerImage(constants.adoptedMarkerImage,
     size,
     origin,
     anchor
   );
-  var adoptedByYouMarker = new google.maps.MarkerImage('<%= image_path 'markers/adoptedbyyou.png' %>',
+  var adoptedByYouMarker = new google.maps.MarkerImage(constants.adoptedByYouImage,
     size,
     origin,
     anchor
   );
-  var toSewerMarker = new google.maps.MarkerImage('<%= image_path 'markers/tosewer.png' %>',
+  var toSewerMarker = new google.maps.MarkerImage(constants.toSewerMarkerImage,
     size,
     origin,
     anchor
   );
-  var toBayOceanMarker = new google.maps.MarkerImage('<%= image_path 'markers/tobay.png' %>',
+  var toBayOceanMarker = new google.maps.MarkerImage(constants.toBayOceanMarkerImage,
     size,
     origin,
     anchor
   );
-  var markerShadowImage = new google.maps.MarkerImage('<%= image_path 'markers/shadow.png' %>',
+  var markerShadowImage = new google.maps.MarkerImage(constants.markerShadowImage,
     new google.maps.Size(46.0, 37.0),
     origin,
     anchor
@@ -82,22 +86,22 @@ $(function() {
     available: {
       name: 'Drains to Sewer',
       title:  'Sewer',
-      icon: '<%= image_path 'markers/tosewer.png' %>'
+      icon: constants.toSewerMarkerImage
     },
     availableBay: {
       name: 'Drains to Ocean/Bay',
       title: 'Sewer to ocean/bay',
-      icon: '<%= image_path 'markers/tobay.png' %>'
+      icon: constants.toBayOceanMarkerImage
     },
     adopted: {
       name: 'Adopted',
       title:  'Adopted by other',
-      icon: '<%= image_path 'markers/adopted.png' %>'
+      icon: constants.adoptedMarkerImage
     },
     adopted_by_you: {
       name: 'Adopted by you',
       title:  'Adopted by you',
-      icon: '<%= image_path 'markers/adoptedbyyou.png' %>'
+      icon: constants.adoptedByYouImage
     }
   };
 
@@ -118,7 +122,7 @@ $(function() {
   $('#toggleLegend').click(function(){
     $('#legend .legend-items').slideToggle(function(){
       var text = $('#legend .show-hide a').html().trim();
-      $('#legend .show-hide a').html( text == 'Hide' ? 'Show' : 'Hide'); 
+      $('#legend .show-hide a').html( text == 'Hide' ? 'Show' : 'Hide');
     });
   });
 
@@ -481,12 +485,6 @@ $(function() {
             $.ajax({
               type: 'GET',
               url: '/sidebar/search',
-              /*
-              data: {
-                'flash': {
-                  'notice': "<%= I18n.t("notices.signed_up") %>"
-                }
-              },*/
               success: function(data) {
                 $('.sidebar').addClass('signed-in');
                 $('.sidebar').removeClass('sidebar-full');
@@ -609,7 +607,7 @@ $(function() {
     return false;
   });
   $('#map').on('submit', '#abandon_form', function() {
-    var answer = window.confirm("Are you sure you want to abandon this <%= I18n.t("defaults.thing") %>?")
+    var answer = window.confirm(constants.abandonConfirmText)
     if(answer) {
       var submitButton = $("#abandon_form input[type='submit']");
       $(submitButton).attr("disabled", true);
@@ -873,10 +871,6 @@ $(function() {
           url: '/info_window',
           data: {
             'thing_id': activeThingId
-            /*
-            'flash': {
-              'notice': "<%= I18n.t("notices.reminder_sent") %>"
-            }*/
           },
           success: function(data) {
             activeInfoWindow.close();
