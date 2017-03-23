@@ -9,6 +9,11 @@ RailsAdmin.config do |config|
     configure :created_at do
       label 'Drain Import Date'
     end
+
+    configure :city_id do
+      label 'Maximo ID'
+    end
+
   end
 
   config.model 'User' do
