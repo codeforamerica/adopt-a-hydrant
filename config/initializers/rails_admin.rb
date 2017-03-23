@@ -13,7 +13,6 @@ RailsAdmin.config do |config|
     configure :city_id do
       label 'Maximo ID'
     end
-
   end
 
   config.model 'User' do
