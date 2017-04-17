@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+img[title="Code for San Francisco"]{
+  width:100%;
+}

@@ -1,4 +1,4 @@
-# Data from http://civicapi.couchone.com/boston_fire_hydrants/_all_docs?include_docs=true
+# Data from http://civicapi.couchone.com/boston_fire_drains/_all_docs?include_docs=true
 
 Thing.create(city_id: 1, lng: -71.049226, lat: 42.383339)
 Thing.create(city_id: 2, lng: -71.075964, lat: 42.381021)
