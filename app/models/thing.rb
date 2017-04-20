@@ -2,7 +2,7 @@ require 'open-uri'
 require 'csv'
 
 class Thing < ActiveRecord::Base
-  # acts_as_paranoid
+  acts_as_paranoid
   extend Forwardable
   include ActiveModel::ForbiddenAttributesProtection
 
