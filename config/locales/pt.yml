@@ -86,6 +86,7 @@ pt:
     built: "Construído em Boston"
     cfa: "Código para a América"
     city: "Cidade de Boston"
+    dt: "Departamento de Tecnologia"
     mayor:
       name: "Martin J. Walsh"
       title: "Mayor"

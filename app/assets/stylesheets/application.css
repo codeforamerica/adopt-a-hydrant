@@ -239,6 +239,7 @@ a.guidelines {
     width: 25%;
     z-index: 2;
     overflow: scroll;
+    overflow-x: hidden;
   }
 
   .signed-in .map-container, .map-container {

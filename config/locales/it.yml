@@ -86,6 +86,7 @@ it:
     built: "Costruito in Boston"
     cfa: "Code for America"
     city: "Città di Boston"
+    dt: "Departimento di Tecnologia"
     mayor:
       name: "Martin J. Walsh"
       title: "Sindaco"
