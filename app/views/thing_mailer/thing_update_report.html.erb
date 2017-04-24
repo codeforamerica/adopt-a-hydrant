@@ -10,7 +10,7 @@
     <tbody>
       <% @deleted_thing_ids_with_adoptee.each do |thing_id| %>
         <tr>
-          <td><%= thing_id %></td>
+          <td>N-<%= thing_id %></td>
         </tr>
       <% end %>
     </tbody>
@@ -27,7 +27,7 @@
     <tbody>
       <% @deleted_thing_ids_with_no_adoptee.each do |thing_id| %>
         <tr>
-          <td><%= thing_id %></td>
+          <td>N-<%= thing_id %></td>
         </tr>
       <% end %>
     </tbody>
@@ -44,7 +44,7 @@
     <tbody>
       <% @created_thing_ids.each do |thing_id| %>
         <tr>
-          <td><%= thing_id %></td>
+          <td>N-<%= thing_id %></td>
         </tr>
       <% end %>
     </tbody>
