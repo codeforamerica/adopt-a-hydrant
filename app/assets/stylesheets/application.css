@@ -31,9 +31,9 @@ div#logos img {
 }
 
 .user-things{
-    height: 300px;
-    overflow: scroll;
-    overflow-x: hidden;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /*div#logos img.dpw, div#logos img.puc{
