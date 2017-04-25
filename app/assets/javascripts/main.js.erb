@@ -514,7 +514,7 @@ $(function() {
             'user': {
               'email': $('#user_email').val(),
               'password': $('#user_password').val(),
-              'remember_me': $('#user_remember_me').val()
+              'remember_me': $('#user_remember_me').prop("checked") ? 1 : 0
             }
           },
           error: function(jqXHR) {
