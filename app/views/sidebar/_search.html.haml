@@ -9,7 +9,6 @@
     .help-block
   %fieldset.form-actions
     = submit_tag t("buttons.find", :thing => t("defaults.things")), :class => "btn btn-primary btn-block"
-.break
 - if signed_in?
   = render :partial => "sidebar/user_things"
   %a{:href => edit_user_registration_path, :id => "edit_profile_link", :class => "btn btn-warning btn-block"}

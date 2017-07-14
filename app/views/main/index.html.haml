@@ -34,8 +34,6 @@
           %a.guidelines{:href => "#guidelines", :"data-toggle" => "modal", :"data-target" => "#guidelines"}
             %p.alert-message.block-message#tagline
               = t("defaults.tagline")
-        %a{:href => "#background", :"data-toggle" => "modal", :"data-target" => "#background", :class => "btn btn-secondary"}
-          = t("links.learn_more_background")
         #logos
           .row
             .col-xs-4
@@ -68,7 +66,6 @@
             Hide
   = render :partial => "sidebar/tos"
   = render :partial => "sidebar/guidelines"
-  = render :partial => "sidebar/background"
 :javascript
   $(function() {
     $('.navbar-toggle').on('click', function(){

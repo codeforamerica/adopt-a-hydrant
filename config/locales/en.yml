@@ -75,7 +75,6 @@ en:
     click_for_more: "Click to learn more"
     learn_more: "Learn more about adopting a %{thing}"
     thing_details: "This %{thing} is special! Learn why."
-    learn_more_background: "Program Background"
   notices:
     abandoned: "%{thing} abandoned!"
     adopted: "You just adopted a %{thing}!"
