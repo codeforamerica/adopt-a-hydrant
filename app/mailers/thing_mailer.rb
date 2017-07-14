@@ -3,7 +3,7 @@ class ThingMailer < ApplicationMailer
     @thing = thing
     @user = thing.user
 
-    mail(to: @user.email, subject: ["Thanks for adopting a drain, #{@user.name.split.first}! Here’s important info"])
+    mail(to: @user.email, subject: ["Thanks for adopting a drain, #{@user.name.split.first}!"])
   end
 
   def second_adoption_confirmation(thing)

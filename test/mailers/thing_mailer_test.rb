@@ -11,7 +11,7 @@ class ThingMailerTest < ActionMailer::TestCase
     assert_not ActionMailer::Base.deliveries.empty?
     assert_equal ['info@sfwater.org'], email.from
     assert_equal ['erik@example.com'], email.to
-    assert_equal 'Thanks for adopting a drain, Erik! Here’s important info', email.subject
+    assert_equal 'Thanks for adopting a drain, Erik!', email.subject
   end
 
   test 'second_adoption_confirmation' do

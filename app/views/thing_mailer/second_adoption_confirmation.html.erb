@@ -1,43 +1,77 @@
-<p>
-  Wow! You adopted another drain. Thank you.
-</p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;"><tr><td>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td style="text-align: center;">
+        <%= image_tag "logos/adopt-a-drain-sfpuc.png", :alt => "sfwater adopt-a-drain logo", :title => "sfwater adopt-a-drain logo" %>
+      </td>
+    </tr>
+  </table>
 
-<p>
-  Remember, if you encounter medical waste, construction debris, toxic
-  materials or some other problem with your drain, <a
-  href="https://mobile311.sfgov.org/reports/new?service_id=518d5c0d601827e388000156">report
-  it to 311</a> to have it cleared by the City.
-</p>
+  <p>
+    Dear <%= @user.name.split.first %>,
+  </p>
 
-<p>
-  As always, please let us know if you have any feedback or questions about this
-  program. We love to hear from you!
-</p>
-
-<p>
-  Thank you,
-</p>
-
-<p>
-  Your friends at the San Francisco Public Utilities Commission
+  <p>
+    Wow! Thank you for adopting another drain.
   <br/>
-  415-554-3289
-  <br/>
-  <a href="mailto:info@sfwater.org">info@sfwater.org</a>
-</p>
+    Use social media to spread the word! Be sure to tag us @sfwater and use the
+    hashtags #DrainHero, #AdoptADrain and #SFSewer in your posts.
+  </p>
 
-<p>
-  P.S. You also can Adopt-a-Street. In addition to clearing your drain, you and
-  a neighborhood group can adopt a larger area and take responsibility for
-  helping to keep the street and sidewalk there clean. <a
-  href="http://www.sfpublicworks.org/get_involved/adopt-street-program">Learn
-  more about this Public Works program</a>.
-</p>
+  <p>
+    If you encounter medical waste, construction debris, or if the drain is
+    clogged beneath the grate, <a
+    href="http://www.sf311.org/index.aspx?page=127">report to 311</a> to have
+    it cleared by the City.
+  </p>
 
-<p>
-  <em>
-    The City and County of San Francisco won't be held responsible for anything
-    that happens to you or others in service of maintaining your drain. Please be
-    careful!
-  </em>
-</p>
+  <p>
+    As always, please let us know if you have any feedback or questions about
+    this program. We love to hear from you.
+  </p>
+
+  <p>
+    Sincerely,
+    <br />
+    SFPUC <a href="https://adoptadrain.sfwater.org/">Adopt a Drain</a> Team
+    <br />
+    <a href="tel:415-554-3289">415-554-3289</a>
+    <br />
+    <a href="mailto:info@sfwater.org">info@sfwater.org</a>
+  </p>
+
+  <p>
+    <em>
+      Remember, the City and County of San Francisco won't be held responsible
+      for anything that happens to you or others in service of maintaining your
+      drain. Please be careful.
+    </em>
+  </p>
+
+  <p style="font-style: italic; font-size: 11px;">
+    If you move or are no longer able to tend to your drain, please abandon it on
+    <a href="adoptadrain.sfwater.org">https://adoptadrain.sfwater.org</a>. Thank you.
+  </p>
+
+  <p>
+    <a href="https://facebook.com/sfwater" style="text-decoration:none !important;">
+      <%= image_tag "icons/facebook.png", :alt => "sfwater facebook", :title => "sfwater facebook" %>
+    </a>
+    &nbsp;
+    <a href="https://twitter.com/SFWater" style="text-decoration:none !important;">
+      <%= image_tag "icons/twitter.png", :alt => "sfwater twitter", :title => "sfwater twitter" %>
+    </a>
+    &nbsp;
+    <a href="https://www.instagram.com/sfwater/" style="text-decoration:none !important;">
+      <%= image_tag "icons/instagram.png", :alt => "sfwater instagram", :title => "sfwater instagram" %>
+    </a>
+    &nbsp;
+    <a href="https://www.youtube.com/user/SFPUCcommunications" style="text-decoration:none !important;">
+      <%= image_tag "icons/youtube.png", :alt => "sfwater youtube", :title => "sfwater youtube" %>
+    </a>
+    &nbsp;
+    <a href="https://www.linkedin.com/company/sfpuc" style="text-decoration:none !important;">
+      <%= image_tag "icons/linkedin.png", :alt => "sfwater linkedin", :title => "sfwater linkedin" %>
+    </a>
+  </p>
+</td></tr></table>
