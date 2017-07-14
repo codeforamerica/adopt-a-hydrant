@@ -8,6 +8,9 @@
     "GOOGLE_MAPS_JAVASCRIPT_API_KEY": {
       "required": true
     },
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
     "LANG": {
       "required": true
     },
