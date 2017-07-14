@@ -5,6 +5,9 @@
     "postdeploy": "bundle exec rake db:schema:load db:seed"
   },
   "env": {
+    "GOOGLE_MAPS_JAVASCRIPT_API_KEY": {
+      "required": true
+    },
     "LANG": {
       "required": true
     },
