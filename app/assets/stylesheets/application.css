@@ -156,6 +156,11 @@ h5.my-things {
   top: 210px;
 }
 
+.btn {
+  white-space: normal !important; /* override bootstrap to wrap button text */
+  word-wrap: break-word;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #396B80;
@@ -220,10 +225,6 @@ h5.my-things {
 
 a.guidelines {
   text-decoration: none;
-}
-
-.sidebar p#tagline:hover {
-  background-color: #9682bc;
 }
 
 .user-things dd {

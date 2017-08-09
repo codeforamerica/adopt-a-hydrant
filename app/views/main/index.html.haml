@@ -18,7 +18,7 @@
               Last updated
               = local_date(Time.now, '%B %e, %Y')
           %a.guidelines{:href => "#guidelines", :"data-toggle" => "modal", :"data-target" => "#guidelines"}
-            %p.alert-message.block-message#tagline
+            %button.btn.btn-block.btn-primary#tagline
               = t("defaults.tagline")
         #content
           = render :partial => "layouts/flash", :locals => {:flash => flash}
@@ -32,7 +32,7 @@
         -# Corresponds to guideline div above
         %div.hidden.visible-xs-block
           %a.guidelines{:href => "#guidelines", :"data-toggle" => "modal", :"data-target" => "#guidelines"}
-            %p.alert-message.block-message#tagline
+            %button.btn.btn-block.btn-primary#tagline
               = t("defaults.tagline")
         #logos
           .row
