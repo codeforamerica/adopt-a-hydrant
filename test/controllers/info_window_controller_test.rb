@@ -64,7 +64,7 @@ class InfoWindowControllerTest < ActionController::TestCase
 
   test 'should show special link on adoption form if it has one' do
     sign_in @user
-    Thing.stub :find_by_id, @thing do
+    Thing.stub :find_by, @thing do
       @thing.stub :detail_link, 'http://example.com' do
         get :index, thing_id: @thing.id
       end

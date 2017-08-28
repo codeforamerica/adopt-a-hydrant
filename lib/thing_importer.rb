@@ -48,15 +48,15 @@ class ThingImporter
       insert_statement_id = SecureRandom.uuid
 
       conn = ActiveRecord::Base.connection
-      conn.execute(<<-SQL)
-CREATE TEMPORARY TABLE "temp_thing_import" (
-  id serial,
-  name varchar,
-  lat numeric(16,14),
-  lng numeric(17,14),
-  city_id integer,
-  system_use_code varchar
-)
+      conn.execute(<<-SQL.strip_heredoc)
+        CREATE TEMPORARY TABLE "temp_thing_import" (
+          id serial,
+          name varchar,
+          lat numeric(16,14),
+          lng numeric(17,14),
+          city_id integer,
+          system_use_code varchar
+        )
       SQL
       conn.raw_connection.prepare(insert_statement_id, 'INSERT INTO temp_thing_import (name, lat, lng, city_id, system_use_code) VALUES($1, $2, $3, $4, $5)')
 
@@ -67,7 +67,8 @@ CREATE TEMPORARY TABLE "temp_thing_import" (
         each do |thing|
         conn.raw_connection.exec_prepared(
           insert_statement_id,
-          [thing[:type], thing[:lat], thing[:lng], thing[:city_id], thing[:system_use_code]])
+          [thing[:type], thing[:lat], thing[:lng], thing[:city_id], thing[:system_use_code]],
+        )
       end
 
       conn.execute('CREATE INDEX "temp_thing_import_city_id" ON temp_thing_import(city_id)')
@@ -77,11 +78,11 @@ CREATE TEMPORARY TABLE "temp_thing_import" (
     # return the deleted drains partitioned by whether they were adopted
     def delete_non_existing_things
       # mark deleted_at as this is what the paranoia gem uses to scope
-      deleted_things = ActiveRecord::Base.connection.execute(<<-SQL)
-UPDATE things
-SET deleted_at = NOW()
-WHERE things.city_id NOT IN (SELECT city_id from temp_thing_import) AND deleted_at IS NULL
-RETURNING things.city_id, things.user_id
+      deleted_things = ActiveRecord::Base.connection.execute(<<-SQL.strip_heredoc)
+        UPDATE things
+        SET deleted_at = NOW()
+        WHERE things.city_id NOT IN (SELECT city_id from temp_thing_import) AND deleted_at IS NULL
+        RETURNING things.city_id, things.user_id
       SQL
       deleted_things.partition { |thing| thing['user_id'].present? }
     end
@@ -89,24 +90,24 @@ RETURNING things.city_id, things.user_id
     def upsert_things
       # postgresql's RETURNING returns both updated and inserted records so we
       # query for the items to be inserted first
-      created_things = ActiveRecord::Base.connection.execute(<<-SQL)
-SELECT temp_thing_import.city_id
-FROM things
-RIGHT JOIN temp_thing_import ON temp_thing_import.city_id = things.city_id
-WHERE things.id IS NULL
+      created_things = ActiveRecord::Base.connection.execute(<<-SQL.strip_heredoc)
+        SELECT temp_thing_import.city_id
+        FROM things
+        RIGHT JOIN temp_thing_import ON temp_thing_import.city_id = things.city_id
+        WHERE things.id IS NULL
       SQL
 
-      ActiveRecord::Base.connection.execute(<<-SQL)
-INSERT INTO things(name, lat, lng, city_id, system_use_code)
-SELECT name, lat, lng, city_id, system_use_code FROM temp_thing_import
-ON CONFLICT(city_id) DO UPDATE SET
-  lat = EXCLUDED.lat,
-  lng = EXCLUDED.lng,
-  name = CASE
-           WHEN things.user_id IS NOT NULL THEN things.name
-           ELSE EXCLUDED.name
-         END,
-  deleted_at = NULL
+      ActiveRecord::Base.connection.execute(<<-SQL.strip_heredoc)
+        INSERT INTO things(name, lat, lng, city_id, system_use_code)
+        SELECT name, lat, lng, city_id, system_use_code FROM temp_thing_import
+        ON CONFLICT(city_id) DO UPDATE SET
+          lat = EXCLUDED.lat,
+          lng = EXCLUDED.lng,
+          name = CASE
+                   WHEN things.user_id IS NOT NULL THEN things.name
+                   ELSE EXCLUDED.name
+                 END,
+          deleted_at = NULL
       SQL
 
       created_things

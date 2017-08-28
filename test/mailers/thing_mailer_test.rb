@@ -41,9 +41,9 @@ class ThingMailerTest < ActionMailer::TestCase
   end
 
   test 'thing_update_report' do
-    admin_1 = users(:admin)
-    admin_2 = users(:admin)
-    admin_2.update(email: 'admin2@example.com')
+    admin1 = users(:admin)
+    admin2 = users(:admin)
+    admin2.update(email: 'admin2@example.com')
     email = nil
     deleted_thing = things(:thing_1)
 
@@ -51,8 +51,8 @@ class ThingMailerTest < ActionMailer::TestCase
       email = ThingMailer.thing_update_report([deleted_thing], [], []).deliver_now
     end
 
-    assert_includes email.to, admin_1.email
-    assert_includes email.to, admin_2.email
+    assert_includes email.to, admin1.email
+    assert_includes email.to, admin2.email
 
     assert_equal email.subject, 'Adopt-a-Drain San Francisco import (1 adopted drains removed, 0 drains added, 0 unadopted drains removed)'
   end

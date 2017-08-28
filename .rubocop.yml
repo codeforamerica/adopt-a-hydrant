@@ -1,12 +1,22 @@
-Rails: 
+Rails:
   Enabled: true
 
 AllCops:
+  TargetRailsVersion: 4.0
   Exclude:
     - 'bin/*'
     - 'db/schema.rb'
     - 'db/seeds.rb'
     - 'vendor/bundle/**/*'
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Layout/AccessModifierIndentation:
+  EnforcedStyle: outdent
 
 Metrics/AbcSize:
   Exclude:
@@ -14,6 +24,11 @@ Metrics/AbcSize:
     - 'app/controllers/sessions_controller.rb'
     - 'app/controllers/users_controller.rb'
     - 'lib/thing_importer.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/initializers/*'
+  ExcludedMethods: ['test']
 
 Metrics/BlockNesting:
   Max: 2
@@ -33,9 +48,6 @@ Metrics/ParameterLists:
   Max: 4
   CountKeywordArgs: true
 
-Style/AccessModifierIndentation:
-  EnforcedStyle: outdent
-
 Style/CollectionMethods:
   PreferredMethods:
     map:      'collect'
@@ -46,14 +58,8 @@ Style/CollectionMethods:
 Style/Documentation:
   Enabled: false
 
-Style/DotPosition:
-  EnforcedStyle: trailing
-
 Style/DoubleNegation:
   Enabled: false
-
-Style/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: no_space
 
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: 'comma'

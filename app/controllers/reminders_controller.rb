@@ -8,7 +8,7 @@ class RemindersController < ApplicationController
     @reminder.from_user = current_user
     if @reminder.save
       ThingMailer.reminder(@reminder.thing).deliver_later
-      @reminder.update_attribute(:sent, true)
+      @reminder.update_attributes(sent: true)
       render(json: @reminder)
     else
       render(json: {errors: @reminder.errors}, status: 500)

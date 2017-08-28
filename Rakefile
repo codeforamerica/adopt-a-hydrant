@@ -12,4 +12,4 @@ end
 
 Rails.application.load_tasks
 
-task default: [:rubocop, :test]
+task default: %i[rubocop test]
