@@ -628,7 +628,9 @@ $(function() {
           },
           error: function(jqXHR) {
             $(submitButton).attr("disabled", false);
+            var response = $.parseJSON(jqXHR.responseText);
             $('#user_email').parent().addClass(errorClass);
+            $('#user_email').next(".help-block").html(response.errors.email);
             $('#user_email').focus();
           },
           success: function() {
