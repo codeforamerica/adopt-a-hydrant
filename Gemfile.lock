@@ -37,9 +37,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    airbrake (5.8.1)
-      airbrake-ruby (~> 1.8)
-    airbrake-ruby (1.8.0)
+    airbrake (6.2.1)
+      airbrake-ruby (~> 2.3, >= 2.3.1)
+    airbrake-ruby (2.3.2)
     arel (6.0.4)
     ast (2.3.0)
     bcrypt (3.1.11)
@@ -248,7 +248,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake (~> 5.2)
+  airbrake (~> 6.2)
   byebug
   coveralls
   devise (~> 3.0)
