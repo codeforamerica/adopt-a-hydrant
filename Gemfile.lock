@@ -106,8 +106,7 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
-    local_time (1.0.3)
-      coffee-rails
+    local_time (2.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -258,7 +257,7 @@ DEPENDENCIES
   geokit (~> 1.0)
   haml (~> 5.0)
   http_accept_language (~> 2.0)
-  local_time (~> 1.0)
+  local_time (~> 2.0)
   obscenity (~> 1.0, >= 1.0.2)
   paranoia (~> 2.2)
   pg
