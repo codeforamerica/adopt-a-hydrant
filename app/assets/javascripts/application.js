@@ -11,4 +11,4 @@
 // about supported directives.
 //
 //= require_tree .
-//= require local_time
+//= require local-time
