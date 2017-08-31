@@ -81,7 +81,8 @@ GEM
     geokit (1.11.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    haml (4.0.7)
+    haml (5.0.2)
+      temple (>= 0.8.0)
       tilt
     hashdiff (0.3.6)
     http_accept_language (2.1.1)
@@ -224,6 +225,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    temple (0.8.0)
     term-ansicolor (1.6.0)
       tins (~> 1.0)
     thor (0.19.4)
@@ -254,7 +256,7 @@ DEPENDENCIES
   devise (~> 3.0)
   dotenv-rails
   geokit (~> 1.0)
-  haml (~> 4.0)
+  haml (~> 5.0)
   http_accept_language (~> 2.0)
   local_time (~> 1.0)
   obscenity (~> 1.0, >= 1.0.2)
