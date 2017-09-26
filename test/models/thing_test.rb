@@ -23,4 +23,13 @@ class ThingTest < ActiveSupport::TestCase
     t.save!
     assert_equal 1, Thing.adopted.count
   end
+
+  test 'display_name' do
+    t = things(:thing_1)
+    t.name = 'foobar'
+    assert_equal 'foobar', t.display_name
+    t.user = users(:erik)
+    t.adopted_name = 'baz'
+    assert_equal 'baz', t.display_name
+  end
 end

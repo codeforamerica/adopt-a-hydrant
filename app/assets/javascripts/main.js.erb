@@ -581,7 +581,7 @@ $(function() {
         'authenticity_token': $('#adoption_form input[name="authenticity_token"]').val(),
         'thing': {
           'user_id': $('#thing_user_id').val(),
-          'name': $('#thing_name').val()
+          'adopted_name': $('#thing_adopted_name').val()
         }
       },
       error: function(jqXHR) {
@@ -621,7 +621,7 @@ $(function() {
           'authenticity_token': $('#abandon_form input[name="authenticity_token"]').val(),
           'thing': {
             'user_id': $('#thing_user_id').val(),
-            'name': $('#thing_name').val()
+            'adopted_name': $('#thing_adopted_name').val()
           }
         },
         error: function(jqXHR) {

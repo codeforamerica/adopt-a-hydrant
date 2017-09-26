@@ -103,10 +103,7 @@ class ThingImporter
         ON CONFLICT(city_id) DO UPDATE SET
           lat = EXCLUDED.lat,
           lng = EXCLUDED.lng,
-          name = CASE
-                   WHEN things.user_id IS NOT NULL THEN things.name
-                   ELSE EXCLUDED.name
-                 END,
+          name = EXCLUDED.name,
           deleted_at = NULL
       SQL
 

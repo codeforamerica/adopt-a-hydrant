@@ -31,6 +31,10 @@ class Thing < ActiveRecord::Base
     find_by_sql([query, lat.to_f, lng.to_f, lat.to_f, limit.to_i])
   end
 
+  def display_name
+    (adopted? ? adopted_name : name) || ''
+  end
+
   def reverse_geocode
     @reverse_geocode ||= Geokit::Geocoders::MultiGeocoder.reverse_geocode([lat, lng])
   end
@@ -47,5 +51,9 @@ class Thing < ActiveRecord::Base
     return 'http://sfwater.org/index.aspx?page=399' if system_use_code == 'MS4'
 
     nil
+  end
+
+  def as_json(options = {})
+    super({methods: [:display_name]}.merge(options))
   end
 end

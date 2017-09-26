@@ -3,6 +3,6 @@
   %dl
     - current_user.things.each do |thing|
       %dt
-        %a.thing-link{ :data => { :lng => thing.lng, :lat => thing.lat } }=thing.name
+        %a.thing-link{ :data => { :lng => thing.lng, :lat => thing.lat } }=thing.display_name
       %dd=thing.street_address
   .break

@@ -62,8 +62,8 @@ class ThingImporterTest < ActiveSupport::TestCase
     assert_equal thing11.lat, BigDecimal.new(37.75, 16)
     assert_equal thing11.lng, BigDecimal.new(-122.40, 16)
 
-    # Asserts properties on thing_10 have been updated, but not the name
-    assert_equal 'Erik drain', thing10.name
+    # Asserts properties on thing_10 have been updated
+    assert_equal 'Catch Basin Drain', thing10.name
     assert_equal BigDecimal.new(36.75, 16), thing10.lat
     assert_equal BigDecimal.new(-121.40, 16), thing10.lng
   end

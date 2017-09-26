@@ -32,11 +32,12 @@ class ThingsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'should update drain' do
-    assert_not_equal 'Birdsill', @thing.name
-    put :update, format: 'json', id: @thing.id, thing: {name: 'Birdsill'}
+  test 'should update drain display name' do
+    sign_in @user
+    assert_not_equal 'Birdsill', @thing.display_name
+    put :update, format: 'json', id: @thing.id, thing: {user_id: @user.id, adopted_name: 'Birdsill'}
     @thing.reload
-    assert_equal 'Birdsill', @thing.name
+    assert_equal 'Birdsill', @thing.display_name
     assert_not_nil assigns :thing
     assert_response :success
   end
@@ -44,7 +45,7 @@ class ThingsControllerTest < ActionController::TestCase
   test 'should error when updating drain with invalid data' do
     Thing.stub(:find, @thing) do
       @thing.stub(:update_attributes, false) do
-        put :update, format: 'json', id: @thing.id, thing: {name: 'hello'}
+        put :update, format: 'json', id: @thing.id, thing: {adopted_name: 'hello'}
       end
     end
     assert_response :error
@@ -53,7 +54,7 @@ class ThingsControllerTest < ActionController::TestCase
   test 'should update drain and send an adopted confirmation email' do
     sign_in @user
     num_deliveries = ActionMailer::Base.deliveries.size
-    put :update, format: 'json', id: @thing.id, thing: {name: 'Drain', user_id: @user.id}
+    put :update, format: 'json', id: @thing.id, thing: {adopted_name: 'Drain', user_id: @user.id}
     assert @thing.reload.adopted?
     assert_equal num_deliveries + 1, ActionMailer::Base.deliveries.size
     assert_response :success
@@ -66,7 +67,7 @@ class ThingsControllerTest < ActionController::TestCase
   test 'should send second confirmation email' do
     sign_in @user
     @user.things = [things(:thing_2)]
-    put :update, format: 'json', id: @thing.id, thing: {name: 'Drain', user_id: @user.id}
+    put :update, format: 'json', id: @thing.id, thing: {adopted_name: 'Drain', user_id: @user.id}
     assert @thing.reload.adopted?
     assert_response :success
 
@@ -78,7 +79,7 @@ class ThingsControllerTest < ActionController::TestCase
   test 'should update drain but not send an adopted confirmation email upon abandonment' do
     sign_in @user
     num_deliveries = ActionMailer::Base.deliveries.size
-    put :update, format: 'json', id: @thing.id, thing: {name: 'Another Drain', user_id: nil} # a nil user_id is an abandonment
+    put :update, format: 'json', id: @thing.id, thing: {adopted_name: 'Another Drain', user_id: nil} # a nil user_id is an abandonment
     assert_not @thing.reload.adopted?
     assert_equal num_deliveries, ActionMailer::Base.deliveries.size
     assert_response :success
