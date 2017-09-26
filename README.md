@@ -156,7 +156,7 @@ Ideally, a bug report should include a pull request with failing specs.
 9. [Submit a pull request.][pr]
 
 [fork]: http://help.github.com/fork-a-repo/
-[branch]: http://learn.github.com/p/branching.html
+[branch]: https://guides.github.com/introduction/flow/
 [pr]: http://help.github.com/send-pull-requests/
 
 ## Supported Ruby Version
