@@ -12,7 +12,7 @@ class Thing < ActiveRecord::Base
   def_delegators :reverse_geocode, :city, :country, :country_code,
                  :full_address, :state, :street_address, :street_name,
                  :street_number, :zip
-  has_many :reminders
+  has_many :reminders, dependent: :destroy
   validates :city_id, uniqueness: true, allow_nil: true
   validates :lat, presence: true
   validates :lng, presence: true

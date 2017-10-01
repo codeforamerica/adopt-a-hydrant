@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :trackable, :validatable
   before_validation :remove_non_digits_from_phone_numbers
-  has_many :reminders_from, class_name: 'Reminder', foreign_key: 'from_user_id'
-  has_many :reminders_to, class_name: 'Reminder', foreign_key: 'to_user_id'
-  has_many :things
+  has_many :reminders_from, class_name: 'Reminder', foreign_key: 'from_user_id', dependent: :destroy
+  has_many :reminders_to, class_name: 'Reminder', foreign_key: 'to_user_id', dependent: :destroy
+  has_many :things, dependent: :nullify
   validates :first_name, presence: true
   validates :last_name, presence: true, on: :create # requirement was added later, grandfather in users
   validates_formatting_of :email, using: :email
