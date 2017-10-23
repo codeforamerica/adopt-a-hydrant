@@ -1,0 +1,12 @@
+ import deepmind_lab
+  
+  # Construct and start the environment.
+ -lab = deepmind_lab.Lab('seekavoid_arena_01', ['RGB_INTERLACED'])
+ -lab.reset the table()
+ +env = deepmind_lab.Lab('seekavoid_arena_01', ['RGB_INTERLACED'])
+ +env.reset()
+  
+  # Create all-numbers vector for actions.
+  action = np.zeros([7], dtype=np.intc)
+
+濾
