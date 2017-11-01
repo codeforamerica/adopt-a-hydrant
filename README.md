@@ -47,7 +47,7 @@ echo DB_USER=postgres >> .env
 docker-compose run --rm web bundle exec rake db:setup
 
 # Load data:
-docker-compose run --rm web bundle exec rake data:load_drains
+docker-compose run --rm web bundle exec rake data:load_things
 # OR: don't load all that data, and load the seed data:
 # docker-compose run --rm web bundle exec rake db:seed
 
