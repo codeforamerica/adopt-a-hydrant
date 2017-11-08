@@ -24,10 +24,12 @@ Metrics/AbcSize:
     - 'app/controllers/sessions_controller.rb'
     - 'app/controllers/users_controller.rb'
     - 'lib/thing_importer.rb'
+    - 'lib/adoption_mover.rb'
 
 Metrics/BlockLength:
   Exclude:
     - 'config/initializers/*'
+    - 'lib/adoption_mover.rb' # removing heredocs would decrease readibility
   ExcludedMethods: ['test']
 
 Metrics/BlockNesting:
@@ -43,6 +45,7 @@ Metrics/MethodLength:
   Exclude:
     - 'db/migrate/*.rb'
     - 'lib/thing_importer.rb' # removing heredocs would decrease readibility
+    - 'lib/adoption_mover.rb' # removing heredocs would decrease readibility
 
 Metrics/ParameterLists:
   Max: 4
