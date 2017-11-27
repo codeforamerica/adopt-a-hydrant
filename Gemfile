@@ -13,7 +13,7 @@ gem 'rails', '~> 4.2.10'
 gem 'rails_admin', '~> 1.0'
 gem 'validates_formatting_of', '~> 0.9.0'
 
-gem 'paranoia', '~> 2.2'
+gem 'paranoia', '~> 2.4'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw]
 
 gem 'byebug', groups: %i[development test]
