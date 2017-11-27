@@ -131,7 +131,7 @@ GEM
       ast (~> 2.2)
     pg (0.21.0)
     powerpack (0.1.1)
-    public_suffix (3.0.0)
+    public_suffix (3.0.1)
     puma (3.10.0)
     rack (1.6.8)
     rack-pjax (1.0.0)
@@ -243,7 +243,7 @@ GEM
       activemodel
     warden (1.2.7)
       rack (>= 1.0)
-    webmock (3.1.0)
+    webmock (3.1.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
