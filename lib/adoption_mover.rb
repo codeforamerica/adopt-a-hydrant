@@ -27,18 +27,11 @@ class AdoptionMover
             deleted_adopted_things
           LEFT JOIN LATERAL (
               SELECT *,
-              -- Haversine formula
-              -- https://developers.google.com/maps/solutions/store-locator/clothing-store-locator#finding-locations-with-mysql
-                (
-                  3959
-                  * ACOS(
-                    COS(RADIANS(deleted_adopted_things.lat))
-                    * COS(RADIANS(unadopted_things.lat))
-                    * COS(RADIANS(unadopted_things.lng) - RADIANS(deleted_adopted_things.lng))
-                    + SIN(RADIANS(deleted_adopted_things.lat))
-                    * SIN(RADIANS(unadopted_things.lat))
-                  )
-                ) * 5280 AS distance_in_feet
+                  -- earth_distance returns meters
+                  earth_distance(
+                    ll_to_earth(deleted_adopted_things.lat, deleted_adopted_things.lng),
+                    ll_to_earth(unadopted_things.lat, unadopted_things.lng)
+                  ) * 3.28 as distance_in_feet
               FROM things AS unadopted_things
               WHERE deleted_at IS NULL AND user_id IS NULL
               ORDER BY distance_in_feet

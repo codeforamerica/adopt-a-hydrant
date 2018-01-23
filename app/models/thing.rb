@@ -22,13 +22,13 @@ class Thing < ActiveRecord::Base
 
   def self.find_closest(lat, lng, limit = 10)
     query = <<-SQL
-      SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(RADIANS(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance
+      SELECT *, earth_distance(ll_to_earth(lat, lng), ll_to_earth(?, ?)) as distance
       FROM things
       WHERE deleted_at is NULL
       ORDER BY distance
       LIMIT ?
       SQL
-    find_by_sql([query, lat.to_f, lng.to_f, lat.to_f, limit.to_i])
+    find_by_sql([query, lat.to_f, lng.to_f, limit.to_i])
   end
 
   def display_name
