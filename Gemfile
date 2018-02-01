@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-gem 'airbrake', '~> 7.1'
+gem 'airbrake', '~> 7.2'
 gem 'devise', '~> 3.0'
 gem 'geokit', '~> 1.0'
 gem 'haml', '~> 5.0'
