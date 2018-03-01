@@ -37,7 +37,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    airbrake (7.2.0)
+    airbrake (7.2.1)
       airbrake-ruby (~> 2.5)
     airbrake-ruby (2.8.1)
     arel (6.0.4)
