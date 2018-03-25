@@ -10,7 +10,7 @@ gem 'local_time', '~> 2.0'
 gem 'obscenity', '~> 1.0', '>= 1.0.2'
 gem 'pg'
 gem 'rails', '~> 4.2.10'
-gem 'rails_admin', '~> 1.0'
+gem 'rails_admin', '~> 1.3'
 gem 'validates_formatting_of', '~> 0.9.0'
 
 gem 'paranoia', '~> 2.4'
