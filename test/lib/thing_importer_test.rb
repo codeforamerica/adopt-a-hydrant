@@ -55,16 +55,16 @@ class ThingImporterTest < ActiveSupport::TestCase
     # Asserts creates new thing
     new_thing = Thing.find_by(city_id: 12)
     assert_not_nil new_thing
-    assert_equal new_thing.lat, BigDecimal.new(39.75, 16)
-    assert_equal new_thing.lng, BigDecimal.new(-121.40, 16)
+    assert_equal new_thing.lat, BigDecimal(39.75, 16)
+    assert_equal new_thing.lng, BigDecimal(-121.40, 16)
 
     # Asserts properties on thing_11 have been updated
-    assert_equal thing11.lat, BigDecimal.new(37.75, 16)
-    assert_equal thing11.lng, BigDecimal.new(-122.40, 16)
+    assert_equal thing11.lat, BigDecimal(37.75, 16)
+    assert_equal thing11.lng, BigDecimal(-122.40, 16)
 
     # Asserts properties on thing_10 have been updated
     assert_equal 'Catch Basin Drain', thing10.name
-    assert_equal BigDecimal.new(36.75, 16), thing10.lat
-    assert_equal BigDecimal.new(-121.40, 16), thing10.lng
+    assert_equal BigDecimal(36.75, 16), thing10.lat
+    assert_equal BigDecimal(-121.40, 16), thing10.lng
   end
 end

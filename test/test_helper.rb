@@ -9,7 +9,7 @@ SimpleCov.start('rails') do
   minimum_coverage(97)
 end
 
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 require 'rails/test_help'
 require 'webmock/minitest'
 

@@ -12,7 +12,7 @@ class SessionsController < Devise::SessionsController
       yield resource if block_given?
       render(json: resource)
     else
-      render(json: {errors: {password: [t('errors.password')]}}, status: 401)
+      render(json: {errors: {password: [t('errors.password')]}}, status: :unauthorized)
     end
   end
 

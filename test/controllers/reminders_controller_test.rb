@@ -12,7 +12,7 @@ class RemindersControllerTest < ActionController::TestCase
     @thing.save!
     stub_request(:get, 'https://maps.google.com/maps/api/geocode/json').
       with(query: {latlng: '42.383339,-71.049226', sensor: 'false'}).
-      to_return(body: File.read(File.expand_path('../../fixtures/city_hall.json', __FILE__)))
+      to_return(body: File.read(File.expand_path('../fixtures/city_hall.json', __dir__)))
   end
 
   test 'should send a reminder email if admin' do

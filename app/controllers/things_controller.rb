@@ -4,7 +4,7 @@ class ThingsController < ApplicationController
   def show
     @things = Thing.find_closest(params[:lat], params[:lng], params[:limit] || 10)
     if @things.blank?
-      render(json: {errors: {address: [t('errors.not_found', thing: t('defaults.thing'))]}}, status: 404)
+      render(json: {errors: {address: [t('errors.not_found', thing: t('defaults.thing'))]}}, status: :not_found)
     else
       respond_with @things
     end
@@ -12,12 +12,12 @@ class ThingsController < ApplicationController
 
   def update
     @thing = Thing.find(params[:id])
-    if @thing.update_attributes(thing_params)
+    if @thing.update(thing_params)
       send_adoption_email(@thing.user, @thing) if @thing.adopted?
 
       respond_with @thing
     else
-      render(json: {errors: @thing.errors}, status: 500)
+      render(json: {errors: @thing.errors}, status: :internal_server_error)
     end
   end
 

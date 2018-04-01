@@ -5,7 +5,7 @@ class PasswordsController < Devise::PasswordsController
     if successfully_sent?(resource)
       render(json: {success: true})
     else
-      render(json: {errors: resource.errors}, status: 500)
+      render(json: {errors: resource.errors}, status: :internal_server_error)
     end
   end
 
@@ -22,7 +22,7 @@ class PasswordsController < Devise::PasswordsController
 
     yield resource if block_given?
 
-    return render(json: {errors: resource.errors}, status: 500) unless resource.errors.empty?
+    return render(json: {errors: resource.errors}, status: :internal_server_error) unless resource.errors.empty?
 
     resource.unlock_access! if unlockable?(resource)
     sign_in(resource_name, resource)

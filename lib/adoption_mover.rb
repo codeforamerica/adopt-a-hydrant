@@ -46,11 +46,11 @@ SQL
           deleted_adopted_thing = Thing.unscoped.find(record['deleted_adopted_thing_id'])
           closeby_unadopted_thing = Thing.find(record['closest_unadopted_thing_id'])
 
-          closeby_unadopted_thing.update_attributes!(
+          closeby_unadopted_thing.update!(
             user_id: deleted_adopted_thing.user_id,
             adopted_name: deleted_adopted_thing.adopted_name,
           )
-          deleted_adopted_thing.update_attributes!(user_id: nil)
+          deleted_adopted_thing.update!(user_id: nil)
 
           moved_adoptions[deleted_adopted_thing.id] = closeby_unadopted_thing.id
         end

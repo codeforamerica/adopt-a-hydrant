@@ -12,7 +12,7 @@ class UsersController < Devise::RegistrationsController
       redirect_to(controller: 'sidebar', action: 'search')
     else
       clean_up_passwords(resource)
-      render(json: {errors: resource.errors}, status: 500)
+      render(json: {errors: resource.errors}, status: :internal_server_error)
     end
   end
 
@@ -24,7 +24,7 @@ class UsersController < Devise::RegistrationsController
       render(json: resource)
     else
       clean_up_passwords(resource)
-      render(json: {errors: resource.errors}, status: 500)
+      render(json: {errors: resource.errors}, status: :internal_server_error)
     end
   end
 

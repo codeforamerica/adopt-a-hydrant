@@ -1,4 +1,5 @@
-require 'open-uri'
+require 'net/http'
+require 'uri'
 
 # class for importing things from CSV datasource
 # is currently very specific to drains from DataSF
@@ -60,7 +61,7 @@ class ThingImporter
       SQL
       conn.raw_connection.prepare(insert_statement_id, 'INSERT INTO temp_thing_import (name, lat, lng, city_id, system_use_code) VALUES($1, $2, $3, $4, $5)')
 
-      csv_string = open(source_url).read
+      csv_string = Net::HTTP.get(URI.parse(source_url))
       CSV.parse(csv_string, headers: true).
         map { |t| normalize_thing(t) }.
         select { |t| invalid_thing(t) }.
