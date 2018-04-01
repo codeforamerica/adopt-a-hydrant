@@ -61,8 +61,12 @@ class ThingImporter
       SQL
       conn.raw_connection.prepare(insert_statement_id, 'INSERT INTO temp_thing_import (name, lat, lng, city_id, system_use_code) VALUES($1, $2, $3, $4, $5)')
 
-      csv_string = Net::HTTP.get(URI.parse(source_url))
-      CSV.parse(csv_string, headers: true).
+      response = Net::HTTP.get_response(URI.parse(source_url))
+      unless response.kind_of? Net::HTTPSuccess
+        raise 'unable to fetch data source'
+      end
+
+      CSV.parse(response.body, headers: true).
         map { |t| normalize_thing(t) }.
         select { |t| invalid_thing(t) }.
         each do |thing|

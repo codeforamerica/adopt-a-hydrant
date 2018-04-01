@@ -8,7 +8,8 @@ class ThingImporterTest < ActiveSupport::TestCase
 
     fake_url = 'http://sf-drain-data.org'
     stub_request(:get, fake_url).to_return(status: [500, 'Internal Server Error'], body: nil)
-    assert_raises OpenURI::HTTPError do
+    assert_raises RuntimeError  do
+
       ThingImporter.load(fake_url)
     end
     assert_not_nil Thing.find(thing1.id)

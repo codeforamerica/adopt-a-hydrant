@@ -44,7 +44,7 @@ class ThingsControllerTest < ActionController::TestCase
 
   test 'should error when updating drain with invalid data' do
     Thing.stub(:find, @thing) do
-      @thing.stub(:update_attributes, false) do
+      @thing.stub(:update, false) do
         put :update, format: 'json', id: @thing.id, thing: {adopted_name: 'hello'}
       end
     end
