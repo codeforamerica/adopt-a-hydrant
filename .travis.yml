@@ -1,8 +1,6 @@
 dist: trusty
 sudo: false
 language: ruby
-rvm:
-- 2.2.3
 bundler_args: "--without assets:development:production"
 addons:
   postgresql: "9.6"
