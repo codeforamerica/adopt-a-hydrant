@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.5.1'
+ruby '2.5.0'
 
 gem 'airbrake', '~> 7.2'
 gem 'devise', '~> 4.3'
