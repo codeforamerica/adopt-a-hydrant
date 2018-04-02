@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ThingsControllerTest < ActionController::TestCase
-  include Devise::TestHelpers
+  include Devise::Test::ControllerHelpers
   setup do
     stub_request(:get, 'https://maps.google.com/maps/api/geocode/json').
       with(query: {latlng: '42.383339,-71.049226', sensor: 'false'}).
