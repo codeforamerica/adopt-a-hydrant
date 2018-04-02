@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddDeletedAtToThings < ActiveRecord::Migration
   def change
     add_column :things, :deleted_at, :datetime

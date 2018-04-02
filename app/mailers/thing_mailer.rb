@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ThingMailer < ApplicationMailer
   def first_adoption_confirmation(thing)
     @thing = thing

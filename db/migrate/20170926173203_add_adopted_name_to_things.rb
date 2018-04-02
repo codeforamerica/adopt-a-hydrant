@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddAdoptedNameToThings < ActiveRecord::Migration
   def up
     add_column :things, :adopted_name, :string

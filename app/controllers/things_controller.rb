@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ThingsController < ApplicationController
   respond_to :json
 

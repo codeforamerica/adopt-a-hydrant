@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DeviseMailer < Devise::Mailer
   def reset_password_instructions(record, token, opts = {})
     mail = super

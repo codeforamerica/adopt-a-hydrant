@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # class for rectifying adoptions of invalid data
 
 class AdoptionMover

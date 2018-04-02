@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserSplitName < ActiveRecord::Migration
   def up
     add_column :users, :first_name, :string

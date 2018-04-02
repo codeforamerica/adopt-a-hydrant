@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateRailsAdminHistoriesTable < ActiveRecord::Migration
   def change
     create_table :rails_admin_histories do |t|

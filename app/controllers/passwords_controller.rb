@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PasswordsController < Devise::PasswordsController
   def create
     self.resource = resource_class.send_reset_password_instructions(resource_params)
