@@ -12,7 +12,7 @@ class AdoptionMoverTest < ActiveSupport::TestCase
       thing.update!(user_id: nil, lat: '37.74093794334370', lng: '-122.42275720139800')
     end
 
-    moved_adoptions = AdoptionMover.move_close_deleted_adoptions(Time.zone.parse('1 hour ago'), 5)
+    moved_adoptions = AdoptionMover.move_close_deleted_adoptions(Time.zone.now - 3600, 5)
 
     assert_equal moved_adoptions[deleted_adoption_to_be_moved.id], unadopted_thing_to_be_moved_to.id
 
