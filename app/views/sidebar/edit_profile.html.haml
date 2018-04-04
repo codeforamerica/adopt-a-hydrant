@@ -16,7 +16,7 @@
     %label{:for => "user_last_name", :id => "user_last_name_label", :class => 'control-label'}
       = t("labels.last_name")
       %small
-        = t("captions.public")
+        = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
     = f.text_field "last_name", :class => "form-control"
   %fieldset.form-group
     %label{:for => "user_organization", :id => "user_organization_label", :class => 'control-label'}
