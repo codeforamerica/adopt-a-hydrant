@@ -129,7 +129,7 @@ GEM
     pg (0.21.0)
     powerpack (0.1.1)
     public_suffix (3.0.2)
-    puma (3.11.3)
+    puma (3.11.4)
     rack (1.6.10)
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
