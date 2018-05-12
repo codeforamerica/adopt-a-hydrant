@@ -29,4 +29,14 @@ namespace :data do
       end
     end
   end
+
+  task fetch_adopter_info: :environment do
+    ENV['CITY_IDS'] || raise('$CITY_IDS required')
+
+    ids = ENV['CITY_IDS'].split(' ').map { |id| id.gsub!('N-', '') }
+
+    Thing.unscoped.where(city_id: ids).each do |thing|
+      puts "N-#{thing.city_id} named '#{thing.display_name}' at #{thing.reverse_geocode.formatted_address} adopted by #{thing.user.name}, #{thing.user.email}"
+    end
+  end
 end
