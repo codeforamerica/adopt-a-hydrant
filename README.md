@@ -103,7 +103,7 @@ Here are some ways *you* can contribute:
 
 [locales]: https://github.com/codeforamerica/adopt-a-hydrant/tree/master/config/locales
 [issues]: https://github.com/codeforamerica/adopt-a-hydrant/issues
-[financially]: https://secure.codeforamerica.org/page/contribute
+[financially]: https://codeforamerica.org/donate/
 
 ## Submitting an Issue
 We use the [GitHub issue tracker][issues] to track bugs and features. Before
@@ -127,9 +127,9 @@ Ideally, a bug report should include a pull request with failing specs.
 8. Add, commit, and push your changes.
 9. [Submit a pull request.][pr]
 
-[fork]: http://help.github.com/fork-a-repo/
-[branch]: http://learn.github.com/p/branching.html
-[pr]: http://help.github.com/send-pull-requests/
+[fork]: https://docs.github.com/en/get-started/quickstart/fork-a-repo
+[branch]: https://docs.github.com/en/pull-requests
+[pr]: https://docs.github.com/en/pull-requests 
 
 ## Supported Ruby Version
 This library aims to support and is [tested against][travis] Ruby version 2.3.0.
